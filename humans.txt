@@ -10,7 +10,7 @@ unsweets.net
 /* SITE */
 
     Last update: 2014/5/10
-    Language: Japanese, English
+    Language: Japanese
     Standards: HTML5, CSS3
     Components: jQuery, Modernizr, underscore.js, Google Fonts
     Software: Sublime Text 2, Inkscape, NexusFont, WinSCP
