@@ -1,0 +1,948 @@
+@charset "UTF-8";
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222; }
+
+body {
+  font-size: 1em;
+  line-height: 1.4; }
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+img {
+  vertical-align: middle; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+textarea {
+  resize: vertical; }
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px; }
+
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%; }
+
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+.invisible {
+  visibility: hidden; }
+
+.clearfix:before, header#header nav:before, header#header nav ul:before, #contents > section:before, #contents > section div.right section div.body:before, #contents > section div.right section#me dl:before, footer:before, footer ul#social-button:before,
+.clearfix:after,
+header#header nav:after,
+header#header nav ul:after,
+#contents > section:after,
+#contents > section div.right section div.body:after,
+#contents > section div.right section#me dl:after,
+footer:after,
+footer ul#social-button:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after, header#header nav:after, header#header nav ul:after, #contents > section:after, #contents > section div.right section div.body:after, #contents > section div.right section#me dl:after, footer:after, footer ul#social-button:after {
+  clear: both; }
+
+.clearfix, header#header nav, header#header nav ul, #contents > section, #contents > section div.right section div.body, #contents > section div.right section#me dl, footer, footer ul#social-button {
+  *zoom: 1; }
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a,
+  a:visited {
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: ""; }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */ }
+
+  tr,
+  img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; } }
+/*
+	Custom
+	*/
+a {
+  color: #34495e;
+  text-decoration: none;
+  transition: color .5s ease-in-out 0, transform .2s ease 0; }
+  a:hover {
+    color: #46627f; }
+  a:active {
+    color: #222f3d; }
+
+html {
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: subpixel-antialiased !important; }
+
+body {
+  color: gray;
+  font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  z-index: 3; }
+
+.image-replace, header#header h1#logo a, header#header h2, #contents > section div.left h3, #contents > section div.right section h4 {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap; }
+
+div#container {
+  overflow: hidden;
+  position: relative;
+  z-index: 3; }
+
+.big-anim {
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  transition: .3s all ease-in-out; }
+
+header#header {
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  background-color: #ececec;
+  background-size: cover;
+  display: table;
+  height: 1200px;
+  transition: .5s all ease;
+  width: 100%;
+  z-index: 1;
+  position: relative; }
+  header#header div.centering {
+    display: table-cell;
+    transition: top 1s ease-in-out 0;
+    vertical-align: middle; }
+  header#header h1#logo {
+    margin: 0 auto 0;
+    padding: 0; }
+    header#header h1#logo a {
+      background: url(../images/logo.png) no-repeat center;
+      display: block;
+      height: 65px;
+      margin: 0 auto;
+      width: 410px; }
+      header#header h1#logo a:hover {
+        opacity: .8; }
+  header#header h2 {
+    background: url(../images/logo-kana.png) no-repeat top center;
+    display: none;
+    margin: 15px 0 0; }
+  header#header nav {
+    font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    margin: 40px auto 0;
+    position: relative; }
+    header#header nav ul {
+      float: left;
+      left: 50%;
+      margin: 0;
+      padding: 0;
+      position: relative; }
+      header#header nav ul li {
+        float: left;
+        left: -50%;
+        list-style-type: none;
+        margin: 0 38px;
+        padding: 0;
+        position: relative; }
+        header#header nav ul li a {
+          border-bottom: 1px dotted transparent;
+          color: #808080;
+          display: block;
+          font-size: 187.5%;
+          font-weight: 100;
+          margin: 0 -5px;
+          padding-left: 5px;
+          padding-right: 5px;
+          text-decoration: none;
+          text-shadow: 0 1px 1px #fff;
+          transition: all .5s ease; }
+          header#header nav ul li a:hover {
+            border-bottom: 1px solid transparent;
+            color: #c0c0c0;
+            color: #505050; }
+          header#header nav ul li a[href="#works"] {
+            border-bottom-color: #e74c3c; }
+          header#header nav ul li a[href="#about"] {
+            border-bottom-color: #1abc9c; }
+          header#header nav ul li a[href="#links"] {
+            border-bottom-color: #f1c40f; }
+          header#header nav ul li a[href="#contact"] {
+            border-bottom-color: #3498db; }
+
+div#fixed-nav {
+  display: table;
+  height: 100%;
+  right: 5px;
+  top: 0;
+  width: 20px;
+  z-index: 1;
+  position: fixed; }
+  div#fixed-nav div.inner {
+    display: table-cell;
+    height: 100%;
+    overflow: visible;
+    z-index: 3;
+    vertical-align: middle; }
+  div#fixed-nav div#nav-prev a, div#fixed-nav div#nav-next a {
+    border: solid #acacac;
+    display: block;
+    height: 16px;
+    margin: 0 auto;
+    outline: none;
+    position: relative;
+    top: 50%;
+    transition: all .3s ease;
+    width: 16px; }
+    div#fixed-nav div#nav-prev a:hover, div#fixed-nav div#nav-next a:hover {
+      border-color: #ccc; }
+  div#fixed-nav div#nav-prev a {
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-width: 1px 0 0 1px; }
+  div#fixed-nav div#nav-next a {
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-width: 0 1px 1px 0; }
+  div#fixed-nav ul {
+    font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    font-size: 110%;
+    font-weight: 300;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+    position: relative;
+    z-index: 1; }
+    div#fixed-nav ul li a {
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border: 1px solid #c0c0c0;
+      display: block;
+      height: 12px;
+      margin: 20px auto;
+      outline: none;
+      position: relative;
+      transition: all .3s ease;
+      width: 12px; }
+      div#fixed-nav ul li a:hover {
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1); }
+      div#fixed-nav ul li a[href="#header"].select {
+        border-color: #ffaaaa; }
+      div#fixed-nav ul li a[href="#header"]:hover {
+        border-color: #ffaaaa; }
+      div#fixed-nav ul li a[href="#works"].select {
+        border-color: #e74c3c; }
+      div#fixed-nav ul li a[href="#works"]:hover {
+        border-color: #e74c3c; }
+      div#fixed-nav ul li a[href="#about"].select {
+        border-color: #1abc9c; }
+      div#fixed-nav ul li a[href="#about"]:hover {
+        border-color: #1abc9c; }
+      div#fixed-nav ul li a[href="#links"].select {
+        border-color: #f1c40f; }
+      div#fixed-nav ul li a[href="#links"]:hover {
+        border-color: #f1c40f; }
+      div#fixed-nav ul li a[href="#contact"].select {
+        border-color: #3498db; }
+      div#fixed-nav ul li a[href="#contact"]:hover {
+        border-color: #3498db; }
+      div#fixed-nav ul li a[href="#footer"].select {
+        border-color: #34495e; }
+      div#fixed-nav ul li a[href="#footer"]:hover {
+        border-color: #34495e; }
+      div#fixed-nav ul li a:hover span {
+        opacity: 1;
+        right: 20px;
+        visibility: visible; }
+      div#fixed-nav ul li a span {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -o-border-radius: 5px;
+        -ms-border-radius: 5px;
+        background: inherit;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        display: inline-block;
+        line-height: 1.5;
+        opacity: 0;
+        padding: 2px 10px;
+        position: absolute;
+        right: 10px;
+        top: -10px;
+        transition: all .5s ease;
+        visibility: hidden; }
+
+.fleft {
+  float: left; }
+
+.fright {
+  float: right; }
+
+.clear {
+  clear: both; }
+
+.bigger {
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: all .2s ease-in-out; }
+
+#contents {
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  margin: 0;
+  width: 100%; }
+  #contents > section {
+    margin-top: 0;
+    min-height: 100%;
+    position: relative; }
+    #contents > section div.left-wrapper {
+      background-position: left bottom;
+      margin-left: -10px;
+      position: relative;
+      z-index: 1; }
+      #contents > section div.left-wrapper:after {
+        background-color: rgba(0, 0, 0, 0.15);
+        content: "";
+        height: 100%;
+        position: absolute;
+        right: -3px;
+        top: 0;
+        width: 3px;
+        z-index: 0; }
+    #contents > section div.right-wrapper {
+      margin-right: -1px;
+      padding-left: 10px;
+      padding-right: 1px;
+      position: relative; }
+    #contents > section.light div.right-wrapper {
+      background-color: #f2f2f2; }
+      #contents > section.light div.right-wrapper:before {
+        background-color: #bfbfbf; }
+    #contents > section.dark div.right-wrapper {
+      background-color: #ececec; }
+      #contents > section.dark div.right-wrapper:before {
+        background-color: #b9b9b9; }
+    #contents > section div.left-wrapper, #contents > section div.right-wrapper {
+      float: left;
+      height: 100%;
+      width: 50%; }
+    #contents > section div.left, #contents > section div.right {
+      padding-bottom: 50px;
+      padding-top: 50px;
+      position: relative;
+      width: 460px; }
+    #contents > section div.left {
+      float: right;
+      margin-right: -10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      position: relative; }
+      #contents > section div.left:before {
+        content: "";
+        display: none;
+        height: 128px;
+        left: 0px;
+        position: absolute;
+        top: 30px;
+        width: 128px;
+        z-index: 1; }
+      #contents > section div.left:after {
+        content: '';
+        border-top: 3px solid rgba(0, 0, 0, 0.1);
+        width: 1000px;
+        height: 0;
+        position: absolute;
+        top: 96px;
+        left: -1020px; }
+      #contents > section div.left h3 {
+        background: transparent none 10px top no-repeat;
+        color: #f2f2f2;
+        font-size: 285.715%;
+        height: 60px;
+        margin: 0 auto 30px;
+        padding: 20px 0;
+        position: relative; }
+      #contents > section div.left div.menu ul {
+        font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+        font-size: 260%;
+        font-weight: 100;
+        list-style-type: none;
+        margin-left: -1005px;
+        padding-left: 0; }
+        #contents > section div.left div.menu ul li {
+          height: 58px;
+          line-height: 58px;
+          position: relative; }
+          #contents > section div.left div.menu ul li a {
+            color: #fff;
+            display: block;
+            padding-left: 1005px;
+            padding-right: 10px;
+            text-decoration: none;
+            transition: background .2s ease; }
+            #contents > section div.left div.menu ul li a:hover {
+              background-color: rgba(255, 255, 255, 0.2);
+              text-shadow: 0 0 10px #fff; }
+          #contents > section div.left div.menu ul li:after {
+            background: transparent none no-repeat left center;
+            content: '';
+            height: 58px;
+            opacity: 0;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            transition: all .6s ease;
+            width: 10px;
+            z-index: 2; }
+          #contents > section div.left div.menu ul li.select a {
+            cursor: default;
+            pointer-events: none; }
+          #contents > section div.left div.menu ul li.select:after {
+            background: transparent none no-repeat left center;
+            content: '';
+            height: 58px;
+            opacity: 1;
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 10px; }
+    #contents > section div.button a {
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -o-border-radius: 5px;
+      -ms-border-radius: 5px;
+      border-bottom-style: solid;
+      border-bottom-width: 3px;
+      color: #fff;
+      display: inline-block;
+      font-size: 120%;
+      margin: 10px 0;
+      padding: 9px 15px 6px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .5s ease, border-bottom-width .1s ease, padding-top .1s ease;
+      vertical-align: middle; }
+      #contents > section div.button a:active {
+        border-bottom-width: 0;
+        padding-top: 12px; }
+    #contents > section div.right {
+      float: left;
+      margin-left: 10px;
+      margin-right: 10px;
+      position: relative; }
+      #contents > section div.right section {
+        width: 100%; }
+        #contents > section div.right section.hide {
+          display: none; }
+        #contents > section div.right section h4 {
+          height: 60px;
+          margin: 0 0 20px;
+          padding: 20px 0; }
+        #contents > section div.right section div.body {
+          margin-top: 10px; }
+        #contents > section div.right section h5 {
+          font-size: 110%;
+          margin: 15px 0; }
+        #contents > section div.right section#xstus h4 {
+          background: transparent url(../images/titles.png) -10px -400px no-repeat; }
+        #contents > section div.right section#regnotifier h4 {
+          background: transparent url(../images/titles.png) -10px -500px no-repeat; }
+        #contents > section div.right section#twitokengetter h4 {
+          background: transparent url(../images/titles.png) -10px -600px no-repeat; }
+        #contents > section div.right section#translucentheader h4 {
+          background: transparent url(../images/titles.png) -10px -700px no-repeat; }
+        #contents > section div.right section#other dl dt {
+          border-top: 1px solid #e0e0e0;
+          padding: 1em 0 .25em; }
+          #contents > section div.right section#other dl dt:first-child {
+            border-top: none; }
+        #contents > section div.right section#other dl dd {
+          margin-bottom: 1em;
+          margin-left: 0; }
+        #contents > section div.right section#other h4 {
+          background: transparent url(../images/titles.png) -10px -800px no-repeat; }
+        #contents > section div.right section#site h4 {
+          background: transparent url(../images/titles.png) -10px -900px no-repeat; }
+        #contents > section div.right section#me dl {
+          float: left;
+          margin-top: 30px;
+          position: relative; }
+          #contents > section div.right section#me dl dt, #contents > section div.right section#me dl dd {
+            line-height: 1.75; }
+          #contents > section div.right section#me dl dt {
+            clear: left;
+            color: #a6a6a6;
+            float: left;
+            margin-right: 0;
+            text-align: right;
+            width: 80px; }
+          #contents > section div.right section#me dl dd {
+            margin-left: 1em;
+            margin-left: 100px;
+            padding-left: 0; }
+          #contents > section div.right section#me dl:before {
+            color: #d9d9d9;
+            content: "“";
+            font-family: "Alef", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+            font-size: 1000%;
+            left: -15px;
+            position: absolute;
+            top: -85px;
+            z-index: 0; }
+          #contents > section div.right section#me dl :after {
+            color: #d9d9d9;
+            content: "\"";
+            font-family: "Alef", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+            font-size: 1000%;
+            right: -10px;
+            top: -2px;
+            position: absolute; }
+        #contents > section div.right section#me img.avatar {
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          -o-border-radius: 50%;
+          -ms-border-radius: 50%;
+          border: #fff 5px solid;
+          float: right;
+          height: 128px;
+          position: relative;
+          transition: all .3s ease-in-out;
+          width: 128px;
+          z-index: 1; }
+          #contents > section div.right section#me img.avatar:hover {
+            -moz-transform: scale(2);
+            -o-transform: scale(2);
+            -webkit-transform: scale(2);
+            transform: scale(2);
+            background-color: #ccd4d5;
+            background-color: #fff;
+            border-color: #f0f0f0; }
+        #contents > section div.right section#me h4 {
+          background: transparent url(../images/titles.png) -10px -1000px no-repeat; }
+        #contents > section div.right section#blog ul.li_with_thum {
+          list-style-type: none;
+          margin-left: 0;
+          padding-left: 0; }
+          #contents > section div.right section#blog ul.li_with_thum li {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px; }
+            #contents > section div.right section#blog ul.li_with_thum li:first-child {
+              border-top: none;
+              padding-top: 0; }
+        #contents > section div.right section#blog h4 {
+          background: transparent url(../images/titles.png) -10px -1100px no-repeat; }
+        #contents > section div.right section#blog img.thum {
+          display: inline-block;
+          margin: 5px 0;
+          transition: all .3s ease; }
+        #contents > section div.right section#blog a:hover img.thum {
+          opacity: .9; }
+        #contents > section div.right section#mail h4 {
+          background: transparent url(../images/titles.png) -10px -1200px no-repeat; }
+        #contents > section div.right section#mail img#address {
+          margin-left: 0;
+          margin-right: 0; }
+        #contents > section div.right section div.body p {
+          line-height: 1.75; }
+        #contents > section div.right section div.body img {
+          margin: 10px; }
+          #contents > section div.right section div.body img.fleft {
+            margin: 15px 10px 15px 0; }
+        #contents > section div.right section div.body div.button {
+          font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+          font-weight: 300; }
+          #contents > section div.right section div.body div.button.fleft {
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 25px; }
+    #contents > section#works div.left-wrapper {
+      background-color: #e74c3c; }
+      #contents > section#works div.left-wrapper:before {
+        background-color: #c0392b; }
+      #contents > section#works div.left-wrapper h3 {
+        background: transparent url(../images/titles.png) -10px 0px no-repeat; }
+      #contents > section#works div.left-wrapper div.left:before {
+        background: transparent url(../images/works.png) center center no-repeat; }
+      #contents > section#works div.left-wrapper div.menu ul li.select {
+        background-color: #c0392b; }
+        #contents > section#works div.left-wrapper div.menu ul li.select a:hover {
+          background-color: #c0392b; }
+        #contents > section#works div.left-wrapper div.menu ul li.select:after {
+          background-image: url(../images/works-arrow.png); }
+    #contents > section#works div.button a {
+      background-color: #e74c3c;
+      border-bottom-color: #c0392b; }
+      #contents > section#works div.button a:hover {
+        background-color: #ed7669;
+        border-bottom-color: #d65548; }
+      #contents > section#works div.button a:active {
+        background-color: #c0392b; }
+    #contents > section#about div.left-wrapper {
+      background-color: #1abc9c; }
+      #contents > section#about div.left-wrapper:before {
+        background-color: #16a085; }
+      #contents > section#about div.left-wrapper h3 {
+        background: transparent url(../images/titles.png) -10px -100px no-repeat; }
+      #contents > section#about div.left-wrapper div.left:before {
+        background: transparent url(../images/about.png) center center no-repeat; }
+      #contents > section#about div.left-wrapper div.menu ul li.select {
+        background-color: #16a085; }
+        #contents > section#about div.left-wrapper div.menu ul li.select a:hover {
+          background-color: #16a085; }
+        #contents > section#about div.left-wrapper div.menu ul li.select:after {
+          background-image: url(../images/about-arrow.png); }
+    #contents > section#about div.button a {
+      background-color: #1abc9c;
+      border-bottom-color: #16a085; }
+      #contents > section#about div.button a:hover {
+        background-color: #28e1bd;
+        border-bottom-color: #1ccdaa; }
+      #contents > section#about div.button a:active {
+        background-color: #16a085; }
+    #contents > section#links div.left-wrapper {
+      background-color: #f1c40f; }
+      #contents > section#links div.left-wrapper:before {
+        background-color: #f39c12; }
+      #contents > section#links div.left-wrapper div.left:before {
+        background: transparent url(../images/links.png) center center no-repeat; }
+      #contents > section#links div.left-wrapper h3 {
+        background: transparent url(../images/titles.png) -10px -200px no-repeat; }
+      #contents > section#links div.left-wrapper div.menu ul li.select {
+        background-color: #f39c12; }
+        #contents > section#links div.left-wrapper div.menu ul li.select a:hover {
+          background-color: #f39c12; }
+        #contents > section#links div.left-wrapper div.menu ul li.select:after {
+          background-image: url(../images/links-arrow.png); }
+    #contents > section#links div.button a {
+      background-color: #f1c40f;
+      border-bottom-color: #f39c12; }
+      #contents > section#links div.button a:hover {
+        background-color: #f4d03f;
+        border-bottom-color: #f5b043; }
+      #contents > section#links div.button a:active {
+        background-color: #f39c12; }
+    #contents > section#contact div.left-wrapper {
+      background-color: #3498db; }
+      #contents > section#contact div.left-wrapper:before {
+        background-color: #2980b9; }
+      #contents > section#contact div.left-wrapper div.left:before {
+        background: transparent url(../images/contact.png) center center no-repeat; }
+      #contents > section#contact div.left-wrapper h3 {
+        background: transparent url(../images/titles.png) -10px -300px no-repeat; }
+      #contents > section#contact div.left-wrapper div.menu ul li.select {
+        background-color: #2980b9; }
+        #contents > section#contact div.left-wrapper div.menu ul li.select a:hover {
+          background-color: #2980b9; }
+        #contents > section#contact div.left-wrapper div.menu ul li.select:after {
+          background-image: url(../images/contact-arrow.png); }
+    #contents > section#contact div.button a {
+      background-color: #3498db;
+      border-bottom-color: #2980b9; }
+      #contents > section#contact div.button a:hover {
+        background-color: #5faee3;
+        border-bottom-color: #409ad5; }
+      #contents > section#contact div.button a:active {
+        background-color: #2980b9; }
+
+footer {
+  border-top: 1px solid #2b3c4e;
+  box-shadow: 0 20px 15px -15px rgba(0, 0, 0, 0.5) inset;
+  background-color: #34495e;
+  background: url(../images/grey_wash_wall.png) #34495e;
+  color: #f0f0f0;
+  font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-weight: 300;
+  padding: 50px 0 50px;
+  width: 100%; }
+  footer div.wrapper {
+    margin: 0 auto;
+    width: 980px; }
+  footer div.left-wrapper, footer div.right-wrapper {
+    float: left;
+    width: 50%; }
+  footer div.left, footer div.right {
+    margin: 10px;
+    width: 460px; }
+  footer div.left {
+    float: right; }
+  footer div.right {
+    float: left; }
+  footer ul#social-button {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0; }
+    footer ul#social-button li {
+      float: left; }
+      footer ul#social-button li a {
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        -o-border-radius: 50%;
+        -ms-border-radius: 50%;
+        background-repeat: no-repeat;
+        color: #808080;
+        display: block;
+        font-size: 110%;
+        height: 32px;
+        margin: 6px 5px;
+        position: relative;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fff;
+        width: 32px;
+        z-index: 2; }
+        footer ul#social-button li a:hover {
+          color: #888; }
+          footer ul#social-button li a:hover span {
+            opacity: 1;
+            top: 40px;
+            visibility: visible; }
+        footer ul#social-button li a span {
+          -moz-border-radius: 2px;
+          -webkit-border-radius: 2px;
+          border-radius: 2px;
+          -o-border-radius: 2px;
+          -ms-border-radius: 2px;
+          background: #ececec;
+          border: 2px solid #fff;
+          cursor: default;
+          display: inline-block;
+          opacity: 0;
+          padding: 5px;
+          pointer-events: none;
+          position: absolute;
+          top: 35px;
+          overflow: hidden;
+          transition: all .3s ease-in-out;
+          visibility: hidden;
+          white-space: nowrap; }
+          footer ul#social-button li a span:after, footer ul#social-button li a span:before {
+            border: solid transparent;
+            bottom: 100%;
+            content: " ";
+            height: 0;
+            left: 14px;
+            margin-left: 0;
+            pointer-events: none;
+            position: absolute;
+            transition: all .3s ease-in-out;
+            width: 0; }
+          footer ul#social-button li a span:after {
+            border-bottom-color: #ececec;
+            border-color: rgba(236, 240, 241, 0);
+            border-width: 2px;
+            margin-left: -2px;
+            top: -4px; }
+          footer ul#social-button li a span:before {
+            border-bottom-color: #fff;
+            border-color: rgba(189, 195, 199, 0);
+            border-width: 5px;
+            margin-left: -5px;
+            top: -10px; }
+        footer ul#social-button li a#twitter {
+          background: #3ba2d2 url(../images/twitter.png); }
+          footer ul#social-button li a#twitter:hover {
+            background-color: #64b6dc; }
+          footer ul#social-button li a#twitter:active {
+            background-color: #2986b1; }
+        footer ul#social-button li a#tumblr {
+          background: #34475a url(../images/tumblr.png); }
+          footer ul#social-button li a#tumblr:hover {
+            background-color: #47607a; }
+          footer ul#social-button li a#tumblr:active {
+            background-color: #212d3a; }
+        footer ul#social-button li a#foursquare {
+          background: #288bb0 url(../images/foursquare.png); }
+          footer ul#social-button li a#foursquare:hover {
+            background-color: #39a8d2; }
+          footer ul#social-button li a#foursquare:active {
+            background-color: #1f6a86; }
+        footer ul#social-button li a#pinterest {
+          background: #bf2c33 url(../images/pinterest.png); }
+          footer ul#social-button li a#pinterest:hover {
+            background-color: #d54950; }
+          footer ul#social-button li a#pinterest:active {
+            background-color: #962228; }
+        footer ul#social-button li a#instagram {
+          background: #96614c url(../images/instagram.png); }
+          footer ul#social-button li a#instagram:hover {
+            background-color: #b17a64; }
+          footer ul#social-button li a#instagram:active {
+            background-color: #744b3b; }
+        footer ul#social-button li a:after {
+          -moz-border-radius: 0 32px 32px 0;
+          -webkit-border-radius: 0 32px 32px 0;
+          border-radius: 0 32px 32px 0;
+          -o-border-radius: 0 32px 32px 0;
+          -ms-border-radius: 0 32px 32px 0;
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+          background-color: rgba(255, 255, 255, 0.15);
+          content: '';
+          height: 32px;
+          left: 13px;
+          position: absolute;
+          top: -5px;
+          width: 16px;
+          z-index: 1; }
+        footer ul#social-button li a:before {
+          content: '';
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          -moz-border-radius: 0 32px 32px 0;
+          -webkit-border-radius: 0 32px 32px 0;
+          border-radius: 0 32px 32px 0;
+          -o-border-radius: 0 32px 32px 0;
+          -ms-border-radius: 0 32px 32px 0;
+          background-color: rgba(0, 0, 0, 0.1);
+          height: 32px;
+          left: 14px;
+          position: absolute;
+          top: 6px;
+          z-index: 1;
+          width: 16px; }
+  footer div#copyright {
+    font-weight: 400;
+    margin: 10px 0;
+    font-size: 110%;
+    text-align: right; }
+    footer div#copyright a {
+      color: #fff; }
+
+@media only screen and (min-width: 1025px) {
+  div#fixed-nav {
+    right: 15px; } }
