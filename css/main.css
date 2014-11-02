@@ -1,176 +1,355 @@
 @charset "UTF-8";
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
-   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   HTML5 display definitions
    ========================================================================== */
-html,
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap; }
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
 button,
 input,
 select,
 textarea {
-  color: #222; }
-
-body {
-  font-size: 1em;
-  line-height: 1.4; }
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none; }
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
-
-img {
-  vertical-align: middle; }
-
-fieldset {
-  border: 0;
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
   margin: 0;
-  padding: 0; }
+  /* 3 */ }
 
-textarea {
-  resize: vertical; }
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
 
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0; }
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none; }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px; }
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
 
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%; }
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
 
-.hidden {
-  display: none !important;
-  visibility: hidden; }
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
   padding: 0;
-  position: absolute;
-  width: 1px; }
+  /* 2 */ }
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto; }
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
 
-.invisible {
-  visibility: hidden; }
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
 
-.clearfix:before, header#header nav:before, header#header nav ul:before, #contents > section:before, #contents > section div.right section div.body:before, #contents > section div.right section#me dl:before, footer:before, footer ul#social-button:before,
-.clearfix:after,
-header#header nav:after,
-header#header nav ul:after,
-#contents > section:after,
-#contents > section div.right section div.body:after,
-#contents > section div.right section#me dl:after,
-footer:after,
-footer ul#social-button:after {
-  content: " ";
-  display: table; }
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
 
-.clearfix:after, header#header nav:after, header#header nav ul:after, #contents > section:after, #contents > section div.right section div.body:after, #contents > section div.right section#me dl:after, footer:after, footer ul#social-button:after {
-  clear: both; }
-
-.clearfix, header#header nav, header#header nav ul, #contents > section, #contents > section div.right section div.body, #contents > section div.right section#me dl, footer, footer ul#social-button {
-  *zoom: 1; }
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
 
 /* ==========================================================================
-   Print styles
+   Tables
    ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
-    box-shadow: none !important;
-    text-shadow: none !important; }
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-  a,
-  a:visited {
-    text-decoration: underline; }
-
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-
-  /*
-   * Don't show links for images, or javascript/internal links
-   */
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: ""; }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group;
-    /* h5bp.com/t */ }
-
-  tr,
-  img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2,
-  h3 {
-    page-break-after: avoid; } }
 /*
 	Custom
-	*/
+*/
+::selection {
+  background-color: rgba(255, 170, 170, 0.2); }
+
+html {
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: subpixel-antialiased !important; }
+
+body {
+  color: #808080;
+  font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0;
+  z-index: 3; }
+
 a {
   color: #34495e;
   text-decoration: none;
@@ -180,19 +359,7 @@ a {
   a:active {
     color: #222f3d; }
 
-html {
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: subpixel-antialiased !important; }
-
-body {
-  color: gray;
-  font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-  line-height: 1.5;
-  margin: 0;
-  z-index: 3; }
-
-.image-replace, header#header h1#logo a, header#header h2, #contents > section div.left h3, #contents > section div.right section h4 {
+header#header h1#logo span, #contents > section div.left h3, #contents > section div.right > section h4 {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap; }
@@ -217,7 +384,7 @@ header#header {
   background-color: #ececec;
   background-size: cover;
   display: table;
-  height: 1200px;
+  height: 600px;
   transition: .5s all ease;
   width: 100%;
   z-index: 1;
@@ -227,30 +394,46 @@ header#header {
     transition: top 1s ease-in-out 0;
     vertical-align: middle; }
   header#header h1#logo {
-    margin: 0 auto 0;
+    margin: 160px auto .8em;
     padding: 0; }
-    header#header h1#logo a {
+    header#header h1#logo span {
       background: url(../images/logo.png) no-repeat center;
       display: block;
       height: 65px;
       margin: 0 auto;
       width: 410px; }
-      header#header h1#logo a:hover {
+      header#header h1#logo span:hover {
         opacity: .8; }
   header#header h2 {
-    background: url(../images/logo-kana.png) no-repeat top center;
-    display: none;
-    margin: 15px 0 0; }
+    text-align: center;
+    width: 410px;
+    margin: 1em auto 1em;
+    padding-top: .8em;
+    border-top: 3px double #dfdfdf;
+    color: #b6b6b6;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 140%; }
   header#header nav {
+    zoom: 1;
     font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-    margin: 40px auto 0;
+    margin: 2em auto 3em;
     position: relative; }
+    header#header nav:after {
+      display: block;
+      clear: both;
+      content: ""; }
     header#header nav ul {
+      zoom: 1;
       float: left;
       left: 50%;
       margin: 0;
       padding: 0;
       position: relative; }
+      header#header nav ul:after {
+        display: block;
+        clear: both;
+        content: ""; }
       header#header nav ul li {
         float: left;
         left: -50%;
@@ -282,6 +465,20 @@ header#header {
             border-bottom-color: #f1c40f; }
           header#header nav ul li a[href="#contact"] {
             border-bottom-color: #3498db; }
+  header#header a#scroll_down {
+    display: block;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    opacity: .3;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    background: url(../images/scroll_down.png) no-repeat; }
+    header#header a#scroll_down:hover {
+      opacity: .6;
+      top: 20px; }
 
 div#fixed-nav {
   display: table;
@@ -350,9 +547,9 @@ div#fixed-nav {
         -webkit-transform: scale(1.1);
         transform: scale(1.1); }
       div#fixed-nav ul li a[href="#header"].select {
-        border-color: #ffaaaa; }
+        border-color: #faa; }
       div#fixed-nav ul li a[href="#header"]:hover {
-        border-color: #ffaaaa; }
+        border-color: #faa; }
       div#fixed-nav ul li a[href="#works"].select {
         border-color: #e74c3c; }
       div#fixed-nav ul li a[href="#works"]:hover {
@@ -420,9 +617,13 @@ div#fixed-nav {
   margin: 0;
   width: 100%; }
   #contents > section {
+    zoom: 1;
     margin-top: 0;
-    min-height: 100%;
     position: relative; }
+    #contents > section:after {
+      display: block;
+      clear: both;
+      content: ""; }
     #contents > section div.left-wrapper {
       background-position: left bottom;
       margin-left: -10px;
@@ -430,10 +631,10 @@ div#fixed-nav {
       z-index: 1; }
       #contents > section div.left-wrapper:after {
         background-color: rgba(0, 0, 0, 0.15);
+        right: -3px;
         content: "";
         height: 100%;
         position: absolute;
-        right: -3px;
         top: 0;
         width: 3px;
         z-index: 0; }
@@ -452,13 +653,19 @@ div#fixed-nav {
         background-color: #b9b9b9; }
     #contents > section div.left-wrapper, #contents > section div.right-wrapper {
       float: left;
-      height: 100%;
-      width: 50%; }
+      width: 50%;
+      min-height: 100%; }
     #contents > section div.left, #contents > section div.right {
       padding-bottom: 50px;
       padding-top: 50px;
       position: relative;
       width: 460px; }
+      #contents > section div.left.delay-transition, #contents > section div.right.delay-transition {
+        transition: opacity 1s ease-in-out; }
+      #contents > section div.left.visible, #contents > section div.right.visible {
+        opacity: 1; }
+      #contents > section div.left.invisible, #contents > section div.right.invisible {
+        opacity: 0; }
     #contents > section div.left {
       float: right;
       margin-right: -10px;
@@ -500,7 +707,8 @@ div#fixed-nav {
         #contents > section div.left div.menu ul li {
           height: 58px;
           line-height: 58px;
-          position: relative; }
+          position: relative;
+          transition: background .5s ease-in-out; }
           #contents > section div.left div.menu ul li a {
             color: #fff;
             display: block;
@@ -560,57 +768,68 @@ div#fixed-nav {
       margin-left: 10px;
       margin-right: 10px;
       position: relative; }
-      #contents > section div.right section {
-        width: 100%; }
-        #contents > section div.right section.hide {
-          display: none; }
-        #contents > section div.right section h4 {
+      #contents > section div.right > section {
+        width: 100%;
+        display: none; }
+        #contents > section div.right > section:first-child {
+          display: block; }
+        #contents > section div.right > section h4 {
           height: 60px;
-          margin: 0 0 20px;
+          margin: 0 0 30px;
           padding: 20px 0; }
-        #contents > section div.right section div.body {
-          margin-top: 10px; }
-        #contents > section div.right section h5 {
+        #contents > section div.right > section div.body {
+          zoom: 1;
+          margin-top: 40px; }
+          #contents > section div.right > section div.body:after {
+            display: block;
+            clear: both;
+            content: ""; }
+        #contents > section div.right > section h5 {
           font-size: 110%;
           margin: 15px 0; }
-        #contents > section div.right section#xstus h4 {
+        #contents > section div.right > section#xstus h4 {
           background: transparent url(../images/titles.png) -10px -400px no-repeat; }
-        #contents > section div.right section#regnotifier h4 {
+        #contents > section div.right > section#regnotifier h4 {
           background: transparent url(../images/titles.png) -10px -500px no-repeat; }
-        #contents > section div.right section#twitokengetter h4 {
+        #contents > section div.right > section#twitokengetter h4 {
           background: transparent url(../images/titles.png) -10px -600px no-repeat; }
-        #contents > section div.right section#translucentheader h4 {
+        #contents > section div.right > section#translucentheader h4 {
           background: transparent url(../images/titles.png) -10px -700px no-repeat; }
-        #contents > section div.right section#other dl dt {
+        #contents > section div.right > section#other dl dt {
           border-top: 1px solid #e0e0e0;
           padding: 1em 0 .25em; }
-          #contents > section div.right section#other dl dt:first-child {
+          #contents > section div.right > section#other dl dt:first-child {
             border-top: none; }
-        #contents > section div.right section#other dl dd {
+        #contents > section div.right > section#other dl dd {
           margin-bottom: 1em;
           margin-left: 0; }
-        #contents > section div.right section#other h4 {
+        #contents > section div.right > section#other h4 {
           background: transparent url(../images/titles.png) -10px -800px no-repeat; }
-        #contents > section div.right section#site h4 {
+        #contents > section div.right > section#site h4 {
           background: transparent url(../images/titles.png) -10px -900px no-repeat; }
-        #contents > section div.right section#me dl {
+        #contents > section div.right > section#me dl {
+          zoom: 1;
           float: left;
           margin-top: 30px;
           position: relative; }
-          #contents > section div.right section#me dl dt, #contents > section div.right section#me dl dd {
+          #contents > section div.right > section#me dl:after {
+            display: block;
+            clear: both;
+            content: ""; }
+          #contents > section div.right > section#me dl dt, #contents > section div.right > section#me dl dd {
             line-height: 1.75; }
-          #contents > section div.right section#me dl dt {
+          #contents > section div.right > section#me dl dt {
             clear: left;
             color: #a6a6a6;
             float: left;
             margin-right: 0;
             text-align: right;
             width: 80px; }
-          #contents > section div.right section#me dl dd {
+          #contents > section div.right > section#me dl dd {
             margin-left: 1em;
             margin-left: 100px;
             padding-left: 0; }
-          #contents > section div.right section#me dl:before {
+          #contents > section div.right > section#me dl:before {
             color: #d9d9d9;
             content: "“";
             font-family: "Alef", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
@@ -619,7 +838,7 @@ div#fixed-nav {
             position: absolute;
             top: -85px;
             z-index: 0; }
-          #contents > section div.right section#me dl :after {
+          #contents > section div.right > section#me dl :after {
             color: #d9d9d9;
             content: "\"";
             font-family: "Alef", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
@@ -627,7 +846,7 @@ div#fixed-nav {
             right: -10px;
             top: -2px;
             position: absolute; }
-        #contents > section div.right section#me img.avatar {
+        #contents > section div.right > section#me img#avatar {
           -moz-border-radius: 50%;
           -webkit-border-radius: 50%;
           border-radius: 50%;
@@ -640,7 +859,7 @@ div#fixed-nav {
           transition: all .3s ease-in-out;
           width: 128px;
           z-index: 1; }
-          #contents > section div.right section#me img.avatar:hover {
+          #contents > section div.right > section#me img#avatar:hover {
             -moz-transform: scale(2);
             -o-transform: scale(2);
             -webkit-transform: scale(2);
@@ -648,41 +867,41 @@ div#fixed-nav {
             background-color: #ccd4d5;
             background-color: #fff;
             border-color: #f0f0f0; }
-        #contents > section div.right section#me h4 {
+        #contents > section div.right > section#me h4 {
           background: transparent url(../images/titles.png) -10px -1000px no-repeat; }
-        #contents > section div.right section#blog ul.li_with_thum {
+        #contents > section div.right > section#blog ul.li_with_thum {
           list-style-type: none;
           margin-left: 0;
           padding-left: 0; }
-          #contents > section div.right section#blog ul.li_with_thum li {
+          #contents > section div.right > section#blog ul.li_with_thum li {
             border-top: 1px solid #e0e0e0;
             padding-top: 10px; }
-            #contents > section div.right section#blog ul.li_with_thum li:first-child {
+            #contents > section div.right > section#blog ul.li_with_thum li:first-child {
               border-top: none;
               padding-top: 0; }
-        #contents > section div.right section#blog h4 {
+        #contents > section div.right > section#blog h4 {
           background: transparent url(../images/titles.png) -10px -1100px no-repeat; }
-        #contents > section div.right section#blog img.thum {
+        #contents > section div.right > section#blog img.thum {
           display: inline-block;
           margin: 5px 0;
           transition: all .3s ease; }
-        #contents > section div.right section#blog a:hover img.thum {
+        #contents > section div.right > section#blog a:hover img.thum {
           opacity: .9; }
-        #contents > section div.right section#mail h4 {
+        #contents > section div.right > section#mail h4 {
           background: transparent url(../images/titles.png) -10px -1200px no-repeat; }
-        #contents > section div.right section#mail img#address {
+        #contents > section div.right > section#mail img#address {
           margin-left: 0;
           margin-right: 0; }
-        #contents > section div.right section div.body p {
+        #contents > section div.right > section div.body p {
           line-height: 1.75; }
-        #contents > section div.right section div.body img {
+        #contents > section div.right > section div.body img {
           margin: 10px; }
-          #contents > section div.right section div.body img.fleft {
+          #contents > section div.right > section div.body img.fleft {
             margin: 15px 10px 15px 0; }
-        #contents > section div.right section div.body div.button {
+        #contents > section div.right > section div.body div.button {
           font-family: "Roboto", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
           font-weight: 300; }
-          #contents > section div.right section div.body div.button.fleft {
+          #contents > section div.right > section div.body div.button.fleft {
             margin-left: 10px;
             margin-right: 10px;
             margin-top: 25px; }
@@ -692,8 +911,6 @@ div#fixed-nav {
         background-color: #c0392b; }
       #contents > section#works div.left-wrapper h3 {
         background: transparent url(../images/titles.png) -10px 0px no-repeat; }
-      #contents > section#works div.left-wrapper div.left:before {
-        background: transparent url(../images/works.png) center center no-repeat; }
       #contents > section#works div.left-wrapper div.menu ul li.select {
         background-color: #c0392b; }
         #contents > section#works div.left-wrapper div.menu ul li.select a:hover {
@@ -714,8 +931,6 @@ div#fixed-nav {
         background-color: #16a085; }
       #contents > section#about div.left-wrapper h3 {
         background: transparent url(../images/titles.png) -10px -100px no-repeat; }
-      #contents > section#about div.left-wrapper div.left:before {
-        background: transparent url(../images/about.png) center center no-repeat; }
       #contents > section#about div.left-wrapper div.menu ul li.select {
         background-color: #16a085; }
         #contents > section#about div.left-wrapper div.menu ul li.select a:hover {
@@ -734,8 +949,6 @@ div#fixed-nav {
       background-color: #f1c40f; }
       #contents > section#links div.left-wrapper:before {
         background-color: #f39c12; }
-      #contents > section#links div.left-wrapper div.left:before {
-        background: transparent url(../images/links.png) center center no-repeat; }
       #contents > section#links div.left-wrapper h3 {
         background: transparent url(../images/titles.png) -10px -200px no-repeat; }
       #contents > section#links div.left-wrapper div.menu ul li.select {
@@ -756,8 +969,6 @@ div#fixed-nav {
       background-color: #3498db; }
       #contents > section#contact div.left-wrapper:before {
         background-color: #2980b9; }
-      #contents > section#contact div.left-wrapper div.left:before {
-        background: transparent url(../images/contact.png) center center no-repeat; }
       #contents > section#contact div.left-wrapper h3 {
         background: transparent url(../images/titles.png) -10px -300px no-repeat; }
       #contents > section#contact div.left-wrapper div.menu ul li.select {
@@ -776,6 +987,7 @@ div#fixed-nav {
         background-color: #2980b9; }
 
 footer {
+  zoom: 1;
   border-top: 1px solid #2b3c4e;
   box-shadow: 0 20px 15px -15px rgba(0, 0, 0, 0.5) inset;
   background-color: #34495e;
@@ -785,6 +997,10 @@ footer {
   font-weight: 300;
   padding: 50px 0 50px;
   width: 100%; }
+  footer:after {
+    display: block;
+    clear: both;
+    content: ""; }
   footer div.wrapper {
     margin: 0 auto;
     width: 980px; }
@@ -799,9 +1015,14 @@ footer {
   footer div.right {
     float: left; }
   footer ul#social-button {
+    zoom: 1;
     list-style-type: none;
     margin: 0;
     padding-left: 0; }
+    footer ul#social-button:after {
+      display: block;
+      clear: both;
+      content: ""; }
     footer ul#social-button li {
       float: left; }
       footer ul#social-button li a {
