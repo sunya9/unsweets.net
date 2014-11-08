@@ -1,6 +1,6 @@
 $(function() {
     var SCROLL_SNAP_DELAY = 1000;
-    var UPDATE_NAV_DELAY = 100;
+    var UPDATE_NAV_DELAY = 300;
     var RESIZE_DELAY = 500;
     var TRIGGER_OFFSET = 7 / 8;
     var CONTENT_TRANSLATE_DISTANCE = 100;
@@ -10,7 +10,6 @@ $(function() {
         EASING: "easeOutCubic"
     };
     var SCROLL_OPTION = {
-
         duration: "normal",
         easing: "easeOutCubic",
     };
@@ -20,7 +19,7 @@ $(function() {
     var $window = $(window);
     var $fixedNavAnchor = $("div#fixed-nav>div.inner>ul>li>a");
     var $fixedNavList = $fixedNavAnchor.parent();
-    var $eachContent = $("div#contents>section");
+    var $eachContent = $("main#contents>section");
     var $footer = $("footer#footer");
 
     init();
@@ -50,35 +49,28 @@ $(function() {
         setupEachMenu();
 
         var scrollSnap = _.debounce(_scrollSnap, SCROLL_SNAP_DELAY);
-        var updateNavColor = _.debounce(_updateNavColor, UPDATE_NAV_DELAY);
+        var updateNavColor = _.throttle(_updateNavColor, UPDATE_NAV_DELAY);
 
         $window.resize(_.debounce(function() {
             centering();
             fitContents();
             scrollSnap();
-            console.log("resize");
         }, RESIZE_DELAY));
         $window.resize();
 
         $window.scroll(function() {
-            if ($(this).is(":animated")) return;
-            updateNavColor();
             scrollSnap();
+            updateNavColor();
         });
 
         // other setup
 
-        $("nav>ul>li>a").add($fixedNavAnchor).click(function() {
-            var hash = this.hash;
-            scrollTo(hash);
-            $fixedNavAnchor.removeClass("select");
-            $("a[href='" + hash + "']", "div#fixed-nav>div.inner>ul>li").addClass("select");
-            return false;
-        });
-
-        $("a#scroll_down").click(function(e) {
+        $("nav>ul>li>a, a#scroll_down").add($fixedNavAnchor).click(function(e) {
             e.preventDefault();
-            scrollTo("#works");
+            var hash = this.hash;
+            scrollTo($(hash).offset().top);
+            $fixedNavAnchor.removeClass("select");
+            $fixedNavAnchor.filter("[href='" + hash + "']").addClass("select");
             return false;
         });
 
@@ -104,11 +96,11 @@ $(function() {
         return $fixedNavAnchor.map(function() {
             var $hash = $(this.hash);
             var obj = (function(self) {
-                var top = $hash.offset().top;
+                var top = Math.round($hash.offset().top);
                 return {
                     anchor: self.hash,
                     top: top,
-                    bottom: top + $hash.outerHeight() - 1
+                    bottom: top + $hash.height() - 1
                 };
             }(this));
             return obj;
@@ -134,18 +126,19 @@ $(function() {
 
     function _scrollSnap() {
         var content = getNearestContent();
-        var scrollTop = $window.scrollTop();
+        var scrollTop = Math.round($window.scrollTop());
+        if (content.top === scrollTop) return;
         var windowHeight = $window.height();
         var isLongContent = windowHeight < content.bottom - content.top;
         if (isLongContent) {
             if (scrollTop < content.top) {
-                scrollTo(content.anchor);
+                scrollTo(content.top);
             } else if (scrollTop + windowHeight > content.bottom) {
                 var pos = content.bottom - windowHeight;
                 scrollTo(pos);
             }
         } else {
-            scrollTo(content.anchor);
+            scrollTo(content.top);
         }
     }
 
@@ -158,26 +151,29 @@ $(function() {
             })).height();
             var windowHeight = $window.innerHeight();
             max = max > windowHeight ? max : windowHeight;
-            var $bothBlock = $("div.left-wrapper, div.right-wrapper", this);
+            var $bothBlock = $(this).children("div.left-wrapper, div.right-wrapper");
             $bothBlock.css({
                 minHeight: max
             });
             var height = _.max($bothBlock.map(function() {
                 return $(this).height();
             }));
-            height > max && $bothBlock.css({
-                minHeight: height
-            });
+            if (height > max) {
+                $bothBlock.css({
+                    minHeight: height
+                });
+            }
         });
     }
 
     function scrollTo(name) {
-        $.scrollTo(name, SCROLL_OPTION);
+        $.scrollTo(Math.round(name), SCROLL_OPTION);
     }
 
     function getNearestContent() {
-        var bottom = $window.scrollTop() + $window.height();
-        var middle = $window.scrollTop() + $window.height() / 2;
+        var scrollTop = Math.round($window.scrollTop());
+        var bottom = scrollTop + $window.height();
+        var middle = scrollTop + $window.height() / 2;
         var positions = getContentPosition();
         if (bottom > $footer.offset().top + $footer.height() / 2)
             return _.last(positions);
@@ -186,12 +182,14 @@ $(function() {
             return Math.min(Math.abs(middle - pos.top), Math.abs(middle - pos.bottom));
         });
         return nearest;
-    };
+    }
 
     function _updateNavColor() {
+        if ($("html, body").is(":animated")) return;
         var $selectHref = $fixedNavAnchor.filter("[href='" + getNearestContent().anchor + "']");
         if (!$selectHref.hasClass("select")) {
             $fixedNavAnchor.removeClass("select");
+
             $selectHref.addClass("select").addClass("big-anim");
             _.delay(function() {
                 $selectHref.removeClass("big-anim");
@@ -204,7 +202,7 @@ $(function() {
             var $id = $(this.hash);
 
             var $section = $(this).parents("section");
-            scrollTo("#" + $section.attr("id"));
+            scrollTo($section.offset().top);
             var $currentContent = $("div.right > section:visible", $section);
             if ($currentContent.attr("id") === this.hash.substring(1)) return false;
             var $li = $(this).parent("li");
