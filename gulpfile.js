@@ -56,7 +56,7 @@ gulp.task('copy', function() {
     'index.html',
     'robots.txt',
     'humans.txt',
-    './.htaccess',
+    '.htaccess',
   ]).
   pipe(gulp.dest(config.path.build().root));
 });

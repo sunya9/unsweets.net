@@ -50,7 +50,7 @@ $(function() {
 
         var scrollSnap = _.debounce(_scrollSnap, SCROLL_SNAP_DELAY);
         var updateNavColor = _.throttle(_updateNavColor, UPDATE_NAV_DELAY);
-
+        var updateParallax = _.throttle(_updateParallax, 100);
         $window.resize(_.debounce(function() {
             centering();
             fitContents();
@@ -61,6 +61,7 @@ $(function() {
         $window.scroll(function() {
             scrollSnap();
             updateNavColor();
+            _updateParallax();
         });
 
         // other setup
@@ -105,6 +106,14 @@ $(function() {
             }(this));
             return obj;
         }).get();
+    }
+
+    function _updateParallax(){
+        var top = $window.scrollTop() / 2;
+        $("#header>div").css({
+            marginTop:top,
+            paddingBottom:-top
+        });
     }
 
     function setupFixedNav() {
