@@ -2,7 +2,7 @@ $(function() {
     var SCROLL_SNAP_DELAY = 1000;
     var UPDATE_NAV_DELAY = 300;
     var RESIZE_DELAY = 500;
-    var TRIGGER_OFFSET = 7 / 8;
+    var TRIGGER_OFFSET  = 7 / 8;
     var CONTENT_TRANSLATE_DISTANCE = 100;
     var SLIDE = {
         DURATION: 1000,
@@ -21,10 +21,12 @@ $(function() {
     var $fixedNavList = $fixedNavAnchor.parent();
     var $eachContent = $("main#contents>section");
     var $footer = $("footer#footer");
-
+    var mobile = false;
     init();
 
     function init() {
+        mobile = isMobile();
+
         $("div.left, div.right", $eachContent).addClass("invisible");
 
         $eachContent.each(function() {
@@ -52,6 +54,7 @@ $(function() {
         var updateNavColor = _.throttle(_updateNavColor, UPDATE_NAV_DELAY);
         var updateParallax = _.throttle(_updateParallax, 100);
         $window.resize(_.debounce(function() {
+            mobile = isMobile();
             centering();
             fitContents();
             scrollSnap();
@@ -59,7 +62,8 @@ $(function() {
         $window.resize();
 
         $window.scroll(function() {
-            scrollSnap();
+            if(!mobile)
+                scrollSnap();
             updateNavColor();
             _updateParallax();
         });
@@ -67,6 +71,7 @@ $(function() {
         // other setup
 
         $("nav>ul>li>a, a#scroll_down").add($fixedNavAnchor).click(function(e) {
+            // if(isMobile()) return;
             e.preventDefault();
             var hash = this.hash;
             scrollTo($(hash).offset().top);
@@ -91,6 +96,11 @@ $(function() {
                     break;
             }
         });
+        if(location.hash){
+            setTimeout(function(){
+                $("a[href='" + location.hash + "']").click();
+            }, 1500);
+        }
     }
 
     function getContentPosition() {
@@ -109,10 +119,9 @@ $(function() {
     }
 
     function _updateParallax(){
-        var top = $window.scrollTop() / 2;
+        var top = $window.scrollTop() / 5;
         $("#header>div").css({
-            marginTop:top,
-            paddingBottom:-top
+            top:-top
         });
     }
 
@@ -152,6 +161,7 @@ $(function() {
     }
 
     function fitContents() {
+        // if(isMobile()) return;
         var windowHeight = $window.height();
         $eachContent.each(function() {
             var $contents = $("div.right>section", this);
@@ -160,15 +170,18 @@ $(function() {
             })).height();
             var windowHeight = $window.innerHeight();
             max = max > windowHeight ? max : windowHeight;
-            var $bothBlock = $(this).children("div.left-wrapper, div.right-wrapper");
-            $bothBlock.css({
+
+            var $fitBlock = $(this).children("div.right-wrapper");
+            if(!isMobile()) $fitBlock = $fitBlock.add($(this).children("div.left-wrapper"));
+            $fitBlock.css({
                 minHeight: max
             });
-            var height = _.max($bothBlock.map(function() {
+            var height = _.max($fitBlock.map(function() {
                 return $(this).height();
             }));
+            if(isMobile()) height += 100;
             if (height > max) {
-                $bothBlock.css({
+                $fitBlock.css({
                     minHeight: height
                 });
             }
@@ -176,7 +189,18 @@ $(function() {
     }
 
     function scrollTo(name) {
-        $.scrollTo(Math.round(name), SCROLL_OPTION);
+        // if(mobile) return false;
+        // if(mobile) return scrollTo(0, name);
+        var target = {
+            top: Math.round(name),
+            left : $window.scrollLeft()
+        };
+        $.scrollTo(target, SCROLL_OPTION);
+    }
+
+    function isMobile(){
+        var ua = navigator.userAgent;
+        return (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0);
     }
 
     function getNearestContent() {
@@ -211,7 +235,12 @@ $(function() {
             var $id = $(this.hash);
 
             var $section = $(this).parents("section");
-            scrollTo($section.offset().top);
+            var targetTop = $section.offset().top;
+            if(isMobile()){
+                var $right = $id.parent();
+                targetTop = $right.offset().top;
+            }
+            scrollTo(targetTop);
             var $currentContent = $("div.right > section:visible", $section);
             if ($currentContent.attr("id") === this.hash.substring(1)) return false;
             var $li = $(this).parent("li");
@@ -255,8 +284,10 @@ $(function() {
     }
 
     function centering() {
+        var wh = $window.height();
+        // if(mobile) wh /= 2;
         $("header#header").css({
-            height: $window.height()
+            height: wh
         });
     }
 });
