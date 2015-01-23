@@ -10,6 +10,8 @@ var pngquant = require('imagemin-pngquant');
 var uglify = require('gulp-uglify');
 var es = require('event-stream');
 var stripDebug = require('gulp-strip-debug');
+var minifyHTML = require('gulp-minify-html');
+var livereload = require('gulp-livereload');
 var path = require('path');
 
 var config = {
@@ -37,6 +39,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('watch', function() {
+  livereload.listen();
   gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./bower_components/**/*', ['bower', 'inject']);
 });
@@ -53,7 +56,6 @@ gulp.task('bower', function() {
 // copy other files to build folder.
 gulp.task('copy', function() {
   return gulp.src([
-    'index.html',
     'robots.txt',
     'humans.txt',
     '.htaccess',
@@ -81,24 +83,43 @@ gulp.task('sass', function() {
     ])
     .pipe(plumber())
     .pipe(sass({
-      style: 'compressed',
+      style: 'compact',
       compass: true
     }))
     .pipe(plumber.stop())
     .pipe(minifyCSS())
     .pipe(gulp.dest(config.path.build().css))
-    .pipe(gulp.dest(config.path.original.css));
+    .pipe(gulp.dest(config.path.original.css))
+    .pipe(livereload());
 });
 
 // compress js files and copy to build folder.
 gulp.task('js-compress', function() {
   return gulp.src([
       config.path.original.js + '**/*.js',
-      '!' + config.path.original.js_components + '**/*',
+      '!' + config.path.original.js_components + '**/*.js',
     ])
     .pipe(stripDebug())
     .pipe(uglify())
     .pipe(gulp.dest(config.path.build().js));
+});
+
+// compress html files
+gulp.task('html-compress', function() {
+  var opts = {
+    comments: true,
+    spare: true,
+    conditionals : true
+  };
+
+  return gulp.src([
+      config.path.original.root + '**/*.html',
+      '!' + config.path.build().root + '**/*.html',
+      '!' + config.path.original.root + 'node_modules/**/*.html',
+      '!' + config.path.original.root + 'bower_components/**/*.html',
+    ])
+    .pipe(minifyHTML(opts))
+    .pipe(gulp.dest(config.path.build().root));
 });
 
 // inject 
@@ -117,12 +138,12 @@ gulp.task('inject', function() {
     read: false
   });
   return gulp.src('./index.html')
-    .pipe(inject(gulp.src([config.path.original.js_components + 'modernizr.js'], {
-      read: false
-    }), {
-      name: 'head',
-      relative: true
-    }))
+    // .pipe(inject(gulp.src([config.path.original.js_components + 'modernizr.js'], {
+    //   read: false
+    // }), {
+    //   name: 'head',
+    //   relative: true
+    // }))
     .pipe(inject(es.merge(bowerFilesStream, otherJsFilesStream), {
       relative: true
     }))
@@ -132,8 +153,8 @@ gulp.task('inject', function() {
       name: 'main',
       relative: true
     }))
-    .pipe(gulp.dest(config.path.original.root))
-    .pipe(gulp.dest(config.path.build().root));
+    .pipe(gulp.dest(config.path.original.root));
+    // .pipe(gulp.dest(config.path.build().root));
 });
 
 // exec build.
@@ -144,6 +165,7 @@ gulp.task('build', [
   'js-compress',
   'copy',
   'inject',
+  'html-compress'
 ], function() {
   console.log('Finished build.');
 });
