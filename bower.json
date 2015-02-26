@@ -26,11 +26,7 @@
     "modernizr-mixin": "~3.0.0"
   },
   "overrides": {
-    "modernizr": {
-      "main": [
-        "./modernizr.js"
-      ]
-    },
+
     "jquery": {
       "main": [
         "./dist/jquery.min.js",
