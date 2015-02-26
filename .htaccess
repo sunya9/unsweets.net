@@ -1,3 +1,0 @@
-<Files ~ "\.(jpe?g|png|gif|ico)$">
-Header set Cache-Control "max-age=86400"
-</Files>
