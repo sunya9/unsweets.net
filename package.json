@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "unsweets.net is a website that publishes my application by _X_y_z_.",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp-inject": "^1.0.2",
-    "gulp": "^3.8.9",
-    "gulp-watch": "^1.1.0"
-  },
   "devDependencies": {
     "event-stream": "^3.1.7",
     "gulp": "^3.8.9",
