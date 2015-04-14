@@ -42,7 +42,7 @@ gulp.task('default', function() {
 gulp.task('server', function(){
   return gulp.src('.')
   .pipe(webserver({
-    livereload: true,
+    livereload: false,
     directoryListing: true,
     open: true,
     fallback: 'index.html'
