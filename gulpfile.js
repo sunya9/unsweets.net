@@ -12,6 +12,7 @@ var es = require('event-stream');
 var stripDebug = require('gulp-strip-debug');
 var minifyHTML = require('gulp-minify-html');
 var livereload = require('gulp-livereload');
+var webserver = require('gulp-webserver');
 var path = require('path');
 
 var config = {
@@ -36,6 +37,16 @@ var config = {
 
 gulp.task('default', function() {
 
+});
+
+gulp.task('server', function(){
+  return gulp.src('.')
+  .pipe(webserver({
+    livereload: true,
+    directoryListing: true,
+    open: true,
+    fallback: 'index.html'
+  }));
 });
 
 gulp.task('watch', function() {

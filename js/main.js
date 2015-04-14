@@ -1,5 +1,5 @@
 $(function() {
-    var SCROLL_SNAP_DELAY = 1000;
+    var SCROLL_SNAP_DELAY = 700;
     var UPDATE_NAV_DELAY = 300;
     var RESIZE_DELAY = 500;
     var TRIGGER_OFFSET  = 7 / 8;
@@ -20,6 +20,7 @@ $(function() {
     var $fixedNavAnchor = $("div#fixed-nav>div.inner>ul>li>a");
     var $fixedNavList = $fixedNavAnchor.parent();
     var $eachContent = $("main#contents>section");
+    var $header = $("header#header");
     var $footer = $("footer#footer");
     var mobile = false;
     init();
@@ -55,7 +56,6 @@ $(function() {
         var updateParallax = _.throttle(_updateParallax, 100);
         $window.resize(_.debounce(function() {
             mobile = isMobile();
-            centering();
             fitContents();
             scrollSnap();
         }, RESIZE_DELAY));
@@ -118,10 +118,16 @@ $(function() {
         }).get();
     }
 
+    var $headerWithHeaderBackground = $header.addBack("#header-background", $header);
+
     function _updateParallax(){
-        var top = $window.scrollTop() / 5;
-        $("#header>div").css({
-            top:-top
+        var top = $window.scrollTop();
+        console.log($header.offset().top, top);
+        var op = 1 - top / $header.height() * 2.5;
+        op = op < 0 ? 0 : op;
+        $("#header div.centering").css({
+            top:-top * 0.3,
+            opacity: op
         });
     }
 
@@ -195,6 +201,7 @@ $(function() {
             top: Math.round(name),
             left : $window.scrollLeft()
         };
+        $("html, body").stop(true, true);
         $.scrollTo(target, SCROLL_OPTION);
     }
 
@@ -280,14 +287,6 @@ $(function() {
                 });
             });
             return false;
-        });
-    }
-
-    function centering() {
-        var wh = $window.height();
-        // if(mobile) wh /= 2;
-        $("header#header").css({
-            height: wh
         });
     }
 });
