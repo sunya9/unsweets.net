@@ -39,10 +39,11 @@
                     <h1 id="logo">
                         <a href="./">unsweets.net</a>
                     </h1>
-                    <h2 id="desc">
+                    <p id="desc">
                         <em>unsweets.net</em> is a website that publishes my application by _X_y_z_.
-                    </h2>
+                    </p>
                     <nav role="navigation" id="global-nav">
+                        <h2 class="hidden">Contents</h2>
                         <ul>
                             <li>
                                 <a href="#works">Works</a>
@@ -127,9 +128,7 @@
                                 <p itemprop="description">
                                     xsTus（えくすたす）はTwitterのUserstreamに対応する超絶αバージョンのAndroidのtwitterクライアントです。
                                 </p>
-                                <div class="button">
-                                    <a href="http://xstus.unsweets.net/" itemprop="url">Detail</a>
-                                </div>
+                                <a href="http://xstus.unsweets.net/" itemprop="url" class="button">Detail</a>
                             </div>
                         </section>
                         <section id="twitokengetter" itemscope itemtype="http://schema.org/WebApplication">
@@ -140,9 +139,7 @@
                                 <p itemprop="description">
                                     TwiTokenGetterは任意のConsumer key/Consumer secret、任意のアカウントでAccess token、Access token secretを取得できるツールです。
                                 </p>
-                                <div class="button">
-                                    <a href="TwiTokenGetter/" itemprop="url">Detail</a>
-                                </div>
+                                <a href="TwiTokenGetter/" itemprop="url" class="button">Detail</a>
                             </div>
                         </section>
                         <section id="other">
@@ -355,14 +352,29 @@
                                     連絡はこちらから。
                                 </p>
                                 <p>
-                                    <img src="images/mail_address.png" alt="メールアドレスが書かれている" width="163" height="21" id="address">
+                                    <img src="images/mail_address.png" alt="mugen.xyz[at]gmail.com" width="163" height="21" id="address">
                                 </p>
                             </div>
                         </section>
                         <section id="form">
                             <h4>Form</h4>
                             <div class="body">
-                                <p><a href="https://unsweets.wufoo.com/forms/contact/" rel="nofollow">フォームはこちらからご利用下さい。</a>
+                                <form action="//formspree.io/mugen.xyz@gmail.com" method="post">
+                                    <input type="text" name="_gotcha" class="hidden" />
+                                    <label>
+                                        Name
+                                        <input type="text" name="name" />
+                                    </label>
+                                    <label>
+                                        Email
+                                        <input type="email" name="email" />
+                                    </label>
+                                    <label>
+                                        Message
+                                        <textarea rows="4" name="message" required></textarea>
+                                    </label>
+                                    <input type="submit" value="Submit" />
+                                </form>
                                 </p>
                             </div>
                         </section>
