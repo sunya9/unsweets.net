@@ -15,6 +15,7 @@ $(function() {
     };
     var LEFT = -1;
     var RIGHT = 1;
+    var SHOW_MESSAGE_DURATION = 1500;
 
     var $window = $(window);
     var $fixedNavAnchor = $("div#fixed-nav>div.inner>ul>li>a");
@@ -80,6 +81,34 @@ $(function() {
             return false;
         });
 
+        $("#form form").submit(function(e){
+            e.preventDefault();
+            var form = this;
+            var $submitButton = $("input[type=submit]");
+            $submitButton.prop("disabled", true);
+            $.ajax({
+                url: this.action,
+                method: this.method,
+                data: $(this).serialize(),
+                dataType: "json"
+            }).done(function(){
+                console.log('success!');
+                $(form).addClass("success").delay(SHOW_MESSAGE_DURATION).queue(function(){
+                    form.reset();
+                    $submitButton.prop("disabled", false);
+                    $(this).removeClass("success send").dequeue();
+                });
+            }).fail(function(){
+                console.error('error!');
+                $(form).addClass("error").delay(SHOW_MESSAGE_DURATION).queue(function(){
+                    $(this).removeClass("error send").dequeue();
+                });
+            }).always(function(){
+                $(form).addClass("send");
+            });
+            return false;
+        });
+
         $("#copyright a[href='#me']").click(function(e) {
             e.preventDefault();
             $("div.menu>ul>li>a[href='#me']", "section#about").click();
@@ -122,7 +151,6 @@ $(function() {
 
     function _updateParallax(){
         var top = $window.scrollTop();
-        console.log($header.offset().top, top);
         var op = 1 - top / $header.height() * 2.5;
         op = op < 0 ? 0 : op;
         $("#header div.centering").css({
