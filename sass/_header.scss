@@ -3,15 +3,14 @@ header {
   transform: translate3d(0, 0, 0);
   border-bottom: 1px solid #f0f0f0;
   background: url(../images/whitediamond.png) fixed;
-  height: 100%;
   transition: .5s all ease;
   width: 100%;
   overflow: hidden;
   z-index: 4;
   position: relative;
   @include sp{
-    display:block;
-    width:auto;
+    display: block;
+    width: auto;
   }
  @at-root #header-background{
     background: #f9f9f9;
@@ -25,15 +24,22 @@ header {
     display: table;
     height: 100%;
     width: 100%;
+    @include sp {
+      display: block;
+    }
     .centering {
       vertical-align: middle;
       position:relative;
       display: table-cell;
+      @include sp {
+        display: block;
+      }
       @at-root #logo {
         margin: 128px auto .8em;
         width: 410px;
         @include sp{
           margin:1.7em auto .3em;
+          width: auto;
         }
         a {
           @extend %image-replace;
@@ -68,10 +74,10 @@ header {
           size: 140%;
         };
         @include sp{
-          width:auto;
-          margin:0 10px;
-          padding-top:.5em;
-          text-align:left;
+          width: auto;
+          margin: 0 10px;
+          padding-top: .5em;
+          font-size: 130%;
         }
       }
       @at-root #global-nav {
