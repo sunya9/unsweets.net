@@ -132,14 +132,14 @@
       padding-top: 10px;
       margin-bottom: 1.2em;
       display: table;
-      @include small{
+      @include small {
         display: block;
       }
       a {
         div{
           @include miniclearfix;
           display: table;
-          @include small{
+          @include small {
             display: block;
           }
         }
@@ -167,14 +167,14 @@
           transition: all .4s ease-in-out;
           display: table-cell;
           vertical-align: middle;
-          @include small{
+          @include small {
             display: block;
           }
         }
         .description-wrapper{
           display:table-cell;
           vertical-align: middle;
-          @include small{
+          @include small {
             display: block;
             margin: 10px 0;
           }
@@ -185,7 +185,7 @@
             width: 270px;
             margin-left: 20px;
             margin-top: .3em;
-            @include small{
+            @include small {
               width: auto;
               margin: 0;
               &::after,  &::before{
@@ -300,7 +300,7 @@
         resize: vertical;
       }
     }
-    input[type=submit]{
+    input[type='submit']{
       @extend %button;
       border-left: none;
       border-top: none;

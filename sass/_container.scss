@@ -30,7 +30,7 @@ body {
     margin: 0 -10px;
     box-shadow: 0 0 10px rgba(0,0,0,.5);
   }
-  @include sp{
+  @include sp {
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
   }
@@ -201,10 +201,10 @@ a {
           }
           $sections: join($sections, (
             header: (
-             light: $header-color
+              light: $header-color
             ),
             footer:(
-             light: $footer-light-color
+              light: $footer-light-color
             )
           ));
           @each $name, $map in $sections {
