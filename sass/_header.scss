@@ -8,9 +8,12 @@ header {
   overflow: hidden;
   z-index: 4;
   position: relative;
-  @include sp{
+  @include sp {
     display: block;
     width: auto;
+  }
+  @include hidden-sp {
+    height: 100%;
   }
  @at-root #header-background{
     background: #f9f9f9;
