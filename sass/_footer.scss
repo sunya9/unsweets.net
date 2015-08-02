@@ -1,0 +1,247 @@
+
+footer {
+  @include miniclearfix;
+  transform: translate3d(0, 0, 0);
+  border-top: 1px solid darken($footer-light-color, 5%);
+  box-shadow: 0 20px 10px -15px rgba(#000, 0.5) inset;
+  background: url(../images/grey_wash_wall.png) $footer-light-color;
+  color: #f0f0f0;
+  overflow: hidden;
+  font:{
+    family: 'Roboto', $font-family;
+    weight: 300;
+  }
+  padding: 50px 0;
+  width: auto;
+  @include sp {
+    padding: 30px 0 20px;
+  }
+  .left, .right {
+    margin: 0 $side_margin;
+    width: $column_width;
+  }
+  .left-wrapper{
+    @include large {
+      width: 40%;
+    }
+    @include sp {
+      width: auto;
+      float: none;
+    }
+    .left{
+      @include miniclearfix;
+      float: right;
+      @include large {
+        width: 300px;
+      }
+      @include medium {
+        width: 250px;
+      }
+      @include sp {
+        width: auto;
+        float: none;
+      }
+      @at-root #social-button {
+        @include miniclearfix;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+        @include sp {
+          float: left;
+          position: relative;
+          left: 50%;
+        }
+        li {
+          float: left;
+          @include sp {
+            margin: 0 5px;
+            position: relative;
+            left: -50%;
+          }
+          a {
+            border-radius:50%;
+            background-repeat: no-repeat;
+            color: #808080;
+            display: block;
+            font-size: 110%;
+            height: 32px;
+            margin: 6px 5px;
+            position: relative;
+            text-decoration: none;
+            text-shadow: 0 1px 0 #fff;
+            width: 32px;
+            z-index: 2;
+            &:hover {
+              color: #888;
+              span {
+                opacity: 1;
+                top: 40px;
+                visibility: visible;
+              }
+            }
+            span {
+              border-radius:2px;
+              background: #ececec;
+              border: 2px solid #fff;
+              cursor: default;
+              display: inline-block;
+              opacity: 0;
+              padding: 5px;
+              pointer-events: none;
+              position: absolute;
+              top: 35px;
+              overflow: hidden;
+              transition: all .3s ease-in-out;
+              visibility: hidden;
+              white-space: nowrap;
+              &:after, &:before {
+                border: solid transparent;
+                bottom: 100%;
+                content: ' ';
+                height: 0;
+                left: 14px;
+                margin-left: 0;
+                pointer-events: none;
+                position: absolute;
+                transition: all .3s ease-in-out;
+                width: 0;
+              }
+              &:after {
+                border-bottom-color: #ececec;
+                border-color: rgba(236, 240, 241, 0);
+                border-width: 2px;
+                margin-left: -2px;
+                top: -4px;
+              }
+              &:before {
+                border-bottom-color: #fff;
+                border-color: rgba(189, 195, 199, 0);
+                border-width: 5px;
+                margin-left: -5px;
+                top: -10px;
+              }
+            }
+            border: 2px solid rgba(#fff, 0.4);
+            &:hover {
+              border-color: rgba(#fff, 0.9);
+            }
+            &:after {
+              border-radius:0 32px 32px 0;
+              @include rotate(-45deg);
+              background-color: rgba(255, 255, 255, 0.15);
+              content: '';
+              height: 32px;
+              left: 13px;
+              position: absolute;
+              top: -5px;
+              width: 16px;
+              z-index: 1;
+            }
+            &:before {
+              content: '';
+              @include rotate(45deg);
+              border-radius:0 32px 32px 0;
+              background-color: rgba(0, 0, 0, 0.1);
+              height: 32px;
+              left: 14px;
+              position: absolute;
+              top: 6px;
+              z-index: 1;
+              width: 16px;
+            }
+          }
+          @at-root #twitter {
+            background: url(../images/twitter.png);
+            &:hover {
+              background-color: $twitter-color;
+            }
+            &:active {
+              background-color: darken($twitter-color, 10%);
+            }
+          }
+          @at-root #tumblr {
+            background: url(../images/tumblr.png);
+            &:hover {
+              background-color: $tumblr-color;
+            }
+            &:active {
+              background-color: darken($tumblr-color, 10%);
+            }
+          }
+          @at-root #foursquare {
+            background: url(../images/foursquare.png);
+            &:hover {
+              background-color: $foursquare-color;
+            }
+            &:active {
+              background-color: darken($foursquare-color, 10%);
+            }
+          }
+          @at-root #pinterest {
+            background: url(../images/pinterest.png);
+            &:hover {
+              background-color: $pinterest-color;
+            }
+            &:active {
+              background-color: darken($pinterest-color, 10%);
+            }
+          }
+          @at-root #instagram {
+            background: transparent url(../images/instagram.png);
+            &:hover {
+              background-color: $instagram-color;
+            }
+            &:active {
+              background-color: darken($instagram-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-wrapper{
+    @include large {
+      width: 60%;
+    }
+    @include small {
+      width: 60%;
+      box-sizing: border-box;
+      padding: 0 $side_margin * 2;
+    }
+    @include sp {
+      width: auto;
+      box-sizing: content-box;
+      float: none;
+    }
+    .right{
+      float: left;
+      @include small {
+        margin: 0;
+        max-width: 100%;
+      }
+      @include sp {
+        float: none;
+        width: 100%;
+      }
+      @at-root #copyright {
+        font:{
+          weight: 400;
+          size: 110%;
+        }
+        margin: 10px 0;
+        text-align: right;
+        @include sp {
+          font-size:125%;
+          text-align: center;
+        }
+        a {
+          color: #fff;
+          border-bottom:1px dotted #f0f0f0;
+          &:hover{
+            border-bottom-style:solid;
+          }
+        }
+      }
+    }
+  }
+}

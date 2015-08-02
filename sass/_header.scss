@@ -1,0 +1,209 @@
+header {
+  box-shadow: 0 1px 10px 3px rgba(#000, 0.1);
+  transform: translate3d(0, 0, 0);
+  border-bottom: 1px solid #f0f0f0;
+  background: url(../images/whitediamond.png) fixed;
+  height: 100%;
+  transition: .5s all ease;
+  width: 100%;
+  overflow: hidden;
+  z-index: 4;
+  position: relative;
+  @include sp{
+    display:block;
+    width:auto;
+  }
+ @at-root #header-background{
+    background: #f9f9f9;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(249,249,249,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(249,249,249,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f9f9f9',GradientType=0 );
+    display: table;
+    height: 100%;
+    width: 100%;
+    .centering {
+      vertical-align: middle;
+      position:relative;
+      display: table-cell;
+      @at-root #logo {
+        margin: 128px auto .8em;
+        width: 410px;
+        @include sp{
+          margin:1.7em auto .3em;
+        }
+        a {
+          @extend %image-replace;
+          background: url(../images/logo.png) no-repeat center;
+          display: block;
+          height: 65px;
+          margin: 0 auto;
+          width: 410px;
+          &:hover {
+            opacity: .6;
+          }
+          @include sp{
+            background-size: 80%;
+            background-position: center center;
+            width: 100%;
+            &:hover{
+              opacity: 1;
+            }
+          }
+        }
+      }
+      @at-root #desc {
+        text-align: center;
+        width: 410px;
+        margin: 1em auto 1em;
+        padding-top: .8em;
+        border-top: 3px double #dfdfdf;
+        color: #b6b6b6;
+        font: {
+          family: 'Roboto', sans-serif;
+          weight: 100;
+          size: 140%;
+        };
+        @include sp{
+          width:auto;
+          margin:0 10px;
+          padding-top:.5em;
+          text-align:left;
+        }
+      }
+      @at-root #global-nav {
+        @include miniclearfix;
+        font-family: 'Roboto', $font-family;
+        margin: 2em auto 3em;
+        position: relative;
+        @include sp{
+          height:auto;
+          box-shadow:inset 0 0 100px 0 rgba(#fcfcfc, .8),
+          0 1px 0 0 rgba(#fcfcfc, .8),
+          0 -1px 0 0 rgba(#fcfcfc, .3);
+          border-top:1px solid rgba(#999, .5);
+          border-bottom:1px solid rgba(#999, .5);
+        }
+        ul {
+          @include miniclearfix;
+          float: left;
+          left: 50%;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          @include sp{
+            float:none;
+            left:auto;
+            position:static;
+          }
+          li {
+            float: left;
+            left: -50%;
+            list-style-type: none;
+            margin: 0 38px;
+            padding: 0;
+            position: relative;
+            @include small{
+              margin: 0 20px;
+            }
+            @include sp{
+              left:auto;
+              float:none;
+              margin:0;
+              position:static;
+              &:first-child a{
+                border-top:none;
+              }
+              &:last-child a{
+                border-bottom:none !important;
+              }
+            }
+            a {
+              border-bottom: 1px dotted transparent;
+              color: #808080;
+              display: block;
+              font:{
+                size: 187.5%;
+                weight: 100;
+              }
+              margin: 0 -5px;
+              padding-left: 5px;
+              padding-right: 5px;
+              text-decoration: none;
+              text-shadow: 0 1px 1px #fff;
+              transition: all .5s ease;
+              position: relative;
+              &::after{
+                content: '';
+                width: 0;
+                height: 0;
+                display: block;
+                bottom: 0;
+                left: 0;
+                margin: 0 -5px -1px;
+                border-bottom: 1px solid transparent;
+                transition: all .3s linear;
+              }
+              &:hover {
+                color: #505050;
+                &::after{
+                  width: 100%;
+                  padding: 0 5px;
+                  border-bottom-color: inherit;
+                }
+              }
+              @include hidden-sp {
+                @each $name, $map in $sections{
+                  $color: map-get($map, light);
+                  &[href='##{$name}'] {
+                    border-bottom-color: $color;
+                  }
+                }
+              }
+              @include sp{
+                background-color: #f9f9f9;
+                padding:.15em 10px;
+                margin:0;
+                display:block;
+                border-bottom:1px solid rgba(#999, .5);
+                border-top:1px solid rgba(#fcfcfc, .8);
+                @each $name, $map in $sections{
+                  &[href='##{$name}']:first-letter{
+                    color: map-get($map, light);
+                  }
+                  &::after{
+                    border-bottom: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+      @at-root #scroll_down {
+        display: block;
+        width: 128px;
+        height: 128px;
+        margin: 0 auto;
+        opacity: .3;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+        background: url(../images/scroll_down.png) no-repeat;
+        &:hover {
+          opacity: .6;
+          top: 20px;
+        }
+        @include sp{
+          display: none;
+        }
+      }
+    }
+  }
+
+}
