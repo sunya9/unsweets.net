@@ -1,13 +1,5 @@
 $font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 $header-color: #faa;
-$works-light-color: #e74c3c;
-$works-dark-color: #c0392b;
-$about-light-color: #1abc9c;
-$about-dark-color: #16a085;
-$links-light-color: #f1c40f;
-$links-dark-color: #f39c12;
-$contact-light-color: #3498db;
-$contact-dark-color: #2980b9;
 $footer-light-color: #34495e;
 $text-color: #808080;
 
@@ -19,3 +11,26 @@ $instagram-color: #96614c;
 
 $column_width: 460px;
 $side_margin: 10px;
+
+$sections:(
+    works: (
+     index: 1,
+     light: #e74c3c,
+     dark: #c0392b
+  ),
+    about: (
+      index: 2,
+      light: #1abc9c,
+      dark: #16a085
+  ),
+    links: (
+      index: 3,
+      light: #f1c40f,
+      dark: #f39c12
+  ),
+    contact: (
+      index: 4,
+      light: #3498db,
+      dark: #2980b9
+  )
+);

@@ -1,0 +1,66 @@
+.right {
+  float: left;
+  margin-left: $side_margin;
+  margin-right: $side_margin;
+  margin: 0 $side_margin;
+  @include small{
+    margin: 0;
+  }
+  position: relative;
+  transition: min-height .2s ease;
+  > section {
+    width: 100%;
+    display: none;
+    &:first-child {
+      display: block;
+    }
+    h4 {
+      @extend %image-replace;
+      height: 60px;
+      margin: 0 0 30px;
+      padding: 20px 0;
+    }
+    .body {
+      @include miniclearfix;
+      margin-top: 40px;
+      a {
+        position: relative;
+        &::after{
+          content: '';
+          width: 0;
+          height: 0;
+          border-bottom: 2px solid transparent;
+          transition: all .2s linear;
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          display: block;
+        }
+        &:hover {
+          &::after{
+            width: 100%;
+            border-bottom-color: #ccc;
+          }
+        }
+      }
+      .button {
+        @extend %button;
+      }
+    }
+    h5 {
+      font-size: 110%;
+      margin: 15px 0;
+    }
+    .body {
+      p {
+        line-height: 1.75;
+      }
+      img {
+        margin: 10px;
+        &.fleft {
+          margin: 15px 10px 15px 0;
+        }
+      }
+    }
+  }
+}
