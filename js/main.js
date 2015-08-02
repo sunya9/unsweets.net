@@ -151,7 +151,7 @@ $(function() {
 
     function _updateParallax(){
         var top = $window.scrollTop();
-        var op = 1 - top / $header.height() * 2.5;
+        var op = mobile ? 1 : 1 - top / $header.height() * 2.5;
         op = op < 0 ? 0 : op;
         $("#header div.centering").css({
             top:-top * 0.3,
