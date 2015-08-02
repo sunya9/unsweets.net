@@ -1,46 +1,49 @@
 @mixin rotate($n) {
-	-moz-transform: rotate($n);
-	-o-transform: rotate($n);
-	-webkit-transform: rotate($n);
-	transform: rotate($n);
+  -moz-transform: rotate($n);
+  -o-transform: rotate($n);
+  -webkit-transform: rotate($n);
+  transform: rotate($n);
 }
 
 @mixin scale($n) {
-	-moz-transform: scale($n);
-	-o-transform: scale($n);
-	-webkit-transform: scale($n);
-	transform: scale($n);
+  -moz-transform: scale($n);
+  -o-transform: scale($n);
+  -webkit-transform: scale($n);
+  transform: scale($n);
 }
 
-@mixin skewX($n) {
-	-moz-transform: skewX($n);
-	-o-transform: skewX($n);
-	-webkit-transform: skewX($n);
-	transform: skewX($n);
+@mixin titleExtend($position: 0) {
+  background: transparent url(../images/titles.png) -10px ($position - 1) * -100px no-repeat;
 }
 
-@mixin skewY($n) {
-	-moz-transform: skewY($n);
-	-o-transform: skewY($n);
-	-webkit-transform: skewY($n);
-	transform: skewY($n);
+
+@mixin large{
+  @media screen and (max-width: 960px){
+    @content;
+  }
 }
 
-@mixin skew($x, $y) {
-	-moz-transform: skewY($x, $y);
-	-o-transform: skewY($x, $y);
-	-webkit-transform: skew($x, $y);
-	transform: skewY($x, $y);
+@mixin hidden-sp{
+  @media screen and (min-width: 641px){
+    @content;
+  }
 }
 
-@mixin transform-origin($x: 50%, $y: 50%) {
-	-moz-transform-origin: $x, $y;
-	-ms-transform-origin: $x, $y;
-	-o-transform-origin: $x, $y;
-	-webkit-transform-origin: $x, $y;
-	transform-origin: $x, $y;
+@mixin medium{
+  @media screen and (max-width: 850px){
+    @content;
+  }
 }
 
-@mixin little-shadow {
-	box-shadow: 0 0px 2px 2px rgba(#aaa, 0.5);
+@mixin small{
+  @media screen and (max-width: 800px){
+    @content;
+  }
+}
+
+@mixin sp{
+  // @media screen and (max-device-width: 640px){
+  @media screen and (max-width: 640px){
+    @content;
+  }
 }

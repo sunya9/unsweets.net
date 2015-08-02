@@ -270,7 +270,7 @@ $(function() {
             var $id = $(this.hash);
 
             var $section = $(this).parents("section");
-            var targetTop = $section.offset().top;
+            var targetTop = isMobile() ? $id.offset().top : $section.offset().top;
             if(isMobile()){
                 var $right = $id.parent();
                 targetTop = $right.offset().top;
@@ -305,7 +305,7 @@ $(function() {
                 position: "absolute",
                 left: vector,
                 display: "block",
-                opacity: 0
+                opacity: 0,
             }).animate({
                 left: 0,
                 opacity: 1

@@ -1,3 +1,20 @@
 .hidden{
 	display:none !important;
 }
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+@function get-color($name, $brightness: light){
+  $section: map-get($sections, $name);
+  @return map-get($section, $brightness);
+}
