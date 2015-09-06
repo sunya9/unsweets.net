@@ -39,6 +39,7 @@ gulp.task('copy', function() {
     'robots.txt',
     'humans.txt',
     '.htaccess',
+    'CNAME',
   ]).
   pipe(gulp.dest('./dist'));
 });
