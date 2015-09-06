@@ -117,3 +117,7 @@ gulp.task('build', [
 ], function() {
   console.log('Finished build.');
 });
+
+gulp.task('deploy', ['build'], function(){
+  return gulp.src('./dist/**/*').pipe($$.ghPages());
+});
