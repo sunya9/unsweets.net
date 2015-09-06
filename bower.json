@@ -24,35 +24,5 @@
   "devDependencies": {
     "hail2u-scss-partials": "~1.2.2",
     "modernizr-mixin": "~3.0.0"
-  },
-  "overrides": {
-
-    "jquery": {
-      "main": [
-        "./dist/jquery.min.js",
-        "./dist/jquery.min.map"
-      ]
-    },
-    "underscore": {
-      "main": [
-        "./underscore-min.js",
-        "./underscore-min.map"
-      ]
-    },
-    "jquery.easing": {
-      "main": [
-        "./js/jquery.easing.min.js"
-      ]
-    },
-    "jquery.scrollTo": {
-      "main": [
-        "./jquery.scrollTo.min.js"
-      ]
-    },
-    "jquery-waypoints": {
-      "main": [
-        "./waypoints.min.js"
-      ]
-    }
   }
 }
