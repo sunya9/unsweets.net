@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var pngquant = require('imagemin-pngquant');
+var runSequence = require('run-sequence');
 var $$ = require('gulp-load-plugins')({
   rename: {
     'gulp-ruby-sass': 'sass'
@@ -99,24 +100,24 @@ gulp.task('compress-html', function() {
 
 gulp.task('compress', ['compress-html', 'compress-js', 'compress-image']);
 
-// inject 
-gulp.task('inject', function(){
-  var target = HTML_FILES;
+// inject
+gulp.task('inject', () => {
+  var target = './dist/**/*.html';
   var sources = gulp.src(['./dist/js/*.js', './dist/css/*.css'], {read: false});
-  return gulp.src(HTML_FILES)
+  return gulp.src(target)
     .pipe($$.inject(sources, {ignorePath: 'dist'}))
     .pipe(gulp.dest('./dist'))
     .pipe($$.livereload());
 });
 
 // exec build.
-gulp.task('build', [
-  'sass',
-  'copy',
-  'inject',
-  'compress'
-], function() {
-  console.log('Finished build.');
+gulp.task('build', function(callback) {
+  runSequence([
+    'sass',
+    'copy',
+    'compress'
+  ], 'inject',
+  callback);
 });
 
 gulp.task('deploy', ['build'], function(){
