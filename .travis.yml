@@ -14,4 +14,4 @@ after_success:
   - git init
   - git add .
   - git commit -m 'Update'
-  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/unsweets.git gh-pages 2> /dev/null'
+  - git push --quiet 'https://${GH_TOKEN}@github.com/unsweets.net.git' master:gh-pages > /dev/null 2>&1
