@@ -1,0 +1,102 @@
+.slick-slider {
+  @extend %clearfix;
+  $size: 25px;
+  user-select: all;
+  .slick-arrow {
+    @extend %image-replace;
+    transition: $default-transition;
+    padding: 0;
+    width: $size;
+    height: $size;
+    @include medium {
+      width: $size * 2;
+      height: $size * 2;
+    }
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(#fff, .5);
+    position: absolute;
+    top: 50%;
+    margin: -$size / 2 0 0;
+    z-index: 1;
+    outline: none;
+    overflow: hidden;
+    &:hover {
+      background: rgba(#fff, .1);
+    }
+    &.slick-disabled {
+      opacity: 0;
+    }
+    $size: 10px;
+    $offset: calc(50% - #{$size} / 3);
+    &::before {
+      content: '';
+      border: 1px solid rgba(#fff, .8);
+      width: $size;
+      height: $size;
+      position: absolute;
+      top: calc(50% - #{$size} / 2 - 1px);
+      backface-visibility: hidden;
+      transform: rotate(135deg);
+      @include medium {
+        top: calc(50% - #{size});
+      }
+    }
+    &.slick-prev {
+      left: 0;
+      &::before {
+        left: $offset;
+        border-left-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+    &.slick-next {
+      right: 0;
+      &::before {
+        right: $offset;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+      }
+  }
+  }
+  .slick-slide {
+    outline: none;
+    > section {
+      display: table;
+      text-align: center;
+      margin: auto;
+    }
+  }
+  .slick-dots {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0 10px;
+      padding: 0;
+      &.slick-active button {
+        background-color: rgba($accent-color, .2);
+        pointer-events: none;
+        border-color: $accent-color;
+      }
+      button {
+        transition: $default-transition;
+        $size: 15px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        @extend %image-replace;
+        background: none;
+        padding: 0;
+        margin: 0;
+        width: $size;
+        height: $size;
+        outline: none;
+        &:hover {
+          background-color: rgba(#fff, .2);
+        }
+      }
+    }
+  }
+}

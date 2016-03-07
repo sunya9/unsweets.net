@@ -1,24 +1,5 @@
-@mixin rotate($n) {
-  -moz-transform: rotate($n);
-  -o-transform: rotate($n);
-  -webkit-transform: rotate($n);
-  transform: rotate($n);
-}
-
-@mixin scale($n) {
-  -moz-transform: scale($n);
-  -o-transform: scale($n);
-  -webkit-transform: scale($n);
-  transform: scale($n);
-}
-
-@mixin titleExtend($position: 0) {
-  background: transparent url(../images/titles.png) -10px ($position - 1) * -100px no-repeat;
-}
-
-
 @mixin large{
-  @media screen and (max-width: 960px){
+  @media screen and (min-width: 960px){
     @content;
   }
 }
@@ -30,20 +11,19 @@
 }
 
 @mixin medium{
-  @media screen and (max-width: 850px){
+  @media screen and (min-width: 850px){
     @content;
   }
 }
 
 @mixin small{
-  @media screen and (max-width: 800px){
+  @media screen and (min-width: 800px){
     @content;
   }
 }
 
 @mixin sp{
-  // @media screen and (max-device-width: 640px){
-  @media screen and (max-width: 640px){
+  @media screen and (min-width: 640px){
     @content;
   }
 }
