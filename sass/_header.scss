@@ -1,218 +1,189 @@
-header {
-  box-shadow: 0 1px 10px 3px rgba(#000, 0.1);
-  transform: translate3d(0, 0, 0);
-  border-bottom: 1px solid #f0f0f0;
-  background: url(../images/whitediamond.png) fixed;
-  transition: .5s all ease;
-  width: 100%;
-  overflow: hidden;
-  z-index: 4;
+@import 'variables';
+
+#top {
+  @extend %quicksand;
+  min-height: 100vh;
   position: relative;
-  @include sp {
-    display: block;
-    width: auto;
+  display: table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#logo {
+  margin: 0 0 1rem;
+}
+
+#logo a, #site-description {
+  color: #fff;
+}
+
+#site-description {
+  font-size: 1.3rem;
+}
+
+#scroll-down {
+  $size: 30px;
+  $border-width: 1px;
+  $border-color: rgba($accent-color, .7);
+  position: absolute;
+  transform: rotate(45deg);
+  border: $border-width solid $border-color;
+  border-top: none;
+  border-left: none;
+  left: 50%;
+  margin-left: -$size / 2 - $border-width;
+  width: $size;
+  height: $size;
+  display: block;
+  transition: $default-transition;
+  animation: bound .5s ease-in-out infinite alternate;
+  backface-visibility: hidden;
+  &:hover {
+    animation: none;
+    bottom: 100px;
   }
-  @include hidden-sp {
-    height: 100%;
-  }
- @at-root #header-background{
-    background: #f9f9f9;
-    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(249,249,249,1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(249,249,249,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(249,249,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f9f9f9',GradientType=0 );
-    display: table;
-    height: 100%;
+  &::before, &::after {
+    content: '';
+    position: absolute;
     width: 100%;
-    @include sp {
-      display: block;
-    }
-    .centering {
-      vertical-align: middle;
-      position:relative;
-      display: table-cell;
-      @include sp {
-        display: block;
-      }
-      @at-root #logo {
-        margin: 128px auto .8em;
-        width: 410px;
-        @include sp {
-          margin:1.7em auto .3em;
-          width: auto;
-        }
-        a {
-          @extend %image-replace;
-          background: url(../images/logo.png) no-repeat center;
-          display: block;
-          height: 65px;
-          margin: 0 auto;
-          width: 410px;
-          &:hover {
-            opacity: .6;
-          }
-          @include sp {
-            background-size: 80%;
-            background-position: center center;
-            width: 100%;
-            &:hover{
-              opacity: 1;
-            }
-          }
-        }
-      }
-      @at-root #desc {
-        text-align: center;
-        width: 410px;
-        margin: 1em auto 1em;
-        padding-top: .8em;
-        border-top: 3px double #dfdfdf;
-        color: #b6b6b6;
-        font: {
-          family: 'Roboto', sans-serif;
-          weight: 100;
-          size: 140%;
-        };
-        @include sp {
-          width: auto;
-          margin: 0 10px;
-          padding-top: .5em;
-          font-size: 130%;
-        }
-      }
-      @at-root #global-nav {
-        @include miniclearfix;
-        font-family: 'Roboto', $font-family;
-        margin: 2em auto 3em;
-        position: relative;
-        @include sp {
-          height:auto;
-          box-shadow:inset 0 0 100px 0 rgba(#fcfcfc, .8),
-          0 1px 0 0 rgba(#fcfcfc, .8),
-          0 -1px 0 0 rgba(#fcfcfc, .3);
-          border-top:1px solid rgba(#999, .5);
-          border-bottom:1px solid rgba(#999, .5);
-        }
-        ul {
-          @include miniclearfix;
-          float: left;
-          left: 50%;
-          margin: 0;
-          padding: 0;
-          position: relative;
-          @include sp {
-            float:none;
-            left:auto;
-            position:static;
-          }
-          li {
-            float: left;
-            left: -50%;
-            list-style-type: none;
-            margin: 0 38px;
-            padding: 0;
-            position: relative;
-            @include small{
-              margin: 0 20px;
-            }
-            @include sp {
-              left:auto;
-              float:none;
-              margin:0;
-              position:static;
-              &:first-child a{
-                border-top:none;
-              }
-              &:last-child a{
-                border-bottom:none !important;
-              }
-            }
-            a {
-              border-bottom: 1px dotted transparent;
-              color: #808080;
-              display: block;
-              font:{
-                size: 187.5%;
-                weight: 100;
-              }
-              margin: 0 -5px;
-              padding-left: 5px;
-              padding-right: 5px;
-              text-decoration: none;
-              text-shadow: 0 1px 1px #fff;
-              transition: all .5s ease;
-              position: relative;
-              &::after{
-                content: '';
-                width: 0;
-                height: 0;
-                display: block;
-                bottom: 0;
-                left: 0;
-                margin: 0 -5px -1px;
-                border-bottom: 1px solid transparent;
-                transition: all .3s linear;
-              }
-              &:hover {
-                color: #505050;
-                &::after{
-                  width: 100%;
-                  padding: 0 5px;
-                  border-bottom-color: inherit;
-                }
-              }
-              @include hidden-sp {
-                @each $name, $map in $sections{
-                  $color: map-get($map, light);
-                  &[href='##{$name}'] {
-                    border-bottom-color: $color;
-                  }
-                }
-              }
-              @include sp {
-                background-color: #f9f9f9;
-                padding:.15em 10px;
-                margin:0;
-                display:block;
-                border-bottom:1px solid rgba(#999, .5);
-                border-top:1px solid rgba(#fcfcfc, .8);
-                @each $name, $map in $sections{
-                  &[href='##{$name}']:first-letter{
-                    color: map-get($map, light);
-                  }
-                  &::after{
-                    border-bottom: none;
-                  }
-                }
-              }
-            }
-          }
-        }
+    height: 100%;
+    border: $border-width solid $border-color;
+    border-top: none;
+    border-left: none;
+  }
+  &::before {
+    right: -10px;
+    bottom: -10px;
+  }
+  &::after {
+    right: -19px;
+    bottom: -19px;
+  }
+}
 
-      }
-      @at-root #scroll_down {
+@keyframes bound {
+  from {
+    opacity: .5;
+    bottom: 100px;
+  }
+  to {
+    bottom: 105px;
+    opacity: 1;
+  }
+}
+
+#global-nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(darken($bg-color-start, 10%), .95);
+  transition: all .3s ease;
+  display: none;
+  z-index: 874;
+  display: table;
+  visibility: hidden;
+  opacity: 0;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  ul {
+    @at-root .show#{&} {
+      transform: scale(1) rotateX(0);
+      visibility: visible;
+    }
+    visibility: hidden;
+    transition: all .3s ease;
+    transform: scale(.2) rotateX(180deg);
+    vertical-align: middle;
+    display: table-cell;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-size: 2rem;
+    line-height: 2;
+    > li {
+      a {
+        color: #fff;
+        width: 100%;
         display: block;
-        width: 128px;
-        height: 128px;
-        margin: 0 auto;
-        opacity: .3;
-        transition: all .3s ease-in-out;
-        cursor: pointer;
-        position: relative;
-        top: 0;
-        background: url(../images/scroll_down.png) no-repeat;
-        &:hover {
-          opacity: .6;
-          top: 20px;
-        }
-        @include sp {
-          display: none;
+        &.active {
+          text-decoration: line-through;
         }
       }
     }
   }
+}
 
+#toggle-menu {
+  @extend %image-replace;
+  $size: 30px;
+  $offset: 10px;
+  position: fixed;
+  right: $offset;
+  top: $offset;
+  z-index: 5123;
+  border: none;
+  width: $size;
+  height: $size;
+  background: none;
+  padding: 10px;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+  box-sizing: content-box;
+  transition: $default-transition;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+#toggle-menu-border {
+  $color: rgba(#fff, .95);
+  $height: 2px;
+  margin: auto;
+  display: block;
+  height: $height;
+  position: relative;
+  background-color: $color;
+  transition: all .3s ease;
+  &.show {
+    background-color: transparent;
+  }
+  &::before, &::after {
+    transition: all .3s ease;
+    position: absolute;
+    content: '';
+    height: $height;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin: auto;
+    background-color: $color;
+    transform-origin: right center;
+  }
+  &.show::before, &.show::after {
+    top: 50%;
+    bottom: 50%;
+    transform-origin: center;
+    background-color: $accent-color;
+  }
+  &::before {
+    top: -$height * 5;
+  }
+  &.show::before {
+    transform: rotate(-45deg);
+  }
+  &::after {
+    bottom: -$height * 5;
+  }
+  &.show::after {
+    transform: rotate(45deg);
+  }
 }

@@ -1,18 +1,13 @@
 @charset 'utf-8';
 
-/* Background pattern from subtlepatterns.com */
-
-@import '../bower_components/hail2u-scss-partials/normalize';
-@import '../bower_components/hail2u-scss-partials/clearfix';
-@import '../bower_components/modernizr-mixin/stylesheets/modernizr';
+@import '~normalize.css/normalize.css';
+@import '~slick-carousel/slick/slick.css';
 @import 'mixin';
 @import 'variables';
 @import 'placeholder';
+@import 'slick-theme';
 @import 'util';
 @import 'container';
 @import 'header';
-@import 'contents'; 
-@import 'section'; 
-@import 'left';
-@import 'right';
+@import 'contents';
 @import 'footer';

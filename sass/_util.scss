@@ -2,19 +2,107 @@
 	display:none !important;
 }
 
-.fleft {
-  float: left;
+.button{
+  @extend %quicksand;
+  background-color: transparent;
+  color: #f0f0f0;
+  display: inline-block;
+  font:{
+    size: .85rem;
+    weight: bold;
+  }
+  margin: 0 0 1rem;
+  padding: .4rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid $border-color;
+  outline: none;
+  transition: $default-transition;
+  text-shadow: 0 0 1px rgba(#000, .5);
+  vertical-align: middle;
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+  &:active {
+    background-color: rgba(#000, .1);
+    border-color: rgba(#000, .5);
+    color: #888;
+    box-shadow: 0 0 5px rgba(#000, .2) inset;
+  }
 }
 
-.fright {
-  float: right;
+.two-columns {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  > * {
+    margin: 0 1rem 1rem;
+    width: calc(100% - 2rem);
+    @include medium {
+      width: calc(50% - 2rem);
+    }
+  }
 }
 
-.clear {
-  clear: both;
+.hexagon {
+  position: relative;
+  width: 128px; 
+  height: 74px;
+  margin: 37px 0;
+  background-size: auto 147.8px;
+  background-position: center;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 128px;
+    height: 74px;
+    z-index: 2;
+    background: inherit;
+  }
+  .hexTop, .hexBottom {
+    position: absolute;
+    z-index: 1;
+    width: 91px;
+    height: 90.51px;
+    overflow: hidden;
+    transform: scaleY(0.5774) rotate(-45deg);
+    background: inherit;
+    left: 19px;
+    backface-visibility: hidden;
+    &::after, &::after {
+      content: '';
+      position: absolute;
+      width: 128px;
+      height: 73.9px;
+      transform: rotate(45deg) scaleY(1.7321) translateY(-36.9504px);
+      transform-origin: 0 0;
+      background: inherit;
+    }
+  }
+  .hexTop {
+    top: -45.2548px;
+    &::after {
+      background-position: center top;
+    }
+  }
+  .hexBottom {
+    bottom: -45.2548px;
+    &::after {
+      background-position: center bottom;
+    }
+  }
 }
 
-@function get-color($name, $brightness: light){
-  $section: map-get($sections, $name);
-  @return map-get($section, $brightness);
-}
+
+
+
+
+
+
