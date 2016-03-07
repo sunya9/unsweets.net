@@ -17,7 +17,7 @@ class Menu {
   }
 
   set visible(bool) {
-    if(this._visible = bool) {
+    if((this._visible = bool)) {
       $(this.menu, this.button).addClass(this.toggleClass);
     } else {
       $(this.menu, this.button).removeClass(this.toggleClass);
