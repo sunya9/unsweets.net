@@ -14,4 +14,4 @@ after_success:
   - git init
   - git add .
   - git commit -m 'Update'
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/sunya9/unsweets.net.git" gh-pages > /dev/null 2>&1
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/sunya9/unsweets.net.git" master:gh-pages > /dev/null 2>&1
