@@ -8,6 +8,10 @@
     "parserOptions": {
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
+    "plugins": [
+        "babel"
+    ],
     "rules": {
         "indent": [
             2,
@@ -15,7 +19,7 @@
         ],
         "linebreak-style": [
             2,
-            "unix"
+            "windows"
         ],
         "quotes": [
             2,
