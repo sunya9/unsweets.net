@@ -1,5 +1,5 @@
 import Particle from './particle';
-import util from './util';
+import { debounce, autobind } from 'core-decorators';
 
 const AMOUNT = 250;
 const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -8,38 +8,39 @@ class Particles {
   constructor(selector) {
     this.canvas = document.querySelector(selector);
     this.ctx = this.canvas.getContext('2d');
-    this.resizeCanvas();
-    const resizeEvent = util.debounce(this.onResize.bind(this), 100, true);
-    window.addEventListener('resize', resizeEvent.bind(this));
-    this.particles = this.generateParticles();
-
+    this.initCanvas();
+    window.addEventListener('resize', this.onResize);
     this.render();
   }
 
+  @autobind
+  @debounce(100, true)
   onResize() {
-    this.resizeCanvas();
+    this.initCanvas();
   }
 
-  resizeCanvas() {
+  initCanvas() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    if(this.particles) this.particles.forEach(particle => particle.updateColor());
+    this.particles.forEach(particle => particle.updateColor());
   }
 
-  generateParticles() {
-    const particles = [];
-    for(let i = 0; AMOUNT > i; ++i) {
-      const particle = new Particle(this);
-      particles.push(particle);
+  get particles() {
+    if(!this._particles) {
+      this._particles = [];
+      for(let i = 0; AMOUNT > i; ++i) {
+        this._particles.push(new Particle(this));
+      }
     }
-    return particles;
+    return this._particles;
   }
 
+  @autobind
   render() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.particles.forEach(particle => particle.render());
-    requestAnimationFrame(this.render.bind(this));
+    requestAnimationFrame(this.render);
   }
 }
 

@@ -1,9 +1,9 @@
 import util from './util';
 
-const COLOR_MIN = 100;
+const COLOR_MIN = 150;
 const COLOR_MAX = 200;
-const ALPHA_MIN = 0.1;
-const ALPHA_MAX = 0.5;
+const ALPHA_MIN = 0.2;
+const ALPHA_MAX = 0.4;
 const RADIUS_MIN = 0.1;
 const RADIUS_MAX = 1.4;
 const V_MIN = 0.1;

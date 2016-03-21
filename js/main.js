@@ -13,15 +13,17 @@ $('#works-slider').slick({
   dots: true
 });
 
-const sections = $.map($('#global-nav a'), e => {
+const $globalNav = $('#global-nav');
+const hashLink = 'a[href^="#"]';
+const sections = $.map($(hashLink, $globalNav), e => {
   return {
     id: e.hash,
     distance: $(e.hash).offset().top
   };
 });
 
-menu.click(() => {
-  $('#global-nav a[href^="#"]').removeClass('active');
+menu.setOnClickListener(() => {
+  $(hashLink, $globalNav).removeClass('active');
   const scrollTop = $(document).scrollTop();
   const nearestElement = sections.reduce((prev, current) => {
     const p = Math.abs(scrollTop - prev.distance);
@@ -29,17 +31,15 @@ menu.click(() => {
     if(p > c) prev = current;
     return prev;
   });
-  $(`a[href="${nearestElement.id}"]`, '#global-nav').addClass('active');
+  $(`a[href="${nearestElement.id}"]`, $globalNav).addClass('active');
 });
 
 new Particles('#particles');
 
-$('[href^="#"]').click(function(e) {
+$(hashLink).click(e => {
   e.preventDefault();
-  $.scrollTo($(this.hash), 500);
+  $.scrollTo($(e.target.hash), 500);
   menu.visible = false;
 });
 
-$('#global-nav').click(function() {
-  menu.visible = false;
-});
+$globalNav.click(() => menu.visible = false);
