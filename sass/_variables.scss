@@ -1,8 +1,9 @@
 $font-family: Quicksand, 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, sans-serif;
-
-$default-transition: all .4s ease-in-out;
-$bg-color-start: darken(#34495e, 5%);
-$bg-color-end: darken(#2c3e50, 5%);
+$easing: ease-in-out;
+$duration: .4s;
+$default-transition: all $duration $easing;
+$bg-color-start: darken(#34495e, 0%);
+$bg-color-end: darken(#2c3e50, 35%);
 $accent-color: #c0392b;
 $accent-color-light: #e74c3c;
 $second-accent-color: #2c3e50;

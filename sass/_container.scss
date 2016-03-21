@@ -14,7 +14,7 @@ body {
   -webkit-text-size-adjust: 100%;
   background-color: $bg-color-end;
   background: #34495e;
-  background: linear-gradient(135deg, $bg-color-start 0%, $bg-color-end 100%) fixed;
+  background: linear-gradient(to bottom right, $bg-color-start, $bg-color-end) fixed;
   padding: 0;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
