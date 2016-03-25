@@ -76,7 +76,7 @@
 
 #global-nav {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   top: 0;
   left: 0;
@@ -126,15 +126,15 @@
   $size: 30px;
   $offset: 10px;
   position: fixed;
-  right: $offset;
   top: $offset;
+  right: calc(100vw - 100%);
   z-index: 5123;
   border: none;
   width: $size;
   height: $size;
   background: none;
   padding: 10px;
-  margin: 0;
+  margin: 0 calc(100% - 100vw + #{$offset}) 0 0;
   outline: none;
   cursor: pointer;
   box-sizing: content-box;
