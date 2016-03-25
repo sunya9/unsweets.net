@@ -1,7 +1,8 @@
 import Particle from './particle';
 import { debounce, autobind } from 'core-decorators';
 
-const AMOUNT = 250;
+const PERCENTAGE = 0.003;
+const AMOUNT = document.body.clientWidth * document.body.clientHeight * PERCENTAGE / 100;
 const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 class Particles {
