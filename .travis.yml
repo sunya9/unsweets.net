@@ -2,18 +2,7 @@ language: node_js
 node_js:
   - 4.1
 script:
-  - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && npm test && npm run build'
+  - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && npm test && npm run build && npm run deploy'
 env:
   global:
     secure: 'lFPhCyJnqoKUoR5kNH+kudkJ2P3hU6uWoy8hfVlfGZyukiNc/P/sAON2zdTOegkpCCaSwcMf57v59y4AMvpgH9xoDESs4mVHdGV9G9LDLUtoUIgXPzzhTgsigu8P8VYagdXnhOm9ly1JIARzIhzxJ/pj7zx2HBB7aEfmSgZVYM50Zf8QFy/IPyEo4gTobCQQATE9HzEeqNqcWqT/5wMf3NAFtJlgMteSp98uM1vLvO2cu50V3SNT7sLzVBMIlq6Ff8CmxzbTGZ5xeSbyI5bXf6B3FdUSEn1BvcvT+I1ugwrvtAyMTnqOOlB9qMmGEu0c2vlEg72KYqHXpNoN43Cr1IJvjdOuR5a6YkLCM6ABh54Ui/k7QoP7c2JJ2OwpI2obq8BkDnQGy9LChtLCe3ThDJ1Am855LENmRWi+mfcucks6j6OleYfOXwN2yIvtkHLIfAt+fe5ybbdsALoc5mhDhu+nl+fdQdd68h61YPIFhq/xw7bpvSvKp/XGk8RsuATzvjDUbBOTn5GgMpbvt2BG93i04uh3sN0OddAolV7mC8HqqDNWyFqRLq0ZS3NodAHJYi+gpd3daacCNcE9wtFdhBo4wohVI6hUtSHrtOht7znE/EzMmKRTGUbow6mGl427nM1uKtHDuzYBFHK1/kX2v9ItR6Oe7XwEypZOPjzWM0s='
-
-after_success:
-  - export REPOSITORY_URL=`git config --get remote.origin.url`
-  - cd build
-  - git config user.email "mugen.xyz@gmail.com"
-  - git config user.name "sunya9 from Travis-CI"
-  - git init
-  - git remote add origin $REPOSITORY_URL
-  - git add .
-  - git commit -m 'Update'
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/sunya9/unsweets.net.git" master:gh-pages > /dev/null 2>&1
