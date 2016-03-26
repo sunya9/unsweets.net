@@ -19,6 +19,7 @@ main {
     }
     h3, h4, h5 {
       @extend %quicksand;
+      color: lighten($text-color, 10%);
     }
     h3 {
       margin: 0 0 1rem;
