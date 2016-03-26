@@ -38,7 +38,7 @@ new Particles('#particles');
 
 $(hashLink).click(e => {
   e.preventDefault();
-  $.scrollTo($(e.target.hash), 500);
+  $.scrollTo($(e.currentTarget.hash), 500);
   menu.visible = false;
 });
 
