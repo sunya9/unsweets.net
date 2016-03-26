@@ -29,7 +29,7 @@
     "test": "eslint js/**",
     "start": "webpack-dev-server --hot --inline --content-base static/",
     "build": "webpack -p && cp -r static/* build/",
-    "deploy": "./deploy.sh"
+    "deploy": "bash ./deploy.sh"
   },
   "repository": {
     "type": "git",
