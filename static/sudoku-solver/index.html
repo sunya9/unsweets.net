@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>
+      Sudoku Solver - &lt;unsweets/&gt;
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
+  <link rel="stylesheet" href="/css/sudoku-solver/main.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <h1 class="app__title">Sudoku Solver</h1>
+    <div class="tables" v-cloak>
+      <div class="tables__problem">
+        <table class="sudoku">
+          <tbody>
+            <tr v-for="row in table" track-by="$index">
+              <td v-for="number in row" track-by="$index">
+                <input type="text" v-model="number">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tables__button solve-button-wrapper">
+        <button @click="solve" class="solve-button-wrapper__solve-button">Solve</button>
+
+      </div>
+      <div class="tables__answer">
+        <table class="sudoku">
+          <tbody>
+            <tr v-for="row in ansTable" track-by="$index">
+              <td v-for="number in row" track-by="$index">
+                <input type="text" v-model="number" readonly>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="app__message" v-show="message">
+      {{message}}
+    </div>
+  </div>
+  <script src="/js/sudoku-solver/main.js"></script>
+</body>
+</html>
