@@ -16,14 +16,15 @@
     "eslint-plugin-babel": "^3.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.7.0",
     "normalize.css": "^3.0.3",
     "postcss-loader": "^0.8.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "worker-loader": "^0.7.0"
   },
   "scripts": {
     "test": "eslint js/**",
@@ -41,9 +42,11 @@
   },
   "homepage": "https://github.com/sunya9/unsweets.net",
   "dependencies": {
+    "eventemitter3": "^1.2.0",
     "jquery": "^2.2.1",
     "jquery.scrollto": "^2.1.2",
     "slick-carousel": "^1.5.9",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "vue": "^1.0.24"
   }
 }
