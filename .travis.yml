@@ -9,9 +9,9 @@ env:
 
 after_success:
   - cd build
-  - git config user.email "mugen.xyz@gmail.com"
-  - git config user.name "sunya9 from Travis-CI"
+  - git config --global user.email "mugen.xyz@gmail.com"
+  - git config --global user.name "sunya9 from Travis-CI"
   - git init
   - git add .
   - git commit -m 'Update'
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/sunya9/unsweets.net.git" master:gh-pages > /dev/null 2>&1
+  - git push --quiet "https://${GH_TOKEN}@github.com/sunya9/unsweets.net.git" master:gh-pages > /dev/null 2>&1
