@@ -12,10 +12,11 @@
     "babel-preset-stage-0": "^6.5.0",
     "core-decorators": "^0.11.1",
     "css-loader": "^0.23.1",
-    "eslint": "^2.4.0",
+    "eslint": "^3.11.1",
     "eslint-plugin-babel": "^3.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "lodash.debounce": "^4.0.8",
     "node-sass": "^3.7.0",
     "normalize.css": "^3.0.3",
     "postcss-loader": "^0.8.1",
@@ -28,8 +29,9 @@
   },
   "scripts": {
     "test": "eslint js/**",
-    "start": "webpack-dev-server --hot --inline --content-base static/",
-    "build": "webpack -p && cp -r static/* build/"
+    "fix": "eslint --fix js/**/*.js webpack.config.babel.js",
+    "start": "webpack-dev-server --noinfo --colors --hot --inline --content-base static/",
+    "build": "webpack -p --progress && cp -r static/* build/"
   },
   "repository": {
     "type": "git",
