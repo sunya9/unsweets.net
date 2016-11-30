@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-const extractCSS = new ExtractTextPlugin('[name]');
+const extractCSS = new ExtractTextPlugin('[name]')
 
 const config = {
   entry: './js/main',
@@ -35,6 +35,6 @@ const config = {
   postcss : [
     require('autoprefixer')
   ]
-};
+}
 
 export default config

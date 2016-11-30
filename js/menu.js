@@ -1,36 +1,35 @@
-import $ from 'jquery';
-import { autobind } from 'core-decorators';
+import $ from 'jquery'
 
 class Menu {
   constructor(buttonSelector, menuSelector) {
-    this.button = $(buttonSelector);
-    this.menu = $(menuSelector);
-    this.toggleClass = 'show';
-    this.button.click(this.click);
+    this.button = $(buttonSelector)
+    this.menu = $(menuSelector)
+    this.toggleClass = 'show'
+    this.click = this.click.bind(this)
+    this.button.click(this.click)
   }
 
-  @autobind
   click(event) {
-    if(this._clickCallback) this._clickCallback(event);
-    this.visible = !this.visible;
+    if(this._clickCallback) this._clickCallback(event)
+    this.visible = !this.visible
   }
 
   setOnClickListener(callback) {
     if(callback)
-      this._clickCallback  = callback;
+      this._clickCallback  = callback
   }
 
   set visible(bool) {
     if((this._visible = bool)) {
-      $(this.menu, this.button).addClass(this.toggleClass);
+      $(this.menu, this.button).addClass(this.toggleClass)
     } else {
-      $(this.menu, this.button).removeClass(this.toggleClass);
+      $(this.menu, this.button).removeClass(this.toggleClass)
     }
   }
 
   get visible() {
-    return this._visible;
+    return this._visible
   }
 }
 
-export default Menu;
+export default Menu
