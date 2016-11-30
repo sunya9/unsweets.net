@@ -30,7 +30,7 @@
   "scripts": {
     "test": "eslint js/**",
     "fix": "eslint --fix js/**/*.js webpack.config.babel.js",
-    "start": "webpack-dev-server --noinfo --colors --hot --inline --content-base static/",
+    "start": "webpack-dev-server --noinfo --colors --inline --content-base static/",
     "build": "webpack -p --progress && cp -r static/* build/"
   },
   "repository": {
