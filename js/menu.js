@@ -33,4 +33,4 @@ class Menu {
   }
 }
 
-module.exports = Menu;
+export default Menu;

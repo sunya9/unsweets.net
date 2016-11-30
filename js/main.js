@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import 'slick-carousel';
 import 'jquery.scrollto';
-import '../sass/main.scss';
 import Menu from './menu';
 import Particles from './particles';
 
