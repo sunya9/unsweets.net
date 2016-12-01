@@ -1,44 +1,32 @@
-import $ from 'jquery'
-import 'slick-carousel'
-import 'jquery.scrollto'
-import Menu from './menu'
-import Particles from './particles'
+import Menu from './Menu'
+import Particles from './Particles'
+import Carousel from './Carousel'
+import { scrollTo } from './util'
 
-const menu = new Menu('#toggle-menu', '#global-nav, #toggle-menu-border')
-$('#works-slider').slick({
-  infinite: false,
-  draggable: false,
-  easing: 'swing',
-  dots: true
+import '../css/main.css'
+
+const menuButtonEl = document.getElementById('toggle-menu')
+const menuEl = document.getElementById('global-nav')
+const canvasEl = document.getElementById('particles')
+const carouselEl = document.querySelector('.works-slider')
+const scrollDownEl = document.getElementById('scroll-down')
+
+new Menu(menuButtonEl, menuEl)
+
+new Particles(canvasEl).render()
+
+new Carousel(carouselEl, {
+  classNameFrame: 'works-slider-frame',
+  classNameSlideContainer: 'works-slider-slides',
+  dots: true,
+  classNameDotContainer: 'works-slider-dots',
+  classNamePrevCtrl: 'works-slider-prev',
+  classNameNextCtrl: 'works-slider-next',
+  classNameDotBoal: 'works-slider-boal'
 })
 
-const $globalNav = $('#global-nav')
-const hashLink = 'a[href^="#"]'
-const sections = $.map($(hashLink, $globalNav), e => {
-  return {
-    id: e.hash,
-    distance: $(e.hash).offset().top
-  }
-})
-
-menu.setOnClickListener(() => {
-  $(hashLink, $globalNav).removeClass('active')
-  const scrollTop = $(document).scrollTop()
-  const nearestElement = sections.reduce((prev, current) => {
-    const p = Math.abs(scrollTop - prev.distance)
-    const c = Math.abs(scrollTop - current.distance)
-    if(p > c) prev = current
-    return prev
-  })
-  $(`a[href="${nearestElement.id}"]`, $globalNav).addClass('active')
-})
-
-new Particles('#particles')
-
-$(hashLink).click(e => {
+scrollDownEl.addEventListener('click', e => {
   e.preventDefault()
-  $.scrollTo($(e.currentTarget.hash), 500)
-  menu.visible = false
+  const to = document.getElementById(e.target.hash.substr(1)).offsetTop
+  scrollTo(to, 500)
 })
-
-$globalNav.click(() => menu.visible = false)

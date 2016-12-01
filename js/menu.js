@@ -1,30 +1,39 @@
-import $ from 'jquery'
+import MenuItems from './MenuItems'
 
 class Menu {
-  constructor(buttonSelector, menuSelector) {
-    this.button = $(buttonSelector)
-    this.menu = $(menuSelector)
-    this.toggleClass = 'show'
-    this.click = this.click.bind(this)
-    this.button.click(this.click)
+  constructor(buttonEl, menuEl, callback) {
+    this._toggleClass = 'show'
+    this._clickCallback = callback
+
+    this._button = buttonEl
+    this._menu = menuEl
+
+    this.buttonClick = this.buttonClick.bind(this)
+    this.close = this.close.bind(this)
+
+    // Close on click anyhere
+    this._menu.addEventListener('click', this.close)
+    this._button.addEventListener('click', this.buttonClick)
+
+    this._menu.getElementsByTagName('a')
+    
+    this._menuItems = new MenuItems(this._menu)
   }
 
-  click(event) {
-    if(this._clickCallback) this._clickCallback(event)
+  buttonClick() {
+    this._menuItems.show()
     this.visible = !this.visible
   }
 
-  setOnClickListener(callback) {
-    if(callback)
-      this._clickCallback  = callback
+  close() {
+    this.visible = false
   }
 
   set visible(bool) {
-    if((this._visible = bool)) {
-      $(this.menu, this.button).addClass(this.toggleClass)
-    } else {
-      $(this.menu, this.button).removeClass(this.toggleClass)
-    }
+    this._visible = bool
+    const method = this._visible ? 'add' : 'remove'
+    const targets = [this._button, this._menu]
+    targets.forEach(el => el.classList[method](this._toggleClass))
   }
 
   get visible() {

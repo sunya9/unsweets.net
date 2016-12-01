@@ -1,4 +1,4 @@
-import util from './util'
+import { getRandomArbitary, rgba } from './util'
 
 const COLOR_MIN = 150
 const COLOR_MAX = 200
@@ -10,40 +10,44 @@ const V_MIN = 0.1
 const V_MAX = 1
 
 class Particle {
-  constructor(particles) {
-    this.ctx = particles.ctx
-    this.canvas = particles.canvas
-    this.color = Math.floor(util.getRandomArbitary(COLOR_MIN, COLOR_MAX))
-    this.alpha = util.getRandomArbitary(ALPHA_MIN, ALPHA_MAX)
+  constructor(canvas, context) {
+    this._ctx = context
+    this._canvas = canvas
+
+    this.updateColor = this.updateColor.bind(this)
+    this.render = this.render.bind(this)
+
+    this._color = Math.floor(getRandomArbitary(COLOR_MIN, COLOR_MAX))
+    this._alpha = getRandomArbitary(ALPHA_MIN, ALPHA_MAX)
     this.updateColor()
-    this.x = util.getRandomArbitary(0, this.canvas.width)
-    this.y = util.getRandomArbitary(0, this.canvas.height)
-    this.v = util.getRandomArbitary(V_MIN, V_MAX)
-    this.dx = util.getRandomArbitary(-1, 1)
-    this.dy = util.getRandomArbitary(-1, 1)
-    this.radius = util.getRandomArbitary(RADIUS_MIN, RADIUS_MAX)
+    this._x = getRandomArbitary(0, this._canvas.width)
+    this._y = getRandomArbitary(0, this._canvas.height)
+    this._v = getRandomArbitary(V_MIN, V_MAX)
+    this._dx = getRandomArbitary(-1, 1)
+    this._dy = getRandomArbitary(-1, 1)
+    this._radius = getRandomArbitary(RADIUS_MIN, RADIUS_MAX)
   }
 
   updateColor() {
-    this.ctx.fillStyle = util.rgba(this.color, this.color, this.color, this.alpha)
+    this._ctx.fillStyle = rgba(this._color, this._color, this._color, this._alpha)
   }
 
   render() {
-    let nx = this.x + this.dx * this.v
-    let ny = this.y + this.dy * this.v
-    if(nx < 0 || this.canvas.width <= nx) {
-      this.dx = -this.dx
-      nx = this.x + this.dx * this.v
+    let nx = this._x + this._dx * this._v
+    let ny = this._y + this._dy * this._v
+    if(nx < 0 || this._canvas.width <= nx) {
+      this._dx = -this._dx
+      nx = this._x + this._dx * this._v
     }
-    if(ny < 0 || this.canvas.height <= ny) {
-      this.dy = -this.dy
-      ny = this.y + this.dy * this.v
+    if(ny < 0 || this._canvas.height <= ny) {
+      this._dy = -this._dy
+      ny = this._y + this._dy * this._v
     }
-    this.x = nx
-    this.y = ny
-    this.ctx.beginPath()
-    this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-    this.ctx.fill()
+    this._x = nx
+    this._y = ny
+    this._ctx.beginPath()
+    this._ctx.arc(this._x, this._y, this._radius, 0, Math.PI * 2, false)
+    this._ctx.fill()
   }
 }
 
