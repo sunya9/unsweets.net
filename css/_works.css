@@ -62,7 +62,7 @@
   &-prev, &-next {
     position: absolute;
     top: 50%;
-    border: 10px solid color(#fff a(95%));
+    border: 4px double color(#fff a(95%));
     transform: rotate(45deg);
     width: var(--slider-np-button-size);
     height: var(--slider-np-button-size);

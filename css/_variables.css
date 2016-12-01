@@ -9,11 +9,7 @@
   --accent-color-light: #e74c3c;
   --second-accent-color: #2c3e50;
   --text-color: #dfdfdf;
-  --bg-color-start: #34495e;
-  --bg-color-end: color(#2c3e50 l(-35%));
+  --bg-color-start: color(var(--second-accent-color) l(+5%));
+  --bg-color-end: color(var(--second-accent-color) l(-20%));
   --border-color: color(#fff a(50%));
-
-  /*size*/
-  --column_width: 460px;
-  --side_margin: 10px;
 }

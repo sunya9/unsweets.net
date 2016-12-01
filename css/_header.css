@@ -80,7 +80,7 @@
   top: 0;
   left: 0;
   background-color: color(var(--bg-color-start) l(-10%) a(95%));
-  transition: all .3s ease;
+  transition: var(--default-transition);
   display: none;
   z-index: 874;
   display: table;
@@ -96,7 +96,7 @@
   }
   & ul {
     visibility: hidden;
-    transition: all .3s ease;
+    transition: var(--default-transition);
     transform: scale(.2) rotateX(180deg);
     vertical-align: middle;
     display: table-cell;
@@ -172,9 +172,9 @@
   height: var(--toggle-menu-border-height);
   position: relative;
   background-color: var(--toggle-menu-border-color);
-  transition: all .3s ease;
+  transition: var(--default-transition);
   &::before, &::after {
-    transition: all .3s ease;
+    transition: var(--default-transition);
     position: absolute;
     content: '';
     height: var(--toggle-menu-border-height);

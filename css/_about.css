@@ -47,7 +47,7 @@
     width: 100%;
     & dt {
       text-transform: uppercase;
-      font-size: .8rem;
+      /*font-size: .8rem;*/
       color: #ccc;
       border-bottom: 3px double var(--accent-color);
       display: inline-block;
@@ -68,7 +68,7 @@
 #avatar {
   min-width: 128px;
   margin: 0 1rem 0 0;
-  transition: transform 1s ease-in-out;
+  transition: transform 1s var(--easing);
   &:hover {
     transform: rotate(360deg);
   }

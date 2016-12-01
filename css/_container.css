@@ -1,5 +1,5 @@
 ::selection {
-  background-color: color(var(--accent-color) (20%));
+  background-color: color(var(--accent-color) a(20%));
 }
 
 body {

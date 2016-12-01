@@ -32,17 +32,17 @@
     border: 1px solid var(--border-color);
     outline: none;
     transition: var(--default-transition);
-    text-shadow: 0 0 1px color(#000 a(5%));
+    text-shadow: 0 0 1px color(#000 a(50%));
     vertical-align: middle;
     &:hover {
       color: #fff;
       border-color: #fff;
     }
     &:active {
-      background-color: color(#000 a(1%));
-      border-color: color(#000 a(5%));
+      background-color: color(#000 a(10%));
+      border-color: color(#000 a(50%));
       color: #888;
-      box-shadow: 0 0 5px color(#000 a(2%)) inset;
+      box-shadow: 0 0 5px color(#000 a(20%)) inset;
     }
   }
 }
