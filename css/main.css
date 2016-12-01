@@ -2,7 +2,7 @@
 
 @import 'normalize.css';
 @import 'variables';
-@import 'mixin';
+@import 'apply';
 @import 'util';
 @import 'container';
 @import 'header';
