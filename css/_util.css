@@ -1,36 +1,9 @@
-.hidden{
+.hidden {
 	display:none !important;
 }
 
-.button{
-  @extend %quicksand;
-  background-color: transparent;
-  color: #f0f0f0;
-  display: inline-block;
-  font:{
-    size: .85rem;
-    weight: bold;
-  }
-  margin: 0 0 1rem;
-  padding: .4rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid $border-color;
-  outline: none;
-  transition: $default-transition;
-  text-shadow: 0 0 1px rgba(#000, .5);
-  vertical-align: middle;
-  &:hover {
-    color: #fff;
-    border-color: #fff;
-  }
-  &:active {
-    background-color: rgba(#000, .1);
-    border-color: rgba(#000, .5);
-    color: #888;
-    box-shadow: 0 0 5px rgba(#000, .2) inset;
-  }
+.button {
+  @apply --button;
 }
 
 .two-columns {
@@ -40,10 +13,10 @@
   flex-wrap: wrap;
   margin-left: -1rem;
   margin-right: -1rem;
-  > * {
+  & > * {
     margin: 0 1rem 1rem;
     width: calc(100% - 2rem);
-    @include medium {
+    @media (--medium) {
       width: calc(50% - 2rem);
     }
   }
@@ -66,7 +39,7 @@
     z-index: 2;
     background: inherit;
   }
-  .hexTop, .hexBottom {
+  & .hexTop, & .hexBottom {
     position: absolute;
     z-index: 1;
     width: 91px;
@@ -86,13 +59,13 @@
       background: inherit;
     }
   }
-  .hexTop {
+  & .hexTop {
     top: -45.2548px;
     &::after {
       background-position: center top;
     }
   }
-  .hexBottom {
+  & .hexBottom {
     bottom: -45.2548px;
     &::after {
       background-position: center bottom;

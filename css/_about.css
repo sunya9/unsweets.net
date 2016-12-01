@@ -1,14 +1,19 @@
+@import '_variables';
+
+:root {
+  --link-list-border-width: 1px;
+}
+
 .link-list {
   list-style: none;
   padding: 0;
   margin: 0 0 1rem;
-  > li {
+  & > li {
     display: inline-block;
     margin-right: 1rem;
-    a {
-      $height: 1px;
+    & a {
       display: inline-block;
-      border-bottom: $height solid darken($bg-color-start, 5%);
+      border-bottom: var(--link-list-border-width) solid color(var(--bg-color-start) l(-5%));
       position: relative;
       font-weight: bold;
       opacity: .9;
@@ -16,15 +21,15 @@
         content: '';
         position: absolute;
         left: 50%;
-        bottom: -$height;
-        height: $height;
-        transition: $default-transition;
+        bottom: -var(--link-list-border-width);
+        height: var(--link-list-border-width);
+        transition: var(--default-transition);
         width: 0;
       }
       &:hover {
         opacity: 1;
         &::after {
-          background-color: darken($bg-color-start, 10%);
+          background-color: (var(--bg-color-start) l(-10%));
           width: 100%;
           left: 0;
         }
@@ -37,24 +42,24 @@
   display: flex;
   align-items: center;
   margin: 0 0 1rem;
-  dl {
+  & dl {
     margin: 0;
     width: 100%;
-    dt {
+    & dt {
       text-transform: uppercase;
       font-size: .8rem;
       color: #ccc;
-      border-bottom: 3px double $accent-color;
+      border-bottom: 3px double var(--accent-color);
       display: inline-block;
       padding-right: .5rem;
       &:hover {
-        &, + dd {
-          color: lighten($text-color, 5%);
+        &, & + dd {
+          color: color(var(--text-color) l(5%));
         }
       }
     }
-    dd {
-      border-top: 3px double rgba(#fff, .2);
+    & dd {
+      border-top: 3px double color(#fff a(20%));
       margin: -3px 0 .5rem;
     }
   }

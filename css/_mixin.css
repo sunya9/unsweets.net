@@ -1,5 +1,50 @@
-@mixin medium{
-  @media screen and (min-width: 850px){
-    @content;
+@import '_variables';
+
+:root {
+  --image-replace: {
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  --clearfix: {
+      &::after: {
+        content: '';
+        display: block;
+        clear: both;
+      }
+  }
+  --quicksand: {
+    font-weight: 300;
+    font-family: Quicksand, var(--font-family);
+  }
+  --button: {
+    @apply --quicksand;
+    background-color: transparent;
+    color: #f0f0f0;
+    display: inline-block;
+    font-size: .85rem;
+    font-weight: bold;
+    margin: 0 0 1rem;
+    padding: .4rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid var(--border-color);
+    outline: none;
+    transition: var(--default-transition);
+    text-shadow: 0 0 1px color(#000 a(5%));
+    vertical-align: middle;
+    &:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+    &:active {
+      background-color: color(#000 a(1%));
+      border-color: color(#000 a(5%));
+      color: #888;
+      box-shadow: 0 0 5px color(#000 a(2%)) inset;
+    }
   }
 }
+
+

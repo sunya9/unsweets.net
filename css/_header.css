@@ -1,7 +1,8 @@
-@import 'variables';
+@import '_variables';
+@import '_mixin';
 
 #top {
-  @extend %quicksand;
+  @apply --quicksand;
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -22,21 +23,24 @@
   font-size: 1.3rem;
 }
 
+:root {
+  --scroll-down-size: 30px;
+  --scroll-down-border-width: 1px;
+  --scroll-down-border-color: color(var(--accent-color) a(70%));
+}
+
 #scroll-down {
-  $size: 30px;
-  $border-width: 1px;
-  $border-color: rgba($accent-color, .7);
-  position: absolute;
+ position: absolute;
   transform: rotate(45deg);
-  border: $border-width solid $border-color;
+  border: var(--scroll-down-border-width) solid var(--scroll-down-border-color);
   border-top: none;
   border-left: none;
   left: 50%;
-  margin-left: -$size / 2 - $border-width;
-  width: $size;
-  height: $size;
+  margin-left: calc(-var(--scroll-down-size) / 2 - var(--scroll-down-border-width));
+  width: var(--scroll-down-size);
+  height: var(--scroll-down-size);
   display: block;
-  transition: $default-transition;
+  transition: var(--default-transition);
   animation: bound .5s ease-in-out infinite alternate;
   backface-visibility: hidden;
   &::before, &::after {
@@ -44,7 +48,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border: $border-width solid $border-color;
+    border: var(--scroll-down-border-width) solid var(--scroll-down-border-color);
     border-top: none;
     border-left: none;
   }
@@ -75,7 +79,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(darken($bg-color-start, 10%), .95);
+  background-color: color(var(--bg-color-start) l(-10%) a(95%));
   transition: all .3s ease;
   display: none;
   z-index: 874;
@@ -85,12 +89,12 @@
   &.show {
     visibility: visible;
     opacity: 1;
-  }
-  ul {
-    @at-root .show#{&} {
+    & ul {
       transform: scale(1) rotateX(0);
       visibility: visible;
     }
+  }
+  & ul {
     visibility: hidden;
     transition: all .3s ease;
     transform: scale(.2) rotateX(180deg);
@@ -103,58 +107,48 @@
     list-style: none;
     font-size: 2rem;
     line-height: 2;
-    > li {
-      a {
-        color: #fff;
-        width: 100%;
-        display: block;
-        &.active {
-          text-decoration: line-through;
-        }
+    & > li a {
+      color: #fff;
+      width: 100%;
+      display: block;
+      &.active {
+        text-decoration: line-through;
       }
     }
   }
 }
 
+:root {
+  --toggle-menu-size: 30px;
+  --toggle-menu-offset: 10px;
+}
+
 #toggle-menu {
-  @extend %image-replace;
-  $size: 30px;
-  $offset: 10px;
+  @apply --image-replace;
   position: fixed;
-  top: $offset;
+  top: var(--toggle-menu-offset);
   right: calc(100vw - 100%);
   z-index: 5123;
   border: none;
-  width: $size;
-  height: $size;
+  width: var(--toggle-menu-size);
+  height: var(--toggle-menu-size);
   background: none;
   padding: 10px;
-  margin: 0 calc(100% - 100vw + #{$offset}) 0 0;
+  margin: 0 calc(100% - 100vw + var(--toggle-menu-offset)) 0 0;
   outline: none;
   cursor: pointer;
   box-sizing: content-box;
-  transition: $default-transition;
+  transition: var(--default-transition);
   &:hover {
     transform: scale(1.05);
   }
-}
-
-#toggle-menu-border {
-  $color: rgba(#fff, .95);
-  $height: 2px;
-  margin: auto;
-  display: block;
-  height: $height;
-  position: relative;
-  background-color: $color;
-  transition: all .3s ease;
-  .show > & {
+  &.show #toggle-menu-border {
     background-color: transparent;
     &::before, &::after {
         top: 50%;
         bottom: 50%;
         transform-origin: center;
-        background-color: $accent-color;
+        background-color: var(--accent-color);
       }
       &::before {
         transform: rotate(-45deg);
@@ -163,22 +157,38 @@
         transform: rotate(45deg);
       }
   }
+}
+
+:root {
+  --toggle-menu-border-color: color(#fff a(95%));
+  --toggle-menu-border-height: 2px; 
+}
+
+.show #toggle-menu-border {}
+
+#toggle-menu-border {
+  margin: auto;
+  display: block;
+  height: var(--toggle-menu-border-height);
+  position: relative;
+  background-color: var(--toggle-menu-border-color);
+  transition: all .3s ease;
   &::before, &::after {
     transition: all .3s ease;
     position: absolute;
     content: '';
-    height: $height;
+    height: var(--toggle-menu-border-height);
     left: 0;
     display: block;
     width: 100%;
     margin: auto;
-    background-color: $color;
+    background-color: var(--toggle-menu-border-color);
     transform-origin: right center;
   }
   &::before {
-    top: -$height * 5;
+    top: calc(-var(--toggle-menu-border-height) * 5);
   }
   &::after {
-    bottom: -$height * 5;
+    bottom: calc(-var(--toggle-menu-border-height) * 5);
   }
 }

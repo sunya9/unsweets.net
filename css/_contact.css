@@ -1,11 +1,13 @@
+@import '_variables';
+
 #form {
   margin: 2rem auto 1rem;
   position: relative;
   width: 100%;
-  @include medium {
+  @media (--medium) {
     width: 50%;
   }
-  label{
+  & label {
     background: #fcfcfc;
     background-color: transparent;
     display: block;
@@ -13,18 +15,18 @@
     line-height: 2.2;
     font-size: .9rem;
     position: absolute;
-    color: rgba(#fff, .9);
+    color: color(#fff a(90%));
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(#fff, .1);
-    background-color: rgba(#fff, .02);
+    border-bottom: 1px solid color(#fff a(10%));
+    background-color: color(#fff a(2%));
     text-transform: uppercase;
     &:hover {
       cursor: pointer;
     }
   }
-  input, textarea {
-    border: 1px solid $border-color;
+  & input, & textarea {
+    border: 1px solid var(--border-color);
     border-bottom-width: 0;
     background: transparent;
     display: block;
@@ -33,19 +35,19 @@
     line-height: 1.7;
     outline: none;
     box-sizing: border-box;
-    transition: $default-transition;
+    transition: var(--default-transition);
     &:last-of-type {
       border-bottom-width: 1px;
     }
     &:hover, &:focus {
-      background-color: rgba(#fff, .08);
+      background-color: color(#fff a(8%));
     }
   }
-  textarea {
+  & textarea {
     resize: vertical;
   }
-  input[type='submit']{
-    @extend .button;
+  & input[type='submit'] {
+    @apply --button;
     margin-top: 1rem;
   }
 }

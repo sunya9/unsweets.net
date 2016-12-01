@@ -1,20 +1,18 @@
 ::selection {
-  background-color: rgba($accent-color, .2);
+  background-color: color(var(--accent-color) (20%));
 }
 
 body {
-  color: $text-color;
-  font:{
-    family: $font-family;
-    size: 1rem;
-    weight: 300;
-  }
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 300;
   line-height: 1.5;
   margin: 0;
   -webkit-text-size-adjust: 100%;
-  background-color: $bg-color-end;
+  background-color: var(--bg-color-end);
   background: #34495e;
-  background: linear-gradient(to bottom right, $bg-color-start, $bg-color-end) fixed;
+  background: linear-gradient(to bottom right, var(--bg-color-start), var(--bg-color-end)) fixed;
   padding: 0;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -27,15 +25,15 @@ body {
 }
 
 a {
-  color: $accent-color-light;
+  color: var(--accent-color-light);
   text-decoration: none;
-  transition: $default-transition;
-  text-shadow: 0 0 0 $accent-color-light;
+  transition: var(--default-transition);
+  text-shadow: 0 0 0 var(--accent-color-light);
   &:hover {
-    color: lighten($accent-color-light, 5%);
+    color: color(var(--accent-color-light) l(5%));
   }
   &:active {
-    color: darken($accent-color-light, 15%);
+    color: color(var(--accent-color-light) l(-15%));
   }
 }
 

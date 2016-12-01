@@ -1,3 +1,11 @@
+@import '_variables';
+
+:root {
+  --slider-boal-size: 20px;
+  --slider-np-button-size: 30px;
+  --slider-np-button-offset: 10px;
+}
+
 .works-slider {
   position: relative;  
   &-frame {
@@ -14,9 +22,8 @@
   &-slide {
     min-width: 100%;
     text-align: center;
-    transition: $default-transition;
+    transition: var(--default-transition);
   }
-  $boalSize: 20px;
   &-dots {
     list-style: none;
     margin: 0;
@@ -26,9 +33,9 @@
     flex-direction: row;
     position: relative;
     z-index: 1;
-    > li {
-      width: $boalSize;
-      height: $boalSize;
+    & > li {
+      width: var(--slider-boal-size);
+      height: var(--slider-boal-size);
       margin: 0 .5rem;
       cursor: pointer;
       border-radius: 50%;
@@ -39,9 +46,9 @@
     }
   }
   &-boal {
-    width: $boalSize;
-    height: $boalSize;
-    background: $accent-color;
+    width: var(--slider-boal-size);
+    height: var(--slider-boal-size);
+    background: var(--accent-color);
     opacity: .7;
     bottom: 0;
     border: 1px solid transparent;
@@ -49,37 +56,35 @@
     border-radius: 50%;
     margin: 0;
     position: absolute;
-    transition: $default-transition;
+    transition: var(--default-transition);
     display: none;
   }
   &-prev, &-next {
-    $size: 30px;
     position: absolute;
     top: 50%;
-    border: 10px solid rgba(#fff, .95);
+    border: 10px solid color(#fff a(95%));
     transform: rotate(45deg);
-    width: $size;
-    height: $size;
+    width: var(--slider-np-button-size);
+    height: var(--slider-np-button-size);
     background: none;
     outline: none;
-    transition: $default-transition;
+    transition: var(--default-transition);
     &:disabled {
-      opacity: 0
+      opacity: 0;
     }
   }
-  $offset: 10px;
   &-prev {
-    left: 0 + $offset;
+    left: var(--slider-np-button-offset);
     border-right: none;
     border-top: none;
   }
   &-next {
-    right: 0 + $offset;
+    right: var(--slider-np-button-offset);
     border-bottom: none;
     border-left: none;
   }
-  @include medium {
-    h4 {
+  @media (--medium) {
+    & h4 {
       text-align: center;
     }
   }

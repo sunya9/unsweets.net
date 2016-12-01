@@ -1,20 +1,19 @@
-$font-family: Quicksand, 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, sans-serif;
-$easing: ease-in-out;
-$duration: .4s;
-$default-transition: all $duration $easing;
-$bg-color-start: darken(#34495e, 0%);
-$bg-color-end: darken(#2c3e50, 35%);
-$accent-color: #c0392b;
-$accent-color-light: #e74c3c;
-$second-accent-color: #2c3e50;
-$border-color: rgba(#fff, .5);
-$text-color: #dfdfdf;
+:root {
+  --font-family: Quicksand, 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, sans-serif;
+  --easing: ease-in-out;
+  --duration: .4s;
+  --default-transition: all var(--duration) var(--easing);
 
-$twitter-color: #3ba2d2;
-$tumblr-color: #34475a;
-$foursquare-color: #288bb0;
-$pinterest-color: #bf2c33;
-$instagram-color: #96614c;
+  /*color*/
+  --accent-color: #c0392b;
+  --accent-color-light: #e74c3c;
+  --second-accent-color: #2c3e50;
+  --text-color: #dfdfdf;
+  --bg-color-start: #34495e;
+  --bg-color-end: color(#2c3e50 l(-35%));
+  --border-color: color(#fff a(50%));
 
-$column_width: 460px;
-$side_margin: 10px;
+  /*size*/
+  --column_width: 460px;
+  --side_margin: 10px;
+}
