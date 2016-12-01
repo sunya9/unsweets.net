@@ -54,7 +54,7 @@
       padding-right: .5rem;
       &:hover {
         &, & + dd {
-          color: color(var(--text-color) l(5%));
+          color: color(var(--text-color) l(+5%));
         }
       }
     }

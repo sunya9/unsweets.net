@@ -30,7 +30,7 @@ a {
   transition: var(--default-transition);
   text-shadow: 0 0 0 var(--accent-color-light);
   &:hover {
-    color: color(var(--accent-color-light) l(5%));
+    color: color(var(--accent-color-light) l(+5%));
   }
   &:active {
     color: color(var(--accent-color-light) l(-15%));
