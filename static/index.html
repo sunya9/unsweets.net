@@ -7,8 +7,8 @@
         &lt;unsweets/&gt;
     </title>
     <meta name="description" content="unsweetsは_X_y_z_(ekusu)の自作アプリケーションなどを公開するウェブサイトです。">
-     <meta content="&lt;unsweets/&gt;" property="og:title">
-     <meta content="&lt;unsweets/&gt;" property="og:site_name">
+    <meta content="&lt;unsweets/&gt;" property="og:title">
+    <meta content="&lt;unsweets/&gt;" property="og:site_name">
     <meta content="unsweetsは_X_y_z_(ekusu)の自作アプリケーションなどを公開するウェブサイトです。" property="og:description">
     <meta content="https://unsweets.net/" property="og:url">
     <meta content="website" property="og:type">
@@ -61,31 +61,39 @@
         <main id="contents">
             <section id="works">
                 <h3>Works</h3>
-                <div id="works-slider">
-                    <div>
-                        <section id="xstus" itemscope itemtype="http://schema.org/MobileApplication">
-                            <h4 itemprop="name">xsTus</h4>
-                            <meta itemprop="applicationCategory" content="SNS" />
-                            <p>
-                                <img src="images/xstus-icon.png" width="256" height="256" alt="xsTus アイコン" itemprop="image">
-                            </p>
-                            <p itemprop="operatingSystem">
-                                Twitter client for Android.
-                            </p>
-                            <a href="http://xstus.unsweets.net/" itemprop="url" class="button">Detail</a>
-                        </section>
+                <div class="works-slider">
+                    <div class="works-slider-frame">
+                        <ul class="works-slider-slides">
+                            <li class="works-slider-slide">
+                                <section id="xstus" itemscope itemtype="http://schema.org/MobileApplication">
+                                    <h4 itemprop="name">xsTus</h4>
+                                    <meta itemprop="applicationCategory" content="SNS" />
+                                    <p>
+                                        <img src="images/xstus-icon.png" width="256" height="256" alt="xsTus アイコン" itemprop="image">
+                                    </p>
+                                    <p itemprop="operatingSystem">
+                                        Twitter client for Android.
+                                    </p>
+                                    <a href="http://xstus.unsweets.net/" itemprop="url" class="button">Detail</a>
+                                </section>
+                            </li>
+                            <li class="works-slider-slide">
+                                <section id="twitokengetter" itemscope itemtype="http://schema.org/WebApplication">
+                                    <h4 itemprop="name">TwiTokenGetter</h4>
+                                    <meta itemprop="applicationCategory" content="Tool" />
+                                    <meta itemprop="operatingSystem" content="Any" />
+                                    <p itemprop="description">
+                                        OAuth tool for Twitter.
+                                    </p>
+                                    <a href="http://ttg.unsweets.net/" itemprop="url" class="button">Detail</a>
+                                </section>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        <section id="twitokengetter" itemscope itemtype="http://schema.org/WebApplication">
-                            <h4 itemprop="name">TwiTokenGetter</h4>
-                            <meta itemprop="applicationCategory" content="Tool" />
-                            <meta itemprop="operatingSystem" content="Any" />
-                            <p itemprop="description">
-                                OAuth tool for Twitter.
-                            </p>
-                            <a href="http://ttg.unsweets.net/" itemprop="url" class="button">Detail</a>
-                        </section>
-                    </div>
+                    <button class="works-slider-prev"></button>
+                    <button class="works-slider-next"></button>
+                    <ul class="works-slider-dots"></ul>
+                    <span class="works-slider-boal"></span>
                 </div>
             </section>
             <section id="about">
