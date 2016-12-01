@@ -44,6 +44,7 @@
     "eventemitter3": "^1.2.0",
     "jquery": "^2.2.1",
     "jquery.scrollto": "^2.1.2",
+    "lory.js": "^2.2.1",
     "slick-carousel": "^1.5.9",
     "underscore": "^1.8.3",
     "vue": "^1.0.24"
