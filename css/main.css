@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
 @import 'normalize.css';
-@import '_variables';
-@import '_mixin';
-@import '_util';
-@import '_container';
-@import '_header';
-@import '_contents';
+@import 'variables';
+@import 'mixin';
+@import 'util';
+@import 'container';
+@import 'header';
+@import 'contents';
 
 @custom-media --medium (min-width: 850px);

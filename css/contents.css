@@ -1,7 +1,7 @@
-@import '_variables';
-@import '_works';
-@import '_about';
-@import '_contact';
+@import 'variables';
+@import 'works';
+@import 'about';
+@import 'contact';
 
 main {
   max-width: 960px;
