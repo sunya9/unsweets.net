@@ -1,3 +1,7 @@
+@import 'works';
+@import 'about';
+@import 'contact';
+
 main {
   max-width: 960px;
   margin: auto;
@@ -41,128 +45,5 @@ main {
       font-size: 1.2rem;
       margin: 0 0 .2rem;
     }
-  }
-}
-
-.link-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
-  > li {
-    display: inline-block;
-    margin-right: 1rem;
-    a {
-      $height: 1px;
-      display: inline-block;
-      border-bottom: $height solid darken($bg-color-start, 5%);
-      position: relative;
-      font-weight: bold;
-      opacity: .9;
-      &::after{
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: -$height;
-        height: $height;
-        transition: $default-transition;
-        width: 0;
-      }
-      &:hover {
-        opacity: 1;
-        &::after {
-          background-color: darken($bg-color-start, 10%);
-          width: 100%;
-          left: 0;
-        }
-      }
-    }
-  }
-}
-
-#profile {
-  display: flex;
-  align-items: center;
-  margin: 0 0 1rem;
-  dl {
-    margin: 0;
-    width: 100%;
-    dt {
-      text-transform: uppercase;
-      font-size: .8rem;
-      color: #ccc;
-      border-bottom: 3px double $accent-color;
-      display: inline-block;
-      padding-right: .5rem;
-      &:hover {
-        &, + dd {
-          color: lighten($text-color, 5%);
-        }
-      }
-    }
-    dd {
-      border-top: 3px double rgba(#fff, .2);
-      margin: -3px 0 .5rem;
-    }
-  }
-}
-
-#avatar {
-  min-width: 128px;
-  margin: 0 1rem 0 0;
-  transition: transform 1s ease-in-out;
-  &:hover {
-    transform: rotate(360deg);
-  }
-}
-
-#form{
-  margin: 2rem auto 1rem;
-  position: relative;
-  width: 100%;
-  @include medium {
-    width: 50%;
-  }
-  label{
-    background: #fcfcfc;
-    background-color: transparent;
-    display: block;
-    padding: 0 .5rem;
-    line-height: 2.2;
-    font-size: .9rem;
-    position: absolute;
-    color: rgba(#fff, .9);
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(#fff, .1);
-    background-color: rgba(#fff, .02);
-    text-transform: uppercase;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  input, textarea{
-    border: 1px solid $border-color;
-    border-bottom-width: 0;
-    background: transparent;
-    display: block;
-    width: 100%;
-    padding: 2.2rem .5rem .3rem;
-    line-height: 1.7;
-    outline: none;
-    box-sizing: border-box;
-    transition: $default-transition;
-    &:last-of-type{
-      border-bottom-width: 1px;
-    }
-    &:hover, &:focus {
-      background-color: rgba(#fff, .08);
-    }
-  }
-  textarea{
-    resize: vertical;
-  }
-  input[type='submit']{
-    @extend .button;
-    margin-top: 1rem;
   }
 }

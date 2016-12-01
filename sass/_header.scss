@@ -4,7 +4,6 @@
   @extend %quicksand;
   min-height: 100vh;
   position: relative;
-  display: table;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,10 +39,6 @@
   transition: $default-transition;
   animation: bound .5s ease-in-out infinite alternate;
   backface-visibility: hidden;
-  &:hover {
-    animation: none;
-    bottom: 100px;
-  }
   &::before, &::after {
     content: '';
     position: absolute;
@@ -153,8 +148,20 @@
   position: relative;
   background-color: $color;
   transition: all .3s ease;
-  &.show {
+  .show > & {
     background-color: transparent;
+    &::before, &::after {
+        top: 50%;
+        bottom: 50%;
+        transform-origin: center;
+        background-color: $accent-color;
+      }
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
   }
   &::before, &::after {
     transition: all .3s ease;
@@ -168,22 +175,10 @@
     background-color: $color;
     transform-origin: right center;
   }
-  &.show::before, &.show::after {
-    top: 50%;
-    bottom: 50%;
-    transform-origin: center;
-    background-color: $accent-color;
-  }
   &::before {
     top: -$height * 5;
   }
-  &.show::before {
-    transform: rotate(-45deg);
-  }
   &::after {
     bottom: -$height * 5;
-  }
-  &.show::after {
-    transform: rotate(45deg);
   }
 }
