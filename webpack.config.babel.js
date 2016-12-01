@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-const extractCSS = new ExtractTextPlugin('[name]')
+const extractCSS = new ExtractTextPlugin('css/[name].css')
 
 const config = {
   entry: './js/main',
@@ -24,17 +24,19 @@ const config = {
         exclude: /node_modules/,
         loader: 'babel'
       }, {
-        test: /\.scss$/,
-        loader: extractCSS.extract(['css', 'postcss', 'sass'])
+        test: /\.css$/,
+        loader: extractCSS.extract(['css', 'postcss'])
       }, {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf)$/,
-        loader: 'url-loader?limit=100000'
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: 'url-loader'
       }
     ]
   },
-  postcss : [
-    require('autoprefixer')
-  ]
+  postcss: [
+    require('postcss-import'),
+    require('postcss-cssnext'),
+  ],
+  'devtool': 'source-map'
 }
 
 export default config
