@@ -1,9 +1,7 @@
 import { getRandomArbitary, rgba } from './util'
 
-const COLOR_MIN = 150
-const COLOR_MAX = 200
-const ALPHA_MIN = 0.2
-const ALPHA_MAX = 0.4
+const ALPHA_MIN = 0.01
+const ALPHA_MAX = 0.3
 const RADIUS_MIN = 0.1
 const RADIUS_MAX = 1.4
 const V_MIN = 0.1
@@ -16,16 +14,18 @@ class Particle {
 
     this.updateColor = this.updateColor.bind(this)
     this.render = this.render.bind(this)
-
-    this._color = Math.floor(getRandomArbitary(COLOR_MIN, COLOR_MAX))
+    this._color = 255
     this._alpha = getRandomArbitary(ALPHA_MIN, ALPHA_MAX)
     this.updateColor()
     this._x = getRandomArbitary(0, this._canvas.width)
     this._y = getRandomArbitary(0, this._canvas.height)
-    this._v = getRandomArbitary(V_MIN, V_MAX)
-    this._dx = getRandomArbitary(-1, 1)
-    this._dy = getRandomArbitary(-1, 1)
+    this._dx = getRandomArbitary(V_MIN, V_MAX) * this._direction()
+    this._dy = getRandomArbitary(V_MIN, V_MAX) * this._direction()
     this._radius = getRandomArbitary(RADIUS_MIN, RADIUS_MAX)
+  }
+
+  _direction() {
+    return Math.round(Math.random()) ? 1 : -1
   }
 
   updateColor() {
@@ -33,15 +33,15 @@ class Particle {
   }
 
   render() {
-    let nx = this._x + this._dx * this._v
-    let ny = this._y + this._dy * this._v
+    let nx = this._x + this._dx
+    let ny = this._y + this._dy
     if(nx < 0 || this._canvas.width <= nx) {
       this._dx = -this._dx
-      nx = this._x + this._dx * this._v
+      nx = this._x + this._dx
     }
     if(ny < 0 || this._canvas.height <= ny) {
       this._dy = -this._dy
-      ny = this._y + this._dy * this._v
+      ny = this._y + this._dy
     }
     this._x = nx
     this._y = ny
