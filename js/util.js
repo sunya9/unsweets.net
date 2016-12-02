@@ -13,6 +13,12 @@ export const requestAnimationFrame = window.requestAnimationFrame
   || window.msRequestAnimationFrame
 
 export const scrollTo = (to, duration) => {
+  if(typeof to === 'string') {
+    // to is selector
+    const el = document.querySelector(to)
+    if(!el) return
+    to = el.offsetTop
+  }
   const start = Date.now()
   const from = document.body.scrollTop
   const callback = () => {
@@ -27,4 +33,21 @@ export const scrollTo = (to, duration) => {
     }
   }
   requestAnimationFrame(callback)
+}
+
+export const getNearestSectionId = sectionIds => {
+  const sections = sectionIds.map(id => {
+    return {
+      id: id,
+      distance: document.querySelector(`#${id}`).offsetTop
+    }
+  })
+  const scrollTop = document.body.scrollTop
+  const nearestEl = sections.reduce((prev, current) => {
+    const p = Math.abs(scrollTop - prev.distance)
+    const c = Math.abs(scrollTop - current.distance)
+    if(p > c) prev = current
+    return prev
+  })
+  return nearestEl.id
 }

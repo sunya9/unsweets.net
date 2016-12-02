@@ -18,8 +18,6 @@ class Menu {
     // Close on click anyhere
     this._menu.addEventListener('click', this.close)
     this._button.addEventListener('click', this.buttonClick)
-
-    this._menu.getElementsByTagName('a')
     
     this._menuItems = new MenuItems(this._menu)
 
