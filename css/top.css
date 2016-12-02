@@ -10,13 +10,55 @@
 
 #logo {
   margin: 0 0 1rem;
+  & svg {
+    max-width: 96px;
+    animation: flash .5s 3.5s var(--easing) forwards;
+    & polygon {
+      /*884 == frame length*/
+      stroke-dashoffset: 884;
+      stroke-dasharray: 884;
+      animation: stroke-anim 3s var(--easing) forwards,
+        stroke-anim-end 0s 3s forwards;
+    }
+    & polyline.a {
+      /*inner frame*/
+      stroke-dashoffset: 179;
+      stroke-dasharray: 179;
+      animation: stroke-anim 2s 1s var(--easing) forwards;
+    }
+    & line {
+      /*center line*/
+      stroke-dashoffset: 116;
+      stroke-dasharray: 116;
+      animation: stroke-anim 1s 2s var(--easing) forwards
+    }
+  }
 }
 
-#logo a, #site-description {
-  color: #fff;
+@keyframes stroke-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
+
+@keyframes stroke-anim-end {
+  to {
+    stroke-dasharray: 0;
+  }
+}
+
+@keyframes flash {
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 
 #site-description {
+  color: #fff;
   font-size: 1.3rem;
 }
 
