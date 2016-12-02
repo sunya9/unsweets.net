@@ -5,7 +5,5 @@
 @import 'apply';
 @import 'util';
 @import 'container';
-@import 'header';
-@import 'contents';
 
 @custom-media --medium (min-width: 850px);

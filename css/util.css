@@ -39,7 +39,7 @@
     z-index: 2;
     background: inherit;
   }
-  & .hexTop, & .hexBottom {
+  & .hex-top, & .hex-bottom {
     position: absolute;
     z-index: 1;
     width: 91px;
@@ -59,13 +59,13 @@
       background: inherit;
     }
   }
-  & .hexTop {
+  & .hex-top {
     top: -45.2548px;
     &::after {
       background-position: center top;
     }
   }
-  & .hexBottom {
+  & .hex-bottom {
     bottom: -45.2548px;
     &::after {
       background-position: center bottom;
