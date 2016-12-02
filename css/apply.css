@@ -1,16 +1,4 @@
 :root {
-  --image-replace: {
-    text-indent: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  --clearfix: {
-      &::after: {
-        content: '';
-        display: block;
-        clear: both;
-      }
-  }
   --quicksand: {
     font-weight: 300;
     font-family: Quicksand, var(--font-family);
