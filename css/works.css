@@ -24,7 +24,7 @@
   }
   &-dots {
     list-style: none;
-    margin: 0;
+    margin: 1rem 0 0;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@
   &-prev, &-next {
     position: absolute;
     top: 50%;
-    border: 4px double color(#fff a(95%));
+    border: 4px double color(#fff a(80%));
     transform: rotate(45deg);
     width: var(--slider-np-button-size);
     height: var(--slider-np-button-size);
@@ -69,6 +69,9 @@
     transition: var(--default-transition);
     &:disabled {
       opacity: 0;
+    }
+    &:hover {
+      border-color: #fff;
     }
   }
   &-prev {
