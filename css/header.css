@@ -80,7 +80,9 @@
   transition: var(--default-transition);
   display: none;
   z-index: 874;
-  display: table;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   visibility: hidden;
   opacity: 0;
   &.show {
@@ -95,8 +97,6 @@
     visibility: hidden;
     transition: var(--default-transition);
     transform: scale(.2) rotateX(180deg);
-    vertical-align: middle;
-    display: table-cell;
     max-width: 600px;
     text-align: center;
     margin: 0 auto;
