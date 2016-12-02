@@ -37,10 +37,10 @@
       border-color: #fff;
     }
     &:active {
-      background-color: color(#000 a(10%));
-      border-color: color(#000 a(50%));
+      background-color: color(#fff a(10%));
+      border-color: color(#fff a(50%));
       color: #888;
-      box-shadow: 0 0 5px color(#000 a(20%)) inset;
+      box-shadow: 0 0 5px color(#fff a(10%)) inset;
     }
   }
 }
