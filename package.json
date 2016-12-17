@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "hexo server",
-    "deploy": "hexo deploy --generate"
+    "generate": "hexo generate"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
