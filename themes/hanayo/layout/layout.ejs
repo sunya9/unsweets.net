@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <link rel="canonical" href="<%= config.url + url_for(page.path) %>">
-  <link rel="stylesheet" href="<%= `${theme.debug ? 'http://localhost:3001/' : '/'}css/main.css` %>">
-  <script src="<%= `${theme.debug ? 'http://localhost:3001/' : '/'}js/main.js` %>"></script>
+  <link rel="stylesheet" href="<%= `${env.env !== 'production' ? 'http://localhost:3001/' : '/'}css/main.css` %>">
+  <script src="<%= `${env.env !== 'production' ? 'http://localhost:3001/' : '/'}js/main.js` %>"></script>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand:300" id="google-fonts">
   <% if(config.feed) { %>
     <%- feed_tag(`/${config.feed.path}`, {
