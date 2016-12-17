@@ -1,0 +1,14 @@
+<h1>
+  <%= page_title() %>
+</h1>
+<% const groupedPosts = page.posts.sort('date', -1)
+  .toArray()
+  .reduce((group, post) => {
+    const year = post.date.year() 
+    if(!(year in group)) group[year] = [post]
+    else group[year].push(post)
+    return group
+  }, {})
+  Object.keys(groupedPosts).sort().reverse().forEach(year => { %>
+  <%- partial('_partial/yearly-archive', { year, posts: groupedPosts[year]}) %> 
+<% }) %>

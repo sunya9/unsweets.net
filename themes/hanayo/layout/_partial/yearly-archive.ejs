@@ -1,0 +1,11 @@
+<h2><%= year %></h2>
+<ul>
+  <% posts.forEach(post => { %>
+    <li>
+      <%- link_to(post.path, post.title) %>
+      <time datetime="<%= post.date.format() %>">
+        <%= post.date.format('YYYY/MM/DD') %>
+      </time>
+    </li>
+  <% }) %>
+</ul>

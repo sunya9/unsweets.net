@@ -1,0 +1,14 @@
+<%- partial('_partial/article', {post: page.posts.sort('date', -1).first(), index: true}) %>
+<ul>
+
+  <% page.posts
+    .sort('date', -1)
+    .slice(1, theme.post_limit === 0 ? page.posts.length : theme.post_limit || 9)
+    .toArray().forEach(post => { %>
+    <li><%- link_to(post.path, post.title) %>
+      <time datetime="<%= post.date.format() %>"><%= post.date.format('YYYY/MM/DD') %></time>
+    </li>
+   <% }) %>
+</ul>
+
+<%- link_to('/archives', 'Archives') %>

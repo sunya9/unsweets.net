@@ -1,0 +1,83 @@
+@svg-load about url(../img/about2.svg) {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: .2;
+}
+
+@svg-load twitter url(../img/twitter.svg) {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 16;
+}
+
+@svg-load github url(../img/github.svg) {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 16;
+}
+
+@svg-load feed url(../img/feed.svg) {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 16;
+}
+
+.page-header {
+  background-color: var(--color-primary);
+  border-bottom: 3px double var(--color-bg);
+  padding: 2rem 0 3rem;
+  margin: 0 0 10rem;
+  &, & a {
+    color: var(--color-text);
+  }
+  & .page-title, & .page-description {
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+
+  & .page-title {
+    font-size: 3.6rem;
+    margin: 0 0 .5rem;
+  }
+
+  & .page-description {
+    font-size: 2.4rem;
+    margin: 0 0 2rem;
+  }
+  & .page-nav {
+    margin: 1rem 0 0;
+    & ul {
+      list-style: none;
+      display: flex;
+      margin: 0 -1rem;
+      & li {
+        margin: 0 1rem;
+      }
+    }
+    & a {
+      display: block;
+      text-indent: 100%;
+      overflow: hidden;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      background: none no-repeat left center;
+      background-size: 32px 32px;
+      color: transparent;
+      transition: width .2s ease, color .2s ease;
+      &.about {
+        background-image: svg-inline(about);
+      }
+      &.twitter {
+        background-image: svg-inline(twitter);
+      }
+      &.github {
+        background-image: svg-inline(github);
+      }
+      &.feed {
+        background-image: svg-inline(feed);
+        background-size: 28px 28px;
+      }
+    }
+  }
+}

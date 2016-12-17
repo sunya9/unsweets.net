@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="<%= config.url + url_for(page.path) %>">
+  <link rel="stylesheet" href="<%= `${theme.debug ? 'http://localhost:3001/' : '/'}css/main.css` %>">
+  <script src="<%= `${theme.debug ? 'http://localhost:3001/' : '/'}js/main.js` %>"></script>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand:300" id="google-fonts">
+  <% if(config.feed) { %>
+    <%- feed_tag(`/${config.feed.path}`, {
+      type: config.feed.type
+    }) %>
+  <% } %>
+  <script async>
+  document.getElementById('google-fonts').rel = 'stylesheet'
+  </script>
+  <title>
+    <% if(!is_home()) { %>
+      <%= page_title() + ' - ' + config.title %>
+    <% } else { %>
+      <%= config.title %>
+    <% } %>
+  </title>
+</head>
+<body>
+  <div id="wrapper">
+    <%- partial('_partial/header') %>
+    <main class="page-contents">
+      <div class="container">
+        <%- body %>
+      </div>
+    </main>
+    <%- partial('_partial/footer') %>  
+  </div>
+</body>
+</html>

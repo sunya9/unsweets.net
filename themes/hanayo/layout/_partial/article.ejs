@@ -1,0 +1,86 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+  
+  <header class="article-header">
+    
+    <% if (post.link || post.title){ %>
+      <% if (post.link){ %>
+        <h1 itemprop="name">
+          <a class="article-title" href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
+        </h1>
+      <% } else if (post.title){ %>
+        <% if (index){ %>
+          <h1 >
+            <a itemprop="name" class="article-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+          </h1>
+        <% } else { %>
+          <h1 class="article-title" itemprop="name">
+            <%= post.title %>
+          </h1>
+        <% } %>
+      <% } %>
+    <% } %>
+    <a href="<%- url_for(post.path) %>" class="article-date">
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, null) %></time>
+    </a>
+
+    <% if (post.categories && post.categories.length){ %>
+      <div class="article-category">
+      <%- list_categories(post.categories, {
+        show_count: false,
+        // class: 'article-category',
+        style: 'none',
+        separator: '►'
+      }) %>
+      </div>
+    <% } %>
+  </header>
+  <div class="article-body" itemprop="articleBody">
+    <% if (post.excerpt && index){ %>
+      <%- post.excerpt %>
+      <% if (theme.excerpt_link){ %>
+        <p class="article-more-link">
+          <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+        </p>
+      <% } %>
+    <% } else { %>
+      <%- post.content %>
+    <% } %>
+  </div>
+  <footer class="article-footer">
+    <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
+    <% if (is_post() && config.disqus_shortname){ %>
+      <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+    <% } %>
+    <% if (post.tags && post.tags.length){ %>
+      <%- list_tags(post.tags, {
+        show_count: false,
+        class: 'article-tag'
+      }) %>
+    <% } %>
+  </footer>
+
+  <% if (!index && is_post() && config.disqus_shortname){ %>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = '<%= config.url + url_for(page.path) %>';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = '<%= config.url + url_for(page.path) %>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//unsweets-log.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+    <% } %>
+</article>

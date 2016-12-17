@@ -1,0 +1,29 @@
+@import 'milligram-cssnext';
+@import 'mq.css';
+@import 'variables.css';
+@import 'layout.css';
+@import 'header.css';
+@import 'article.css';
+@import 'footer.css';
+
+:root {
+  font-size: 70%;
+}
+
+::selection {
+  background-color: color(var(--color-primary) a(50%));
+  color: color(var(--color-text) a(80%));
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: normal;
+  backface-visibility: hidden;
+  background-color: var(--color-bg);
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0;
+}
