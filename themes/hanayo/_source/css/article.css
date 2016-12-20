@@ -31,7 +31,7 @@
       overflow: auto;
       border: 1px solid gray(80%);
     }
-    :matches(h1, h2, h3, h4, h5, h6)[id] {
+    & :matches(h1, h2, h3, h4, h5, h6)[id] {
       padding-left: calc((100vw - 100%) / 2);
       padding-right: calc((100vw - 100%) / 2);
       margin-left: calc((100% - 100vw) / 2);
