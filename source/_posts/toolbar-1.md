@@ -5,7 +5,7 @@ categories:
 date: 2015-01-21 19:07:54
 tags:
 ---
-![ツールバー事始めのアイキャッチ](/images/toolbar_eyecatch.png)
+![ツールバー事始め](/images/toolbar_eyecatch.png)
 
 適当に色設定したらださくなってしまった...
 
@@ -50,18 +50,18 @@ ActionBarは上にも書いたとおり、拡張性に乏しいです。表示�
 ##### activity_main.xml
 
 ```
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:id="@+id/tool_bar"
-    android:minHeight="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    />
-    </LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+  <android.support.v7.widget.Toolbar
+  android:layout_height="wrap_content"
+  android:layout_width="match_parent"
+  android:id="@+id/tool_bar"
+  android:minHeight="?attr/actionBarSize"
+  android:background="?attr/colorPrimary"
+  />
+</LinearLayout>
 ```
 
 colorPrimaryはテーマのcolorPrimaryを参照しています。

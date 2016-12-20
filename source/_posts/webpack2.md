@@ -20,7 +20,7 @@ webpack.config.jsを以下のように設定する。
 ```
 const config = {
   // 省略
- module: {
+  module: {
     loaders: [
       {
         test: /\.css$/,
