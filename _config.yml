@@ -4,7 +4,7 @@ description: unsweets.logは主にAndroid開発とフロントエンドに関す
 author: _X_y_z_
 language: ja
 timezone: Asia/Tokyo
-url: 'http://blog.unsweets.net'
+url: 'https://blog.unsweets.net'
 root: /
 permalink: ':year/:month/:title.html'
 permalink_defaults: null
@@ -26,9 +26,9 @@ post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
+  enable: false
+  line_number: false
+  auto_detect: false
   tab_replace: null
 default_category: uncategorized
 category_map: null
@@ -58,3 +58,12 @@ disqus_shortname: unsweets-log
 menu:
   - href: /about/
     name: About
+  - href: /archives/
+    name: Archives
+marked:
+  gfm: true
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
