@@ -3,6 +3,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 const extractCSS = new ExtractTextPlugin('css/main.css')
 
+const dev = process.env.NODE_ENV !== 'production'
+
+const cssLoader = dev ? 'css?minimize&sourceMap' : 'css'
+
 const config = {
   entry: [
     './_source/js/main'
@@ -24,7 +28,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader: extractCSS.extract(['css?minimize', 'postcss'])
+        loader: extractCSS.extract([cssLoader, 'postcss'])
       }
     ]
   },
@@ -35,7 +39,7 @@ const config = {
   ]
 }
 
-if(process.env.NODE_ENV !== 'production') {
+if(dev) {
   config.entry.unshift('webpack-dev-server/client?http://localhost:3001',
   'webpack/hot/dev-server')
   config.plugins.push(new webpack.optimize.OccurenceOrderPlugin(),

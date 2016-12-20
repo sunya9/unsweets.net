@@ -8,30 +8,30 @@
       <p class="page-description"><%= config.subtitle %></p>
     <% } %>
     <% if(config.menu) { %>
-        <nav class="page-nav">
-          <ul>
-            <% config.menu.forEach(item => { %>
-              <li><%- link_to(item.href, item.name, {
-                class: item.name.toLowerCase()
-              }) %></li>
-            <% }) %>
-            <% if(config.twitter) { %>
-              <li><%- link_to('https://twitter.com/' + config.twitter, 'Twitter', {
-                  class: 'twitter'
-                }) %></li>
-            <% } %>
-            <% if(config.github) { %>
-              <li><%- link_to('https://github.com/' + config.github, 'Github', {
-                class: 'github'
-              }) %></li>
-            <% } %>
-            <% if(config.feed) { %>
-              <li><%- link_to(`/${config.feed.path}`, 'Feed', {
-                class: 'feed'
-              }) %></li>
-            <% } %>
-          </ul>
-        </nav>
+      <nav class="page-nav">
+        <ul>
+          <% config.menu.forEach(item => { %>
+            <li>
+              <a href="<%= item.href %>" class="<%= item.name.toLowerCase() %>"> 
+                <%- partial(`_img/${item.name.toLowerCase()}.svg`) %>
+              </a>
+            </li>
+          <% }) %>
+          <% if(config.feed) { %>
+            <li>
+              <a href="<%= `/${config.feed.path}` %>" class="feed"> 
+                <%- partial('_img/feed.svg') %>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+        <div class="search-view">
+          <%- search_form({
+            text: 'Search',
+            button: partial('_img/search.svg')
+          }) %>
+        </div>
+      </nav>
     <% } %>
   </div>
 </header>

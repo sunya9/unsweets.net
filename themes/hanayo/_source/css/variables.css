@@ -1,15 +1,15 @@
 :root {
   /*override millirgam variables*/
   --color-primary: #569d90;
-  /*--color-primary: #97eadb;*/
   --color-initial: #fff;
   --color-secondary: #303030;
-  --color-tertiary: #5e3d30;
+  --color-tertiary: color(var(--color-primary) s(10%) l(90%));
   --color-quaternary: #d1d1d1;
 
   /*custom color*/
-  --color-bg: #f0f0f0;
-  --color-text: #fff;
+  --color-bg: color(var(--color-accent) s(10%) l(95%));
+  --color-accent: #5e3d30;
   --font-family: Quicksand, 'Lucida Grande', 'Hiragino Kaku Gothic ProN',
-    'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, sans-serif;
+    'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, 'Noto Sans CJK Light', sans-serif;
+  --default-transition: all .2s ease;
 }

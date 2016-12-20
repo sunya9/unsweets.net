@@ -2,14 +2,15 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="canonical" href="<%= config.url + url_for(page.path) %>">
-  <link rel="stylesheet" href="<%= `${env.env !== 'production' ? 'http://localhost:3001/' : '/'}css/main.css` %>">
-  <script src="<%= `${env.env !== 'production' ? 'http://localhost:3001/' : '/'}js/main.js` %>"></script>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Quicksand:300" id="google-fonts">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="<%= url %>">
+  <% const host = env.env !== 'production' ? 'http://localhost:3001/' : '/' %>
+  <link rel="stylesheet" href="<%= `${host}css/main.css` %>">
+  <link href="//fonts.googleapis.com/css?family=Quicksand:300|Inconsolata" id="google-fonts">
   <% if(config.feed) { %>
-    <%- feed_tag(`/${config.feed.path}`, {
-      type: config.feed.type
-    }) %>
+  <%- feed_tag(`/${config.feed.path}`, {
+    type: config.feed.type
+  }) %>
   <% } %>
   <script async>
   document.getElementById('google-fonts').rel = 'stylesheet'
@@ -23,7 +24,7 @@
   </title>
 </head>
 <body>
-  <div id="wrapper">
+  <div id="wrapper" class="wrapper">
     <%- partial('_partial/header') %>
     <main class="page-contents">
       <div class="container">
@@ -32,5 +33,6 @@
     </main>
     <%- partial('_partial/footer') %>  
   </div>
+  <script src="<%= `${host}js/main.js` %>"></script>  
 </body>
 </html>

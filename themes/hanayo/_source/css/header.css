@@ -1,35 +1,9 @@
-@svg-load about url(../img/about2.svg) {
-  fill: #fff;
-  stroke: #fff;
-  stroke-width: .2;
-}
-
-@svg-load twitter url(../img/twitter.svg) {
-  fill: transparent;
-  stroke: #fff;
-  stroke-width: 16;
-}
-
-@svg-load github url(../img/github.svg) {
-  fill: transparent;
-  stroke: #fff;
-  stroke-width: 16;
-}
-
-@svg-load feed url(../img/feed.svg) {
-  fill: transparent;
-  stroke: #fff;
-  stroke-width: 16;
-}
-
 .page-header {
   background-color: var(--color-primary);
   border-bottom: 3px double var(--color-bg);
   padding: 2rem 0 3rem;
-  margin: 0 0 10rem;
-  &, & a {
-    color: var(--color-text);
-  }
+  margin: 0 0 5rem;
+  color: var(--color-initial);
   & .page-title, & .page-description {
     line-height: inherit;
     letter-spacing: inherit;
@@ -38,45 +12,124 @@
   & .page-title {
     font-size: 3.6rem;
     margin: 0 0 .5rem;
+    & a:any-link {
+      &, &:hover {
+        color: var(--color-initial);
+      }
+      &:hover {
+        text-shadow: 0 0 10px var(--color-initial);
+      }
+    }
   }
 
   & .page-description {
     font-size: 2.4rem;
-    margin: 0 0 2rem;
+    margin-bottom: 2rem;
   }
   & .page-nav {
-    margin: 1rem 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -1rem 0 0;
+    @media (--small) {
+      flex-wrap: nowrap;
+    }
     & ul {
       list-style: none;
       display: flex;
-      margin: 0 -1rem;
+      margin: 1rem -.5rem 0;
+      align-items: center;
       & li {
-        margin: 0 1rem;
+        margin: 0 .5rem;
       }
     }
     & a {
       display: block;
-      text-indent: 100%;
       overflow: hidden;
       width: 32px;
       height: 32px;
       line-height: 32px;
-      background: none no-repeat left center;
-      background-size: 32px 32px;
       color: transparent;
-      transition: width .2s ease, color .2s ease;
-      &.about {
-        background-image: svg-inline(about);
+      & svg {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        stroke: var(--color-initial);
+        transition: all .2s ease;
+        &:hover {
+          fill: var(--color-accent);
+          stroke: var(--color-accent);
+        }
       }
-      &.twitter {
-        background-image: svg-inline(twitter);
+      &.about svg {
+        stroke-width: .8;
       }
-      &.github {
-        background-image: svg-inline(github);
+      &.archives svg {
+        stroke-width: 16;
       }
-      &.feed {
-        background-image: svg-inline(feed);
-        background-size: 28px 28px;
+      &.feed svg {
+        fill: transparent;
+        stroke-width: 26;
+        width: 26px;
+        height: 26px;
+        margin: 3px;
+      }
+    }
+  }
+  & .search-view {
+    margin-top: 1rem;
+    width: 100%;
+    @media (--small) {
+      margin-left: auto;
+      width: auto;
+    }
+    & .search-form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      @media (--small) {
+        min-width: 200px;
+      }
+    }
+    & .search-form-input {
+      border: none;
+      width: 100%;
+      flex-grow: 1;
+      border-bottom: 2px solid color(var(--color-initial) a(50%));
+      border-radius: 0;
+      color: var(--color-initial);
+      margin-bottom: 0;
+      transition: border-bottom .2s ease;
+      flex-grow: 1;
+      font-family: var(--font-family);
+      &::placeholder {
+        color: color(var(--color-initial) a(80%));
+      }
+      &:focus {
+        border-bottom-color: var(--color-accent);
+      }
+    }
+    & .search-form-submit {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      & svg {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        stroke: var(--color-initial);
+        stroke-width: 22;
+        transition: var(--default-transition);
+        &:hover {
+          stroke: var(--color-accent);
+        }
+      }
+      &:hover {
       }
     }
   }

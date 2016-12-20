@@ -1,5 +1,9 @@
-<%- partial('_partial/article', {post: page.posts.sort('date', -1).first(), index: true}) %>
-<ul>
+<%- partial('_partial/article', {
+  post: page.posts.sort('date', -1).first(),
+  index: true,
+  showDate: true}) %>
+<h1>Recent entries</h1>
+<ul class="archives">
 
   <% page.posts
     .sort('date', -1)
@@ -10,5 +14,6 @@
     </li>
    <% }) %>
 </ul>
-
-<%- link_to('/archives', 'Archives') %>
+<%- link_to('/archives', 'Archives', {
+  class: 'button button-outline'
+}) %>

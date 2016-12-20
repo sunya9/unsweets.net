@@ -3,5 +3,21 @@
     <small class="copyright">
       © _X_y_z_.
     </small>
+    <ul class="sns-links">
+      <% if(config.twitter) { %>
+          <li>
+            <a href="<%= `https://twitter.com/${config.twitter}` %>" class="twitter" title="@<%= config.twitter %>"> 
+              <%- partial('_img/twitter.svg') %>
+            </a>
+          </li>
+        <% } %>
+        <% if(config.github) { %>
+          <li>
+            <a href="<%= `https://github.com/${config.github}` %>" class="github"  title="@<%= config.github %>">
+              <%- partial('_img/github.svg') %>
+            </a>
+          </li>
+        <% } %>
+    </ul>
   </div>
 </footer>

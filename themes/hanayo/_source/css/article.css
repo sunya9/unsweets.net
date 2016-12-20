@@ -1,5 +1,98 @@
 .article {
-  &-title {
-    /*font-size: 1.5rem;*/
+  &-date, &-category a {
+    position: relative;
+    &::before {
+      @apply --marker;
+    }
   }
+  &-header {
+    margin-bottom: 2rem;
+  }
+  &-body {
+    & img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+    & ul {
+      list-style: none;
+      & > li {
+        position: relative;
+        &::before {
+          @apply --marker;
+        }
+      }
+    }
+    & code {
+      border-radius: 0;
+      font-family: Inconsolata, monospace;
+    }
+
+    & p code {
+      overflow: auto;
+      border: 1px solid gray(80%);
+    }
+    :matches(h1, h2, h3, h4, h5, h6)[id] {
+      padding-left: calc((100vw - 100%) / 2);
+      padding-right: calc((100vw - 100%) / 2);
+      margin-left: calc((100% - 100vw) / 2);
+      margin-right: calc((100% - 100vw) / 2);
+      &:hover svg {
+        @media (--large) {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      & a {
+        display: none;
+        @media (--large) {
+          display: inline;
+        }
+        & svg {
+          @media (--large) {
+            width: .8em;
+            height: .8em;
+            fill: color(var(--color-secondary) whiteness(+40%));
+            transition: all .2s ease;
+            top: calc(50% - .8em / 2 + 2px);
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            left: -1em;
+          }
+        }
+      }
+    }
+  }
+  &-footer {
+    margin: 3rem 0;
+  }
+  &-share {
+    margin: 1rem 0;
+    display: flex;
+    list-style: none;
+    padding: 4rem 0 0;
+    & > li {
+      margin-right: 1rem;
+    }
+    & a {
+      display: block;
+      width: 32px;
+      height: 32px;
+      &:hover svg {
+        fill: var(--color-secondary);
+      }
+    }
+    & svg {
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke: var(--color-secondary);
+      stroke-width: 16;
+    }
+  }
+
+}
+
+.comments {
+ margin-top: 7rem; 
 }

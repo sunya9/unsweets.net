@@ -1,0 +1,12 @@
+:root {
+  --marker: {
+    content: '';
+    background-color: var(--color-quaternary);
+    width: 1rem;
+    height: 3px;
+    display: block;
+    top: calc((1em * 1.2 - 3px) / 2);
+    position: absolute;
+    left: -2rem;
+  }
+}

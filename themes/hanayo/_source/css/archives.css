@@ -1,0 +1,49 @@
+.archives {
+  list-style: none;
+  & > li {
+    position: relative;
+    margin-bottom: 2rem;
+    @media (--small) {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      &::after {
+        content: '';
+        flex-grow: 1;
+        order: 2;
+        border-bottom: 1px dotted var(--color-quaternary);
+        margin: 0 2rem;
+        opacity: 0;
+      }
+      &:hover::after {
+        opacity: 1;
+      }
+      & a {
+        position: relative;
+        order: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:hover a::after {
+        opacity: 1;
+      }
+      & time {
+        order: 3;
+        text-align: right;
+        display: inline;
+      }
+    }
+    transition: var(--default-transition);
+    &::before {
+      @apply --marker;
+    }
+    & a, & time {
+      line-height: 1.2;
+    }
+    & time {
+      font-size: 1.6rem;
+      display: block;
+    }
+  }
+}
