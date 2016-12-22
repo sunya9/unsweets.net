@@ -2,9 +2,12 @@ import '../css/main.css'
 import Zooming from 'zooming/build/zooming.min'
 import hyperlinkSvg from 'raw-loader!../img/hyperlink.svg'
 
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
 Zooming.config({
   bgOpacity: .8,
-  bgColor: '#000'
+  bgColor: '#000',
+  preloadImage: !isMobile
 })
 
 const $ = document.querySelectorAll.bind(document)
@@ -16,7 +19,7 @@ Array.prototype.slice.call($('.article-body a > img')).forEach(img => {
   parent.appendChild(img)
   parent.removeChild(a)
   img.setAttribute('data-action', 'zoom')
-  img.setAttribute('src', a.href)
+  img.setAttribute('data-original', a.href)
 })
 
 Array.prototype.slice.call($('.headerlink'))
