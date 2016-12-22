@@ -39,8 +39,8 @@ per_page: 0
 pagination_dir: page
 theme: hanayo
 deploy:
-  type: git
-  repo: git@github.com:sunya9/unsweets.log.git
+  type: shell
+  command: node deploy
 feed:
   type: atom
   path: atom.xml
