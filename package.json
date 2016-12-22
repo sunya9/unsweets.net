@@ -43,6 +43,7 @@
   },
   "scripts": {
     "start": "hexo server",
+    "generate": "hexo generate",
     "build": "webpack --config webpack.config.prod.js -p --progress",
     "dev": "node server",
     "lint": "npm run lint:js && npm run lint:css",
