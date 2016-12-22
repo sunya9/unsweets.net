@@ -1,4 +1,4 @@
-title: <unsweets/>にMicrodataを導入しました
+title: unsweetsにMicrodataを導入しました
 id: 68
 categories:
   - Notice
