@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="canonical" href="<%= url %>">
-  <% const host = env.env !== 'production' ? 'http://localhost:3001/' : '/' %>
-  <link rel="stylesheet" href="<%= `${host}css/main.css` %>">
+  <% const dev = env.env !== 'production' %>
+  <% const host = dev ? 'http://localhost:3001/' : '/' %>
+  <% if(!dev) { %>
+    <link rel="stylesheet" href="<%= `${host}css/main.css` %>">
+  <% } %>
   <link href="//fonts.googleapis.com/css?family=Quicksand:300|Inconsolata" id="google-fonts">
   <% if(config.feed) { %>
   <%- feed_tag(`/${config.feed.path}`, {
