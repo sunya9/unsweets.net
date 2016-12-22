@@ -2,6 +2,7 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 const extractCSS = new ExtractTextPlugin('css/main.css')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 const dev = process.env.NODE_ENV !== 'production'
 
@@ -34,7 +35,6 @@ const config = {
   },
   postcss: [
     require('postcss-import'),
-    require('postcss-inline-svg'),
     require('postcss-cssnext')
   ]
 }
@@ -42,9 +42,12 @@ const config = {
 if(dev) {
   config.entry.unshift('webpack-dev-server/client?http://localhost:3001',
   'webpack/hot/dev-server')
-  config.plugins.push(new webpack.optimize.OccurenceOrderPlugin(),
+  config.plugins.push(
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin())
+    new webpack.NoErrorsPlugin(),
+    new StyleLintPlugin()
+    )
   config.devtool = 'sourcemap'
 }
 
