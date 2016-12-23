@@ -14,16 +14,13 @@ const $ = document.querySelectorAll.bind(document)
 
 Array.prototype.slice.call($('.article-body a > img')).forEach(img => {
   const a = img.parentNode
-  const parent = a.parentNode
-  parent.insertBefore(img, a.nextSibling)
-  parent.appendChild(img)
-  parent.removeChild(a)
+  a.addEventListener('click', e => e.preventDefault())
   img.setAttribute('data-action', 'zoom')
   img.setAttribute('data-original', a.href)
 })
 
 Array.prototype.slice.call($('.headerlink'))
-.forEach(link => link.innerHTML = hyperlinkSvg)
+  .forEach(link => link.innerHTML = hyperlinkSvg)
 
 if(module.hot) {
   module.hot.accept()
