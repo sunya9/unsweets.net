@@ -7,7 +7,7 @@ categories:
 date: 2016-12-23 18:59:00
 ---
 <figure>
-  <a href="{% asset_path cabbage.jpg %}">{% asset_img cabbage.jpg %}</a>
+[![キャベツ](/images/cabbage.jpg)](/images/cabbage.jpg)
   <figcaption>画像拡大テスト用のキャベツ</figcaption>
 </figure>
 
@@ -30,7 +30,7 @@ Zooming.config({
 プリロードの設定も行えるので適当なモバイル判定で設定するようにしてみましたが、自分自身もテザリングでラップトップを使うことがあるのであんまり信頼できない設定だったり…。
 [Network Information API](https://developer.mozilla.org/ja/docs/WebAPI/Network_Information)というものもあるそうですが、まだ草案状態でどのブラウザでも実装してないようですね。
 
-普通は画像にリンクしているサムネイル画像をクリックすることで拡大が見れるということを考えたら`<a href="#"><img src="foo.jpg"></a>`というマークアップが普通だと思うのですが、これだとZoomingの処理が入らないので、このブログではJavaScriptで適当に属性設定をしています。
+普通は画像にリンクしているサムネイル画像をクリックすることで拡大が見れるということを考えたら`<a href="foo.jpg"><img src="foo.jpg"></a>`というマークアップが普通だと思うのですが、これだとZoomingの処理が入らないので、このブログではJavaScriptで適当に属性設定をしています。
 
 ```javascript
 const $ = document.querySelectorAll.bind(document)
