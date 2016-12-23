@@ -64,7 +64,7 @@ marked:
   gfm: true
   sanitize: false
   tables: true
-  breaks: true
+  breaks: false
   smartLists: true
   smartypants: true
 html_minifier:
