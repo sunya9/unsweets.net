@@ -67,3 +67,13 @@ marked:
   breaks: true
   smartLists: true
   smartypants: true
+html_minifier:
+  enable: true
+  removeComments: true
+  removeAttributeQuotes: true
+css_minifier:
+  enable: false
+js_minifier:
+  enable: false
+image_minifier:
+  enable: false
