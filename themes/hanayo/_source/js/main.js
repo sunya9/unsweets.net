@@ -14,9 +14,12 @@ const $ = document.querySelectorAll.bind(document)
 
 Array.prototype.slice.call($('.article-body a > img')).forEach(img => {
   const a = img.parentNode
-  a.addEventListener('click', e => e.preventDefault())
-  img.setAttribute('data-action', 'zoom')
-  img.setAttribute('data-original', a.href)
+  const src = img.getAttribute('src')
+  if(a.href === src) {
+    a.addEventListener('click', e => e.preventDefault())
+    img.setAttribute('data-action', 'zoom')
+    img.setAttribute('data-original', a.href)
+  }
 })
 
 Array.prototype.slice.call($('.headerlink'))
