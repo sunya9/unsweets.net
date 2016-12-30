@@ -10,8 +10,7 @@
   }
   &-body {
     & img {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 100%;
     }
     & ul {
       list-style: none;
