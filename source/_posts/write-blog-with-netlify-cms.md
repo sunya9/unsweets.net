@@ -49,23 +49,23 @@ Netlify側の設定はこれで完了。
 layout: false
 ---
 
-&lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-  &lt;title&gt;Content Manager&lt;/title&gt;
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
   
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/netlify-cms@^0.3/dist/cms.css&quot; /&gt;
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^0.3/dist/cms.css" />
 
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;script src=&quot;https://unpkg.com/netlify-cms@^0.3/dist/cms.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
+</head>
+<body>
+  <script src="https://unpkg.com/netlify-cms@^0.3/dist/cms.js"></script>
+  <script>
     CMS.registerPreviewStyle('/css/main.css');
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+  </script>
+</body>
+</html>
 
 ```
 Hexoの場合、`source/_posts`ディレクトリはデフォルトですべてレイアウトが付加されてしまうので、Front-matterをつけることによって回避しています(HTMLでも有効なのですね…知らなかった)。
@@ -83,22 +83,22 @@ backend:
 media_folder: source/images/
 
 collections:
-- name: &quot;blog&quot; # Used in routes, e.g. /admin/collections/blog
-  label: &quot;Blog&quot; # Used in the UI
-  folder: &quot;source/_posts&quot; # The path to the folder where the documents are stored
+- name: "blog" # Used in routes, e.g. /admin/collections/blog
+  label: "Blog" # Used in the UI
+  folder: "source/_posts" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
-  slug: &quot;{{slug}}&quot; # Filename template i.e. YYYY-MM-DD-title.md
+  slug: "{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
   fields: # The fields for each document, usually in front matter
-    - {label: &quot;Title&quot;, name: &quot;title&quot;, widget: &quot;string&quot;}
-    - {label: &quot;Publish Date&quot;, name: &quot;date&quot;, widget: &quot;datetime&quot;, default: &quot;&quot;}
-    - {label: &quot;Categories&quot;, name: &quot;categories&quot;, widget: &quot;list&quot;, default: &quot;&quot;}
-    - {label: &quot;Author&quot;, name: &quot;author&quot;, widget: &quot;string&quot;, default: &quot;_X_y_z_&quot;}
-    - {label: &quot;Content&quot;, name: &quot;body&quot;, widget: &quot;markdown&quot;}
-    - {label: &quot;Layout&quot;, name: &quot;layout&quot;, widget: &quot;hidden&quot;, default: &quot;blog&quot;}
+    - {label: "Title", name: "title", widget: "string"}
+    - {label: "Publish Date", name: "date", widget: "datetime", default: ""}
+    - {label: "Categories", name: "categories", widget: "list", default: ""}
+    - {label: "Author", name: "author", widget: "string", default: "_X_y_z_"}
+    - {label: "Content", name: "body", widget: "markdown"}
+    - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
   meta:
-    - {label: &quot;Tags&quot;, name: &quot;tags&quot;, widget: &quot;list&quot;, default: &quot;&quot; }
-  
+    - {label: "Tags", name: "tags", widget: "list", default: "" }  
 ```
+
 backendのrepoには自分がGithubで管理しているリポジトリの場所を指定します。
 
 collectionsは記事のテンプレートを定義します。Hexoで言うScaffoldsディレクトリと同じような役割をしていますが、Netlify CMSはHexoに依存しているわけでもないのでそれを使うわけではない模様。
