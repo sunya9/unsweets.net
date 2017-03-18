@@ -1,0 +1,5 @@
+backend:
+  name: github
+  repo: sunya9/unsweets.log
+  branch: master
+
