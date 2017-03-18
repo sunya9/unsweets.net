@@ -3,3 +3,4 @@ backend:
   repo: sunya9/unsweets.log
   branch: master
 
+media_folder: source/images/
