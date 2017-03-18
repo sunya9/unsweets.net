@@ -128,13 +128,13 @@ skip_render:
 `hexo start`などでローカルで試してみましょう。[http://localhost:4000/admin](http://localhost:4000/admin)にアクセスするとGithub認証ボタンが表示されると思います。
 OAuth後、一瞬Netlifyに飛び、すぐにまたadminに戻ってくると思います。
 
-![Netlify CMSの管理画面。unsweets.logの記事一覧がカード形式で表示されている。](/source/images/d88e0aac-46bd-49a3-af56-2802ca148f7f.png)
+![Netlify CMSの管理画面。unsweets.logの記事一覧がカード形式で表示されている。](/images/d88e0aac-46bd-49a3-af56-2802ca148f7f.png)
 
 Blogを選択すると`source/_posts`に入った記事一覧を取得します。どうやら内部でGithubからAPIアクセスして取得している模様（なのでローカルの一覧ではない）。
 
 編集画面はこんな感じ。
 
-![Netlify CMSでの記事編集画面。2ペインで表示されており、左側にエディタ、右側にプレビューが表示されている。](/source/images/Content Manager.png)
+![Netlify CMSでの記事編集画面。2ペインで表示されており、左側にエディタ、右側にプレビューが表示されている。](/images/Content Manager.png)
 
 先ほどのconfig.ymlに沿った形式でFieldsに沿って表示されています。
 
@@ -148,5 +148,9 @@ Blogを選択すると`source/_posts`に入った記事一覧を取得します�
 * 編集画面で下書きがない
 * config.ymlの設定が間違っていたりすると内部でJavaScriptがエラーを吐いて落ちる。しかもどこが間違っているかわかりづらい
 * Hexoのymlがjsonに変換されていることに気付きにくい
+* ファイル名が基本的に記事名依存なので、自由につけられない
+* 画像のパス関連が怪しい
+
+最後の2つは自分の設定がおかしいだけかもしれませんが、ちょっとうまくいっていないかん時。
 
 まだまだAlpha感のある使い心地。しかしローカルでわざわざエディタ立ち上げて、マークダウン書いて、プレビューして見て、コミットしてプッシュして…の手順を考えると、Web上で管理画面でぽちぽちやった方が気楽なのは大変助かります。
