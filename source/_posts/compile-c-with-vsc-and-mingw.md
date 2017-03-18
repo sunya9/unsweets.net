@@ -1,3 +1,4 @@
+---
 title: Visual Studio Code上でMinGWを使ってC++をコンパイルする
 id: 73
 categories:

@@ -1,3 +1,4 @@
+---
 title: phpからプロセスを起動して標準入出力をする
 id: 50
 categories:

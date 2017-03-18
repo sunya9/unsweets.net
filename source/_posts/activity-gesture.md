@@ -1,3 +1,4 @@
+---
 title: Activity上で左からフリックした時に戻ったりする
 id: 33
 categories:

@@ -1,3 +1,4 @@
+---
 title: FragmentPagerAdapterとListFragmentを使ったらはまった
 id: 32
 categories:

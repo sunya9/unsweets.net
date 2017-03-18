@@ -1,3 +1,4 @@
+---
 title: Enumを使ってBundleやIntentのキーを管理する
 id: 69
 categories:

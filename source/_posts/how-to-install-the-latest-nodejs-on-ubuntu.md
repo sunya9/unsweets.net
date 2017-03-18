@@ -1,3 +1,4 @@
+---
 title: ubuntuに最新のnode.jsを導入する
 id: 37
 categories:

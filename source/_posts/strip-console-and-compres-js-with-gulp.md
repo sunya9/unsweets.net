@@ -1,3 +1,4 @@
+---
 title: gulpでjsのconsoleを消したり圧縮したりする
 id: 56
 categories:

@@ -1,3 +1,4 @@
+---
 title: AtomでC++をMinGWでコンパイルする
 tags:
   - atom

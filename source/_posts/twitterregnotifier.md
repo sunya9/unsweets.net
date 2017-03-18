@@ -1,3 +1,4 @@
+---
 title: twitterポスト規制通知bot「RegNotifier」を作りました
 id: 38
 categories:

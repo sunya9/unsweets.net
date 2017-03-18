@@ -1,3 +1,4 @@
+---
 title: mongoDB(mongod)のウェブインターフェースを無効にして起動する
 id: 40
 categories:

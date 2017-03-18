@@ -1,3 +1,4 @@
+---
 title: lubuntuでIPを固定したら名前解決できなくなった
 id: 48
 categories:

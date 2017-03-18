@@ -1,3 +1,4 @@
+---
 title: linux環境下のnode.jsでgm moduleを使った時、書き込みでエラーが発生する
 id: 42
 categories:

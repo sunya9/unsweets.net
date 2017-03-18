@@ -1,3 +1,4 @@
+---
 title: getCheckedItemCount
 id: 44
 categories:

@@ -1,3 +1,4 @@
+---
 title: Windows上のVagrantでSambaを利用する
 id: 71
 categories:
