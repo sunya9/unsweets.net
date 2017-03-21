@@ -1,6 +1,7 @@
 <h1>
   <%= page_title() %>
 </h1>
+<input type="search" id="filter" placeholder="Filter" />
 <% const groupedPosts = page.posts.sort('date', -1)
   .toArray()
   .reduce((group, post) => {
@@ -12,3 +13,44 @@
   Object.keys(groupedPosts).sort().reverse().forEach(year => { %>
   <%- partial('_partial/yearly-archive', { year, posts: groupedPosts[year]}) %> 
 <% }) %>
+<script>
+function debounce(func, wait, immediate) {
+	var timeout
+	return function() {
+		var context = this, args = arguments
+		var later = function() {
+			timeout = null
+			if (!immediate) func.apply(context, args)
+		}
+		var callNow = immediate && !timeout
+		clearTimeout(timeout)
+		timeout = setTimeout(later, wait)
+		if (callNow) func.apply(context, args)
+	}
+}
+
+function $(selector, context) {
+  if(!context) context = document
+  return Array.prototype.slice.call(context.querySelectorAll(selector))
+}
+
+var filterEl = document.getElementById('filter')
+filterEl.addEventListener('input', debounce(filter, 250))
+var items = $('ul.archives > li')
+
+function filter() {
+  var testReg = new RegExp(filterEl.value, 'i')
+  items.forEach(function(item) {
+    item.style.display = !testReg.test(item.textContent)
+      ? 'none' : ''
+  })
+  $('h2').forEach(function(heading) {
+    var hide = $('li', heading.nextElementSibling)
+      .every(function(item) {
+        return item.style.display === 'none'
+      })
+    heading.style.display = hide ? 'none' : ''
+  })
+}
+filter(filterEl)
+</script>
