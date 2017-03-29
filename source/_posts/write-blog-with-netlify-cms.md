@@ -138,7 +138,7 @@ Blogを選択すると`source/_posts`に入った記事一覧を取得します�
 
 先ほどのconfig.ymlに沿った形式でFieldsに沿って表示されています。
 
-### その他
+### その他2
 もしかして: 自分で[Quick start guide](https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md)が早い。config.ymlのwidgetsに使える値もだいたい載ってます。後は公式の[Docs](https://www.netlifycms.org/docs/)を見るのも良いと思います。
 
 ### 所感とか気になるところとか
