@@ -9,6 +9,7 @@ layout: blog
 
 [Gitgraph.js](https://www.npmjs.com/package/gitgraph.js)をwebpackを介して使おうとするにもうまく行かなかったのでメモ。なおこれはGitgraphに限る問題ではなく、[UMD](https://github.com/umdjs/umd)と言った手法を実装していないモジュール全般に起こりえる問題です。
 
+<!-- more -->
 ## 雑な環境
 
 * webpack 2.3.0
