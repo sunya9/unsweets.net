@@ -8,8 +8,8 @@ export const getRandomArbitary = (min, max) => {
 }
 
 export const requestAnimationFrame = window.requestAnimationFrame
-  || window.mozRequestAnimationFrame 
-  || window.webkitRequestAnimationFrame 
+  || window.mozRequestAnimationFrame
+  || window.webkitRequestAnimationFrame
   || window.msRequestAnimationFrame
 
 export const scrollTo = (to, duration) => {
