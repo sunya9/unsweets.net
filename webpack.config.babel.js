@@ -1,8 +1,5 @@
-import webpack from 'webpack'
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-
-const extractCSS = new ExtractTextPlugin('css/[name].css')
 
 const config = {
   entry: './js/main',
@@ -12,30 +9,34 @@ const config = {
     filename: 'js/[name].js'
   },
   plugins: [
-    extractCSS,
-    new webpack.ProvidePlugin({
-      $: 'jquery'
-    })
+    new ExtractTextPlugin('css/main.css')
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        use: 'babel-loader'
       }, {
         test: /\.css$/,
-        loader: extractCSS.extract(['css', 'postcss'])
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [
+                require('postcss-import')(),
+                require('postcss-cssnext')(),
+              ]
+            }
+          }]
+        })
       }, {
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'url-loader'
+        use: 'url-loader'
       }
     ]
   },
-  postcss: [
-    require('postcss-import'),
-    require('postcss-cssnext'),
-  ],
   'devtool': 'source-map'
 }
 

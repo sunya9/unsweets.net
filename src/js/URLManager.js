@@ -1,12 +1,11 @@
 import debounce from 'lodash.debounce'
-import { getNearestSectionId, scrollTo } from './util'
+import { scrollTo } from './util'
 
 class URLManager {
-  constructor(ids) {
+  constructor(menu) {
     if(!('history' in window)) return
-    this._ids = ids
+    this._menu = menu
     this._scroll = this._scroll.bind(this)
-
     window.addEventListener('scroll', debounce(this._scroll, 100))
     if(location.hash) {
       scrollTo(location.hash, 500)
@@ -14,7 +13,7 @@ class URLManager {
   }
 
   _scroll() {
-    const id = getNearestSectionId(this._ids)
+    const id = this._menu.followMark()
     history.replaceState(null, null, `#${id}`)
   }
 }

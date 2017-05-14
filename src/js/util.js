@@ -35,19 +35,5 @@ export const scrollTo = (to, duration) => {
   requestAnimationFrame(callback)
 }
 
-export const getNearestSectionId = sectionIds => {
-  const sections = sectionIds.map(id => {
-    return {
-      id: id,
-      distance: document.querySelector(`#${id}`).offsetTop
-    }
-  })
-  const scrollTop = document.body.scrollTop
-  const nearestEl = sections.reduce((prev, current) => {
-    const p = Math.abs(scrollTop - prev.distance)
-    const c = Math.abs(scrollTop - current.distance)
-    if(p > c) prev = current
-    return prev
-  })
-  return nearestEl.id
-}
+export const $ = document.querySelector.bind(document)
+export const $$ = document.querySelectorAll.bind(document)

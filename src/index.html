@@ -6,10 +6,10 @@
     <title>
         &lt;unsweets/&gt;
     </title>
-    <meta name="description" content="unsweetsは_X_y_z_(ekusu)の自作アプリケーションなどを公開するウェブサイトです。">
+    <meta name="description" content="unsweetsはekusuの自作アプリケーションなどを公開するウェブサイトです。">
     <meta content="&lt;unsweets/&gt;" property="og:title">
     <meta content="&lt;unsweets/&gt;" property="og:site_name">
-    <meta content="unsweetsは_X_y_z_(ekusu)の自作アプリケーションなどを公開するウェブサイトです。" property="og:description">
+    <meta content="unsweetsはekusuの自作アプリケーションなどを公開するウェブサイトです。" property="og:description">
     <meta content="https://unsweets.net/" property="og:url">
     <meta content="website" property="og:type">
     <meta content="https://unsweets.net/images/large-logo.png" property="og:image">
@@ -39,133 +39,181 @@
 
 <body>
     <canvas id="particles"></canvas>
-    <div id="container">
-        <header id="top">
-            <div>
-                <h1 id="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270.32 312.13"><defs><style>.a,.b{fill:none;stroke-miterlimit:10;stroke-width:15px;}.a{stroke:#fff;}.b{stroke:#c0392b;}</style></defs><polygon class="a" points="135.16 303.48 7.5 229.77 7.5 82.36 135.16 8.66 262.82 82.36 262.82 229.77 135.16 303.48"/><polyline class="a" points="212.22 111.81 212.22 200.54 135.13 245.05"/><polyline class="a" points="57.87 200.54 57.87 111.43 135.13 66.82"/><line class="b" x1="185.21" y1="127.17" x2="84.99" y2="185.03"/></svg>
-                    <!--<img src="/images/logo.svg" width="96" height="111">-->
-                </h1>
-                <p id="site-description">
-                    <b>&lt;unsweets/&gt;</b> — applications and software by _X_y_z_.
-                </p>
+    <div class="container">
+        <header data-menu id="top">
+            <div class="screen">
+                <div>
+                    <h1 class="title">
+                        <svg class="title-icon logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270.32 312.13"><defs><style>.a,.b{fill:none;stroke-miterlimit:10;stroke-width:15px;}.a{stroke:#fff;}.b{stroke:#c0392b;}</style></defs><polygon class="a" points="135.16 303.48 7.5 229.77 7.5 82.36 135.16 8.66 262.82 82.36 262.82 229.77 135.16 303.48"/><polyline class="a" points="212.22 111.81 212.22 200.54 135.13 245.05"/><polyline class="a" points="57.87 200.54 57.87 111.43 135.13 66.82"/><line class="b" x1="185.21" y1="127.17" x2="84.99" y2="185.03"/></svg>
+                        <span class="title-text title-typewriter" data-title="&lt;unsweets/&gt;">
+                            &lt;unsweets<span class="title-slash">/</span>&gt;
+                        </span>
+                    </h1>
+                    <p>
+                        Applications and software by ekusu.
+                    </p>
+                </div>
             </div>
-            <a id="scroll-down" href="#works"></a>
+            <a id="go-works" class="scroll-down" href="#works"></a>
             <button id="toggle-menu"><span class="sr-only">Menu</span><span id="toggle-menu-border" aria-hidden="true"></span></button>
             <nav id="global-nav">
-                <ul>
-                    <li><a href="#top"><img src="/images/logo.svg" width="64"></a></li>
-                    <li><a href="#works">Works</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <h2 class="hidden">Menu</h2>
+                <ul id="global-nav-menu">
                 </ul>
             </nav>
         </header>
-        <main id="contents">
+        <main>
             <section id="works">
-                <h3>Works</h3>
-                <div class="works-slider">
-                    <div class="works-slider-frame">
-                        <ul class="works-slider-slides">
-                            <li class="works-slider-slide">
-                                <section id="xstus" itemscope itemtype="http://schema.org/MobileApplication">
-                                    <h4 itemprop="name">xsTus</h4>
-                                    <meta itemprop="applicationCategory" content="SNS" />
-                                    <p>
-                                        <img src="images/xstus-icon.png" width="256" height="256" alt="" itemprop="image">
-                                    </p>
-                                    <p itemprop="description">
-                                        Twitter client for <span itemprop="operatingSystem">Android</span>.
-                                    </p>
-                                    <a href="http://xstus.unsweets.net/" itemprop="url" class="button">Detail</a>
-                                </section>
-                            </li>
-                            <li class="works-slider-slide">
-                                <section id="twitokengetter" itemscope itemtype="http://schema.org/WebApplication">
-                                    <h4 itemprop="name">TwiTokenGetter</h4>
-                                    <meta itemprop="applicationCategory" content="Tool" />
-                                    <meta itemprop="operatingSystem" content="Any" />
-                                    <p>
-                                        <img src="images/ttg.png" width="256" height="256" alt="" itemprop="image">
-                                    </p>
-                                    <p itemprop="description">
-                                        OAuth tool for Twitter.
-                                    </p>
-                                    <a href="http://ttg.unsweets.net/" itemprop="url" class="button">Detail</a>
-                                </section>
-                            </li>
-                        </ul>
+                <h2 class="hidden">Works</h2>
+                <section data-menu="Beta" id="beta" itemscope itemtype="http://schema.org/WebApplication">
+                    <div class="screen">
+                        <a href="https://beta.unsweets.net/" itemprop="url" class="block-anchor">
+                            <div>
+                                <h3 class="title" itemprop="name">
+                                    <img src="images/beta.png" width="256" height="256" alt="" itemprop="image" class="title-icon">
+                                    <span class="title-text">
+                                        Beta
+                                    </span>
+                                    </h3>
+                                <meta itemprop="applicationCategory" content="Tool" />
+                                <meta itemprop="operatingSystem" content="Any" />
+                                <p itemprop="description">
+                                    Web client for pnut.io.
+                                </p>
+                            </div>
+                        </a>
                     </div>
-                    <button class="works-slider-prev"></button>
-                    <button class="works-slider-next"></button>
-                    <ul class="works-slider-dots"></ul>
-                    <span class="works-slider-boal"></span>
-                </div>
+                </section>
+                <section data-menu="oasis" id="oasis" itemscope itemtype="http://schema.org/WebApplication">
+                    <div class="screen">
+                        <a href="https://github.com/sunya9/oasis" itemprop="url" class="block-anchor">
+                            <div>
+                                <h3 class="title" itemprop="name">
+                                    <img src="images/oasis.png" width="128" height="128" alt="" itemprop="image" class="title-icon">
+                                    <span class="title-text">
+                                        oasis
+                                    </span>
+                                    </h3>
+                                <meta itemprop="applicationCategory" content="Tool" />
+                                <meta itemprop="operatingSystem" content="Any" />
+                                <p itemprop="description">
+                                    Build preview environment rapidly.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                <section data-menu="TwiTokenGetter" id="twitokengetter" itemscope itemtype="http://schema.org/WebApplication">
+                    <div class="screen">
+                        <a href="https://ttg.unsweets.net/" itemprop="url" class="block-anchor">
+                            <div>
+                                <h3 class="title" itemprop="name">
+                                    <img src="images/ttg.png" width="192" height="192" alt="" itemprop="image" class="title-icon">
+                                    <span class="title-text">
+                                        TwiTokenGetter
+                                    </span>
+                                    </h3>
+                                <meta itemprop="applicationCategory" content="Tool" />
+                                <meta itemprop="operatingSystem" content="Any" />
+                                <p itemprop="description">
+                                    OAuth tool for Twitter.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                <section data-menu="xsTus" id="xstus" itemscope itemtype="http://schema.org/MobileApplication">
+                    <div class="screen">
+                        <a href="http://xstus.unsweets.net/" itemprop="url" class="block-anchor">
+                            <div>
+                                <h3 class="title" itemprop="name">
+                                    <img src="images/xstus-icon.png" width="256" height="256" alt="" itemprop="image" class="title-icon">
+                                    <span class="title-text">
+                                        xsTus
+                                    </span>
+                                </h3>
+                                <meta itemprop="applicationCategory" content="SNS" />
+                                <p itemprop="description">
+                                    Twitter client for <span itemprop="operatingSystem">Android</span>.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
             </section>
             <section id="about">
-                <h3>About</h3>
-                <div class="two-columns">
-                    <section id="site">
-                        <h4>Site</h4>
-                        <meta content="https://unsweets.net/" itemprop="url">
-                        <meta content="https://unsweets.net/images/large-logo.png"itemprop="thumbnailUrl">
-                        <p itemprop="description about">
-                            <b itemprop="name">&lt;unsweets/&gt;</b>は<span itemprop="author editor publisher">_X_y_z_</span>が趣味で運営している個人のウェブサイトです。
-                        </p>
-                        <p>
-                            <em>Since
-                                <time datetime="2010-06-10" itemprop="datePublished">2010/06/10</time>
-                            </em>
-                        </p>
-                        <p>ブログもやっています。</p>
-                        <ul itemscope itemtype="http://schema.org/Blog" class="link-list">
-                            <li itemprop="name"><a href="http://blog.unsweets.net/" itemprop="url">unsweets.log</a></li>
-                            <li itemprop="name"><a href="http://private.unsweets.net/" itemprop="url">Konamikan.</a></li>
-                            <li><a href="http://tumblr.unsweets.net/" rel="nofollow" itemprop="url">xi</a></li>
-                        </ul>
-                        <p>問い合わせなどは<a href="mailto:mugen.xyz@gmail.com">メール</a>か<a href="#contact">Contact</a>からどうぞ。</p>
-                    </section>
-                    <section id="me" itemscope itemtype="http://schema.org/Person">
-                        <h4>Me</h4>
-                        <div id="profile" id="profile-description">
-                            <div class="hexagon" id="avatar" style="background-image: url(https://s.gravatar.com/avatar/3af6af8a2790b9882b8468759a4a3a29?s=256)">
-                              <div class="hex-top"></div>
-                              <div class="hex-bottom"></div>
-                            </div>
-                            <dl>
-                                <dt>HN</dt>
-                                <dd itemprop="name">_X_y_z_</dd>
-                                <dt>Location</dt>
-                                <dd itemprop="homeLocation">Yokohama</dd>
-                                <dt>birthday</dt>
-                                <dd itemprop="birthDate"><time datetime="1994-12-01">12/01/1994</time></dd>
-                            </dl>
+                <h2 class="hidden">About</h2>
+                <section data-menu="About site" id="site">
+                    <div class="screen">
+                        <div>
+                            <h3>About site</h3>
+                            <meta content="https://unsweets.net/" itemprop="url">
+                            <meta content="https://unsweets.net/images/large-logo.png"itemprop="thumbnailUrl">
+                            <p itemprop="description about">
+                                <b itemprop="name">&lt;unsweets/&gt;</b>は<span itemprop="author editor publisher">_X_y_z_</span>が趣味で運営している個人のウェブサイトです。
+                            </p>
+                            <p>
+                                <em>Since
+                                    <time datetime="2010-06-10" itemprop="datePublished">2010/06/10</time>
+                                </em>
+                            </p>
+                            <p>ブログもやっています。</p>
+                            <ul itemscope itemtype="http://schema.org/Blog" class="link-list">
+                                <li itemprop="name"><a href="http://blog.unsweets.net/" itemprop="url">unsweets.log</a></li>
+                                <li itemprop="name"><a href="http://private.unsweets.net/" itemprop="url">Konamikan.</a></li>
+                                <li><a href="http://tumblr.unsweets.net/" rel="nofollow" itemprop="url">xi</a></li>
+                            </ul>
+                            <p>問い合わせなどは<a href="mailto:mugen.xyz@gmail.com">メール</a>か<a href="#contact" class="scroll-down">Contact</a>からどうぞ。</p>
                         </div>
-                        <p itemprop="description"><b>_X_y_z_</b>で「<span itemprop="alternateName">えくす</span>」と読みます。その他<b>シューニャ(sunya)</b>や<b>9sunya</b>、<b>sunya9</b>と言ったHN/IDも。</p>
-                        <p>甘いものと可愛いものが好き。</p>
-                        <h5>Elsewhere</h5>
-                        <ul class="link-list">
-                            <li><a href="https://twitter.com/_X_y_z_" rel="nofollow">Twitter</a></li>
-                            <li><a href="https://github.com/sunya9" rel="nofollow">Github</a></li>
-                            <li><a href="https://instagram.com/_x_y_z_" rel="nofollow">Instagram</a></li>
-                            <li><a href="https://pinterest.com/9sunya/" rel="nofollow">Pinterest</a></li>
-                            <li><a href="https://ja.foursquare.com/_x_y_z_" rel="nofollow">Foursquare</a></li>
-                        </ul>
-                    </section>
-                </div>
+                    </div>
+                </section>
+                <section data-menu="About me" id="me" itemscope itemtype="http://schema.org/Person">
+                    <div class="screen">
+                        <div>
+                            <h3>About me</h3>
+                            <div id="profile" id="profile-description">
+                                <div class="hexagon" id="avatar" style="background-image: url(https://s.gravatar.com/avatar/3af6af8a2790b9882b8468759a4a3a29?s=256)">
+                                    <div class="hex-top"></div>
+                                    <div class="hex-bottom"></div>
+                                </div>
+                                <dl>
+                                    <dt>HN</dt>
+                                    <dd itemprop="name">_X_y_z_</dd>
+                                    <dt>Location</dt>
+                                    <dd itemprop="homeLocation">Yokohama</dd>
+                                    <dt>birthday</dt>
+                                    <dd itemprop="birthDate"><time datetime="1994-12-01">1994/12/01</time></dd>
+                                </dl>
+                            </div>
+                            <p itemprop="description"><b>_X_y_z_</b>で「<span itemprop="alternateName">えくす</span>」と読みます。その他<b>シューニャ(sunya)</b>や<b>9sunya</b>、<b>sunya9</b>と言ったHN/IDも。</p>
+                            <p>甘いものと可愛いものが好き。</p>
+                            <ul class="link-list">
+                                <li><a href="https://twitter.com/_X_y_z_" rel="nofollow">Twitter</a></li>
+                                <li><a href="https://github.com/sunya9" rel="nofollow">Github</a></li>
+                                <li><a href="https://instagram.com/_x_y_z_" rel="nofollow">Instagram</a></li>
+                                <li><a href="https://pinterest.com/9sunya/" rel="nofollow">Pinterest</a></li>
+                                <li><a href="https://ja.foursquare.com/_x_y_z_" rel="nofollow">Foursquare</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </section>
-            <section id="contact">
-                <h3>Contact</h3>
-                <form action="//formspree.io/mugen.xyz@gmail.com" method="post" id="form">
-                    <input type="text" name="_gotcha" class="hidden" />
-                    <label for="form-name">Name</label>
-                    <input type="text" id="form-name" name="name" />
-                    <label for="form-email">Email</label>
-                    <input type="email" id="form-email" name="email" />
-                    <label for="form-message">Message</label>
-                    <textarea rows="4" name="message" id="form-message" required></textarea>
-                    <input type="submit" value="Submit" />
-                </form>
+            <section data-menu id="contact">
+                <div class="screen">
+                    <div>
+                        <h2>Contact</h2>
+                        <form action="//formspree.io/mugen.xyz@gmail.com" method="post" class="form">
+                            <input type="text" name="_gotcha" class="hidden" />
+                            <label for="form-name">Name</label>
+                            <input type="text" id="form-name" name="name" />
+                            <label for="form-email">Email</label>
+                            <input type="email" id="form-email" name="email" />
+                            <label for="form-message">Message</label>
+                            <textarea rows="4" name="message" id="form-message" required></textarea>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
