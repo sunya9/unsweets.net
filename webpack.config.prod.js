@@ -3,8 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const context = path.join(__dirname, 'themes/hanayo')
 const config = {
-  context,
-  entry: './_source/js/main',
+  entry: path.join(context, './_source/js/main'),
   output: {
     path: path.join(context, 'source'),
     publicPath: '/',
@@ -14,22 +13,21 @@ const config = {
     new ExtractTextPlugin('css/main.css')
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        use: 'babel-loader'
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(['css?minimize', 'postcss'])
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader?minimize', 'postcss-loader']
+        })
       }
     ]
-  },
-  postcss: [
-    require('postcss-import'),
-    require('postcss-cssnext')
-  ]
+  }
 }
 
 module.exports = config
