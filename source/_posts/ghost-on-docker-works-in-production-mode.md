@@ -9,6 +9,8 @@ categories:
 
 ちょっと前にDocker上でGhostを動かすときに苦労したのでそのメモ。
 
+<!-- more -->
+
 ## 想定
 * Docker上でGhostを動かす
 * Data Volumeを設定してホストでGhostのコンテンツファイルを管理する
