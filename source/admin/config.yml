@@ -21,4 +21,5 @@ collections:
   meta:
     # # some entries has empty tags
     - {label: "Tags", name: "tags", widget: "list", default: "" }
-  
+
+publish_mode: editorial_workflow
