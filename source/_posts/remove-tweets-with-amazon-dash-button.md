@@ -11,6 +11,8 @@ categories:
 
 とりあえずツイート削除ボタンを作りました。
 
+<!-- more -->
+
 [sunya9/tweets-remove-button: Remove tweets from Amazon dash button.](https://github.com/sunya9/tweets-remove-button)
 
 ガバガバ英語READMEについてはご容赦…。
