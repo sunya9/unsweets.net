@@ -2,7 +2,7 @@
 title: Docker上でGhostをProductionモードで動かす
 s: ghost-on-docker-works-in-production-mode
 date: 2017-07-02 17:09:36
-tags: Ghost, DOcker,
+tags: Ghost, Docker,
 categories:
   - Memo
 ---
