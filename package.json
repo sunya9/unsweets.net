@@ -26,7 +26,7 @@
     "test": "eslint src/js/**/*.js",
     "fix": "eslint --fix src/js/**/*.js",
     "dev": "run-p 'build:js -- --watch' 'build:css -- --watch'",
-    "build": "run-p build:html build:image build:css build:js build:other",
+    "build": "mkdir -p build && run-p build:html build:image build:css build:js build:other",
     "build:html": "html-minifier --collapse-whitespace --minify-js --minify-css --input-dir static --output-dir build/ --file-ext html",
     "build:image": "imagemin static/images/* --out-dir=build/images && imagemin static/images/favicons/* --out-dir=build/images/favicons",
     "build:css": "postcss src/css/main.css -o build/css/main.css",
