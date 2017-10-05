@@ -6,8 +6,7 @@
     /*884 == frame length*/
     stroke-dashoffset: 884;
     stroke-dasharray: 884;
-    animation: stroke-anim 3s var(--easing) forwards,
-      stroke-anim-end 0s 3s forwards;
+    animation: stroke-anim 3s var(--easing) forwards, stroke-anim-end 0s 3s forwards;
   }
   & polyline.a {
     /*inner frame*/
@@ -25,9 +24,7 @@
 
 .title-typewriter {
   position: relative;
-  animation:
-    show-title 3.5s step-end,
-    flash .5s 3.5s var(--easing) forwards;
+  animation: show-title 3.5s step-end, flash .5s 3.5s var(--easing) forwards;
   &::after {
     color: var(--text-color);
     content: attr(data-title);
@@ -39,11 +36,7 @@
     border-right: .15em solid var(--accent-color);
     white-space: nowrap;
     margin: 0 auto;
-    animation:
-      typing 3s steps(11, end),
-      hidden-title 3.5s step-end forwards,
-      underline 3.45s step-end,
-      blink-caret .75s step-end infinite;
+    animation: typing 3s steps(11, end), hidden-title 3.5s step-end forwards, underline 3.45s step-end, blink-caret .75s step-end infinite;
     text-align: left;
   }
 }
@@ -54,45 +47,72 @@
 }
 
 @keyframes underline {
-  from { text-decoration: underline; }
-  to { text-decoration: none; }
+  from {
+    text-decoration: underline;
+  }
+  to {
+    text-decoration: none;
+  }
 }
 
 @keyframes show-title {
-  from { color: transparent; }
-  to { color: inherit; }
+  from {
+    color: transparent;
+  }
+  to {
+    color: inherit;
+  }
 }
 
 @keyframes hidden-title {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--accent-color); }
+  from,
+  to {
+    border-color: transparent
+  }
+  50% {
+    border-color: var(--accent-color);
+  }
 }
 
 @keyframes stroke-anim {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes stroke-anim-end {
-  to { stroke-dasharray: 0; }
+  to {
+    stroke-dasharray: 0;
+  }
 }
 
 @keyframes flash {
-  50% { transform: scale(1.2); }
-  to { transform: scale(1); }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 :root {
   --scroll-down-size: 30px;
-  --scroll-down-border-width: 1px;
+  --scroll-down-border-width: 8px;
   --scroll-down-border-color: color(var(--accent-color) a(70%));
 }
 
@@ -111,23 +131,6 @@
   transition: var(--default-transition);
   animation: bound .5s ease-in-out infinite alternate;
   backface-visibility: hidden;
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: var(--scroll-down-border-width) solid var(--scroll-down-border-color);
-    border-top: none;
-    border-left: none;
-  }
-  &::before {
-    right: -10px;
-    bottom: -10px;
-  }
-  &::after {
-    right: -19px;
-    bottom: -19px;
-  }
 }
 
 @keyframes bound {
