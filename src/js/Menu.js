@@ -1,5 +1,10 @@
 import debounce from 'lodash.debounce'
-import { scrollTo, $$, $ } from './util'
+import {
+  scrollTo,
+  $$,
+  $,
+  getScrollTop
+} from './util'
 
 class Menu {
   constructor(buttonEl, menuEl) {
@@ -38,10 +43,10 @@ class Menu {
     const isTop = id === 'top'
     const diff = this._prevId !== id
     this._menu.classList[isTop ? 'remove' : 'add']('visible')
-    if(diff) {
-      if(this._prevId)
+    if (diff) {
+      if (this._prevId)
         this._menu.querySelector(`a[href='#${this._prevId}']`)
-          .classList.remove('active')
+        .classList.remove('active')
       this._menu.querySelector(`a[href='#${id}']`)
         .classList.add('active')
       this._prevId = id
@@ -55,13 +60,12 @@ class Menu {
       .map(id => ({
         id,
         distance: $(`#${id}`).offsetTop
-      })
-    )
-    const scrollTop = document.body.scrollTop
+      }))
+    const scrollTop = getScrollTop()
     const nearestEl = sections.reduce((prev, current) => {
       const p = Math.abs(scrollTop - prev.distance)
       const c = Math.abs(scrollTop - current.distance)
-      if(p > c) prev = current
+      if (p > c) prev = current
       return prev
     })
     return nearestEl.id
@@ -72,14 +76,18 @@ class Menu {
   }
 
   _createMenuObj(el) {
-    const name = el.getAttribute('data-menu')
-        || el.id.charAt(0).toUpperCase() + el.id.slice(1)
+    const name = el.getAttribute('data-menu') ||
+      el.id.charAt(0).toUpperCase() + el.id.slice(1)
     return {
-      name, id: el.id
+      name,
+      id: el.id
     }
   }
 
-  addMenu({ id, name }) {
+  addMenu({
+    id,
+    name
+  }) {
     const li = document.createElement('li')
     const a = document.createElement('a')
     const span = document.createElement('span')
@@ -129,14 +137,16 @@ class Menu {
   }
 
   _setScrollbarStyle() {
-    if(this._isShownScrollbar()) {
-      const { style } = document.body
+    if (this._isShownScrollbar()) {
+      const {
+        style
+      } = document.body
       const rightPos = this._visible ? `${this._scrollBarWidth}px` : 0
       style.overflow = this._visible ? 'hidden' : ''
       style.paddingRight = rightPos
-      this._button.style.marginRight = this._visible
-        ? `${this._scrollBarWidth}px`
-        : ''
+      this._button.style.marginRight = this._visible ?
+        `${this._scrollBarWidth}px` :
+        ''
     }
   }
 
