@@ -11,6 +11,8 @@ Categories:
 [CSS Frameworks](https://css-frameworks.unsweets.net)
 という、CSSのフレームワークを比較するサイトを作りました。オマージュ元は[StaticGen](https://www.staticgen.com)。
 
+<!-- more -->
+
 StaticGenに比べると前週との比較な個別ページがないなど貧弱ですが、そこら辺はこれから頑張りたいところです。
 
 かなり適当な英語で書いてたり、そもそもRulesがWIPだったり、このフレームワーク載ってないよ！というのがあると思いますが、Forkしてプルリクを送ってくださるととても喜びます。そこら辺のガイドラインもこれから書きます。多分。
