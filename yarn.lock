@@ -277,9 +277,9 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-async@^1.5.2:
+async@^1.1.0, async@^1.5.2:
   version "1.5.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+  resolved "http://registry.npmjs.org/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
 async@^2.1.2:
   version "2.5.0"
@@ -850,6 +850,10 @@ block-stream@*:
 bluebird@3.3.1:
   version "3.3.1"
   resolved "http://registry.npmjs.org/bluebird/-/bluebird-3.3.1.tgz#f97ae1970f41d85177283053e9a120160e66c61d"
+
+bluebird@^2.9.27:
+  version "2.11.0"
+  resolved "http://registry.npmjs.org/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
 bluebird@^3.0.6, bluebird@^3.2.2, bluebird@^3.4.0:
   version "3.5.0"
@@ -3097,13 +3101,15 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-hexo-algolia@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/hexo-algolia/-/hexo-algolia-0.1.1.tgz#667e540fb2a312488a83ec65258a34274f0e1a64"
+hexo-algolia@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/hexo-algolia/-/hexo-algolia-0.2.0.tgz#56802e79662c17517230bdc6695a89a1c821e287"
   dependencies:
     algoliasearch "^3.4.0"
-    each-async "^1.1.1"
-    lodash "^4.0.0"
+    async "^1.1.0"
+    bluebird "^2.9.27"
+    lodash "^3.9.3"
+    object-assign "^2.0.0"
 
 hexo-all-minifier@0.5.2:
   version "0.5.2"
@@ -4188,6 +4194,10 @@ lodash.uniq@^4.3.0:
 lodash@4.5.0:
   version "4.5.0"
   resolved "http://registry.npmjs.org/lodash/-/lodash-4.5.0.tgz#2284aa06f5b136adbd954b903511b62fc39d1f59"
+
+lodash@^3.9.3:
+  version "3.10.1"
+  resolved "http://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.0.0, lodash@^4.1.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.1:
   version "4.17.4"
