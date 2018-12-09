@@ -53,6 +53,6 @@
     "index": "hexo --config _secret.yml algolia"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.5.0"
+    "webpack-dev-server": "2.11.3"
   }
 }
