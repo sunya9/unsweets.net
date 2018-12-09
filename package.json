@@ -36,7 +36,7 @@
     "raw-loader": "0.5.1",
     "simple-git": "1.67.0",
     "style-loader": "0.13.2",
-    "stylelint": "7.9.0",
+    "stylelint": "7.13.0",
     "webpack": "3.0.0",
     "zooming": "0.8.6"
   },
