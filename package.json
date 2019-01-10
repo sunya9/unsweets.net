@@ -1,7 +1,7 @@
 {
   "name": "unsweets.log",
   "private": true,
-  "description": "the blog of unsweets.net",
+  "description": "Frontend & Android",
   "version": "0.0.0",
   "author": "sunya9 <mugen.xyz@gmail.com>",
   "dependencies": {
