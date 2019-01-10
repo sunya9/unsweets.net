@@ -1,7 +1,8 @@
 ---
 title: CSS Frameworksというサイトを作った
 date: 2017-08-11 16:21:36
-tags: Notice
+tags:
+  - Notice
 Categories:
   - CSS
 ---

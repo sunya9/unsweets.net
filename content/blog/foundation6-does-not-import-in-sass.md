@@ -3,7 +3,8 @@ layout: blog
 title: SASS版Foundation6ではデフォルトで全てのモジュールをインクルードしない
 s: foundation6-does-not-import-in-sass
 date: 2017-08-04 21:52:29
-tags: Foundation,
+tags:
+    - Foundation
 categories:
     - Memo
 ---
