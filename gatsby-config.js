@@ -8,6 +8,7 @@ module.exports = {
     siteUrl: `https://blog.unsweets.net`,
     social: {
       twitter: `_X_y_z_`,
+      github: `sunya9`
     },
   },
   plugins: [
