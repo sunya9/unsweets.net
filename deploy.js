@@ -1,6 +1,6 @@
 const simpleGit = require('simple-git')()
 
 simpleGit
-  .add('source')
+  .add('content')
   .commit(`Updated: ${new Date().toLocaleString()}`)
   .push()
