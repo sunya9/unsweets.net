@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -8,7 +9,8 @@ module.exports = {
     siteUrl: `https://blog.unsweets.net`,
     social: {
       twitter: `_X_y_z_`,
-      github: `sunya9`
+      github: `sunya9`,
+      disqusShortname: 'unsweets-log'
     },
   },
   plugins: [
@@ -34,14 +36,26 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/images`,
+        name: `images`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: '<!-- more -->',
         plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              linkImagesToOriginal: false,
+              showCaptions: true
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -60,7 +74,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: 'UA-10104011-7',
       },
     },
     `gatsby-plugin-feed`,
@@ -84,6 +98,16 @@ module.exports = {
           include: /img/
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Quicksand',
+          'Inconsolata'
+        ]
+      }
+    },
+    'gatsby-plugin-sass'
   ],
 }
