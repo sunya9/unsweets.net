@@ -2,7 +2,7 @@
   "name": "unsweets.log",
   "private": true,
   "description": "Frontend & Android",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "author": "sunya9 <mugen.xyz@gmail.com>",
   "dependencies": {
     "disqus-react": "^1.0.5",
