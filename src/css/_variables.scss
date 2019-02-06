@@ -1,0 +1,14 @@
+$color-primary: darken(#FDA7DF, 10%);
+$color-initial: rgba(#fff, .95);
+$color-secondary: rgba(#000, .65);
+$color-tertiary: lighten($color-primary, 22%);
+$color-quaternary: #d1d1d1;
+
+$color-accent: #5758BB;
+$color-bg: desaturate(lighten(#9980FA, 30%), 5%);
+
+$color-wave: desaturate(darken($color-primary, 5%), 15%);
+$font-family: Quicksand, 'Lucida Grande', 'Hiragino Kaku Gothic ProN',
+    'Yu gothic', '游ゴシック Light', 'メイリオ', Meiryo, 'Noto Sans CJK Light', sans-serif;
+
+$default-transition: all .2s ease;

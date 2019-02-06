@@ -3,31 +3,24 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
+import Article from '../components/Article'
+import ArticleList from '../components/ArticleList'
+import archivesStyles from '../css/archives.module.scss'
+import { getDateStr } from '../util'
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-
+    const [firstPost] = posts
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.path}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        <Article post={firstPost.node} index={true} />
+        <h1 style={{marginTop: '1.5em'}}>Recent Entries</h1>
+        <ArticleList posts={posts.slice(1)} />
+        <Link to="/archives" className="button button-outline button-wave">Archives</Link>
       </Layout>
     )
   }
@@ -49,13 +42,14 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
+          excerpt(format: HTML)
           fields {
             slug
             path
+            type
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
             title
           }
         }

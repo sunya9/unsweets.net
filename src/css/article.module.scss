@@ -1,0 +1,117 @@
+@import 'variables';
+@import 'util';
+
+.date {
+  display: block;
+}
+.date, .category a {
+  position: relative;
+  &::before {
+    @extend %marker;
+  }
+}
+.header {
+  margin-bottom: 2rem;
+  ul {
+    list-style: none;
+  }
+}
+
+.body {
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ul {
+    list-style: none;
+    > li {
+      position: relative;
+      &::before {
+        @extend %marker;
+      }
+    }
+  }
+  figure {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+  code {
+    border-radius: 0;
+    font-family: Inconsolata, monospace;
+  }
+
+  p code {
+    overflow: auto;
+    border: 1px solid darken($color-tertiary, 10%);
+  }
+  & :matches(h1, h2, h3, h4, h5, h6)[id] {
+    padding-left: calc((100vw - 100%) / 2);
+    padding-right: calc((100vw - 100%) / 2);
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: calc((100% - 100vw) / 2);
+    &:hover svg {
+      @include mq(large) {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    a {
+      display: none;
+      @include mq(large) {
+        display: inline;
+      }
+      svg {
+        @include mq(large) {
+          width: .8em;
+          height: .8em;
+          fill: lighten($color-secondary, 40%);
+          transition: all .2s ease;
+          top: calc(50% - .8em / 2 + 2px);
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          left: -1em;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  margin: 3rem 0;
+}
+
+.share {
+  margin: 1rem 0;
+  display: flex;
+  list-style: none;
+  padding: 4rem 0 0;
+  > li {
+    margin-right: 1rem;
+  }
+  $color-icon: lighten($color-accent, 5);
+  
+  a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    &:hover svg {
+      fill: $color-icon;
+    }
+  }
+  svg {
+    transition: $default-transition;
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 1px;
+    stroke: $color-icon;
+  }
+}
+
+.comments {
+  margin-top: 7rem;
+}
