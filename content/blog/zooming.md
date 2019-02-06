@@ -7,10 +7,7 @@ categories:
   - JavaScript
 date: 2016-12-23 18:59:00
 ---
-<figure>
-[![キャベツ](/images/cabbage.jpg)](/images/cabbage.jpg)
-  <figcaption>画像拡大テスト用のキャベツ</figcaption>
-</figure>
+![キャベツ](/images/cabbage.jpg "画像拡大テスト用のキャベツ")
 
 ブログのテーマの調整も一段落といった感じで落ち着きました。
 
