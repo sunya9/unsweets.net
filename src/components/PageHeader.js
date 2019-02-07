@@ -35,9 +35,9 @@ function Header({ root }) {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/rss.xml" >
+                      <a href="/rss.xml" >
                         <Rss />
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                   <div className={headerStyles.searchView}>
