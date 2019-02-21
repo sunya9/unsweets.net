@@ -3,6 +3,14 @@ language: node_js
 node_js:
   - 10
 
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.13.0
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
 script:
-  - yarn
   - yarn run lint
+
+notifications:
+  email: false
+  slack:
+    secure: NzOLwrd6yepYvPeMCtnuw3K3N+uB3lPKsGyHi2sedlKqxrvwyw7/2Ly0f1vzv+B7G6SD0PUs9yOGszLYdzEkpfSzwVYgj6mr4BnFZr9IpOJXTRw6VxjiUJjTXRxvUJ8i1g6HXwIZZWQfqPmLkVQK+UpM8JN3zT9rXIzU8R6TB6P7QGlLzrsTf0X9FsbllHkh16njMOnrWhJsHNORj8QOhnv+f0kIGeHN2X3GIewPNR5Rarvc9s4uNaG+tPs5VhuNv7DqYOunVvwa3e8BpzVCTrrV4x1IirCmqbRmV+7x3R7MhGUUFlri4SdmKK8iLNorEjceVLSfGGe6BJS1f71Rzo1OGGJIGSJCf4XtN/TuFJgbCoYjQcoGzNA/qh+tbzCks/l+MPazd1N3ZyJR7ZhCHIriJorvoaCZ20QL0t9AB9hMIVGuzjnRpC/avF2cxtBEljtTGgKkBGB/7dw2Wvt+lRBjT3/RPV9hzUh50kVyOc2k/DDkles+SU+uuFFceStevmXzMB4qusM2JNsZFKwmLVn45UJq41ZD9HyYPaZN4p+N/5jJ8RW0qPMZuinOYIDOizQTmhM3/IVH23uNaj9pLtPlcYHo7Qe8LKtTo93HVTdhINYQ27I07+rR+9zAWI0hxndBdmPq0srDolclrZDZGBrdxoeD612C1hZoPlOZUiM=
