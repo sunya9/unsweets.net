@@ -29,7 +29,7 @@
     "gatsby-transformer-sharp": "2.1.17",
     "milligram": "1.3.0",
     "node-sass": "4.11.0",
-    "prismjs": "1.15.0",
+    "prismjs": "1.16.0",
     "react": "16.8.5",
     "react-dom": "16.8.5",
     "react-feather": "1.1.6",
