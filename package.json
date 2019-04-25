@@ -44,7 +44,7 @@
   "homepage": "https://github.com/sunya9/unsweets.net",
   "dependencies": {
     "lodash.debounce": "4.0.8",
-    "normalize.css": "7.0.0"
+    "normalize.css": "8.0.1"
   },
   "pre-commit": [
     "test"
