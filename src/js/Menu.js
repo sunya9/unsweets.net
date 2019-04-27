@@ -46,7 +46,7 @@ class Menu {
     if (diff) {
       if (this._prevId)
         this._menu.querySelector(`a[href='#${this._prevId}']`)
-        .classList.remove('active')
+          .classList.remove('active')
       this._menu.querySelector(`a[href='#${id}']`)
         .classList.add('active')
       this._prevId = id
