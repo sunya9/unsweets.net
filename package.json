@@ -20,7 +20,7 @@
     "rollup-plugin-commonjs": "8.4.1",
     "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-serve": "1.0.1",
-    "rollup-plugin-uglify": "1.0.2"
+    "rollup-plugin-uglify": "6.0.2"
   },
   "scripts": {
     "test": "eslint src/js/**/*.js",
