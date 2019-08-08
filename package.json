@@ -6,7 +6,7 @@
   "author": "sunya9 <mugen.xyz@gmail.com>",
   "dependencies": {
     "disqus-react": "1.0.6",
-    "feather-icons": "4.23.0",
+    "feather-icons": "4.24.0",
     "gatsby": "2.13.53",
     "gatsby-plugin-feed": "2.3.6",
     "gatsby-plugin-google-analytics": "2.1.7",
