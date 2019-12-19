@@ -4,9 +4,9 @@
   "description": "unsweets.net is a website that publishes my application by _X_y_z_.",
   "private": true,
   "devDependencies": {
-    "@babel/core": "7.7.5",
+    "@babel/core": "7.7.7",
     "@babel/plugin-external-helpers": "7.7.4",
-    "@babel/preset-env": "7.7.6",
+    "@babel/preset-env": "7.7.7",
     "cssnano": "4.1.10",
     "eslint": "6.7.2",
     "html-minifier": "4.0.0",
