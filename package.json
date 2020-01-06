@@ -7,7 +7,7 @@
   "dependencies": {
     "disqus-react": "1.0.7",
     "feather-icons": "4.25.0",
-    "gatsby": "2.18.17",
+    "gatsby": "2.18.18",
     "gatsby-plugin-feed": "2.3.25",
     "gatsby-plugin-google-analytics": "2.1.31",
     "gatsby-plugin-google-fonts": "1.0.1",
@@ -20,7 +20,7 @@
     "gatsby-plugin-sitemap": "2.2.24",
     "gatsby-remark-copy-linked-files": "2.1.33",
     "gatsby-remark-images": "3.1.39",
-    "gatsby-remark-prismjs": "3.3.28",
+    "gatsby-remark-prismjs": "3.3.29",
     "gatsby-remark-relative-images": "0.2.3",
     "gatsby-remark-responsive-iframe": "2.2.30",
     "gatsby-remark-smartypants": "2.1.19",
