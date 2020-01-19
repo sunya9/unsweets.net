@@ -113,7 +113,7 @@
 :root {
   --scroll-down-size: 30px;
   --scroll-down-border-width: 8px;
-  --scroll-down-border-color: color(var(--accent-color) a(70%));
+  --scroll-down-border-color: color-mod(var(--accent-color) a(70%));
 }
 
 #go-works {
@@ -124,7 +124,7 @@
   border-left: none;
   left: 50%;
   top: 85vh;
-  margin-left: calc(-var(--scroll-down-size) / 2 - var(--scroll-down-border-width));
+  margin-left: calc(-1 * var(--scroll-down-size) / 2 - var(--scroll-down-border-width));
   width: var(--scroll-down-size);
   height: var(--scroll-down-size);
   display: block;

@@ -12,7 +12,7 @@
 
 
 ::selection {
-  background-color: color(var(--accent-color) a(20%));
+  background-color: color-mod(var(--accent-color) a(20%));
 }
 
 body {
@@ -38,9 +38,9 @@ body {
 
 @keyframes bg-color {
   0% {background-color: var(--bg-color); }
-  25% {background-color: color(#27ae60 b(70%)); }
-  50% {background-color: color(#f39c12 b(70%)); }
-75% {background-color: color(#c0392b b(70%)); }
+  25% {background-color: color-mod(#27ae60 b(70%)); }
+  50% {background-color: color-mod(#f39c12 b(70%)); }
+75% {background-color: color-mod(#c0392b b(70%)); }
   100% {background-color: var(--bg-color); }
 }
 
@@ -50,10 +50,10 @@ a {
   transition: var(--default-transition);
   text-shadow: 0 0 0 var(--accent-color-light);
   &:hover {
-    color: color(var(--accent-color-light) l(+5%));
+    color: color-mod(var(--accent-color-light) l(+5%));
   }
   &:active {
-    color: color(var(--accent-color-light) l(-15%));
+    color: color-mod(var(--accent-color-light) l(-15%));
   }
 }
 

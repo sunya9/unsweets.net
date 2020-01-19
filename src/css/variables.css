@@ -9,5 +9,5 @@
   --accent-color-light: #e74c3c;
   --text-color: #dfdfdf;
   --bg-color: #2c3e50;
-  --border-color: color(#fff a(50%));
+  --border-color: color-mod(#fff a(50%));
 }

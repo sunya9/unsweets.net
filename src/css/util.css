@@ -19,7 +19,7 @@
     position: absolute;
     height: 1px;
     width: 100%;
-    background: transparent linear-gradient(to right, color(#000 a(0%)) 25%, color(#888 a(20%)) 50%, color(#000 a(0%)) 75%);
+    background: transparent linear-gradient(to right, color-mod(#000 a(0%)) 25%, color-mod(#888 a(20%)) 50%, color-mod(#000 a(0%)) 75%);
     left: 0;
     top: 0;
   }
@@ -33,7 +33,7 @@
   margin: 0 0 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 

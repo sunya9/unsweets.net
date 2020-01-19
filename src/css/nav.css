@@ -22,7 +22,7 @@
     width: 100%;
     /*display: flex;*/
     & ul {
-      background-color: gray(5%, 85%);
+      background-color: gray(5 / 85%);
       width: 100%;
       padding: 0 2rem;
       font-size: 1.1rem;
@@ -126,7 +126,7 @@
 }
 
 :root {
-  --toggle-menu-border-color: color(#fff a(95%));
+  --toggle-menu-border-color: color-mod(#fff a(95%));
   --toggle-menu-border-height: 2px; 
 }
 
@@ -152,9 +152,9 @@
     transform-origin: right center;
   }
   &::before {
-    top: calc(-var(--toggle-menu-border-height) * 5);
+    top: calc(-1 * var(--toggle-menu-border-height) * 5);
   }
   &::after {
-    bottom: calc(-var(--toggle-menu-border-height) * 5);
+    bottom: calc(-1 * var(--toggle-menu-border-height) * 5);
   }
 }

@@ -12,7 +12,7 @@
       padding-right: .5rem;
     }
     & dd {
-      border-top: 3px double color(#fff a(20%));
+      border-top: 3px double color-mod(#fff a(20%));
       margin: -3px 0 .5rem;
     }
   }

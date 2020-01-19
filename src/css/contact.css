@@ -9,11 +9,11 @@
     line-height: 2.2;
     font-size: .9rem;
     position: absolute;
-    color: color(#fff a(90%));
+    color: color-mod(#fff a(90%));
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid color(#fff a(10%));
-    background-color: color(#fff a(2%));
+    border-bottom: 1px solid color-mod(#fff a(10%));
+    background-color: color-mod(#fff a(2%));
     text-transform: uppercase;
     &:hover {
       cursor: pointer;
@@ -35,7 +35,7 @@
       border-bottom-width: 1px;
     }
     &:hover, &:focus {
-      background-color: color(#fff a(8%));
+      background-color: color-mod(#fff a(8%));
     }
   }
   & textarea {
@@ -56,17 +56,17 @@
     border: 1px solid var(--border-color);
     outline: none;
     transition: var(--default-transition);
-    text-shadow: 0 0 1px color(#000 a(50%));
+    text-shadow: 0 0 1px color-mod(#000 a(50%));
     vertical-align: middle;
     &:hover {
       color: #fff;
       border-color: #fff;
     }
     &:active {
-      background-color: color(#fff a(10%));
-      border-color: color(#fff a(50%));
+      background-color: color-mod(#fff a(10%));
+      border-color: color-mod(#fff a(50%));
       color: #888;
-      box-shadow: 0 0 5px color(#fff a(10%)) inset;
+      box-shadow: 0 0 5px color-mod(#fff a(10%)) inset;
     }
   }
 }
