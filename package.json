@@ -19,7 +19,7 @@
     "postcss-color-gray": "5.0.0",
     "postcss-import": "12.0.1",
     "postcss-preset-env": "6.7.0",
-    "rollup": "1.31.0",
+    "rollup": "1.31.1",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-serve": "1.0.1",
     "rollup-plugin-uglify": "6.0.4"
