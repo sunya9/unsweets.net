@@ -12,11 +12,12 @@ date: 2020-02-20 05:28:00
 ## 環境
 - gradle 6.2
 - kts(Gradle Kotlin DSL)
+- kotlinベースのプロジェクト
 
 `.kts` についてはまだまだドキュメントが少なくてサジェストが聞くとはいえ書くのに苦労します。私があまり理解してないだけだと思いますが、公式ドキュメントのコードをコピペしても上手く行かなかったりして茨の道です。
 
 ## やろうとしたこと
-jacocoを使ってkotlinで書かれたユニットテストのコードのカバレッジを取りたかった。
+jacocoを使ってkotlinで書かれたコードのユニットテストのカバレッジを取りたかった。
 
 ## ハマったところ
 kotlinファイルがコンパイルされたclassファイルは通常のjavaがコンパイルされたコードとは違うため、正しいファイルの位置を教えてあげないとテスト結果を上手く生成してくれない。
@@ -59,3 +60,7 @@ task("jacocoTestReport", JacocoReport::class) {
 `classDirectories.setFrom`の行がミソで、ここでkotlinファイルからコンパイルされたclassファイルのディレクトリを教えてあげています。
 
 ビルドフレーバーを考慮したコードではないので対応する場合はよしなに調整が必要です。
+
+## その他参考になる・なりそうなドキュメント
+- [Gradle6系 + Jacoco + マルチモジュール + フルKotlin + Android + Robolectric環境でユニットテストのカバレッジを出す - Qiita](https://qiita.com/ryo_mm2d/items/e431326f701e74ec49fa)
+- [Androidでコードカバレッジを計測する - Yenom開発者ブログ](https://developers.yenom.tech/entry/2018/04/15/152110)
