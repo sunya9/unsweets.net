@@ -1,11 +1,10 @@
 {
   "presets": [
     [
-      "@babel/preset-env",
+      "next/babel",
       {
-        "modules": false,
-        "targets": {
-          "browsers": "last 2 versions"
+        "styled-jsx": {
+          "plugins": ["styled-jsx-plugin-sass"]
         }
       }
     ]

@@ -1,25 +1,33 @@
-const prod = process.env.NODE_ENV === 'production'
+const prod = process.env.NODE_ENV === "production";
 
 const config = {
   plugins: [
-    require('postcss-import')(),
-    require('postcss-preset-env')({
-      stage: 0,
-      features: {
-        'color-mod-function': true
-      },
-    }),
-    require('postcss-color-gray')()
-  ]
-}
+    // 'postcss-import',
+    // [
+    //   "postcss-preset-env",
+    //   {
+    //     stage: 0,
+    //     features: {
+    //       "color-mod-function": true,
+    //     },
+    //   },
+    // ],
+    // "postcss-color-gray",
+    // 'postcss-color-function'
+  ],
+};
 
 if (prod)
-  config.plugins.push(require('cssnano')({
-    preset: [
-      'default', {
-        autoprefixer: false
-      }
-    ]
-  }))
+  config.plugins.push([
+    "cssnano",
+    {
+      preset: [
+        "default",
+        {
+          autoprefixer: false,
+        },
+      ],
+    },
+  ]);
 
-module.exports = config
+module.exports = config;
