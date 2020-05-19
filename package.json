@@ -1,6 +1,6 @@
 {
   "name": "unsweets",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "unsweets.net is a website that publishes my application by _X_y_z_.",
   "private": true,
   "scripts": {
@@ -52,10 +52,5 @@
   "homepage": "https://github.com/sunya9/unsweets.net",
   "pre-commit": [
     "test"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test"
-    }
-  }
+  ]
 }
