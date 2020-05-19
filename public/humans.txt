@@ -9,8 +9,8 @@ unsweets.net
 
 /* SITE */
 
-    Last update: 01/19/2020
+    Last update: 05/19/2020
     Language: Japanese
     Standards: HTML5, CSS3
     Components: Google Fonts
-    Software: Atom, Inkscape, Git
+    Software: VSCode, Inkscape, Git

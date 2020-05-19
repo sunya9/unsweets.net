@@ -115,8 +115,7 @@ export const Contact = () => {
           box-shadow: var(--box-shadow);
           color: inherit;
           &:active {
-            box-shadow: inset 5px 5px 10px var(--shadow-color),
-              inset -5px -5px 10px var(--light-color);
+            box-shadow: var(--box-shadow--active);
           }
         }
       `}</style>
