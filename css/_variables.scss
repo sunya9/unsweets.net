@@ -1,0 +1,49 @@
+$font-family: 'Rubik', sans-serif;
+$easing: ease-in-out;
+$duration: .4s;
+$default-transition: all $duration $easing;
+
+$accent-color: #c0392b;
+$accent-color-light: #e74c3c;
+$text-color: #666;
+$text-color-invert: lighten($text-color, 50%);
+$bg-color: #f6f6fc;
+$border-color: rgba(#000, .05);
+
+$secondary-color: rgba(#000, 0.4);
+
+$shadow-color: #e0e0e5;
+$light-color: #fff;
+
+:root {
+  --bg-color: #{$bg-color};
+  --bg-color--focus: #{rgba(#fff, 0.7)};
+  --accent-color: #{$accent-color};
+  --accent-color-light: #{$accent-color-light};
+  --text-color: #{$text-color};
+  --secondary-color: #{$secondary-color};
+  --highlight-color: #{rgba(#fff, 0.6)};
+  --shadow-color: #{$shadow-color};
+  --light-color: #{$light-color};
+  --border-color: #{$border-color};
+  --box-shadow: 5px 5px 10px var(--shadow-color),
+    -5px -5px 10px var(--light-color),
+    inset 5px 5px 10px transparent,
+    inset -5px -5px 10px transparent;
+  --box-shadow--active: 5px 5px 10px transparent, -5px -5px 10px transparent,
+    inset 5px 5px 10px var(--shadow-color),
+    inset -5px -5px 10px var(--light-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #333;
+    --bg-color--focus: #{rgba(#000, 0.08)};
+    --text-color: #{$text-color-invert};
+    --secondary-color: #{rgba(#fff, 0.5)};
+    --highlight-color: #{rgba(#000, 0.1)};
+    --shadow-color: #2e2e2e;
+    --light-color: #383838;
+    --border-color: #{rgba(#fff, .1)};
+  }
+}
