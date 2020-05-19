@@ -1,9 +1,9 @@
-import React, { Props } from "react";
+import React, { PropsWithoutRef } from "react";
 import { Icon } from "components/atoms/Icon";
 import * as featherIcon from "react-feather";
 import classnames from "classnames";
 
-type ButtonProps<T extends keyof JSX.IntrinsicElements> = Props<
+type ButtonProps<T extends keyof JSX.IntrinsicElements> = PropsWithoutRef<
   JSX.IntrinsicElements[T]
 > & {
   tag?: keyof JSX.IntrinsicElements;
