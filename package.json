@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --ext .tsx,.js,.ts --ignore-path .gitignore ."
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
