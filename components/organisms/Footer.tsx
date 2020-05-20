@@ -8,8 +8,9 @@ export const Footer = () => {
         svg {
           position: absolute;
           bottom: 0;
-          width: 100vw;
           fill: var(--highlight-color);
+          width: 100vw;
+          z-index: -1;
           left: calc((100% - 100vw) / 2);
           right: calc((100% - 100vw) / 2);
         }
