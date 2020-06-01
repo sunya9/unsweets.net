@@ -28,7 +28,7 @@ export const Card: React.FC<Props> = ({ tag, children, icon, cardTitle }) => {
           height: var(--icon-size);
           border-radius: 50%;
           background: var(--bg-color);
-          box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow--active);
           display: flex;
           justify-content: center;
           align-items: center;
