@@ -1,27 +1,24 @@
-import React, { PropsWithoutRef } from "react";
+import React, { PropsWithoutRef, PropsWithChildren } from "react";
 import { Icon } from "components/atoms/Icon";
 import * as featherIcon from "react-feather";
 import classnames from "classnames";
 
-type ButtonProps<T extends keyof JSX.IntrinsicElements> = PropsWithoutRef<
-  JSX.IntrinsicElements[T]
-> & {
-  tag?: keyof JSX.IntrinsicElements;
+type ButtonLike = "a" | "button";
+type ButtonProps<
+  T extends keyof Pick<JSX.IntrinsicElements, ButtonLike>
+> = PropsWithoutRef<JSX.IntrinsicElements[T]> & {
+  tag?: ButtonLike;
   icon?: keyof typeof featherIcon;
   block?: boolean;
 };
 
-type ButtonComponent = <T extends keyof JSX.IntrinsicElements>(
-  props: ButtonProps<T>
-) => React.ReactElement<ButtonProps<T>>;
-
-export const Button: ButtonComponent = ({
+export const Button = <T extends ButtonLike>({
   tag,
   children,
   icon,
   block,
   ...props
-}) => {
+}: PropsWithChildren<ButtonProps<T>>) => {
   const ButtonLike = tag || "button";
   const classes = classnames("button", { block });
   return (
