@@ -5,7 +5,7 @@
   "version": "2.0.0",
   "author": "sunya9 <mugen.xyz@gmail.com>",
   "dependencies": {
-    "disqus-react": "1.0.8",
+    "disqus-react": "1.0.9",
     "feather-icons": "4.28.0",
     "gatsby": "2.23.3",
     "gatsby-plugin-feed": "2.5.5",
