@@ -1,7 +1,7 @@
 ---
 title: Webでのダークモード対応とその時の課題
 categories:
-  - Notice
+  - Memo
 date: 2020-04-16 03:30:20
 ---
 

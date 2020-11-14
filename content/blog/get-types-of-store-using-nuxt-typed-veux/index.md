@@ -1,7 +1,7 @@
 ---
 title: nuxt-typed-vuexを使ってNuxtのStoreに型をもたらす
 categories:
-  - Notice
+  - Memo
 date: 2020-03-19 05:46:06
 ---
 
