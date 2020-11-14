@@ -87,7 +87,7 @@ $bg: white; // CSS FWで使用されているprimary変数の上書き
 $bg: var(--bg);
 @import '~css-framework';
 :root {
-  $bg
+  background-color: $bg;
 }
 
 // body { background-color: var(--bg) } と出力されるかもしれないが…？

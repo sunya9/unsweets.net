@@ -85,8 +85,8 @@ declare module '@nuxt/types' {
 }
 ```
 
-これでasyncData上では `context.app.$accssor.message`, storeやvueインスタンス上では `this.$accessor.message` のように呼び出すことが出来ます。サブモジュールを使うと `this.$accssor.submodule....`のようにサブモジュール名が名前空間となります。
+これでasyncData上では `context.app.$accessor.message`, storeやvueインスタンス上では `this.$accessor.message` のように呼び出すことが出来ます。サブモジュールを使うと `this.$accessor.submodule....`のようにサブモジュール名が名前空間となります。
 
- **actionsの戻り値の型は必ず定義するようにしましょう。** さもないと`$accssor`の型推論がすぐに壊れてしまいます。これはaccssorが循環的な性質を持っていること、conditional typesによる型推論の限界によるものだと思いますが([Vueのcomputedと同じなはず](https://jp.vuejs.org/v2/guide/typescript.html#戻り値の型にアノテーションをつける))、少なくとも現時点ではどうしようもないのでつける必要があります。明示的な`return`を付加にすることで同様の効果が得られるようですが、何も返さないのにただreturnを記述するのはただ冗長なだけなので素直にアノテーションつけるようにします。
+ **actionsの戻り値の型は必ず定義するようにしましょう。** さもないと`$accessor`の型推論がすぐに壊れてしまいます。これはaccssorが循環的な性質を持っていること、conditional typesによる型推論の限界によるものだと思いますが([Vueのcomputedと同じなはず](https://jp.vuejs.org/v2/guide/typescript.html#戻り値の型にアノテーションをつける))、少なくとも現時点ではどうしようもないのでつける必要があります。明示的な`return`を付加にすることで同様の効果が得られるようですが、何も返さないのにただreturnを記述するのはただ冗長なだけなので素直にアノテーションつけるようにします。
 
 記事ではactions内であえてstore contextを経由してcommitしてたりもしてますが、`this.$accessor`を経由した方法に統一したほうが型推論が常に効いていることがわかるので良いです。特にactions内では他actions呼び出し時に`context.dispatch`を呼び出す方法では型推論が効かないので常に`this.$accessor`経由で呼び出す必要があります。
