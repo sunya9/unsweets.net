@@ -18,9 +18,8 @@ export default EntryPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getPages().then((pages) =>
-    pages.map((page) => `/${page.slug}`)
+    pages.map((slug) => `/${slug}`)
   );
-  console.log("paths", paths);
   return {
     paths,
     fallback: false,
