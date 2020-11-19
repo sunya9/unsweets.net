@@ -4,52 +4,15 @@
   "description": "Frontend & Android",
   "version": "2.0.0",
   "author": "sunya9 <mugen.xyz@gmail.com>",
-  "dependencies": {
-    "disqus-react": "1.0.10",
-    "feather-icons": "4.28.0",
-    "gatsby": "2.24.57",
-    "gatsby-plugin-feed": "2.5.11",
-    "gatsby-plugin-google-analytics": "2.3.13",
-    "gatsby-plugin-google-fonts": "1.0.1",
-    "gatsby-plugin-manifest": "2.4.28",
-    "gatsby-plugin-offline": "3.2.27",
-    "gatsby-plugin-react-helmet": "3.3.10",
-    "gatsby-plugin-react-svg": "3.0.0",
-    "gatsby-plugin-sass": "2.3.12",
-    "gatsby-plugin-sharp": "2.6.35",
-    "gatsby-plugin-sitemap": "2.4.12",
-    "gatsby-remark-copy-linked-files": "2.3.14",
-    "gatsby-remark-images": "3.3.29",
-    "gatsby-remark-prismjs": "3.5.11",
-    "gatsby-remark-relative-images": "0.3.0",
-    "gatsby-remark-responsive-iframe": "2.4.13",
-    "gatsby-remark-smartypants": "2.3.10",
-    "gatsby-source-filesystem": "2.3.29",
-    "gatsby-transformer-remark": "2.8.34",
-    "gatsby-transformer-sharp": "2.5.14",
-    "milligram": "1.4.1",
-    "node-sass": "4.14.1",
-    "prismjs": "1.21.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-feather": "2.0.8",
-    "react-helmet": "6.1.0"
-  },
-  "devDependencies": {
-    "eslint": "7.9.0",
-    "eslint-plugin-react": "7.20.6",
-    "prettier": "2.1.1"
-  },
-  "license": "MIT",
   "scripts": {
-    "dev": "gatsby develop",
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
-    "deploy": "node deploy"
-  }
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "10.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "license": "MIT"
 }
