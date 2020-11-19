@@ -1,3 +1,4 @@
+import * as React from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { Entry } from "../lib/entry";
@@ -10,6 +11,18 @@ interface Props {
 }
 export default function Home(props: Props) {
   const config = useConfig();
+  const entriesGroupedByYear = props.entries.reduce<{
+    [key: number]: Omit<Entry, "body">[];
+  }>((memo, entry) => {
+    const year = new Date(entry.date).getFullYear();
+    return {
+      ...memo,
+      [year]: (memo[year] || []).concat(entry),
+    };
+  }, {});
+  const years = Object.keys(entriesGroupedByYear)
+    .map((year) => +year)
+    .sort((a, b) => b - a);
   return (
     <div>
       <Head>
@@ -18,7 +31,12 @@ export default function Home(props: Props) {
 
       <main>
         <h1>Archives</h1>
-        <EntryList entries={props.entries} />
+        {years.map((year) => (
+          <React.Fragment key={year}>
+            <h2>{year}</h2>
+            <EntryList entries={entriesGroupedByYear[year]} omitYear />
+          </React.Fragment>
+        ))}
       </main>
     </div>
   );
