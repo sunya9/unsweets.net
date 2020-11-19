@@ -12,14 +12,17 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => (
 
 export const EntryView = ({ entry }: Props) => {
   return (
-    <Markdown
-      options={{
-        overrides: {
-          img: Img,
-        },
-      }}
-    >
-      {entry.body}
-    </Markdown>
+    <>
+      <h1>{entry.title}</h1>
+      <Markdown
+        options={{
+          overrides: {
+            img: Img,
+          },
+        }}
+      >
+        {entry.body}
+      </Markdown>
+    </>
   );
 };

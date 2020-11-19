@@ -3,8 +3,6 @@ import { EntryView } from "../../components/EntryView";
 import { Entry } from "../../lib/entry";
 import { getEntries } from "../../lib/getEntries";
 import { getEntry } from "../../lib/getEntry";
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
 
 interface Props {
   entry: Entry;
