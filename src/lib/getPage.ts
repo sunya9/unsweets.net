@@ -1,12 +1,12 @@
 import { config } from "../../blog.config";
 import * as path from "path";
 import { promises as fs } from "fs";
-import { Entry } from "./entry";
 import matter from "gray-matter";
+import { Page } from "./page";
 
 const { pagesDir } = config;
 
-export const getPage = async (slug: string): Promise<Entry> => {
+export const getPage = async (slug: string): Promise<Page> => {
   const filename = `${slug}.md`;
   const mdPath = path.resolve(pagesDir, filename);
   const md = await fs.readFile(mdPath, "utf-8");

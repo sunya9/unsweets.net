@@ -1,6 +1,5 @@
-export interface Entry {
-  slug: string;
-  title: string;
-  body: string;
-  date?: number;
+import { Page } from "./page";
+
+export interface Entry extends Page {
+  date: number;
 }
