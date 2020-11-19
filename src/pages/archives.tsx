@@ -4,6 +4,8 @@ import { Entry } from "../lib/entry";
 import { getEntries } from "../lib/getEntries";
 import { useConfig } from "../hooks/useConfig";
 import Link from "next/link";
+import { AbsDate } from "../components/AbsDate";
+import { EntryList } from "../components/EntryList";
 
 interface Props {
   entries: Entry[];
@@ -17,15 +19,8 @@ export default function Home(props: Props) {
       </Head>
 
       <main>
-        <ul>
-          {props.entries.map((entry) => (
-            <li key={entry.slug}>
-              <Link href={`/entries/${entry.slug}`}>
-                <a>{entry.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <h1>Archives</h1>
+        <EntryList entries={props.entries} />
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import { Entry } from "../lib/entry";
 import { getEntries } from "../lib/getEntries";
 import { useConfig } from "../hooks/useConfig";
 import Link from "next/link";
+import { EntryList } from "../components/EntryList";
 
 interface Props {
   entries: Entry[];
@@ -17,15 +18,7 @@ export default function Home(props: Props) {
       </Head>
 
       <main>
-        <ul>
-          {props.entries.map((entry) => (
-            <li key={entry.slug}>
-              <Link href={`/entries/${entry.slug}`}>
-                <a>{entry.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <EntryList entries={props.entries} />
         <Link href="/archives">
           <a>Archives</a>
         </Link>
@@ -35,7 +28,7 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const entries = await getEntries(10);
+  const entries = await getEntries(5);
   return {
     props: {
       entries,
