@@ -5,6 +5,7 @@ import { Pre } from "./Pre";
 import Head from "next/head";
 import { useConfig } from "../hooks/useConfig";
 import { AbsDate } from "./AbsDate";
+import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 
 interface Props {
   entry: Entry;
@@ -22,7 +23,7 @@ export const EntryView = ({ entry }: Props) => {
         <title>{config.title(entry.title)}</title>
       </Head>
       <h1>{entry.title}</h1>
-      <AbsDate date={entry.date} />
+      {entry.date && <AbsDate date={entry.date} />}
       <Markdown
         options={{
           overrides: {
@@ -33,6 +34,9 @@ export const EntryView = ({ entry }: Props) => {
               }) {
                 return <Pre {...props.children.props} />;
               },
+            },
+            a: {
+              component: NextLinkIfInternalAnchor,
             },
           },
         }}
