@@ -31,6 +31,9 @@ export const AppHeader = () => {
                 <a>Archives</a>
               </Link>
             </li>
+            <li>
+              <a href="/rss.xml">RSS</a>
+            </li>
           </ul>
         </nav>
       </div>
