@@ -13,7 +13,7 @@ export default function Home(props: Props) {
   return (
     <div>
       <Head>
-        <title>{config.title()}</title>
+        <title>{config.title("Archives")}</title>
       </Head>
 
       <main>
@@ -26,16 +26,13 @@ export default function Home(props: Props) {
             </li>
           ))}
         </ul>
-        <Link href="/archives">
-          <a>Archives</a>
-        </Link>
       </main>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const entries = await getEntries(10);
+  const entries = await getEntries();
   return {
     props: {
       entries,
