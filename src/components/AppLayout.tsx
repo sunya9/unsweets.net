@@ -4,7 +4,11 @@ import { AppHeader } from "./AppHeader";
 
 const Background = () => (
   <>
-    <svg viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 1440 400"
+      xmlns="http://www.w3.org/2000/svg"
+      className="-mt-10"
+    >
       <defs>
         <linearGradient id="gradient">
           <stop offset="5%" stopColor="#f78da788"></stop>

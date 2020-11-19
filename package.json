@@ -18,6 +18,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-feather": "^2.0.9",
+    "react-syntax-highlighter": "^15.3.0",
+    "recursive-readdir": "^2.2.2",
     "tailwindcss": "^2.0.1"
   },
   "license": "MIT",
@@ -25,6 +27,8 @@
     "@types/app-root-path": "^1.2.4",
     "@types/node": "^14.14.8",
     "@types/react": "^16.9.56",
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/recursive-readdir": "^2.2.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "autoprefixer": "^10.0.2",

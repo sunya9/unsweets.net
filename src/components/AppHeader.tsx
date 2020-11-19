@@ -8,7 +8,7 @@ export const AppHeader = () => {
   const isIndex = router.asPath === "/";
   return (
     <header className="header overflow-visible h-auto">
-      <div className="container pt-20 pb-14">
+      <div className="container pt-20 pb-10">
         <h1 className="mb-2">
           {isIndex ? (
             config.title()
