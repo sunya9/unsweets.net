@@ -26,12 +26,20 @@ export const AppHeader = () => {
                 <a>About</a>
               </Link>
             </li>
+            <li>
+              <Link href="/archives">
+                <a>Archives</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
       <style jsx>{`
         .list-none > li {
           padding-left: 0;
+        }
+        .list-none > li + li {
+          padding-left: 1rem;
         }
         .list-none > li::before {
           display: none;
