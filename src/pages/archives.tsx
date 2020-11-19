@@ -3,12 +3,10 @@ import { GetStaticProps } from "next";
 import { Entry } from "../lib/entry";
 import { getEntries } from "../lib/getEntries";
 import { useConfig } from "../hooks/useConfig";
-import Link from "next/link";
-import { AbsDate } from "../components/AbsDate";
 import { EntryList } from "../components/EntryList";
 
 interface Props {
-  entries: Entry[];
+  entries: Omit<Entry, "body">[];
 }
 export default function Home(props: Props) {
   const config = useConfig();
@@ -27,7 +25,9 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const entries = await getEntries();
+  const entries = await getEntries().then((entries) =>
+    entries.map(({ date, slug, title }) => ({ date, slug, title }))
+  );
   return {
     props: {
       entries,

@@ -3,7 +3,7 @@ import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
 
 interface Props {
-  entries: Entry[];
+  entries: Omit<Entry, "body">[];
 }
 export const EntryList = (props: Props) => {
   return (
