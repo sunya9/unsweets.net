@@ -1,14 +1,14 @@
 import Markdown from "markdown-to-jsx";
-import { Entry } from "../lib/entry";
 import { ImgHTMLAttributes } from "react";
 import { Pre } from "./Pre";
 import Head from "next/head";
 import { useConfig } from "../hooks/useConfig";
 import { AbsDate } from "./AbsDate";
 import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
+import { Page } from "../lib/page";
 
 interface Props {
-  entry: Entry;
+  entry: Page;
 }
 
 const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => (

@@ -1,20 +1,18 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { EntryView } from "../components/EntryView";
-import { Entry } from "../lib/entry";
-import { getEntries } from "../lib/getEntries";
-import { getEntry } from "../lib/getEntry";
 import { getPage } from "../lib/getPage";
 import { getPages } from "../lib/getPages";
+import { Page } from "../lib/page";
 
 interface Props {
-  entry: Entry;
+  page: Page;
 }
 
-const EntryPage = (props: Props) => {
-  return <EntryView entry={props.entry} />;
+const PagePage = (props: Props) => {
+  return <EntryView entry={props.page} />;
 };
 
-export default EntryPage;
+export default PagePage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getPages().then((pages) =>
@@ -35,11 +33,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }) => {
   if (!params) return { notFound: true };
   const { slug } = params;
-  const entry = await getPage(slug.join("/"));
+  const page = await getPage(slug.join("/"));
 
   return {
     props: {
-      entry,
+      page,
     },
   };
 };
