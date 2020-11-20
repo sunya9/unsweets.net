@@ -41,6 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 const App: React.FC = ({ children }) => {
   const config = useConfig();
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -51,6 +52,9 @@ const App: React.FC = ({ children }) => {
           href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
           rel="stylesheet"
         />
+        <link rel="canonical" href={`${config.baseUrl}${router.asPath}`} />
+        <meta name="description" content={config.description} />
+        <meta charSet="utf-8" />
       </Head>
       {children}
     </>
