@@ -1,19 +1,27 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  "plugins": [
-    "react",
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
-  "globals": {
-    "graphql": false,
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2019,
-    "ecmaFeatures": {
-      "jsx": true,
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-  }
-}
+    ecmaVersion: 12,
+    sourceType: "module",
+  },
+  plugins: ["react", "@typescript-eslint"],
+  rules: {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+  },
+};
