@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => (
-  <img src={src} {...rest} />
+  <img src={src} {...rest} className="border shadow-lg" />
 );
 
 export const EntryView = ({ entry }: Props) => {
