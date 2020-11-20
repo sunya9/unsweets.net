@@ -9,10 +9,7 @@ import { useRouter } from "next/router";
 
 declare global {
   interface Window {
-    gtag: {
-      (s1: string, s2: string, options?: { page_path: string }): void;
-      pageview(url: string): void;
-    };
+    gtag(s1: string, s2: string, options?: { page_path: string }): void;
   }
 }
 
@@ -23,7 +20,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       window.gtag("config", "G-XEVMD8V0LK", {
         page_path: url,
       });
-      window.gtag.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
