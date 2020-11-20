@@ -20,7 +20,7 @@ request、csv、async、underscoreのモジュールをインストールして�
 
 pixivのAPIを叩くにはクッキーを利用しているらしく、ログインが必要になります（一部のAPIはログインしなくても見れるらしいです）。
 
-```
+```js
 var id = 'ユーザーID';
 var password = 'パスワード';
 var options = {
@@ -47,7 +47,7 @@ request.post(options, function(err, res, body) {
 
 検索結果数を返すAPIです。
 
-```
+```js
 var options = {
   url: 'http://spapi.pixiv.net/iphone/search.php?s_mode=s_tag&word=' + encodeURIComponent(word) + session+ '&c_mode=count',
   headers: {
@@ -64,7 +64,7 @@ wordには検索したい単語、sessionは先程のセッションIDが入っ�
 
 ##### 検索結果の表示
 
-```
+```js
 var ILLUST_HEADER = ['illustId', 'userId', 'type', 'title', 'value1', 'author',var ILLUST_HEADER = ['illustId', 'userId', 'type', 'title', 'value1', 'author', 'smallThumbUrl', 'value2', 'value3',
   'largeThumburl', 'value4', 'value5', 'postDate', 'tags', 'software', 'evalCount', 'score', 'viewCount', 'description',
   'pageCount', 'value7', 'value8', 'bookmarkCount', 'value10', 'screenName', 'value11', 'value12', 'value13', 'value14', 'profileIconUrl', 'value15'

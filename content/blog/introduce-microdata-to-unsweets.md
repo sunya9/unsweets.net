@@ -16,7 +16,7 @@ Microdataとはある情報に対してラベル付けを行うものです。Mi
 
 例えばunsweetsでは以下の様なコーディングをしています。
 
-```
+```html
 <section id="xstus" itemscope itemtype="http://schema.org/MobileApplication">
   <h4 itemprop="name">xsTus</h4>
   <div class="body clearfix">

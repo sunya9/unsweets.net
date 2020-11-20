@@ -29,7 +29,7 @@ JavascriptやCSS、画像などの依存関係のあるファイルをひとま�
 
 以下の様なjsをwebpack.config.jsとして保存する。
 
-```
+```js
 const path = require('path');
 const config = {
   entry: './js/main',
@@ -54,7 +54,7 @@ outputの項目は出力されるファイルパスとファイル名を指定�
 
 Loaderを使うことによって様々なファイルをロードすることが出来るようになる。
 
-```
+```js
 const config = {
   // 省略
   module: {
@@ -73,7 +73,7 @@ const config = {
 
 これだけでは設定が足りないのでプロジェクトフォルダのルートディレクトリに.babelrcを作成しておく。とりあえずはES2015の機能を使いたいので`npm install --save-dev babel-preset-es2015`を実行してES2015のものを変換できるようにする準備をしておく。.babelrcファイルでは以下の様な記述をした。
 
-```
+```json
 {
   "presets": ["es2015"]
 }
@@ -87,7 +87,7 @@ const config = {
 
 jQueryプラグインは$やjQueryと言ったオブジェクトが宣言されていることが前提なのでそこをどうにかするにはpluginsのオプションを使用する。
 
-```
+```js
 const webpack = require('webpack');
 const config = {
   // 省略
@@ -104,7 +104,7 @@ webpackのProvidePluginを利用する。ここに宣言されたものはjQuery
 
 ライブラリを使うときはエントリファイルから読み込まれるjsファイルで以下のように指定する。例として[slick](http://kenwheeler.github.io/slick/)と呼ばれるカルーセルライブラリをインストールした想定で進めていく。
 
-```
+```js
 // Babelなしで書く場合
 var $ = require('jquery');
 require('slick-carousel');

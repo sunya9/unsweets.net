@@ -17,7 +17,7 @@ TabPageIndicator、TitlePageIndicatorを知らない方は[ViewPagerIndicator](h
 
 xmlのレイアウトには少なくともTabPageIndicatorを載せてる前提でメインのコードのみかきます。また、フォントファイルはassets/fonts内にroboto_light.ttfが入ってる前提ですか、適宜書き換えれば大丈夫かと。
 
-```
+```java
 TabPageIndicator indicator = (TabPageIndicator) getView().findViewById(R.id.indicator);
 LinearLayout child = (LinearLayout) indicator.getChildAt(0);
 Typeface robotoTypeFace = Typeface.createFromAsset(getAssets(), "fonts/roboto_light.ttf");

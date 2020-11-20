@@ -13,7 +13,7 @@ CHOICE_MODE_MULTIPLEからCHOICE_MODE_NONEにして選択を全部外すとき�
 とか言いつつStack Overflowから。
 [android - Deselect seleted item in ListView - Stack Overflow](http://stackoverflow.com/questions/17751129/deselect-seleted-item-in-listview)
 
-```
+```java
 listview.clearChoices();
 for (int i = 0; i < listview.getCount(); i++)
   listview.setItemChecked(i, false);

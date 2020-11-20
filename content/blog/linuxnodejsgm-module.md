@@ -16,13 +16,13 @@ Stack Overflowより。
 
 gm moduleのインポートをする時、
 
-```
+```js
 var gm = require("gm");
 ```
 
 のようにしてgm関数にファイルパスを渡して操作をすると思いますが、どうやらこれだと駄目なようで、インポートする時に
 
-```
+```js
 var gm = require("gm");
 var imageMagick = gm.subClass({ imageMagick: true });
 ```

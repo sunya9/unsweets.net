@@ -29,7 +29,7 @@ tags:
 
 まさにやりたいことでした。余計な部分（≒よくわかっていないところ）をすっ飛ばすと...。
 
-```
+```sh
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update

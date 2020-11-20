@@ -18,7 +18,7 @@ date: 2016-03-24 01:09:00
 style-loaderとcss-loaderを使うことでCSSをJavascript側でimportすると、requireしたCSSをhead内に挿入してくれるようになる。`npm install --save-dev style-loader css-loader`でOK。
 webpack.config.jsを以下のように設定する。
 
-```
+```js
 const config = {
   // 省略
   module: {
@@ -34,7 +34,7 @@ const config = {
 
 Javascript側ではimportもしくはrequireをする。
 
-```
+```js
 // Babel
 import `../css/main.css`
 // or commonjs
@@ -51,7 +51,7 @@ css-loaderを利用すると[スコープのあるCSSを出力することもで
 
 webpack.config.jsでは以下のように設定しておく。
 
-```
+```js
 const config = {
   // 省略
   module: {
@@ -67,7 +67,7 @@ const config = {
 
 エントリポイントのJavascriptでは前述と同じようにSCSSを読み込むようにする
 
-```
+```js
 import '../scss/main.scss';
 // or
 require('../scss/main.scss');
@@ -79,7 +79,7 @@ require('../scss/main.scss');
 
 一般的にはCSSをJavascriptでロードせずlink要素でロードすることが多いかもしれない。その場合はextract-text-webpack-pluginを利用して、コンパイルされたCSSをファイルとして出力するようにする。
 
-```
+```js
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin('css/main.css');
@@ -112,7 +112,7 @@ extractメソッドの引数は通常通りローダーを指定する。上記�
 
 これもよくある例だと思う。`npm install --save-dev postcss-loader`をしてpostcss-loaderモジュールのインストールを行い、webpack.config.jsを以下のように設定する。
 
-```
+```js
 const config = {
   // 省略
   module: {
@@ -144,7 +144,7 @@ webpack-dev-serverを利用すると簡易的な開発サーバを立てるこ�
 
 publicPathの値はwebpack-dev-serverで利用される。仮にwebpack.config.jsを以下のような指定にしたとする。
 
-```
+```js
 const config = {
   entry: './js/main',
   output: {
@@ -161,7 +161,7 @@ const config = {
 
 複数のエントリポイントがある場合はentryに連想配列ででエントリファイルにしたいJSファイルのファイルパスを渡す。キーはファイルパスと指定できる。
 
-```
+```js
 const config = {
   entry: {
     'js/main': './js/main', 

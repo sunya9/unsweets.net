@@ -43,7 +43,7 @@ azコマンドのインストール方法は省略（参考: [Azure CLI のイ�
 ## .gitlab-ci.ymlの設定
 ビルドコマンドやデプロイコマンドを並べていくだけ。必要に応じてテストとかも。
 
-```
+```yaml
 stages:
   - build
   - deploy

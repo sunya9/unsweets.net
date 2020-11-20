@@ -14,7 +14,7 @@ tags:
 
 いきなりコードをどーん。
 
-```
+```java
 public class MainActivity extends Activity implements GestureDetector.OnGestureListener {
   private final static int THRESHOLD = 500;
   @Override

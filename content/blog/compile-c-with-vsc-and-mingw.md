@@ -24,7 +24,7 @@ Visual Studio Codeが最近出てきたのでC++をコンパイルできるよ�
 3.  カレントディレクトリに.settingsディレクトリが生成され、その中にtasks.jsonができるので以下の設定をコピー&ペースト。
 
 
-```
+```json
 {
   "version": "0.1.0",
   "owner": "cpp",

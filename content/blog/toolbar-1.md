@@ -50,7 +50,7 @@ ActionBarは上にも書いたとおり、拡張性に乏しいです。表示�
 
 ##### activity_main.xml
 
-```
+```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
@@ -69,7 +69,7 @@ colorPrimaryはテーマのcolorPrimaryを参照しています。
 
 ##### styles.xml
 
-```
+```xml
 <resources>
   <style name="BaseTheme" parent="Theme.AppCompat.NoActionBar">
   <item name="colorPrimary">@color/color_primary</item>
@@ -85,7 +85,7 @@ colorPrimaryDarkはタスクバーに使用される模様。
 
 ##### Main.java
 
-```
+```java
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;

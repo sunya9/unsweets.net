@@ -66,8 +66,8 @@ layout: false
   </script>
 </body>
 </html>
-
 ```
+
 Hexoの場合、`source/_posts`ディレクトリはデフォルトですべてレイアウトが付加されてしまうので、Front-matterをつけることによって回避しています(HTMLでも有効なのですね…知らなかった)。
 
 `CMS.registerPreviewStyle`はつけなくてもいいのですが、つけておくとプレビュー時にWebと同じようなデザインで表示してくれます。

@@ -20,7 +20,7 @@ Windows上でVagrantを利用し、Rails開発を行うと死ぬほど遅かっ�
 
 Vagrantfileに以下の記述を追加。
 
-```
+```vagrantfile
 config.vm.synced_folder ., "/shared", type: "smb"
 ```
 

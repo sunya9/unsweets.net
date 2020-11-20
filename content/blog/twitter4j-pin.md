@@ -16,7 +16,7 @@ Twitter4Jを使ってPIN認証します。
 
 適宜インポートしておきます。
 
-```
+```java
 Twitter twitter = TwitterFactory.getSingleton();
 twitter.setOAuthConsumer(API_KEY, API_SECRET);
 try {
@@ -28,7 +28,7 @@ try {
 
 urlを読み込ませ、PINを控えさせておきます。なおString型だと都合が良いです。
 
-```
+```java
 String pin = "***";
 try{
     AccessToken token = twitter.getOAuthAccessToken(requestToken, pin);

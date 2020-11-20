@@ -26,7 +26,7 @@ tags:
 
 requireしてタスクを記述します。
 
-```
+```js
 var sass = require('gulp-ruby-sass');
 gulp.task('sass', function() {
   return gulp.src('./*.scss')
@@ -52,7 +52,7 @@ plumberはpipe処理に問題があったときに自動的に止めてくれる
 
 watchメソッドを使うことで、ファイルを保存した時に、タスクを走らせるといったことが可能です。
 
-```
+```js
 gulp.task('watch', function() {
   gulp.watch('./sass/*.scss', ['sass']);
 });

@@ -14,14 +14,14 @@ AndroidではIntentを発行するときやFragmentを生成するときに、�
 
 キーはよくprivate final static～などと定数として定義することが多いですが、これは値が同一になるのでもしかしたら衝突してしまうかもしれません。
 
-```
+```java
 public final static String ARG_PARAM1 = "foo";
 public final static String ARG_PARAM2 = "foo";
 ```
 
 上記の例だと変数名こそは別ですが、値は別なので一意性がありません。これでは以下の様にIntentを発行した時値が上書きされてしまいます。
 
-```
+```java
 Intent intent = new Intent(getApplicationContext(), Foo.class);
 intent.putExtra(ARG_PARAM1, 10);
 intent.putExtra(ARG_PARAM2, 20);
@@ -32,7 +32,7 @@ startActivity(intent);
 
 #### Enumを使って定義する
 
-```
+```java
 enum IntentKey {
 	ARG_PARAM1, ARG_PARAM2
 };
@@ -40,7 +40,7 @@ enum IntentKey {
 
 このように定義して以下のように使用します。
 
-```
+```java
 Intent intent = new Intent(getApplicationContext(), Foo.class);
 intent.putExtra(IntentKey.ARG_PARAM1.name(), 10);
 intent.putExtra(IntentKey.ARG_PARAM2.name(), 20);

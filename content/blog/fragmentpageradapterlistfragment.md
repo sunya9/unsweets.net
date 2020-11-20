@@ -32,7 +32,7 @@ FragmentPagerAdapterは通常継承して内部で処理すると思います。
 
 つまり、最終的にコード例はこうなるわけです。
 
-```
+```java
 //ListFragment
 public class ConversationList extends ListFragment {
   private ListAdapter adapter;

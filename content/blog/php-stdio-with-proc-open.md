@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-```
+```php
 $options = array(
   0 => array("pipe", "r"),
   1 => array("pipe", "w")

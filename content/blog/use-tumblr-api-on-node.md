@@ -29,7 +29,7 @@ TumblrのAPIを叩くためにはConsumer keyが必要です。Consumer keyと�
 
 #### APIを叩いてみる
 
-```
+```js
 var tumblr = require('tumblr');
 var oauth = {
   consumer_key : '先ほど控えたOAuth Consumer keyをここに記述'

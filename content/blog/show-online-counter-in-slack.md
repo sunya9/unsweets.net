@@ -34,7 +34,7 @@ SLACK_CHANNELについては、招待ページを表示した時に、どのチ�
 URLは先程の通り http://アプリケーション名.herokuapp.com/ になります。
 トップページは招待ページになります。ここからメールアドレスを入力して招待リクエストを送ることが可能なようです。/slackin.js にはバッジを表示するためのコードがあります。これをscript要素で以下のように読み込むと、バッジを表示することが可能です。
 
-```
+```html
 <script src="http://アプリケーション名.herokuapp.com/slackin.js" async defer></script>
 ```
 
@@ -43,7 +43,7 @@ URLは先程の通り http://アプリケーション名.herokuapp.com/ にな�
 こちらのバッジはリアルタイムにオンライン人数を表示してくれます。
 /badge.svg はリアルタイム表示してくれませんが、svgボタンなので拡大縮小が可能です。
 
-```
+```html
 <a href="http://アプリケーション名.herokuapp.com/"><img src="http://アプリケーション名.herokuapp.com/badge.svg" alt="" width="87" height="20" /></a>
 ```
 
