@@ -9,7 +9,7 @@ categories:
   - Memo
 date: 2016-03-24 01:09:00
 ---
-[この前](/images/webpack.html)の続き。
+[この前](/assets/images/webpack.html)の続き。
 
 <!--more-->
 

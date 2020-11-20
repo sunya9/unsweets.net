@@ -128,13 +128,13 @@ skip_render:
 `hexo start`などでローカルで試してみましょう。[http://localhost:4000/admin](http://localhost:4000/admin)にアクセスするとGithub認証ボタンが表示されると思います。
 OAuth後、一瞬Netlifyに飛び、すぐにまたadminに戻ってくると思います。
 
-![Netlify CMSの管理画面。unsweets.logの記事一覧がカード形式で表示されている。](/images/d88e0aac-46bd-49a3-af56-2802ca148f7f.png)
+![Netlify CMSの管理画面。unsweets.logの記事一覧がカード形式で表示されている。](/assets/images/d88e0aac-46bd-49a3-af56-2802ca148f7f.png)
 
 Blogを選択すると`source/_posts`に入った記事一覧を取得します。どうやら内部でGithubからAPIアクセスして取得している模様（なのでローカルの一覧ではない）。
 
 編集画面はこんな感じ。
 
-![Netlify CMSでの記事編集画面。2ペインで表示されており、左側にエディタ、右側にプレビューが表示されている。](/images/Content Manager.png)
+![Netlify CMSでの記事編集画面。2ペインで表示されており、左側にエディタ、右側にプレビューが表示されている。](/assets/images/Content Manager.png)
 
 先ほどのconfig.ymlに沿った形式でFieldsに沿って表示されています。
 

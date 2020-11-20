@@ -6,7 +6,7 @@ categories:
 date: 2013-09-17 17:48:01
 tags:
 ---
-![alpha-logo@2x.png](/images/alpha-logo%402x.png)
+![alpha-logo@2x.png](/assets/images/alpha-logo%402x.png)
 
 皆さんお久しぶりです。えくすです。
 

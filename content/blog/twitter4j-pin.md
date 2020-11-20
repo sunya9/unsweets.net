@@ -12,7 +12,7 @@ Twitter4Jを使ってPIN認証します。
 
 [Twitter Application Management](https://apps.twitter.com/)にアクセスし、自分のアプリケーションを予め作成しておきます。この時、コールバックURLをを空にしておくことでPIN認証をすることが出来ます。
 
-[![Twitter Application Managementの個別URLのアプリ設定画面](/images/2015-1-19_13-52-1_511-thumb-300xauto-137.png)](/images/2015-1-19_13-52-1_511.png)
+[![Twitter Application Managementの個別URLのアプリ設定画面](/assets/images/2015-1-19_13-52-1_511.png)](/assets/images/2015-1-19_13-52-1_511.png)
 
 適宜インポートしておきます。
 

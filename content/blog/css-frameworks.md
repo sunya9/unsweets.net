@@ -7,7 +7,7 @@ Categories:
   - CSS
 ---
 
-![CSS Frameworks](/images/css-frameworks.png)
+![CSS Frameworks](/assets/images/css-frameworks.png)
 
 [CSS Frameworks](https://css-frameworks.unsweets.net)
 という、CSSのフレームワークを比較するサイトを作りました。オマージュ元は[StaticGen](https://www.staticgen.com)。

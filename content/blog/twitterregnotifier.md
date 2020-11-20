@@ -6,7 +6,7 @@ categories:
 date: 2013-10-04 16:48:09
 tags:
 ---
-![rn-icon.png](/images/rn-icon.png)
+![rn-icon.png](/assets/images/rn-icon.png)
 
 node.jsを使ってTwitterのポスト規制通知botを作ってみました。
 

@@ -8,7 +8,7 @@ tags:
 ---
 twitterクライアントです。Userstreamに対応しています。永遠にbetaです。バージョン0.0.0。
 
-[![screenshot-1327116948777.png](/images/screenshot-1327116948777-thumb-200x333-38.png) ](/images/screenshot-1327116948777.png)[![screenshot-1327116958687.png](/images/screenshot-1327116958687-thumb-200x333-40.png)](/images/screenshot-1327116958687.png)
+[![screenshot-1327116948777.png](/assets/images/screenshot-1327116948777.png) ](/assets/images/screenshot-1327116948777.png)[![screenshot-1327116958687.png](/assets/images/screenshot-1327116958687.png)](/assets/images/screenshot-1327116958687.png)
 
 
 [詳しくないマーケットへ](https://market.android.com/details?id=net.lifone.xstus)

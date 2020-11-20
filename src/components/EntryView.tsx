@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => (
-  <img src={`/assets${src}`} {...rest} />
+  <img src={src} {...rest} />
 );
 
 export const EntryView = ({ entry }: Props) => {

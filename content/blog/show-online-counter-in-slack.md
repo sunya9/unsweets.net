@@ -38,7 +38,7 @@ URLは先程の通り http://アプリケーション名.herokuapp.com/ にな�
 <script src="http://アプリケーション名.herokuapp.com/slackin.js" async defer></script>
 ```
 
-![Slackのボタンとともに3/31と書かれた吹き出しが表示されている](/images/2015-4-21_12-28-49_634.png)
+![Slackのボタンとともに3/31と書かれた吹き出しが表示されている](/assets/images/2015-4-21_12-28-49_634.png)
 
 こちらのバッジはリアルタイムにオンライン人数を表示してくれます。
 /badge.svg はリアルタイム表示してくれませんが、svgボタンなので拡大縮小が可能です。
@@ -47,6 +47,6 @@ URLは先程の通り http://アプリケーション名.herokuapp.com/ にな�
 <a href="http://アプリケーション名.herokuapp.com/"><img src="http://アプリケーション名.herokuapp.com/badge.svg" alt="" width="87" height="20" /></a>
 ```
 
-![Slackという文字の隣に3/31とオンライン人数が表示されている](/images/2015-4-21_12-38-19_635.png)
+![Slackという文字の隣に3/31とオンライン人数が表示されている](/assets/images/2015-4-21_12-38-19_635.png)
 
 これを使えばよりSlackへの招待を円滑に行うことができるかもしれませんね。

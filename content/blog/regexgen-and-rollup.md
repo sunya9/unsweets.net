@@ -9,7 +9,7 @@ tags:
   - Babel
 ---
 
-[![regex generator](/images/regex-generator.png "Regex generator")](http://regex-generator.unsweets.net/)
+[![regex generator](/assets/images/regex-generator.png "Regex generator")](http://regex-generator.unsweets.net/)
 
 Regex generatorというツールを作成しました。入力された文字列に応じて正規表現が自動生成されます。生成する部分の頭は無いので[regexgen](https://github.com/devongovett/regexgen)というライブラリに滅茶苦茶依存しています。
 

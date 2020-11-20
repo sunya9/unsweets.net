@@ -6,7 +6,7 @@ categories:
 date: 2015-01-21 19:07:54
 tags:
 ---
-![ツールバー事始め](/images/toolbar_eyecatch.png)
+![ツールバー事始め](/assets/images/toolbar_eyecatch.png)
 
 適当に色設定したらださくなってしまった...
 

@@ -7,7 +7,7 @@ date: 2013-03-08 14:58:25
 tags:
 ---
 
-[![twitokengetter.png](/images/twitokengetter-thumb-400x244-60.png)](/images/twitokengetter.png)
+[![twitokengetter.png](/assets/images/twitokengetter.png)](/assets/images/twitokengetter.png)
 
 皆さん、お久しぶりです。一段落してやっとブログ更新が再開出来そうです。場合によっては一段落しないかもしれませんが...。
 
@@ -26,9 +26,9 @@ tags:
 っていうのはさすがに投げ過ぎなんでさすがにちょっと補足します。
 
 Twitterの[作成アプリ一覧](https://dev.twitter.com/apps)から認証させたいアプリの設定に移動して、おそらくSettingsタブというのがあると思います。
-![twitokengetter-settings-tab.png](/images/twitokengetter-settings-tab-thumb-400x246-64.png)
+![twitokengetter-settings-tab.png](/assets/images/twitokengetter-settings-tab.png)
 
-Settingsタブに移動して、Callback URLの欄を空にしておきます。![twitokengetter-callback-url.png](/images/twitokengetter-callback-url.png)
+Settingsタブに移動して、Callback URLの欄を空にしておきます。![twitokengetter-callback-url.png](/assets/images/twitokengetter-callback-url.png)
 
 後はTwiTokenGetterの通りにやれば大丈夫かと思います。
 

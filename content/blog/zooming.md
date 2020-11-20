@@ -7,7 +7,7 @@ categories:
   - JavaScript
 date: 2016-12-23 18:59:00
 ---
-![キャベツ](/images/cabbage.jpg "画像拡大テスト用のキャベツ")
+![キャベツ](/assets/images/cabbage.jpg "画像拡大テスト用のキャベツ")
 
 ブログのテーマの調整も一段落といった感じで落ち着きました。
 

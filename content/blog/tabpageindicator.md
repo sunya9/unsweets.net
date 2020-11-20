@@ -7,7 +7,7 @@ date: 2013-03-28 21:08:16
 tags:
 ---
 
-[![device-2013-03-28-211522.png](/images/device-2013-03-28-211522-thumb-400x44-81.png)](/images/device-2013-03-28-211522.png)
+[![device-2013-03-28-211522.png](/assets/images/device-2013-03-28-211522.png)](/assets/images/device-2013-03-28-211522.png)
 
 TabPageIndicatorです。ViewPagerのタイトル部分のものです。TitlePageIndicatorとは少し違います。ActionbarTabに近い感じ。そこのフォントを変更します。
 

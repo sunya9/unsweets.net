@@ -6,7 +6,7 @@ categories:
 date: 2013-09-30 14:10:11
 tags:
 ---
-![nodejs-light.png](/images/nodejs-light.png)
+![nodejs-light.png](/assets/images/nodejs-light.png)
 
 最近node.jsを使い始めました。いざ本番で使うとなるとnodeを動かせるサーバーがないといけないので専用サーバーなど必要になりますが、Windowsでも手軽に実行でき、言語自体もJavaScriptなので動かすこと自体は手軽で結構楽しいです。
 
