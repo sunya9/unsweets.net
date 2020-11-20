@@ -7,7 +7,7 @@ import Link from "next/link";
 import { EntryList } from "../components/EntryList";
 
 interface Props {
-  entries: Entry[];
+  entries: Omit<Entry, "body">[];
 }
 export default function Home(props: Props) {
   const config = useConfig();
