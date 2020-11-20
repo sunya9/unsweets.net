@@ -6,9 +6,10 @@
   "author": "sunya9 <mugen.xyz@gmail.com>",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn build:rss",
+    "prebuild": "yarn build:rss && yarn build:sitemap",
     "build": "next build && next export",
     "build:rss": "ts-node -P ./scripts/tsconfig.json ./scripts/rss",
+    "build:sitemap": "ts-node -P ./scripts/tsconfig.json ./scripts/sitemap",
     "start": "next start"
   },
   "dependencies": {
