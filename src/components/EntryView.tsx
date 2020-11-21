@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => (
-  <img src={src} {...rest} className="border shadow-lg" />
+  <img src={src} {...rest} className="border shadow-lg mx-auto" />
 );
 
 export const EntryView = ({ entry }: Props) => {
@@ -27,7 +27,11 @@ export const EntryView = ({ entry }: Props) => {
         <title>{config.title(entry.title)}</title>
       </Head>
       <h1>{entry.title}</h1>
-      {entry.date && <AbsDate date={entry.date} />}
+      {entry.date && (
+        <>
+          Published at <AbsDate date={entry.date} />
+        </>
+      )}
       <Markdown
         options={{
           overrides: {
