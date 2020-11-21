@@ -10,6 +10,7 @@
     "build": "next build && next export",
     "build:rss": "ts-node -P ./scripts/tsconfig.json ./scripts/rss",
     "build:sitemap": "ts-node -P ./scripts/tsconfig.json ./scripts/sitemap",
+    "lint": "eslint --ext .tsx,.ts src",
     "start": "next start"
   },
   "dependencies": {
