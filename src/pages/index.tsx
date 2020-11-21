@@ -28,7 +28,9 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const entries = await getEntries(5);
+  const entries = await getEntries(5).then((entries) =>
+    entries.map(({ date, slug, title }) => ({ date, slug, title }))
+  );
   return {
     props: {
       entries,
