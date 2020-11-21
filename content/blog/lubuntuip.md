@@ -8,7 +8,7 @@ tags:
 ---
 色々試行錯誤してやったのでどのあたりで解決したかわかりませんが、以下を/etc/netowork/interfacesに追記。
 
-```conf
+```
 auto eth0
 iface eth0 inet static
 address 192.168.10.6

@@ -13,7 +13,7 @@ date: 2019-02-08 00:46:00
 
 ## Netlifyでビルドすると2回目以降ビルドに失敗する
 
-```text
+```
 11:49:06 PM:   Error: spawn /opt/build/repo/node_modules/pngquant-bin/vendor/pngquant ENOENT
 11:49:06 PM:
 11:49:06 PM:   - child_process.js:240 Process.ChildProcess._handle.onexit
@@ -30,7 +30,7 @@ date: 2019-02-08 00:46:00
 
 このブログではNetlifyのプロジェクト設定のBuild & Deployから環境変数を以下のように設定した。
 
-```text
+```
 NODE_ENV production
 NODE_VERSION 8
 YARN_VERSION 1.12.3

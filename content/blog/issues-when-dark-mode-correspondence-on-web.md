@@ -180,7 +180,7 @@ Sass の変数はあくまでも色を投げるようにし、コンパイルが
 
 postcss としての使用方法はほかプラグイン同様、require して配列に突っ込みます。
 
-```postcss.config.js
+```js
 module.exports = {
   plugins: {
     require('extract-color-properties')({ excludeProperties: [''] })
