@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useConfig } from "../hooks/useConfig";
 import { AppLayout } from "../components/AppLayout";
 import "../styles/styles.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 declare global {
@@ -42,15 +42,20 @@ function MyApp({ Component, pageProps }: AppProps) {
 const App: React.FC = ({ children }) => {
   const config = useConfig();
   const router = useRouter();
+  const [stylesheet, setStylesheet] = useState("");
+  useEffect(() => {
+    setStylesheet("stylesheet");
+  }, []);
   return (
     <>
       <Head>
         <title>{config.title()}</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preload" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-          rel="stylesheet"
+          rel={stylesheet}
         />
         <link rel="canonical" href={`${config.baseUrl}${router.asPath}`} />
         <meta name="description" content={config.description} />
