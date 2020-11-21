@@ -1,11 +1,15 @@
 import Markdown from "markdown-to-jsx";
 import { ImgHTMLAttributes } from "react";
-import { Pre } from "./Pre";
 import Head from "next/head";
 import { useConfig } from "../hooks/useConfig";
 import { AbsDate } from "./AbsDate";
 import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 import { Page } from "../lib/page";
+import dynamic from "next/dynamic";
+
+const Pre = dynamic<unknown>(
+  import("../components/Pre").then((res) => res.Pre)
+);
 
 interface Props {
   entry: Page;
