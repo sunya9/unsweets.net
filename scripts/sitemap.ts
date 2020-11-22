@@ -23,8 +23,6 @@ ${urls.map(generateUrlTag).join("\n")}
 const generateUrlTag = (url: string) => `
 <url>
   <loc>${config.baseUrl}${url}</loc>
-  <changeFreq>daily</changeFreq>
-  <priority>0.7</priority>
 </url>
 `;
 
