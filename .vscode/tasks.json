@@ -1,0 +1,30 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "command": "bash",
+  "args": ["-c"],
+  "tasks": [
+    {
+      "label": "write new entry",
+      "type": "shell",
+      "args": [
+        "cp ./templates/entry.md ./content/blog/${input:slug}.md && sed -e \"s/\\$title/${input:title}/; s/\\$date/$(date --iso-8601=seconds)/\" -i ./content/blog/${input:slug}.md"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "slug",
+      "description": "input slug",
+      "default": ""
+    },
+    {
+      "type": "promptString",
+      "id": "title",
+      "description": "input title",
+      "default": ""
+    }
+  ]
+}
