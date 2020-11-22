@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "yarn build:rss && yarn build:sitemap",
-    "build": "next build && next export",
+    "build": "next build",
     "build:rss": "ts-node -P ./scripts/tsconfig.json ./scripts/rss",
     "build:sitemap": "ts-node -P ./scripts/tsconfig.json ./scripts/sitemap",
     "lint": "eslint --ext .tsx,.ts src",
