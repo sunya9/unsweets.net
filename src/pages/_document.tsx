@@ -33,7 +33,7 @@ class MyDocument extends Document {
             }}
           ></script>
         </Head>
-        <body className="bg-background">
+        <body className="bg-gray-50 dark:bg-trueGray-700">
           <Main />
           <NextScript />
         </body>
