@@ -44,9 +44,9 @@ export const EntryView = ({ entry }: Props) => {
       </Head>
       <h1>{entry.title}</h1>
       {entry.date && (
-        <>
+        <span className="text-gray-500">
           Published at <AbsDate date={entry.date} />
-        </>
+        </span>
       )}
       <Markdown
         options={{
