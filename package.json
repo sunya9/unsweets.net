@@ -43,7 +43,7 @@
     "autoprefixer": "10.0.4",
     "eslint": "7.15.0",
     "eslint-config-prettier": "6.15.0",
-    "eslint-plugin-prettier": "3.2.0",
+    "eslint-plugin-prettier": "3.3.0",
     "eslint-plugin-react": "7.21.5",
     "mkdirp": "1.0.4",
     "postcss": "8.1.14",
