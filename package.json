@@ -26,7 +26,7 @@
     "styled-jsx-plugin-sass": "1.0.0"
   },
   "devDependencies": {
-    "@types/classnames": "2.2.10",
+    "@types/classnames": "2.2.11",
     "@types/lodash.debounce": "4.0.6",
     "@types/node": "13.13.19",
     "@types/react": "16.9.49",
