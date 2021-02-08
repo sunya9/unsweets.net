@@ -33,7 +33,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/app-root-path": "1.2.4",
-    "@types/node": "14.14.22",
+    "@types/node": "14.14.25",
     "@types/react": "16.14.2",
     "@types/react-dom": "16.9.10",
     "@types/react-syntax-highlighter": "13.5.0",
