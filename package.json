@@ -26,7 +26,7 @@
   "devDependencies": {
     "@types/classnames": "2.2.11",
     "@types/lodash.debounce": "4.0.6",
-    "@types/node": "13.13.45",
+    "@types/node": "13.13.46",
     "@types/react": "16.14.5",
     "@types/smoothscroll-polyfill": "0.3.1",
     "@types/styled-jsx": "2.2.8",
