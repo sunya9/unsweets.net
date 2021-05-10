@@ -9,11 +9,15 @@ sections:
   label: pages
   create: documents
   match: "**/*.md"
+  templates:
+  - page
 - type: directory
   path: content/blog
   label: blog
   create: documents
   match: "*.md"
+  templates:
+  - blog
 upload_dir: public/assets/images
 public_path: "/public"
 front_matter_path: ''
