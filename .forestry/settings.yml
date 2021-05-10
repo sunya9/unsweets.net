@@ -7,7 +7,7 @@ sections:
 - type: directory
   path: content/pages
   label: pages
-  create: all
+  create: documents
   match: "**/*.md"
 - type: directory
   path: content/blog
