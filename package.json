@@ -46,7 +46,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.23.2",
     "mkdirp": "1.0.4",
-    "postcss": "8.2.14",
+    "postcss": "8.2.15",
     "postcss-preset-env": "6.7.0",
     "prettier": "2.2.1",
     "ts-node": "9.1.1",
