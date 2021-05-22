@@ -4,10 +4,8 @@ interface Props extends HTMLAttributes<HTMLHeadingElement> {}
 
 export const SectionTitle: React.FC<Props> = ({ children, ...props }) => {
   return (
-    <>
-      <h2 className="sectionTitle" {...props}>
-        {children}
-      </h2>
+    <h2 className="sectionTitle" {...props}>
+      {children}
       <style jsx>{`
         .sectionTitle {
           font-size: 2rem;
@@ -32,6 +30,6 @@ export const SectionTitle: React.FC<Props> = ({ children, ...props }) => {
           }
         }
       `}</style>
-    </>
+    </h2>
   );
 };
