@@ -6,7 +6,7 @@ class MyDocument extends Document {
   render() {
     const styles = process.env.NODE_ENV === "production" ? flush() : null;
     return (
-      <Html>
+      <Html lang="ja">
         <Head>{styles}</Head>
         <body>
           <Main />

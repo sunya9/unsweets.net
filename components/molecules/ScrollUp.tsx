@@ -16,7 +16,7 @@ export const ScrollUp = () => {
   }, []);
   const classes = classnames("button", { visible });
   return (
-    <button className={classes} onClick={handleClick}>
+    <button className={classes} onClick={handleClick} aria-label="Scoll up">
       <Icon icon="ChevronsUp" strokeWidth="1" />
       <style jsx>{`
         .button {
