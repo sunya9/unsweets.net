@@ -32,6 +32,9 @@ export default function Index() {
                   id="gamma"
                   itemType="http://schema.org/MobileApplication"
                   url="https://play.google.com/store/apps/details?id=net.unsweets.gamma"
+                  imgStyle={{
+                    maxWidth: "100%",
+                  }}
                 />
               </section>
             </Screen>
