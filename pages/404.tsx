@@ -2,17 +2,6 @@ import React from "react";
 import { Button } from "components/atoms/Button";
 import Link from "next/link";
 
-const ButtonComponent = React.forwardRef(function ButtonComponent<never>(
-  { children, ...props },
-  ref
-) {
-  return (
-    <span ref={ref}>
-      <Button<"a"> {...props}>{children}</Button>
-    </span>
-  );
-});
-
 export default function Error() {
   return (
     <div className="container">
@@ -22,7 +11,9 @@ export default function Error() {
           ページが見つかりませんでした。トップページから探してみてください。
         </p>
         <Link href="/">
-          <ButtonComponent tag="a">Go to Top</ButtonComponent>
+          <Button<"a"> tag="a" href="/">
+            Go to Top
+          </Button>
         </Link>
       </div>
       <style jsx>{`
