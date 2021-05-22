@@ -4,13 +4,12 @@ import * as featherIcon from "react-feather";
 import classnames from "classnames";
 
 type ButtonLike = "a" | "button";
-type ButtonProps<
-  T extends keyof Pick<JSX.IntrinsicElements, ButtonLike>
-> = PropsWithoutRef<JSX.IntrinsicElements[T]> & {
-  tag?: ButtonLike;
-  icon?: keyof typeof featherIcon;
-  block?: boolean;
-};
+type ButtonProps<T extends keyof Pick<JSX.IntrinsicElements, ButtonLike>> =
+  PropsWithoutRef<JSX.IntrinsicElements[T]> & {
+    tag?: ButtonLike;
+    icon?: keyof typeof featherIcon;
+    block?: boolean;
+  };
 
 export const Button = <T extends ButtonLike>({
   tag,
