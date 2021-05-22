@@ -72,8 +72,6 @@ export const AboutMe = () => {
         </li>
       </ul>
       <style jsx>{`
-        @import "css/variables";
-
         .info {
           margin: 0 -0.5rem;
           padding: 0;
@@ -105,7 +103,7 @@ export const AboutMe = () => {
           }
         }
         .avatar {
-          transition: transform 1s $easing;
+          transition: transform 1s var(--easing);
           &:hover {
             transform: rotate(360deg);
           }
