@@ -43,7 +43,6 @@ export const Contact = () => {
         <input className="submit" type="submit" value="Submit" />
       </form>
       <style jsx>{`
-        @import "css/variables";
         @import "css/mixins";
 
         .form {
@@ -80,7 +79,7 @@ export const Contact = () => {
           line-height: 1.7;
           outline: none;
           box-sizing: border-box;
-          transition: $default-transition;
+          transition: var(--default-transition);
           appearance: none;
           color: inherit;
           background: var(--bg-color);
@@ -99,7 +98,7 @@ export const Contact = () => {
         }
         .submit {
           width: 100%;
-          font-family: Rubik, $font-family;
+          font-family: var(--font-family);
           display: block;
           font-size: 0.85rem;
           font-weight: bold;
@@ -110,7 +109,7 @@ export const Contact = () => {
           border: 0;
           border-radius: 999px;
           outline: none;
-          transition: $default-transition;
+          transition: var(--default-transition);
           background: var(--bg-color);
           box-shadow: var(--box-shadow);
           color: inherit;
