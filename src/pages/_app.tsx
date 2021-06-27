@@ -1,11 +1,11 @@
 import { AppProps } from "next/app";
-import { ConfigProvider } from "../components/ConfigProvider";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { ConfigProvider } from "../components/ConfigProvider";
 import { useConfig } from "../hooks/useConfig";
 import { AppLayout } from "../components/AppLayout";
 import "../styles/styles.css";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 declare global {
   interface Window {

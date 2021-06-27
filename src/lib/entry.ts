@@ -1,15 +1,15 @@
-import { config } from "../../blog.config";
 import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
+import { config } from "../../blog.config";
 import { Page } from "./page";
 import { processor } from "./processor";
+
+const { blogDir } = config;
 
 export interface Entry extends Page {
   date: number;
 }
-
-const { blogDir } = config;
 
 export const getEntry = async (slug: string): Promise<Entry> => {
   const filename = `${slug}.md`;

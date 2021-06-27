@@ -1,18 +1,22 @@
 import { ImgHTMLAttributes, MouseEventHandler, useCallback } from "react";
-import Head from "next/head";
-import { useConfig } from "../hooks/useConfig";
-import { AbsDate } from "./AbsDate";
-import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
-import { Page } from "../lib/page";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import { Facebook, Twitter, Share2, MoreVertical } from "react-feather";
+import {
+  Facebook,
+  Twitter,
+  Share2,
+  MoreVertical,
+  Link as LinkIcon,
+} from "react-feather";
 import { useRouter } from "next/router";
 import unified from "unified";
 import rehype2react, { ComponentPropsWithoutNode } from "rehype-react";
 import * as React from "react";
 import rehypeParse from "rehype-parse";
-import { Link as LinkIcon } from "react-feather";
+import { useConfig } from "../hooks/useConfig";
+import { Page } from "../lib/page";
+import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
+import { AbsDate } from "./AbsDate";
 
 interface Props {
   entry: Page;
