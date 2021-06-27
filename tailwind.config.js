@@ -16,21 +16,28 @@ module.exports = {
         xl: "960px",
       },
     },
-    colors: {
-      gray: {
-        50: "var(--colors-50)",
-        100: "var(--colors-100)",
-        200: "var(--colors-200)",
-        300: "var(--colors-300)",
-        400: "var(--colors-400)",
-        500: "var(--colors-500)",
-        600: "var(--colors-600)",
-        700: "var(--colors-700)",
-        800: "var(--colors-800)",
-        900: "var(--colors-900)",
+    extend: {
+      colors: {
+        gray: {
+          50: "var(--colors-50)",
+          100: "var(--colors-100)",
+          200: "var(--colors-200)",
+          300: "var(--colors-300)",
+          400: "var(--colors-400)",
+          500: "var(--colors-500)",
+          600: "var(--colors-600)",
+          700: "var(--colors-700)",
+          800: "var(--colors-800)",
+          900: "var(--colors-900)",
+        },
+        originalGray: colors.coolGray,
+        trueGray: colors.trueGray,
       },
-      originalGray: colors.coolGray,
-      trueGray: colors.trueGray,
+    },
+  },
+  variants: {
+    extend: {
+      fill: ["hover"],
     },
   },
   plugins: [require("@tailwindcss/typography")],
