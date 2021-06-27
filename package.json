@@ -45,6 +45,7 @@
     "eslint": "7.29.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
     "mkdirp": "1.0.4",
     "postcss": "8.3.5",
     "postcss-preset-env": "6.7.0",
