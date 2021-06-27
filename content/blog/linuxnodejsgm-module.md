@@ -6,6 +6,7 @@ categories:
 date: 2013-11-09 21:34:53
 tags:
 ---
+
 gm moduleとはGraphicsMagickやImageMagickをnode.jsで扱うためのmoduleなのですが、windowsではエラーが発生しないのに、linuxだとなぜか発生する謎の現象に悩まされました。(ubuntu 13.04)。
 
 <!--more-->

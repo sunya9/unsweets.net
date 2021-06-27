@@ -9,6 +9,7 @@ categories:
   - Memo
 date: 2016-03-24 01:09:00
 ---
+
 [この前](/assets/images/webpack.html)の続き。
 
 <!--more-->
@@ -25,10 +26,10 @@ const config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style!css'
-      }
-    ]
-  }
+        loader: "style!css",
+      },
+    ],
+  },
 };
 ```
 
@@ -58,19 +59,19 @@ const config = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
-    ]
-  }
+        loader: "style!css!sass",
+      },
+    ],
+  },
 };
 ```
 
 エントリポイントのJavascriptでは前述と同じようにSCSSを読み込むようにする
 
 ```js
-import '../scss/main.scss';
+import "../scss/main.scss";
 // or
-require('../scss/main.scss');
+require("../scss/main.scss");
 ```
 
 これでSCSSはsass-loaderによって内部でSCSSはCSSに変換され、さらに変換されたCSSはstyle-loaderによってheadにstyle要素に挿入される。
@@ -80,27 +81,25 @@ require('../scss/main.scss');
 一般的にはCSSをJavascriptでロードせずlink要素でロードすることが多いかもしれない。その場合はextract-text-webpack-pluginを利用して、コンパイルされたCSSをファイルとして出力するようにする。
 
 ```js
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractCSS = new ExtractTextPlugin('css/main.css');
+const extractCSS = new ExtractTextPlugin("css/main.css");
 
 const config = {
-  entry: ['./js/main'],
+  entry: ["./js/main"],
   output: {
-    path: path.join(__dirname, '/build'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, "/build"),
+    filename: "bundle.js",
   },
-  plugins: [
-    extractCSS,
-  ],
+  plugins: [extractCSS],
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: extractCSS.extract('css')
-      }
-    ]
-  }
+        loader: extractCSS.extract("css"),
+      },
+    ],
+  },
 };
 ```
 
@@ -119,13 +118,11 @@ const config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style!css!postcss'
-      }
-    ]
+        loader: "style!css!postcss",
+      },
+    ],
   },
-  postcss: [
-    require('autoprefixer')
-  ]
+  postcss: [require("autoprefixer")],
 };
 ```
 
@@ -146,12 +143,12 @@ publicPathの値はwebpack-dev-serverで利用される。仮にwebpack.config.j
 
 ```js
 const config = {
-  entry: './js/main',
+  entry: "./js/main",
   output: {
-    path: path.join(__dirname, '/build'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  }
+    path: path.join(__dirname, "/build"),
+    publicPath: "/",
+    filename: "bundle.js",
+  },
 };
 ```
 
@@ -164,14 +161,14 @@ const config = {
 ```js
 const config = {
   entry: {
-    'js/main': './js/main', 
-    'js/entry2': './js/entry2'
+    "js/main": "./js/main",
+    "js/entry2": "./js/entry2",
   },
   output: {
-    path: path.join(__dirname, '/build'),
-    publicPath: '/',
-    filename: '[name].js'
-  }
+    path: path.join(__dirname, "/build"),
+    publicPath: "/",
+    filename: "[name].js",
+  },
 };
 ```
 

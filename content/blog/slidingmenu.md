@@ -20,12 +20,12 @@ jfeinstein10氏のライブラリを使わせてもらいます。
 
 #### 2\. ライブラリをインポートする
 
-ダウンロードしたzipファイルを解凍します。解凍したらおそらくSlidingMenu-masterというフォルダができると思います。eclipseにライブラリをインポートするためにはその中にあるlibraryというフォルダをインポートするのですが、<span style="text-decoration: line-through;">私の環境では上手くインポートすることができませんでした。</span>できました。
+ダウンロードしたzipファイルを解凍します。解凍したらおそらくSlidingMenu-masterというフォルダができると思います。eclipseにライブラリをインポートするためにはその中にあるlibraryというフォルダをインポートするのですが、~~私の環境では上手くインポートすることができませんでした。~~できました。
 
 ##### 既存のプロジェクトインポート機能を使う
 
 [![screenshot006.png](/assets/images/screenshot006.png)](/assets/images/screenshot006.png)
-普通の方法です。<span style="text-decoration: line-through;">ですが私の方法ではできませんでした...。</span>
+普通の方法です。~~ですが私の方法ではできませんでした...。~~
 [![2013-3-15_23-31-57_144.png](/assets/images/2013-3-15_23-31-57_144.png)](/assets/images/2013-3-15_23-31-57_144.png)
 Nextをクリック。
 

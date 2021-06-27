@@ -6,14 +6,15 @@ categories:
 date: 2015-05-02 15:24:21
 tags:
 ---
+
 Visual Studio Codeが最近出てきたのでC++をコンパイルできるようにして見たいと思います。少しバグがある気がします。
 
 <!--more-->
 
 #### 前提
 
-*   MinGWをインストール済み・パスを通している
-*   Visual Studio Code(以下VSC)をインストールしてある
+- MinGWをインストール済み・パスを通している
+- Visual Studio Code(以下VSC)をインストールしてある
 
 では初めて行きましょう。
 
@@ -23,22 +24,21 @@ Visual Studio Codeが最近出てきたのでC++をコンパイルできるよ�
 2.  "tasks: configure"などと入力し、"Tasks: Configure Task Runner"を選択
 3.  カレントディレクトリに.settingsディレクトリが生成され、その中にtasks.jsonができるので以下の設定をコピー&ペースト。
 
-
 ```json
 {
   "version": "0.1.0",
   "owner": "cpp",
-  "fileLocation": ["relative", "${workspaceRoot}"],
-  "args": [
-    "-O2",
-    "-Wall",
-    "-o",
-    "${fileBasename}.exe",
-    "${file}",
-    "-std=c++11"
-  ],
-  "showOutput": "always",
-  "command": "g++"
+  "fileLocation": ["relative", "${workspaceRoot}"],
+  "args": [
+    "-O2",
+    "-Wall",
+    "-o",
+    "${fileBasename}.exe",
+    "${file}",
+    "-std=c++11"
+  ],
+  "showOutput": "always",
+  "command": "g++"
 }
 ```
 

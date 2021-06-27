@@ -15,8 +15,8 @@ Chromeのウィンドウの右上に名前が表示されてしまって気持�
 
 #### 環境
 
-*   Windows8.1 64bit
-*   Google Chrome 39.0.2171.99 m
+- Windows8.1 64bit
+- Google Chrome 39.0.2171.99 m
 
 #### 方法
 

@@ -15,9 +15,9 @@ layout: blog
 
 ## 準備（環境)
 
-* ブログ: HexoやHugo, Jekyll, Middlemanなどの静的サイトジェネレータで作られたサイト
-* Netlify: 上記のブログをNetlifyでホスティングする必要があります
-* Githubのリポジトリ: 上記のブログを管理しているGithubリポジトリ
+- ブログ: HexoやHugo, Jekyll, Middlemanなどの静的サイトジェネレータで作られたサイト
+- Netlify: 上記のブログをNetlifyでホスティングする必要があります
+- Githubのリポジトリ: 上記のブログを管理しているGithubリポジトリ
 
 今回はHexoの環境でセットアップします。
 
@@ -46,25 +46,26 @@ Netlify側の設定はこれで完了。
 ### index.html
 
 ```html
-layout: false
----
+layout: false ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  
-  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^0.3/dist/cms.css" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
 
-</head>
-<body>
-  <script src="https://unpkg.com/netlify-cms@^0.3/dist/cms.js"></script>
-  <script>
-    CMS.registerPreviewStyle('/css/main.css');
-  </script>
-</body>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/netlify-cms@^0.3/dist/cms.css"
+    />
+  </head>
+  <body>
+    <script src="https://unpkg.com/netlify-cms@^0.3/dist/cms.js"></script>
+    <script>
+      CMS.registerPreviewStyle("/css/main.css");
+    </script>
+  </body>
 </html>
 ```
 
@@ -83,47 +84,53 @@ backend:
 media_folder: source/images/
 
 collections:
-- name: "blog" # Used in routes, e.g. /admin/collections/blog
-  label: "Blog" # Used in the UI
-  folder: "source/_posts" # The path to the folder where the documents are stored
-  create: true # Allow users to create new documents in this collection
-  slug: "{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
-  fields: # The fields for each document, usually in front matter
-    - {label: "Title", name: "title", widget: "string"}
-    - {label: "Publish Date", name: "date", widget: "datetime", default: ""}
-    - {label: "Categories", name: "categories", widget: "list", default: ""}
-    - {label: "Author", name: "author", widget: "string", default: "_X_y_z_"}
-    - {label: "Content", name: "body", widget: "markdown"}
-    - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-  meta:
-    - {label: "Tags", name: "tags", widget: "list", default: "" }  
+  - name: "blog" # Used in routes, e.g. /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "source/_posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "" }
+      - { label: "Categories", name: "categories", widget: "list", default: "" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          default: "_X_y_z_",
+        }
+      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+    meta:
+      - { label: "Tags", name: "tags", widget: "list", default: "" }
 ```
 
 backendのrepoには自分がGithubで管理しているリポジトリの場所を指定します。
 
 collectionsは記事のテンプレートを定義します。Hexoで言うScaffoldsディレクトリと同じような役割をしていますが、Netlify CMSはHexoに依存しているわけでもないのでそれを使うわけではない模様。
 
-* `name`: 固有のID
-* `label`: 管理画面で表示されるテンプレート名
-* `folder`: 作成した記事が保存される場所。Hexoなら通常は`source/_posts`だと思います
-* `create`: ユーザーがこのコレクションを使って記事を作成することの許可。通常はtrueのはず。
-* `slug`: ファイル名。日付の変数が使えますが、色々問題があるのでここではとりあえず`{{slug}}`。
-* `fields`: 記事投稿のフィールド定義。ここに定義すると記事作成画面ではフィールド名に紐付いたフォームが表示されます。
-* `meta`: `fields`に似ていますが、表示されないデータ。このブログでは多くの記事にtagsが空であり、それによってエラーが発生しているのでとりあえず一時的に回避。
+- `name`: 固有のID
+- `label`: 管理画面で表示されるテンプレート名
+- `folder`: 作成した記事が保存される場所。Hexoなら通常は`source/_posts`だと思います
+- `create`: ユーザーがこのコレクションを使って記事を作成することの許可。通常はtrueのはず。
+- `slug`: ファイル名。日付の変数が使えますが、色々問題があるのでここではとりあえず`{{slug}}`。
+- `fields`: 記事投稿のフィールド定義。ここに定義すると記事作成画面ではフィールド名に紐付いたフォームが表示されます。
+- `meta`: `fields`に似ていますが、表示されないデータ。このブログでは多くの記事にtagsが空であり、それによってエラーが発生しているのでとりあえず一時的に回避。
 
 fieldsですが、最低限、記事名と公開日、内容があれば良いように思えます。ほとんど設定を自分の設定ファイルからコピーしてきているので、使う人は適宜変更しましょう。特に`default`。
 
 ### その他
-Hexoではymlファイルは自動的にjsonに変換されてしまうので、Hexoの設定ファイルである_config.ymlを以下のように編集します。
+
+Hexoではymlファイルは自動的にjsonに変換されてしまうので、Hexoの設定ファイルである\_config.ymlを以下のように編集します。
 
 ```yaml
-skip_render:
-  admin/config.yml
+skip_render: admin/config.yml
 ```
 
 先ほどのadmin/index.htmlも同様に回避できるかと思いましたが、なぜかうまく行かず。
 
 ## ローカルでテストする
+
 セットアップは完了です。
 `hexo start`などでローカルで試してみましょう。[http://localhost:4000/admin](http://localhost:4000/admin)にアクセスするとGithub認証ボタンが表示されると思います。
 OAuth後、一瞬Netlifyに飛び、すぐにまたadminに戻ってくると思います。
@@ -139,17 +146,18 @@ Blogを選択すると`source/_posts`に入った記事一覧を取得します�
 先ほどのconfig.ymlに沿った形式でFieldsに沿って表示されています。
 
 ### その他2
+
 もしかして: 自分で[Quick start guide](https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md)が早い。config.ymlのwidgetsに使える値もだいたい載ってます。後は公式の[Docs](https://www.netlifycms.org/docs/)を見るのも良いと思います。
 
 ### 所感とか気になるところとか
 
-* 導入に少し手こずる
-* 記事一覧がファイル名ソートで見づらい
-* 編集画面で下書きがない
-* config.ymlの設定が間違っていたりすると内部でJavaScriptがエラーを吐いて何も表示してくれない。consoleを見てもどこが間違っているか表示してくれない（あくまでもJavaScriptがエラー吐いてることくらいしかわからない）。
-* Hexoのymlがjsonに変換されていることに気付きにくい
-* ファイル名が基本的に記事名依存なので、自由につけられない
-* 画像のパス関連が怪しい
+- 導入に少し手こずる
+- 記事一覧がファイル名ソートで見づらい
+- 編集画面で下書きがない
+- config.ymlの設定が間違っていたりすると内部でJavaScriptがエラーを吐いて何も表示してくれない。consoleを見てもどこが間違っているか表示してくれない（あくまでもJavaScriptがエラー吐いてることくらいしかわからない）。
+- Hexoのymlがjsonに変換されていることに気付きにくい
+- ファイル名が基本的に記事名依存なので、自由につけられない
+- 画像のパス関連が怪しい
 
 最後の2つは自分の設定がおかしいだけかもしれませんが、ちょっとうまくいっていないかん時。
 

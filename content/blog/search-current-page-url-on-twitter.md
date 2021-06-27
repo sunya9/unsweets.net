@@ -3,16 +3,17 @@ title: 今見ているページをTwitterでURL検索するブックマークレ
 id: 167
 categories:
   - Memo
-  - ''
+  - ""
 tags: []
 date: 2016-05-11 14:21:00
 ---
+
 多くのウェブページの場合記事を共有するボタンはありますが、Twitterでどのくらいの人が共有したのかを示すcount.jsonの提供終了に伴い、吹き出しを表示しなくなったサイトを多くなったので。
 
 <!--more-->
 
-* [Search URL on Twitter][1]
-* [Search URL on Twitter(New Tab)][2]
+- [Search URL on Twitter][1]
+- [Search URL on Twitter(New Tab)][2]
 
 このリンクをブックマークバーにドラッグすると登録できます。利用するのは検索したいページで登録したお気に入りを開くだけ。
 

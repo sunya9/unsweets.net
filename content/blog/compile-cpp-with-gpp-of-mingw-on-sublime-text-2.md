@@ -15,8 +15,8 @@ Windows上でSublime Text 2でC++をmingwを使ってコンパイルする方法
 
 ## 環境
 
-*   Windows7 64bit
-*   Sublime Text 2
+- Windows7 64bit
+- Sublime Text 2
 
 ## MinGWのインストール
 

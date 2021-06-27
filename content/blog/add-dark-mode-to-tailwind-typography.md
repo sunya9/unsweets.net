@@ -31,7 +31,6 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/typography")],
 };
-
 ```
 
 現時点では[`colors.gray`のパラメーターを参照しているそう](https://github.com/tailwindlabs/tailwindcss-typography/blob/bc9592ec26d2e5e42efbf7b13061716cab1f41b0/src/styles.js)なので、CSS variablesに置き換える。 メディアクエリの手法なので `darkMode: "media"`も追加しておく。
@@ -47,30 +46,30 @@ module.exports = {
 @tailwind components;
 
 :root {
-  --colors-50: theme('colors.originalGray.50');
-  --colors-100: theme('colors.originalGray.100');
-  --colors-200: theme('colors.originalGray.200');
-  --colors-300: theme('colors.originalGray.300');
-  --colors-400: theme('colors.originalGray.400');
-  --colors-500: theme('colors.originalGray.500');
-  --colors-600: theme('colors.originalGray.600');
-  --colors-700: theme('colors.originalGray.700');
-  --colors-800: theme('colors.originalGray.800');
-  --colors-900: theme('colors.originalGray.900');
+  --colors-50: theme("colors.originalGray.50");
+  --colors-100: theme("colors.originalGray.100");
+  --colors-200: theme("colors.originalGray.200");
+  --colors-300: theme("colors.originalGray.300");
+  --colors-400: theme("colors.originalGray.400");
+  --colors-500: theme("colors.originalGray.500");
+  --colors-600: theme("colors.originalGray.600");
+  --colors-700: theme("colors.originalGray.700");
+  --colors-800: theme("colors.originalGray.800");
+  --colors-900: theme("colors.originalGray.900");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --colors-50: theme('colors.originalGray.900');
-    --colors-100: theme('colors.originalGray.800');
-    --colors-200: theme('colors.originalGray.700');
-    --colors-300: theme('colors.originalGray.600');
-    --colors-400: theme('colors.originalGray.500');
-    --colors-500: theme('colors.originalGray.400');
-    --colors-600: theme('colors.originalGray.300');
-    --colors-700: theme('colors.originalGray.200');
-    --colors-800: theme('colors.originalGray.100');
-    --colors-900: theme('colors.originalGray.50');
+    --colors-50: theme("colors.originalGray.900");
+    --colors-100: theme("colors.originalGray.800");
+    --colors-200: theme("colors.originalGray.700");
+    --colors-300: theme("colors.originalGray.600");
+    --colors-400: theme("colors.originalGray.500");
+    --colors-500: theme("colors.originalGray.400");
+    --colors-600: theme("colors.originalGray.300");
+    --colors-700: theme("colors.originalGray.200");
+    --colors-800: theme("colors.originalGray.100");
+    --colors-900: theme("colors.originalGray.50");
   }
 }
 

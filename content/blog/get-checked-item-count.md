@@ -6,6 +6,7 @@ categories:
 date: 2014-03-07 04:47:45
 tags:
 ---
+
 getCheckedItemCountはAPI11からなのでこれをどこかに定義しておくと便利。
 
 ```java

@@ -6,6 +6,7 @@ categories:
 date: 2014-03-10 21:05:54
 tags:
 ---
+
 CHOICE_MODE_MULTIPLEからCHOICE_MODE_NONEにして選択を全部外すときにclearChoicesをしてもうまくいかないのでその対処法。
 
 <!--more-->

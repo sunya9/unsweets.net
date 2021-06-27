@@ -6,6 +6,7 @@ categories:
 date: 2015-01-23 17:00:49
 tags:
 ---
+
 AndroidではIntentを発行するときやFragmentを生成するときに、引数として値を渡す時があります。
 
 <!--more-->

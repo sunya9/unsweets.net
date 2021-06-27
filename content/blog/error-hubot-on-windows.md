@@ -1,21 +1,22 @@
 ---
-title: 'windows上でhubotを実行するとERROR Error: EINVAL, read'
+title: "windows上でhubotを実行するとERROR Error: EINVAL, read"
 id: 59
 categories:
   - Memo
 date: 2015-01-14 16:08:09
 tags:
 ---
+
 最近、と言っても今日なんですが、Slackにhubotを導入して遊んでいましてWindows環境でテストしていたらエラーが出たので困ってます。
 
 <!--more-->
 
 #### 環境
 
-*   Windows8.1 64bit
-*   node.js 0.10.33
-*   npm 1.4.28
-*   hubot 2.11.0
+- Windows8.1 64bit
+- node.js 0.10.33
+- npm 1.4.28
+- hubot 2.11.0
 
 #### 状況
 

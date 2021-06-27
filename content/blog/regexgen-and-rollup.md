@@ -23,9 +23,9 @@ Regex generatorというツールを作成しました。入力された文字�
 
 ### 所感
 
-* 軽い。色々入ってるWebpackと比べたら軽量に動作する
-* 設定ファイルがWebpackと比べてシンプル
-* 最近のpluggable精神に則っているのか最初のプラグインインストールが少し面倒臭い
+- 軽い。色々入ってるWebpackと比べたら軽量に動作する
+- 設定ファイルがWebpackと比べてシンプル
+- 最近のpluggable精神に則っているのか最初のプラグインインストールが少し面倒臭い
 
 Webpackの重すぎる感じが嫌だったので、基本的に動作が軽いのは良いのですが、プラグインで機能を増やす仕組みである以上、何をするにあたっても最初はプラグインインストール地獄になるのは少し面倒に感じました。文句を言いつつプラグインの仕組みは好きなのですが、やはり多少手間に感じますね。このあたりはExpressの後継であるKoaでも同じようなことを感じました。
 
@@ -38,45 +38,45 @@ RollupにはWebpack同様、プラグインでCSSを読み込んだり、読み�
 出来上がった`rollup.config.js`(Rollupの設定ファイル)はこちら。
 
 ```javascript
-import postcss from 'rollup-plugin-postcss'
-import cssnext from 'postcss-cssnext'
-import cssImport from 'postcss-import'
-import serve from 'rollup-plugin-serve'
-import nodeResolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import nodeGlobals from 'rollup-plugin-node-globals'
-import babel from 'rollup-plugin-babel'
+import postcss from "rollup-plugin-postcss";
+import cssnext from "postcss-cssnext";
+import cssImport from "postcss-import";
+import serve from "rollup-plugin-serve";
+import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import nodeGlobals from "rollup-plugin-node-globals";
+import babel from "rollup-plugin-babel";
 
 const config = {
-  entry: 'src/js/main.js',
-  dest: 'build/js/main.js',
+  entry: "src/js/main.js",
+  dest: "build/js/main.js",
   plugins: [
     nodeResolve({
       browser: true,
       main: true,
-      jsnext: true
+      jsnext: true,
     }),
     commonjs(),
     nodeGlobals(),
     postcss({
-      plugins: [
-        cssImport(),
-        cssnext()
-      ]
+      plugins: [cssImport(), cssnext()],
     }),
-    babel()
-  ]
+    babel(),
+  ],
+};
+
+if (process.env.NODE_ENV !== "production") {
+  config.plugins.push(
+    serve({
+      contentBase: "public",
+      historyApiFallback: false,
+    })
+  );
 }
 
-if(process.env.NODE_ENV !== 'production') {
-  config.plugins.push(serve({
-    contentBase: 'public',
-    historyApiFallback: false
-  }))
-}
-
-export default config
+export default config;
 ```
+
 正直言うとRollup初めて使ったのでnodeResolveあたりの理解が足りていないというか、ドキュメントを斜め読みしたのでオプションの設定は怪しいです…（動くからいいや精神）。開発時に便利な[rollup-plugin-serve](https://github.com/thgh/rollup-plugin-serve)を利用することで、webpack-dev-serverのような開発サーバーを立てることが出来ます。
 
 ちなみにフロントエンド部分のライブラリでは安定のVueとMilligramを採用しています。軽量最高ですね。また、Babelを通していますが、あえてジェネレータ構文をそのままにしたり、Class構文をそのまま利用したりしています。そのためIEとEdgeの対応をしていません。そもそもBabelを通す必要ないんじゃないかと書いてて思い始めましたが…。
@@ -85,5 +85,5 @@ export default config
 
 ## まとめ
 
-* regexgenすごい
-* 小さいプロジェクトならRollupで十分
+- regexgenすごい
+- 小さいプロジェクトならRollupで十分

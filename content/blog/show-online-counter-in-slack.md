@@ -6,6 +6,7 @@ categories:
 date: 2015-04-21 11:47:56
 tags:
 ---
+
 Slackinというアプリケーションを使用すると、Slackの任意のチームのオンライン人数の表示や招待ページへの誘導をすることが可能になります。
 今回はHerokuを併用してSlackinを利用してみます。
 
@@ -13,8 +14,8 @@ Slackinというアプリケーションを使用すると、Slackの任意の�
 
 #### 前提
 
-*   Slackに登録している（当たり前ですね）
-*   Herokuに登録している
+- Slackに登録している（当たり前ですね）
+- Herokuに登録している
 
 #### 1. Slackinのページにアクセス
 
@@ -35,7 +36,11 @@ URLは先程の通り http://アプリケーション名.herokuapp.com/ にな�
 トップページは招待ページになります。ここからメールアドレスを入力して招待リクエストを送ることが可能なようです。/slackin.js にはバッジを表示するためのコードがあります。これをscript要素で以下のように読み込むと、バッジを表示することが可能です。
 
 ```html
-<script src="http://アプリケーション名.herokuapp.com/slackin.js" async defer></script>
+<script
+  src="http://アプリケーション名.herokuapp.com/slackin.js"
+  async
+  defer
+></script>
 ```
 
 ![Slackのボタンとともに3/31と書かれた吹き出しが表示されている](/assets/images/2015-4-21_12-28-49_634.png)
@@ -44,7 +49,13 @@ URLは先程の通り http://アプリケーション名.herokuapp.com/ にな�
 /badge.svg はリアルタイム表示してくれませんが、svgボタンなので拡大縮小が可能です。
 
 ```html
-<a href="http://アプリケーション名.herokuapp.com/"><img src="http://アプリケーション名.herokuapp.com/badge.svg" alt="" width="87" height="20" /></a>
+<a href="http://アプリケーション名.herokuapp.com/"
+  ><img
+    src="http://アプリケーション名.herokuapp.com/badge.svg"
+    alt=""
+    width="87"
+    height="20"
+/></a>
 ```
 
 ![Slackという文字の隣に3/31とオンライン人数が表示されている](/assets/images/2015-4-21_12-38-19_635.png)

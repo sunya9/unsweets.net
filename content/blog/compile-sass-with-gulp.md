@@ -1,11 +1,12 @@
 ---
-title: 'gulpを使ってsass,scssをコンパイルする'
+title: "gulpを使ってsass,scssをコンパイルする"
 id: 55
 categories:
   - Tutorial
 date: 2015-01-09 10:14:41
 tags:
 ---
+
 新年あけましておめでとうございます。今年はブログの投稿数を増やしたいところです。
 
 新年初めの記事はgulpを使ってsass, scssをコンパイルするタスクを作成します。
@@ -27,16 +28,19 @@ tags:
 requireしてタスクを記述します。
 
 ```js
-var sass = require('gulp-ruby-sass');
-gulp.task('sass', function() {
-  return gulp.src('./*.scss')
+var sass = require("gulp-ruby-sass");
+gulp.task("sass", function () {
+  return gulp
+    .src("./*.scss")
     .pipe(plumber())
-    .pipe(sass({
-      style: 'compact',
-      compass: true
-    }))
+    .pipe(
+      sass({
+        style: "compact",
+        compass: true,
+      })
+    )
     .pipe(plumber.stop())
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest("./css/"));
 });
 ```
 
@@ -53,14 +57,12 @@ plumberはpipe処理に問題があったときに自動的に止めてくれる
 watchメソッドを使うことで、ファイルを保存した時に、タスクを走らせるといったことが可能です。
 
 ```js
-gulp.task('watch', function() {
-  gulp.watch('./sass/*.scss', ['sass']);
+gulp.task("watch", function () {
+  gulp.watch("./sass/*.scss", ["sass"]);
 });
 ```
 
 上記のコードをgulpfile.jsに記述し、`$ gulp watch`を実行。
-
-
 
 こうすることでsassフォルダにあるscssを監視し、保存などによる変更があった場合にsassタスクを自動で実行することが可能です。
 
