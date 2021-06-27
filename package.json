@@ -11,6 +11,7 @@
     "build:rss": "ts-node -P ./scripts/tsconfig.json ./scripts/rss",
     "build:sitemap": "ts-node -P ./scripts/tsconfig.json ./scripts/sitemap",
     "lint": "eslint --ext .tsx,.ts src",
+    "format": "prettier --ignore-path .gitignore --write .",
     "start": "next start"
   },
   "dependencies": {
@@ -47,7 +48,7 @@
     "mkdirp": "1.0.4",
     "postcss": "8.3.5",
     "postcss-preset-env": "6.7.0",
-    "prettier": "2.2.1",
+    "prettier": "2.3.2",
     "prettier-plugin-md-nocjsp": "1.1.1",
     "ts-node": "9.1.1",
     "typescript": "4.2.4"
