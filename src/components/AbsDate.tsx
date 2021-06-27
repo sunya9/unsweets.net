@@ -16,8 +16,7 @@ export const AbsDate = ({ date, omitYear }: Props) => {
   return <time dateTime={day.format()}>{formatYyyymmdd(day, omitYear)}</time>;
 };
 
-const dateTemplate = (omitYear: boolean) =>
-  omitYear ? "`MM-DD" : "YYYY-MM-DD";
+const dateTemplate = (omitYear: boolean) => (omitYear ? "MM-DD" : "YYYY-MM-DD");
 
 const formatYyyymmdd = (day: dayjs.Dayjs, omitYear = false) => {
   return day.format(dateTemplate(omitYear));
