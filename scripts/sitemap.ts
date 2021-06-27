@@ -1,9 +1,9 @@
 import { config } from "../blog.config";
-import { getEntries } from "../src/lib/getEntries";
-import { getPages } from "../src/lib/getPages";
 import * as path from "path";
 import mkdirp from "mkdirp";
 import { promises as fs } from "fs";
+import { getEntries } from "../src/lib/entry";
+import { getPages } from "../src/lib/page";
 
 const generateSitemap = async () => {
   const [entries, pages] = await Promise.all([getEntries(), getPages()]);

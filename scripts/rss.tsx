@@ -6,8 +6,7 @@ import * as path from "path";
 import * as React from "react";
 import ReactDOMServer from "react-dom/server";
 import { config } from "../blog.config";
-import { Entry } from "../src/lib/entry";
-import { getEntries } from "../src/lib/getEntries";
+import { Entry, getEntries } from "../src/lib/entry";
 
 const { baseUrl } = config;
 

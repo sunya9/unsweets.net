@@ -1,8 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { EntryView } from "../components/EntryView";
-import { getPage } from "../lib/getPage";
-import { getPages } from "../lib/getPages";
-import { Page } from "../lib/page";
+import { getPage, getPages, Page } from "../lib/page";
 
 interface Props {
   page: Page;

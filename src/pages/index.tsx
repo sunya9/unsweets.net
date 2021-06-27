@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { Entry } from "../lib/entry";
-import { getEntries } from "../lib/getEntries";
+import { Entry, getEntries } from "../lib/entry";
 import { useConfig } from "../hooks/useConfig";
 import Link from "next/link";
 import { EntryList } from "../components/EntryList";
