@@ -50,15 +50,36 @@ const App: React.FC = ({ children }) => {
     <>
       <Head>
         <title>{config.title()}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link key="icon" rel="icon" href="/favicon.ico" />
+        <link
+          key="preconnect"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
           rel={stylesheet}
+          key="google-fonts"
         />
-        <link rel="canonical" href={`${config.baseUrl}${router.asPath}`} />
-        <meta name="description" content={config.description} />
-        <meta charSet="utf-8" />
+        <link
+          key="canonical"
+          rel="canonical"
+          href={`${config.baseUrl}${router.asPath}`}
+        />
+        <meta
+          key="description"
+          name="description"
+          content={config.description}
+        />
+        <meta key="charSet" charSet="utf-8" />
+        <link
+          key="rss"
+          rel="alternate"
+          type="application/rss+xml"
+          href="/rss.xml"
+        />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#f9fafb" />
       </Head>
       {children}
     </>
