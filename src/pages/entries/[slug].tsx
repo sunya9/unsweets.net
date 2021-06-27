@@ -9,7 +9,7 @@ interface Props {
 }
 
 const EntryPage = (props: Props) => {
-  return <EntryView entry={props.entry} />;
+  return <EntryView entry={props.entry} shareButton />;
 };
 
 export default EntryPage;
