@@ -1,25 +1,24 @@
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(timezone);
+dayjs.extend(utc);
+dayjs.tz.setDefault("Asia/Tokyo");
+
 interface Props {
   date: number;
   omitYear?: true;
 }
 
 export const AbsDate = ({ date, omitYear }: Props) => {
-  return (
-    <time dateTime={new Date(date).toISOString()}>
-      {getYyyymmdd(date, omitYear)}
-    </time>
-  );
+  const day = dayjs.utc(date).local();
+  return <time dateTime={day.format()}>{formatYyyymmdd(day, omitYear)}</time>;
 };
 
-const zeroPad = (num: number) => num.toString().padStart(2, "0");
+const dateTemplate = (omitYear: boolean) =>
+  omitYear ? "`MM-DD" : "YYYY-MM-DD";
 
-const getYyyymmdd = (dateMs: number, omitYear = false) => {
-  const date = new Date(dateMs);
-  const dateStrAry = [
-    date.getFullYear(),
-    zeroPad(date.getMonth() + 1),
-    zeroPad(date.getDate()),
-  ];
-  const sliceIndex = +omitYear;
-  return dateStrAry.slice(sliceIndex).join("/");
+const formatYyyymmdd = (day: dayjs.Dayjs, omitYear = false) => {
+  return day.format(dateTemplate(omitYear));
 };
