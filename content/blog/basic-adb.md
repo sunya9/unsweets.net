@@ -13,62 +13,62 @@ tags:
 
 #### 端末に接続
 
-*   adb connect 192.168.x.xxx
-*   <span style="line-height: 1.62;">adb connect 端末名</span>
+- adb connect 192.168.x.xxx
+- adb connect 端末名
 
 端末名を入力。ネットワークADBの場合はローカルIPアドレスを入力。Android 4.0.4からrootなしでネットワークADBが利用可能。
 
 #### 切断
 
-*   adb disconnect 192.168.x.xxx
-*   <span style="line-height: 1.62;">adb <span>disconnect </span>端末名</span>
+- adb disconnect 192.168.x.xxx
+- adb disconnect 端末名
 
 接続の逆。切断することが可能。
 
 #### 接続している端末の確認
 
-*   adb devices
+- adb devices
 
 現在接続されている端末の確認を行うことが可能です。
 
 #### ADBを停止させる
 
-*   adb kill-server
+- adb kill-server
 
 adbを停止させることが可能です。
 
 #### ADBを起動する
 
-*   adb start-server
+- adb start-server
 
 adbを起動させることが可能です。
 
 #### shellに接続
 
-*   adb shell
+- adb shell
 
-<span style="line-height: 1.62;">シェルを扱うことが出来ます。</span>
+シェルを扱うことが出来ます。
 
 #### 端末からファイルを受信する
 
-*   adb pull /sdcard/foo.txt ./
+- adb pull /sdcard/foo.txt ./
 
 pullコマンドでファイルの習得が可能。第一引数は取得したい端末にあるファイルのパス、第二引数は取得したファイルの保存場所です。
 
 #### 端末にファイルを送信する
 
-*   adb push ./foo.txt /sdcard/
+- adb push ./foo.txt /sdcard/
 
 pullコマンドの逆。第一引数に送信するPC側のファイル名、第二引数が保存するディレクトリパスです。
 
 #### インストールされているアプリのパッケージ一覧を取得する
 
-*   adb shell pm list package
+- adb shell pm list package
 
-<span>端末にインストールされているアプリのパッケージ一覧を取得することが可能です。</span>
+端末にインストールされているアプリのパッケージ一覧を取得することが可能です。
 
-#### <span>複数接続している時</span>
+#### 複数接続している時
 
-*   <span>adb -s 端末名やIPアドレス コマンド</span>
+- adb -s 端末名やIPアドレス コマンド
 
-<span><span>-sオプションで操作対象の端末を選択することが出来ます。</span></span>
+-sオプションで操作対象の端末を選択することが出来ます。

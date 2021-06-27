@@ -6,6 +6,7 @@ categories:
 date: 2013-09-30 14:10:11
 tags:
 ---
+
 ![nodejs-light.png](/assets/images/nodejs-light.png)
 
 最近node.jsを使い始めました。いざ本番で使うとなるとnodeを動かせるサーバーがないといけないので専用サーバーなど必要になりますが、Windowsでも手軽に実行でき、言語自体もJavaScriptなので動かすこと自体は手軽で結構楽しいです。
@@ -22,8 +23,8 @@ tags:
 (終)
 
 と、そうは問屋がおろしません。バージョン確認してみたらバージョン0.6くらいじゃないですか。現時点でのバージョンは0.10.18です。
- 相変わらずコマンドをよく理解しないままapt-get updateとか打っても変わらず...。
- そして一つのエントリを発見。
+相変わらずコマンドをよく理解しないままapt-get updateとか打っても変わらず...。
+そして一つのエントリを発見。
 
 [How to install the latest node.js on Ubuntu? | Slopjong](http://slopjong.de/2012/10/31/how-to-install-the-latest-nodejs-in-ubuntu/)
 

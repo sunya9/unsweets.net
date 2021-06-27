@@ -6,6 +6,7 @@ categories:
 date: 2015-01-22 20:58:30
 tags:
 ---
+
 少し前からunsweetsの方でMicrodataというものを導入していました。
 
 <!--more-->
@@ -21,7 +22,13 @@ Microdataとはある情報に対してラベル付けを行うものです。Mi
   <h4 itemprop="name">xsTus</h4>
   <div class="body clearfix">
     <p>
-      <img src="images/xstus-icon.png" width="256" height="256" alt="xsTus アイコン" itemprop="image">
+      <img
+        src="images/xstus-icon.png"
+        width="256"
+        height="256"
+        alt="xsTus アイコン"
+        itemprop="image"
+      />
     </p>
     <p itemprop="description">
       xsTus（えくすたす）はTwitterのUserstreamに対応する超絶αバージョンのAndroidのtwitterクライアントです。
@@ -32,7 +39,6 @@ Microdataとはある情報に対してラベル付けを行うものです。Mi
   </div>
 </section>
 ```
-
 
 このようにitemscope属性でその要素内がアイテムであることを示しています。そのアイテムがどのようなものであるかをitemtypeで示しています。itemtypeにはかなり種類があるので見てみるといいかも。 [Full Hierarchy - schema.org](http://schema.org/docs/full.html)
 
@@ -46,6 +52,6 @@ Microdataを定義することによりGoogleなどの検索結果をよりリ�
 
 #### 参考URL
 
-*   [構造化データ テストツール - ウェブマスター ツール ヘルプ](https://support.google.com/webmasters/answer/173839?hl=ja)
-*   [HTML Microdata](http://www.w3.org/TR/microdata/)
-*   [Home - schema.org](http://schema.org/)
+- [構造化データ テストツール - ウェブマスター ツール ヘルプ](https://support.google.com/webmasters/answer/173839?hl=ja)
+- [HTML Microdata](http://www.w3.org/TR/microdata/)
+- [Home - schema.org](http://schema.org/)

@@ -6,6 +6,7 @@ categories:
 date: 2015-01-11 14:11:43
 tags:
 ---
+
 引き続きgulpです。プラグインを使ってデバッグに使うconsoleを消したり圧縮したりします。
 
 <!--more-->
@@ -27,11 +28,12 @@ consoleを消すプラグインは[gulp-strip-debug](https://www.npmjs.com/packa
 gulpfile.jsに以下を記述。
 
 ```js
-gulp.task('compress', function() {
-  return gulp.src('./js/*.js')
+gulp.task("compress", function () {
+  return gulp
+    .src("./js/*.js")
     .pipe(stripDebug())
     .pipe(uglify())
-    .pipe(gulp.dest('./build/js/'));
+    .pipe(gulp.dest("./build/js/"));
 });
 ```
 

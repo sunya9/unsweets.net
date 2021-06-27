@@ -6,6 +6,7 @@ categories:
 date: 2013-10-04 16:48:09
 tags:
 ---
+
 ![rn-icon.png](/assets/images/rn-icon.png)
 
 node.jsを使ってTwitterのポスト規制通知botを作ってみました。
@@ -32,4 +33,4 @@ bot自体の規制対策のため、上記対策の他に、[@RegNotifier](http:
 
 その他に[@RN_Support](http:/twitter.com/RN_Support)というアカウントを用意しました。これは@RegNotifierに関するメンテナンス情報などを流す予定...なのですが、勢いで作ったためどのくらい活用するかは不明です。フォローしてもいいよという方はどうぞ。
 
-最後になりますが、このbotはまだまだアルファバージョンです。正しく規制を検知できなかったり、バグがある可能性は十分にあるので発見した場合は[@\_X\_y\_z\_](http://twitter.com/\_X\_y\_z\_)か[@RN_Support](http://twitter.com/RN_Support)にリプライを送っていただくと助かります。
+最後になりますが、このbotはまだまだアルファバージョンです。正しく規制を検知できなかったり、バグがある可能性は十分にあるので発見した場合は[@\_X_y_z\_](http://twitter.com/_X_y_z_)か[@RN_Support](http://twitter.com/RN_Support)にリプライを送っていただくと助かります。

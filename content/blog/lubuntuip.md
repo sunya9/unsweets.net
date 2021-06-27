@@ -6,6 +6,7 @@ categories:
 date: 2014-05-11 13:12:20
 tags:
 ---
+
 色々試行錯誤してやったのでどのあたりで解決したかわかりませんが、以下を/etc/netowork/interfacesに追記。
 
 ```

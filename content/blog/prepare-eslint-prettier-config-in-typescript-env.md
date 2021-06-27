@@ -4,6 +4,7 @@ date: 2021-06-27T04:33:47+09:00
 ---
 
 ## 方針
+
 - できるだけ公式のガイダンスや方針に従って用意する。
 - ESLintは公式推奨のルールを使用する
 - Prettierも同じく公式推奨のルールを利用する
@@ -42,38 +43,33 @@ Successfully created .eslintrc.js file in <your_path>
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-    }
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {}
 }
 ```
 
 ### 3. eslint-config-prettierの設定を追加する
+
 生成された.eslintrc.jsonのextendsにPrettierとの競合ルールをオフにする設定を書き足す。[配列の最後に書き足さなければならない](https://github.com/prettier/eslint-config-prettier/tree/aeb4d52de54960ff48a8c627e6c25db9873d7719#installation)。
 
 ```json
 {
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-    ]
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ]
 }
 ```
 

@@ -9,12 +9,13 @@ categories:
   - Memo
 date: 2016-03-22 00:53:55
 ---
+
 ### 環境
 
-*   Windows 10 64bit
-*   Node.js 5.7.1
-*   npm 3.6.0
-*   webpack 1.12.14
+- Windows 10 64bit
+- Node.js 5.7.1
+- npm 3.6.0
+- webpack 1.12.14
 <!--more-->
 
 ### webpackとは
@@ -30,13 +31,13 @@ JavascriptやCSS、画像などの依存関係のあるファイルをひとま�
 以下の様なjsをwebpack.config.jsとして保存する。
 
 ```js
-const path = require('path');
+const path = require("path");
 const config = {
-  entry: './js/main',
+  entry: "./js/main",
   output: {
-    path: path.join(__dirname, '/build'),
-    filename: 'bundle.js'
-  }
+    path: path.join(__dirname, "/build"),
+    filename: "bundle.js",
+  },
 };
 
 module.exports = config;
@@ -62,10 +63,10 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
-      }
-    ]
-  }
+        loader: "babel",
+      },
+    ],
+  },
 };
 ```
 
@@ -88,15 +89,15 @@ const config = {
 jQueryプラグインは$やjQueryと言ったオブジェクトが宣言されていることが前提なのでそこをどうにかするにはpluginsのオプションを使用する。
 
 ```js
-const webpack = require('webpack');
+const webpack = require("webpack");
 const config = {
   // 省略
   plugins: [
     webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ]
+      $: "jquery",
+      jQuery: "jquery",
+    }),
+  ],
 };
 ```
 
@@ -106,14 +107,14 @@ webpackのProvidePluginを利用する。ここに宣言されたものはjQuery
 
 ```js
 // Babelなしで書く場合
-var $ = require('jquery');
-require('slick-carousel');
+var $ = require("jquery");
+require("slick-carousel");
 
 // Babelを使用し、import構文で書く場合
-import $ from 'jquery';
-import 'slick-carousel';
+import $ from "jquery";
+import "slick-carousel";
 
-$('#slider').slick(); // slickメソッドが取り込まれている
+$("#slider").slick(); // slickメソッドが取り込まれている
 ```
 
 requireの左辺は必要ない。また、import構文の場合はfromを省略して直接モジュールを指定することができる。

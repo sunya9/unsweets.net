@@ -77,7 +77,7 @@ Sass や Less で書かれた CSS FW の変数を上書きして import して�
 
 ```scss
 $bg: white; // CSS FWで使用されているprimary変数の上書き
-@import '~css-framework';
+@import "~css-framework";
 // body { background-color: white } のようなコードが生成されるとする
 ```
 
@@ -85,7 +85,7 @@ $bg: white; // CSS FWで使用されているprimary変数の上書き
 
 ```scss
 $bg: var(--bg);
-@import '~css-framework';
+@import "~css-framework";
 :root {
   background-color: $bg;
 }
@@ -118,12 +118,12 @@ header {
 ```scss
 // 通常のテーマ
 $bg: white;
-@import '~css-framework';
+@import "~css-framework";
 
 // ダークモード
 @media (prefers-color-scheme: dark) {
   $bg: black;
-  @import '~css-framework';
+  @import "~css-framework";
 }
 ```
 

@@ -6,6 +6,7 @@ categories:
 date: 2015-01-20 13:22:22
 tags:
 ---
+
 pixivにはAPIというものが存在はしているようで、扱えるようです。
 
 <!--more-->
@@ -21,21 +22,21 @@ request、csv、async、underscoreのモジュールをインストールして�
 pixivのAPIを叩くにはクッキーを利用しているらしく、ログインが必要になります（一部のAPIはログインしなくても見れるらしいです）。
 
 ```js
-var id = 'ユーザーID';
-var password = 'パスワード';
+var id = "ユーザーID";
+var password = "パスワード";
 var options = {
-  url : 'https://touch.secure.pixiv.net/login.php',
+  url: "https://touch.secure.pixiv.net/login.php",
   form: {
-    mode: 'login',
-    query: 'guid=on',
+    mode: "login",
+    query: "guid=on",
     pixiv_id: id,
     pass: password,
-    referer_uri: ''
-  }
+    referer_uri: "",
+  },
 };
-request.post(options, function(err, res, body) {
+request.post(options, function (err, res, body) {
   if (err) return console.error(err);
-  var session = '&' + res.headers['set-cookie'][0].match(/PHPSESSID=\w+/)[0];
+  var session = "&" + res.headers["set-cookie"][0].match(/PHPSESSID=\w+/)[0];
 });
 ```
 
@@ -49,12 +50,16 @@ request.post(options, function(err, res, body) {
 
 ```js
 var options = {
-  url: 'http://spapi.pixiv.net/iphone/search.php?s_mode=s_tag&word=' + encodeURIComponent(word) + session+ '&c_mode=count',
+  url:
+    "http://spapi.pixiv.net/iphone/search.php?s_mode=s_tag&word=" +
+    encodeURIComponent(word) +
+    session +
+    "&c_mode=count",
   headers: {
-    referer: 'http://www.pixiv.net/'
-  }
+    referer: "http://www.pixiv.net/",
+  },
 };
-request.get(options, function(err, res, body) {
+request.get(options, function (err, res, body) {
   if (err) return callback(err);
   var count = body;
 });
@@ -105,5 +110,5 @@ async.timesSeries(loopCount , function(page, next) {
 
 #### 参考URL
 
-*   [我破締切 - 鍵屋的日記（鍵屋のブログ）](http://d.hatena.ne.jp/kagiya/20110621)
-*   [Pixivイラスト検索APIの取得結果のデータ構造を調べる - Qiita](http://qiita.com/nezuq/items/e4c55bb9c68bf5785e73)
+- [我破締切 - 鍵屋的日記（鍵屋のブログ）](http://d.hatena.ne.jp/kagiya/20110621)
+- [Pixivイラスト検索APIの取得結果のデータ構造を調べる - Qiita](http://qiita.com/nezuq/items/e4c55bb9c68bf5785e73)
