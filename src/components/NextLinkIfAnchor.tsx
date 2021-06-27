@@ -14,7 +14,7 @@ export const NextLinkIfInternalAnchor: React.FC<
     );
   } else {
     return (
-      <Link href={href}>
+      <Link href={href} passHref>
         <a {...rest}>{children}</a>
       </Link>
     );
