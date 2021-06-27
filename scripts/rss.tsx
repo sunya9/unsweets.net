@@ -1,10 +1,7 @@
 import dayjs from "dayjs";
 import { promises as fs } from "fs";
-import Markdown from "markdown-to-jsx";
 import mkdirp from "mkdirp";
 import * as path from "path";
-import * as React from "react";
-import ReactDOMServer from "react-dom/server";
 import { config } from "../blog.config";
 import { Entry, getEntries } from "../src/lib/entry";
 
@@ -24,10 +21,10 @@ const main = async () => {
 const formatEntry = (entry: Entry) => `
   <item>
     <title>${entry.title}</title>
-    <link>${baseUrl}/entries/${entry.slug}</link>
+    <link>${baseUrl}/entries/${entry.slug}/</link>
     <pubDate>${formatDate(entry.date)}</pubDate>
     <description>
-      <![CDATA[${md2html(entry.body)} ]]>
+      <![CDATA[${entry.body} ]]>
     </description>
   </item>
   `;
@@ -46,8 +43,5 @@ const generateRss = (entries: Entry[]) => {
     </channel>
   </rss>`;
 };
-
-const md2html = (markdown: string) =>
-  ReactDOMServer.renderToString(<Markdown>{markdown}</Markdown>);
 
 main();

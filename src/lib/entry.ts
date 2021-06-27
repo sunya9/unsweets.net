@@ -3,6 +3,7 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import { Page } from "./page";
+import { processor } from "./processor";
 
 export interface Entry extends Page {
   date: number;
@@ -15,9 +16,10 @@ export const getEntry = async (slug: string): Promise<Entry> => {
   const mdPath = path.resolve(blogDir, filename);
   const md = await fs.readFile(mdPath, "utf-8");
   const { data, content } = matter(md);
+  const body = await processor(content);
   return {
     title: data.title,
-    body: content,
+    body,
     date: new Date(data.date).getTime(),
     slug,
   };

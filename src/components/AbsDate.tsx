@@ -8,16 +8,9 @@ dayjs.tz.setDefault("Asia/Tokyo");
 
 interface Props {
   date: number;
-  omitYear?: true;
 }
 
-export const AbsDate = ({ date, omitYear }: Props) => {
+export const AbsDate = ({ date }: Props) => {
   const day = dayjs.utc(date).local();
-  return <time dateTime={day.format()}>{formatYyyymmdd(day, omitYear)}</time>;
-};
-
-const dateTemplate = (omitYear: boolean) => (omitYear ? "MM-DD" : "YYYY-MM-DD");
-
-const formatYyyymmdd = (day: dayjs.Dayjs, omitYear = false) => {
-  return day.format(dateTemplate(omitYear));
+  return <time dateTime={day.format()}>{day.format("YYYY.MM.DD")}</time>;
 };

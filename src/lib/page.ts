@@ -3,6 +3,7 @@ import { config } from "../../blog.config";
 import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
+import { processor } from "./processor";
 
 const { pagesDir } = config;
 
@@ -21,14 +22,14 @@ export const getPage = async (slug: string): Promise<Page> => {
     const { data, content } = matter(md);
     return {
       title: data.title,
-      body: content,
+      body: await processor(content),
       date: new Date(data.date).getTime(),
       slug,
     };
   } else {
     const [titleWithSharp, ...contentsAry] = md.trim().split("\n");
     const title = titleWithSharp.replace(/^#\s/, "");
-    const body = contentsAry.join("\n");
+    const body = await processor(contentsAry.join("\n"));
     return {
       title,
       body,
