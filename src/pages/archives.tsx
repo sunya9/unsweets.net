@@ -8,20 +8,10 @@ import { EntryList } from "../components/EntryList";
 interface Props {
   entries: Omit<Entry, "body">[];
 }
-export default function Home(props: Props) {
+
+export default function Home({ entries }: Props) {
   const config = useConfig();
-  const entriesGroupedByYear = props.entries.reduce<{
-    [key: number]: Omit<Entry, "body">[];
-  }>((memo, entry) => {
-    const year = new Date(entry.date).getFullYear();
-    return {
-      ...memo,
-      [year]: (memo[year] || []).concat(entry),
-    };
-  }, {});
-  const years = Object.keys(entriesGroupedByYear)
-    .map((year) => +year)
-    .sort((a, b) => b - a);
+
   return (
     <div>
       <Head>
@@ -30,12 +20,7 @@ export default function Home(props: Props) {
 
       <main>
         <h1>Archives</h1>
-        {years.map((year) => (
-          <React.Fragment key={year}>
-            <h2>{year}</h2>
-            <EntryList entries={entriesGroupedByYear[year]} omitYear />
-          </React.Fragment>
-        ))}
+        <EntryList entries={entries} />
       </main>
     </div>
   );
