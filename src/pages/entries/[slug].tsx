@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import { EntryView } from "../../components/EntryView";
+import { useConfig } from "../../hooks/useConfig";
 import { Entry, getEntries, getEntry } from "../../lib/entry";
 
 interface Props {
@@ -7,7 +9,15 @@ interface Props {
 }
 
 const EntryPage = (props: Props) => {
-  return <EntryView entry={props.entry} shareButton />;
+  const config = useConfig();
+  return (
+    <>
+      <Head>
+        <title>{config.title(props.entry.title)}</title>
+      </Head>
+      <EntryView entry={props.entry} shareButton />;
+    </>
+  );
 };
 
 export default EntryPage;

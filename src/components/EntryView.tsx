@@ -135,9 +135,6 @@ export const EntryView = ({ entry, shareButton }: Props) => {
     useEntryView(entry);
   return (
     <article>
-      <Head>
-        <title>{config.title(entry.title)}</title>
-      </Head>
       <h1>{entry.title}</h1>
       {entry.date && (
         <span className="text-gray-500">
