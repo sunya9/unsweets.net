@@ -2,6 +2,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useConfig } from "../hooks/useConfig";
 
+const NavLink: React.FC<{ href: string }> = ({ children, href }) => {
+  const router = useRouter();
+  if (router.asPath.startsWith(href)) {
+    return <>{children}</>;
+  } else {
+    return <Link href={href}>{children}</Link>;
+  }
+};
+
 export const AppHeader = () => {
   const config = useConfig();
   const router = useRouter();
@@ -22,14 +31,10 @@ export const AppHeader = () => {
         <nav>
           <ul className="inline-flex my-0 list-none">
             <li>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
+              <NavLink href="/about">About</NavLink>
             </li>
             <li>
-              <Link href="/archives">
-                <a>Archives</a>
-              </Link>
+              <NavLink href="/archives">Archives</NavLink>
             </li>
             <li>
               <a href="/rss.xml">RSS</a>
