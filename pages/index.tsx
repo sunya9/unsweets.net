@@ -23,17 +23,21 @@ export default function Index() {
             <Screen>
               <section>
                 <Product
-                  screenshot={require("../images/gamma-ss.png")}
+                  screenshot="/images/gamma-ss.png"
                   name="Gamma"
                   desc="Gamma is pnut.io client for Android."
                   applicationCategory="SNS Viewer"
                   operatingSystem="Android 6+"
-                  icon={require("../images/gamma.png")}
+                  icon="/images/gamma.png"
                   id="gamma"
                   itemType="http://schema.org/MobileApplication"
                   url="https://play.google.com/store/apps/details?id=net.unsweets.gamma"
-                  imgStyle={{
-                    maxWidth: "100%",
+                  imgOption={{
+                    style: {
+                      maxWidth: "100%",
+                    },
+                    width: 794,
+                    height: 1209,
                   }}
                 />
               </section>
@@ -42,17 +46,21 @@ export default function Index() {
               <section>
                 <Product
                   reverse
-                  screenshot={require("../images/beta-ss.png")}
+                  screenshot="/images/beta-ss.png"
                   name="Beta"
                   desc="Web client for pnut.io."
                   applicationCategory="SNS Viewer"
                   operatingSystem="Any"
-                  icon={require("../images/beta.png")}
+                  icon="/images/beta.png"
                   id="gamma"
                   itemType="http://schema.org/WebApplication"
                   url="https://beta.pnut.io/"
-                  imgStyle={{
-                    border: "1px solid rgba(0, 0, 0, .1)",
+                  imgOption={{
+                    width: 985,
+                    height: 911,
+                    style: {
+                      border: "1px solid rgba(0, 0, 0, .1)",
+                    },
                   }}
                 />
               </section>
