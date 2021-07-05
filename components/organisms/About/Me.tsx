@@ -14,6 +14,8 @@ export const AboutMe = () => {
         <img
           src="https://s.gravatar.com/avatar/3af6af8a2790b9882b8468759a4a3a29?s=256"
           alt=""
+          width="256"
+          height="256"
           className="avatar"
         />
       }

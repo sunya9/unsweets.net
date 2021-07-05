@@ -6,17 +6,15 @@ export const AboutSite = () => {
     <Card
       tag="section"
       icon={
-        <img
-          src={require("images/logo.svg")}
-          alt="logo"
-          width="96"
-          height="96"
+        <div
           style={{
             background: "#2c3e50",
             borderRadius: "50%",
             padding: "7px",
           }}
-        />
+        >
+          <img src="/images/logo.svg" alt="logo" width="64" height="64" />
+        </div>
       }
       cardTitle="このサイトについて。"
     >
