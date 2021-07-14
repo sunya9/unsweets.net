@@ -1,6 +1,6 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { ConfigProvider } from "../components/ConfigProvider";
 import { useConfig } from "../hooks/useConfig";
@@ -42,25 +42,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 const App: React.FC = ({ children }) => {
   const config = useConfig();
   const router = useRouter();
-  const [stylesheet, setStylesheet] = useState("");
-  useEffect(() => {
-    setStylesheet("stylesheet");
-  }, []);
   return (
     <>
       <Head>
         <title>{config.title()}</title>
         <link key="icon" rel="icon" href="/favicon.ico" />
-        <link
-          key="preconnect"
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-          rel={stylesheet}
-          key="google-fonts"
-        />
+
         <link
           key="canonical"
           rel="canonical"
