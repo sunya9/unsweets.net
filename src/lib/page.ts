@@ -2,10 +2,8 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import recursiveReaddir from "recursive-readdir";
 import matter from "gray-matter";
-import { config } from "../../blog.config";
+import { pagesDir } from "./constants";
 import { processor } from "./processor";
-
-const { pagesDir } = config;
 
 export interface Page {
   slug: string;

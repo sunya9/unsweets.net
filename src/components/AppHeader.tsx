@@ -37,7 +37,7 @@ export const AppHeader = () => {
               <NavLink href="/archives">Archives</NavLink>
             </li>
             <li>
-              <a href="/rss.xml">RSS</a>
+              <NavLink href="/rss.xml">RSS</NavLink>
             </li>
           </ul>
         </nav>

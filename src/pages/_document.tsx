@@ -32,6 +32,16 @@ class MyDocument extends Document {
                 });`,
             }}
           ></script>
+          <link
+            key="preconnect"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet"
+            key="google-fonts"
+          />
         </Head>
         <body className="bg-gray-50 dark:bg-trueGray-700">
           <Main />

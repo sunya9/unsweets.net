@@ -87,6 +87,7 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
           src={fixedSrc}
           {...rest}
           className="border shadow-lg max-h-64 my-0"
+          alt=""
         />
       </Zoom>
     </span>
