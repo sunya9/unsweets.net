@@ -1,11 +1,9 @@
 import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
-import { config } from "../../blog.config";
 import { Page } from "./page";
 import { processor } from "./processor";
-
-const { blogDir } = config;
+import { blogDir } from "./constants";
 
 export interface Entry extends Page {
   date: number;
