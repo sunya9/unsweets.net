@@ -15,7 +15,7 @@ const EntryPage = (props: Props) => {
       <Head>
         <title>{config.title(props.entry.title)}</title>
       </Head>
-      <EntryView entry={props.entry} shareButton />;
+      <EntryView entry={props.entry} shareButton />
     </>
   );
 };
