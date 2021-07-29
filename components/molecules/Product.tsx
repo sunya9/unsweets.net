@@ -12,57 +12,67 @@ interface Props {
   operatingSystem: string;
   desc: string;
   reverse?: boolean;
-  screenshot?: string;
-  imgStyle?: CSSProperties;
+  screenshot: string;
+  imgOption: {
+    style?: CSSProperties;
+    width: number;
+    height: number;
+  };
 }
 
 export const Product = (props: Props) => {
-  const order = +props.reverse || 0;
+  const order = +!!props.reverse;
   return (
-    <Columns itemScope itemType={props.itemType}>
-      <Column style={{ order }}>
-        <img
-          src={props.screenshot}
-          alt={`${props.name}'s screenshot`}
-          className="ss"
-          style={props.imgStyle}
-        />
-      </Column>
-      <Column centering>
-        <section id={props.id}>
-          <a href={props.url} itemProp="url" className="blockAnchor">
-            <div className="media">
-              <div className="left">
-                <img
-                  loading="lazy"
-                  src={props.icon}
-                  width="256"
-                  className="icon"
-                  height="256"
-                  alt=""
-                  itemProp="image"
-                />
+    <div className="root">
+      <Columns itemScope itemType={props.itemType}>
+        <Column style={{ order }}>
+          <img
+            src={props.screenshot}
+            alt={`${props.name}'s screenshot`}
+            className="ss"
+            width={props.imgOption.width}
+            height={props.imgOption.height}
+            loading="lazy"
+            style={props.imgOption.style}
+          />
+        </Column>
+        <Column centering>
+          <section id={props.id}>
+            <a href={props.url} itemProp="url" className="blockAnchor">
+              <div className="media">
+                <div className="left">
+                  <img
+                    loading="lazy"
+                    src={props.icon}
+                    width="64"
+                    className="icon"
+                    height="64"
+                    alt=""
+                    itemProp="image"
+                  />
+                </div>
+                <div className="right">
+                  <h3 className="title" itemProp="name">
+                    <span className="titleText">{props.name}</span>
+                  </h3>
+                  <meta
+                    itemProp="applicationCategory"
+                    content={props.applicationCategory}
+                  />
+                  <meta
+                    itemProp="operatingSystem"
+                    content={props.operatingSystem}
+                  />
+                  <p className="desc" itemProp="description">
+                    {props.desc}
+                  </p>
+                </div>
               </div>
-              <div className="right">
-                <h3 className="title" itemProp="name">
-                  <span className="titleText">{props.name}</span>
-                </h3>
-                <meta
-                  itemProp="applicationCategory"
-                  content={props.applicationCategory}
-                />
-                <meta
-                  itemProp="operatingSystem"
-                  content={props.operatingSystem}
-                />
-                <p className="desc" itemProp="description">
-                  {props.desc}
-                </p>
-              </div>
-            </div>
-          </a>
-        </section>
-      </Column>
+            </a>
+          </section>
+        </Column>
+      </Columns>
+
       <style jsx>
         {`
           @import "css/mixins";
@@ -82,7 +92,7 @@ export const Product = (props: Props) => {
             margin: 0;
           }
 
-          .icon {
+          .root :global(.icon) {
             max-width: 48px;
             height: auto;
             padding: 0 0.5rem;
@@ -114,7 +124,7 @@ export const Product = (props: Props) => {
             align-items: start;
           }
 
-          .ss {
+          .root :global(.ss) {
             max-height: 50vh;
             width: auto;
             margin: 0 auto;
@@ -135,9 +145,10 @@ export const Product = (props: Props) => {
             &:hover {
               transform: scale(1);
             }
+            ${props.imgOption.style}
           }
         `}
       </style>
-    </Columns>
+    </div>
   );
 };
