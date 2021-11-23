@@ -1,4 +1,3 @@
-import React from "react";
 import { Product } from "components/molecules/Product";
 import { Screen, ScreenFlexible } from "components/molecules/Screen";
 import { AboutMe } from "components/organisms/About/Me";

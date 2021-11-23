@@ -1,4 +1,4 @@
-import React, { PropsWithoutRef, PropsWithChildren } from "react";
+import { PropsWithoutRef, PropsWithChildren } from "react";
 import { Icon } from "components/atoms/Icon";
 import * as featherIcon from "react-feather";
 import classnames from "classnames";

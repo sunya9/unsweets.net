@@ -1,4 +1,3 @@
-import React from "react";
 import { MapPin, Gift } from "react-feather";
 import { SNSButton } from "components/atoms/SNSButton";
 import { Card } from "components/molecules/Card";

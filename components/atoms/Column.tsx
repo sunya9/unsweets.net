@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import classnames from "classnames";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

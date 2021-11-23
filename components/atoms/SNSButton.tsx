@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes } from "react";
+import { AnchorHTMLAttributes } from "react";
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 

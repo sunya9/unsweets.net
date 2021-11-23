@@ -1,4 +1,4 @@
-import React, { SVGAttributes } from "react";
+import { SVGAttributes } from "react";
 import * as featherIcon from "react-feather";
 
 type IconKey = keyof typeof featherIcon;

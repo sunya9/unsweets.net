@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "components/atoms/Button";
 import Link from "next/link";
 
@@ -10,10 +9,8 @@ export default function Error() {
         <p>
           ページが見つかりませんでした。トップページから探してみてください。
         </p>
-        <Link href="/">
-          <Button<"a"> tag="a" href="/">
-            Go to Top
-          </Button>
+        <Link passHref href="/">
+          <Button<"a"> tag="a">Go to Top</Button>
         </Link>
       </div>
       <style jsx>{`
@@ -27,7 +24,7 @@ export default function Error() {
         }
         .box {
           border-radius: 1rem;
-          padding: 1rem;
+          padding: 3rem;
           box-shadow: var(--box-shadow);
         }
       `}</style>
