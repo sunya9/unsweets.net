@@ -1,4 +1,3 @@
-import React from "react";
 import { Columns } from "components/atoms/Columns";
 import { Column } from "components/atoms/Column";
 import { Button } from "components/atoms/Button";

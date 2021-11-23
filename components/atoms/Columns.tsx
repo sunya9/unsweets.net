@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
 export const Columns: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   children,

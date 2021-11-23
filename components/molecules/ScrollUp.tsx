@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Icon } from "components/atoms/Icon";
 import classnames from "classnames";
 
