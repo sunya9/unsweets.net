@@ -14,19 +14,12 @@ module.exports = {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
   },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 11,
-    sourceType: "module",
-  },
   plugins: ["@typescript-eslint"],
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "react/prop-types": "off",
+    "@next/next/no-img-element": "off",
   },
   settings: {
     react: {
