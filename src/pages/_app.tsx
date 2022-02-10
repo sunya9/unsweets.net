@@ -1,33 +1,28 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import { ConfigProvider } from "../components/ConfigProvider";
 import { useConfig } from "../hooks/useConfig";
 import { AppLayout } from "../components/AppLayout";
 import "../styles/styles.css";
 
-declare global {
-  interface Window {
-    gtag(s1: string, s2: string, options?: { page_path: string }): void;
-  }
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      window.gtag("config", "G-XEVMD8V0LK", {
-        page_path: url,
-      });
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
   return (
     <ConfigProvider>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-10104011-7"
+        strategy="afterInteractive"
+      ></Script>
+      <Script strategy="afterInteractive" id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-10104011-7');
+        `}
+      </Script>
       <div className="prose max-w-none">
         <App>
           <AppLayout>
