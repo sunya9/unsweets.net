@@ -1,27 +1,24 @@
-import { PropsWithoutRef, PropsWithChildren } from "react";
 import { Icon } from "components/atoms/Icon";
 import * as featherIcon from "react-feather";
 import classnames from "classnames";
 
-type ButtonLike = "a" | "button";
-type ButtonProps<T extends keyof Pick<JSX.IntrinsicElements, ButtonLike>> =
-  PropsWithoutRef<JSX.IntrinsicElements[T]> & {
-    tag?: ButtonLike;
-    icon?: keyof typeof featherIcon;
-    block?: boolean;
-  };
+type ButtonProps = {
+  icon?: keyof typeof featherIcon;
+  block?: boolean;
+} & React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>;
 
-export const Button = <T extends ButtonLike>({
-  tag,
+export const Button: React.FC<ButtonProps> = ({
   children,
   icon,
   block,
   ...props
-}: PropsWithChildren<ButtonProps<T>>) => {
-  const ButtonLike = tag || "button";
+}) => {
   const classes = classnames("button", { block });
   return (
-    <ButtonLike className={classes} {...props}>
+    <a className={classes} {...props}>
       {icon && (
         <span className="icon">
           <Icon icon={icon} strokeWidth="1" size="1.6rem" />
@@ -45,15 +42,14 @@ export const Button = <T extends ButtonLike>({
           text-transform: uppercase;
           border: 0;
           box-sizing: border-box;
-          &:active {
-            box-shadow: var(--box-shadow--active);
-          }
+        }
+        .button:active {
+          box-shadow: var(--box-shadow--active);
         }
         .block {
           display: flex;
           width: 100%;
         }
-
         .icon {
           padding: 1.2rem 1rem;
           background: var(--highlight-color);
@@ -63,6 +59,6 @@ export const Button = <T extends ButtonLike>({
           margin: -1.2rem 1rem -1.2rem -1rem;
         }
       `}</style>
-    </ButtonLike>
+    </a>
   );
 };

@@ -26,31 +26,13 @@ export function Header() {
         </Column>
         <Column>
           <div className="buttons">
-            <Button<"a">
-              tag="a"
-              block
-              onClick={handleAnchor}
-              href="#works"
-              icon="Activity"
-            >
+            <Button block onClick={handleAnchor} href="#works" icon="Activity">
               Works
             </Button>
-            <Button<"a">
-              tag="a"
-              block
-              onClick={handleAnchor}
-              href="#about"
-              icon="Info"
-            >
+            <Button block onClick={handleAnchor} href="#about" icon="Info">
               About
             </Button>
-            <Button<"a">
-              tag="a"
-              block
-              onClick={handleAnchor}
-              href="#contact"
-              icon="Mail"
-            >
+            <Button block onClick={handleAnchor} href="#contact" icon="Mail">
               Contact
             </Button>
           </div>
