@@ -1,23 +1,8 @@
 import classnames from "classnames";
+import styles from "./screen.module.scss";
 
 export const Screen: React.FC = ({ children }) => {
-  return (
-    <div className="screen">
-      {children}
-      <style jsx>{`
-        .screen {
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          margin: auto;
-          position: relative;
-          padding: 4rem 0;
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  );
+  return <div className={styles.screen}>{children}</div>;
 };
 
 interface FlexibleProps {
@@ -27,19 +12,8 @@ export const ScreenFlexible: React.FC<FlexibleProps> = ({
   children,
   centering,
 }) => {
-  const classes = classnames("flexible", { centering });
-  return (
-    <div className={classes}>
-      {children}
-      <style jsx>{`
-        .flexible {
-          flex: 1;
-          display: flex;
-        }
-        .centering {
-          align-items: center;
-        }
-      `}</style>
-    </div>
-  );
+  const classes = classnames(styles.flexible, {
+    [styles.centering]: centering,
+  });
+  return <div className={classes}>{children}</div>;
 };

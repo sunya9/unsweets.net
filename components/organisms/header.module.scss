@@ -1,0 +1,69 @@
+.wave {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  fill: var(--highlight-color);
+  left: calc((100% - 100vw) / 2);
+  right: calc((100% - 100vw) / 2);
+}
+.title {
+  letter-spacing: 0.2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.slash {
+  color: adjust-hue(darken(#f6f6fc, 35%), 120deg);
+  animation: attention 0.5s ease 1s;
+  display: inline-block;
+  transform-origin: left bottom;
+  text-shadow: none;
+}
+
+@keyframes attention {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.cards {
+  margin: -1rem 0;
+}
+
+.cardWrapper {
+  position: relative;
+  padding: 1rem 0;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  margin-bottom: 3rem;
+}

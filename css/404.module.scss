@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+.box {
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: var(--box-shadow);
+}

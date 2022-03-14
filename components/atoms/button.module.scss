@@ -1,0 +1,32 @@
+.button {
+  color: var(--button-text-color);
+  text-decoration: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  position: relative;
+  transition: all ease 0.2s;
+  text-transform: uppercase;
+  border: 0;
+  box-sizing: border-box;
+}
+.button:active {
+  box-shadow: var(--box-shadow--active);
+}
+.block {
+  display: flex;
+  width: 100%;
+}
+.icon {
+  padding: 1.2rem 1rem;
+  background: var(--highlight-color);
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  margin: -1.2rem 1rem -1.2rem -1rem;
+}

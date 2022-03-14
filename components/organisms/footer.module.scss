@@ -1,0 +1,9 @@
+.wave {
+  position: absolute;
+  bottom: 0;
+  fill: var(--highlight-color);
+  width: 100vw;
+  z-index: -1;
+  left: calc((100% - 100vw) / 2);
+  right: calc((100% - 100vw) / 2);
+}

@@ -1,6 +1,7 @@
 import { Icon } from "components/atoms/Icon";
 import * as featherIcon from "react-feather";
 import classnames from "classnames";
+import styles from "./button.module.scss";
 
 type ButtonProps = {
   icon?: keyof typeof featherIcon;
@@ -16,49 +17,15 @@ export const Button: React.FC<ButtonProps> = ({
   block,
   ...props
 }) => {
-  const classes = classnames("button", { block });
+  const classes = classnames(styles.button, { [styles.block]: block });
   return (
     <a className={classes} {...props}>
       {icon && (
-        <span className="icon">
+        <span className={styles.icon}>
           <Icon icon={icon} strokeWidth="1" size="1.6rem" />
         </span>
       )}
       {children}
-      <style jsx>{`
-        .button {
-          color: var(--button-text-color);
-          text-decoration: none;
-          border-radius: 10px;
-          overflow: hidden;
-          background: var(--bg-color);
-          box-shadow: var(--box-shadow);
-          text-align: center;
-          display: inline-flex;
-          align-items: center;
-          padding: 1.2rem 1rem;
-          position: relative;
-          transition: all ease 0.2s;
-          text-transform: uppercase;
-          border: 0;
-          box-sizing: border-box;
-        }
-        .button:active {
-          box-shadow: var(--box-shadow--active);
-        }
-        .block {
-          display: flex;
-          width: 100%;
-        }
-        .icon {
-          padding: 1.2rem 1rem;
-          background: var(--highlight-color);
-          display: flex;
-          justify-content: stretch;
-          align-items: stretch;
-          margin: -1.2rem 1rem -1.2rem -1rem;
-        }
-      `}</style>
     </a>
   );
 };
