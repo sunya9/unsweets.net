@@ -1,0 +1,71 @@
+@import "css/mixins";
+
+.title {
+  margin: 0 0 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0;
+}
+
+.desc {
+  margin: 0;
+}
+
+.icon {
+  max-width: 48px;
+  height: auto;
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+  @include mqMin(md) {
+    max-width: 64px;
+    padding: 0 1rem;
+  }
+}
+.left {
+  display: flex;
+  align-items: center;
+}
+.right {
+  flex: 1;
+  padding: 0 0.5rem;
+}
+
+.blockAnchor {
+  display: block;
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.ss {
+  max-height: 50vh;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  transition: all ease 0.2s;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.95);
+  @include mqMin(md) {
+    max-height: 80vh;
+    width: auto;
+    max-width: none;
+  }
+  &:hover {
+    transform: scale(1);
+  }
+}

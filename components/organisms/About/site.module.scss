@@ -1,0 +1,16 @@
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  > li {
+    display: block;
+    margin-right: 1rem;
+  }
+}
+
+.logo {
+  max-width: calc(var(--icon-size) - 0.5rem);
+  max-height: calc(var(--icon-size) - 0.5rem);
+  display: block;
+}

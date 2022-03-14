@@ -1,7 +1,7 @@
-import { MapPin, Gift } from "react-feather";
 import { SNSButton } from "components/atoms/SNSButton";
 import { Card } from "components/molecules/Card";
 import { Icon } from "components/atoms/Icon";
+import styles from "./me.module.scss";
 
 export const AboutMe = () => {
   return (
@@ -15,22 +15,18 @@ export const AboutMe = () => {
           alt=""
           width="256"
           height="256"
-          className="avatar"
+          className={styles.avatar}
         />
       }
       cardTitle="「えくす」と言います。"
     >
-      <ul className="info">
+      <ul className={styles.info}>
         <li>
-          <span className="icon">
-            <MapPin aria-label="Location" />
-          </span>
+          <Icon icon="MapPin" className={styles.icon} aria-label="Location" />
           <span itemProp="homeLocation">Arakawa-ku, Tokyo</span>
         </li>
         <li>
-          <span className="icon">
-            <Gift aria-label="Birthday" />
-          </span>
+          <Icon icon="Gift" className={styles.icon} aria-label="Birthday" />
           <span itemProp="birthDate">
             <time dateTime="1994-12-01">1994/12/01</time>
           </span>
@@ -43,7 +39,7 @@ export const AboutMe = () => {
         <b>_X_y_z_</b>や<b>sunya9</b>と言ったものが多めです。
       </p>
       <p>甘いものと可愛いものが好き。</p>
-      <ul className="linkList">
+      <ul className={styles.linkList}>
         <li>
           <SNSButton
             href="https://twitter.com/_X_y_z_"
@@ -72,44 +68,6 @@ export const AboutMe = () => {
           </SNSButton>
         </li>
       </ul>
-      <style jsx>{`
-        .info {
-          margin: 0 -0.5rem;
-          padding: 0;
-          display: flex;
-          font-size: 1rem;
-          list-style: none;
-          > li {
-            margin: 0 0.5rem;
-          }
-          color: var(--secondary-color);
-        }
-        .icon {
-          vertical-align: middle;
-          :global(svg) {
-            width: 1rem;
-            height: auto;
-            margin-right: 0.2rem;
-          }
-        }
-
-        .linkList {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 1rem;
-          display: flex;
-          > li {
-            display: block;
-            margin-right: 1rem;
-          }
-        }
-        .avatar {
-          transition: transform 1s var(--easing);
-          &:hover {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </Card>
   );
 };

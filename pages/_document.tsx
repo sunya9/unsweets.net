@@ -1,19 +1,20 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import flush from "styled-jsx/server";
+import { Html, Head, Main, NextScript } from "next/document";
 
-class MyDocument extends Document {
-  render() {
-    const styles = process.env.NODE_ENV === "production" ? flush() : null;
-    return (
-      <Html lang="ja">
-        <Head>{styles}</Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
-}
+const MyDocument = () => {
+  return (
+    <Html lang="ja">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Rubik&display=optional"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+};
 
 export default MyDocument;

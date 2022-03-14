@@ -1,12 +1,7 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import "../css/global.scss";
-import smoothscroll from "smoothscroll-polyfill";
 import { useRouter } from "next/router";
-
-if (process.browser) {
-  smoothscroll.polyfill();
-}
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

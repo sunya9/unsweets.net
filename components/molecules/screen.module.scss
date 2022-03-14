@@ -1,0 +1,18 @@
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  padding: 4rem 0;
+  box-sizing: border-box;
+}
+
+.flexible {
+  flex: 1;
+  display: flex;
+}
+.centering {
+  align-items: center;
+}

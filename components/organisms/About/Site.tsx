@@ -1,4 +1,5 @@
 import { Card } from "components/molecules/Card";
+import styles from "./site.module.scss";
 
 export const AboutSite = () => {
   return (
@@ -12,7 +13,13 @@ export const AboutSite = () => {
             padding: "7px",
           }}
         >
-          <img src="/images/logo.svg" alt="logo" width="64" height="64" />
+          <img
+            src="/images/logo.svg"
+            className={styles.logo}
+            alt="logo"
+            width="64"
+            height="64"
+          />
         </div>
       }
       cardTitle="このサイトについて。"
@@ -36,7 +43,11 @@ export const AboutSite = () => {
         が趣味で運営している個人のウェブサイトです。
       </p>
       <p>ブログもやっています。</p>
-      <ul itemScope itemType="http://schema.org/Blog" className="linkList">
+      <ul
+        itemScope
+        itemType="http://schema.org/Blog"
+        className={styles.linkList}
+      >
         <li itemProp="name">
           <a href="http://blog.unsweets.net/" itemProp="url">
             unsweets.log
@@ -55,23 +66,9 @@ export const AboutSite = () => {
       </ul>
       <p>
         問い合わせなどは<a href="mailto:mugen.xyz@gmail.com">メール</a>か
-        <a href="#contact" className="scroll-down">
-          Contact
-        </a>
+        <a href="#contact">Contact</a>
         からどうぞ。
       </p>
-      <style jsx>{`
-        .linkList {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 1rem;
-          display: flex;
-          > li {
-            display: block;
-            margin-right: 1rem;
-          }
-        }
-      `}</style>
     </Card>
   );
 };

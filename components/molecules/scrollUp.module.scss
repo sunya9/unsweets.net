@@ -1,0 +1,30 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  border-radius: 50%;
+  background: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 10;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  transform: scale(0);
+  opacity: 0;
+  &:active {
+    box-shadow: var(--box-shadow--active);
+  }
+}
+
+.visible {
+  transform: scale(1);
+  opacity: 1;
+}
