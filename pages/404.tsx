@@ -10,7 +10,7 @@ export default function Error() {
           ページが見つかりませんでした。トップページから探してみてください。
         </p>
         <Link passHref href="/">
-          <Button<"a"> tag="a">Go to Top</Button>
+          <Button>Go to Top</Button>
         </Link>
       </div>
       <style jsx>{`

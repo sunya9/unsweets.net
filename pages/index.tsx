@@ -65,11 +65,7 @@ export default function Index() {
               </section>
             </Screen>
             <div className="text-center">
-              <Button<"a">
-                tag="a"
-                href="https://github.com/sunya9"
-                icon="GitHub"
-              >
+              <Button href="https://github.com/sunya9" icon="GitHub">
                 View more projects
               </Button>
             </div>
