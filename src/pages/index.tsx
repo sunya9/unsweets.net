@@ -11,18 +11,16 @@ interface Props {
 export default function Home(props: Props) {
   const config = useConfig();
   return (
-    <div>
+    <>
       <Head>
         <title>{config.title()}</title>
       </Head>
 
-      <main>
-        <EntryList entries={props.entries} />
-        <Link href="/archives">
-          <a>Archives</a>
-        </Link>
-      </main>
-    </div>
+      <EntryList entries={props.entries} />
+      <Link href="/archives">
+        <a>Archives</a>
+      </Link>
+    </>
   );
 }
 
