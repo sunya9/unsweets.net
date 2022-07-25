@@ -13,16 +13,14 @@ export default function Home({ entries }: Props) {
   const config = useConfig();
 
   return (
-    <div>
+    <>
       <Head>
         <title>{config.title("Archives")}</title>
       </Head>
 
-      <main>
-        <h1>Archives</h1>
-        <EntryList entries={entries} />
-      </main>
-    </div>
+      <h1>Archives</h1>
+      <EntryList entries={entries} />
+    </>
   );
 }
 
