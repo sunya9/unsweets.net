@@ -28,7 +28,7 @@
     "react-feather": "2.0.10",
     "react-medium-image-zoom": "4.4.3",
     "react-syntax-highlighter": "15.4.5",
-    "recursive-readdir": "2.2.2",
+    "recursive-readdir": "2.2.3",
     "rehype-highlight": "4.1.0",
     "rehype-parse": "7.0.1",
     "rehype-react": "6.2.1",
