@@ -1,4 +1,13 @@
-import { ImgHTMLAttributes, MouseEventHandler, useCallback } from "react";
+import {
+  ImgHTMLAttributes,
+  MouseEventHandler,
+  useCallback,
+  createElement,
+  Fragment,
+  useMemo,
+  useEffect,
+  useState,
+} from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import {
@@ -11,7 +20,6 @@ import {
 import { useRouter } from "next/router";
 import unified from "unified";
 import rehype2react, { ComponentPropsWithoutNode } from "rehype-react";
-import * as React from "react";
 import rehypeParse from "rehype-parse";
 import { useConfig } from "../hooks/useConfig";
 import { Page } from "../lib/page";
@@ -23,10 +31,12 @@ interface Props {
   shareButton?: boolean;
 }
 
-const Heading: React.FC<
-  { level: 1 | 2 | 3 | 4 | 5 | 6 } & React.HTMLAttributes<HTMLHeadingElement>
-> = ({ level, children, id, ...rest }) => {
-  return React.createElement(
+type HeadingProps = {
+  level: 1 | 2 | 3 | 4 | 5 | 6;
+} & React.HTMLAttributes<HTMLHeadingElement>;
+
+const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
+  return createElement(
     `h${level}`,
     { className: `${rest.className} relative group`, ...rest, id },
     [
@@ -45,8 +55,8 @@ const Heading: React.FC<
 const processor = unified()
   .use(rehypeParse, { fragment: true })
   .use(rehype2react, {
-    createElement: React.createElement,
-    Fragment: React.Fragment,
+    createElement: createElement,
+    Fragment,
     components: {
       a(props: ComponentPropsWithoutNode) {
         return <NextLinkIfInternalAnchor {...props} />;
@@ -97,20 +107,20 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
 const useEntryView = (page: Page) => {
   const config = useConfig();
   const router = useRouter();
-  const pathWithoutHash = React.useMemo(
+  const pathWithoutHash = useMemo(
     () => router.asPath.split("#").shift(),
     [router.asPath]
   );
-  const url = React.useMemo(
+  const url = useMemo(
     () => config.baseUrl + pathWithoutHash,
     [config.baseUrl, pathWithoutHash]
   );
-  const [nativeShare, setNativeShare] = React.useState(false);
-  React.useEffect(() => {
+  const [nativeShare, setNativeShare] = useState(false);
+  useEffect(() => {
     setNativeShare(!!window.navigator.share);
   }, []);
 
-  const onShowNativeShare = React.useCallback(() => {
+  const onShowNativeShare = useCallback(() => {
     window.navigator.share({
       title: config.title(page.title),
       url: `${config.baseUrl}${router.asPath}`,

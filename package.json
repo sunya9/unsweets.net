@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/app-root-path": "1.2.4",
     "@types/node": "18.14.2",
-    "@types/react": "17.0.53",
+    "@types/react": "17.0.30",
     "@types/react-dom": "16.9.18",
     "@types/react-syntax-highlighter": "13.5.2",
     "@types/recursive-readdir": "2.2.1",

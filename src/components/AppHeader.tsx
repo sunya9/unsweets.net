@@ -2,7 +2,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useConfig } from "../hooks/useConfig";
 
-const NavLink: React.FC<{ href: string }> = ({ children, href }) => {
+interface NavLinkProps {
+  children: React.ReactNode;
+  href: string;
+}
+
+const NavLink = ({ children, href }: NavLinkProps) => {
   const router = useRouter();
   if (router.asPath.startsWith(href)) {
     return <>{children}</>;
