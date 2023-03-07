@@ -22,12 +22,12 @@ class MyDocument extends Document {
             href="https://fonts.gstatic.com"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
             rel="stylesheet"
             key="google-fonts"
           />
         </Head>
-        <body className="bg-gray-50 dark:bg-trueGray-700">
+        <body className="bg-neutral-50 dark:bg-neutral-800">
           <Main />
           <NextScript />
         </body>

@@ -27,9 +27,9 @@ export const AppHeader = () => {
             </Link>
           )}
         </h1>
-        <p className="mt-0 mb-8">{config.description}</p>
+        <p className="mt-0 mb-8 lead">{config.description}</p>
         <nav>
-          <ul className="inline-flex my-0 list-none">
+          <ul className="inline-flex list-none p-0 m-0">
             <li>
               <NavLink href="/about">About</NavLink>
             </li>

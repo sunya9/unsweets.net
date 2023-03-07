@@ -142,16 +142,16 @@ export const EntryView = ({ entry, shareButton }: Props) => {
     <article>
       <h1>{entry.title}</h1>
       {entry.date && (
-        <span className="text-gray-500">
-          Published <AbsDate date={entry.date} />
-        </span>
+        <div className="text-[color:var(--tw-prose-lead)]">
+          Published at <AbsDate date={entry.date} />
+        </div>
       )}
       <div>{processor.processSync(entry.body).result as React.ReactNode}</div>
       <footer>
         {shareButton && (
-          <div className="bg-gray-100 inline-flex justify-center flex-row rounded-full shadow-md items-center hover:shadow-lg transition-all pr-3 my-2">
+          <div className="bg-neutral-100 dark:bg-neutral-900 inline-flex justify-center flex-row rounded-full shadow-md items-center hover:shadow-lg transition-all pr-3 my-2">
             <h3
-              className="text-white rounded-full bg-gray-300 p-2 shadow-lg -my-1 ml-0 mr-1.5 border-4 border-gray-100"
+              className="rounded-full p-3 shadow-lg -my-1 ml-0 mr-1.5 bg-neutral-100 dark:bg-neutral-900"
               title="Share"
             >
               <Share2 strokeWidth="1.2" aria-label="Share" />
@@ -164,7 +164,7 @@ export const EntryView = ({ entry, shareButton }: Props) => {
               onClick={openDialog}
               target="_new"
               rel="noopener noreferrer"
-              className="block p-1.5 rounded-full text-gray-900"
+              className="block p-1.5 rounded-full"
               aria-label="Share on Twitter"
               title="Share on Twitter"
             >
@@ -176,7 +176,7 @@ export const EntryView = ({ entry, shareButton }: Props) => {
             </a>
 
             <a
-              className="block p-1.5 rounded-full text-gray-900"
+              className="block p-1.5 rounded-full"
               aria-label="Share on Facebook"
               title="Share on Facebook"
               onClick={openDialog}
@@ -195,7 +195,7 @@ export const EntryView = ({ entry, shareButton }: Props) => {
             {nativeShare && (
               <button
                 onClick={onShowNativeShare}
-                className="block p-1.5 rounded-full text-gray-900"
+                className="block p-1.5 rounded-full"
               >
                 <MoreVertical
                   strokeWidth="1"
