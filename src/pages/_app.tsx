@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'UA-10104011-7');
         `}
       </Script>
-      <div className="prose max-w-none">
+      <div className="prose prose-neutral dark:prose-invert max-w-none">
         <App>
           <AppLayout>
             <Component {...pageProps} />

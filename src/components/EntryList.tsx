@@ -10,7 +10,7 @@ export const EntryList = (props: Props) => {
     <ul>
       {props.entries.map((entry) => (
         <li key={entry.slug}>
-          <div className="text-gray-500">
+          <div className="text-[color:var(--tw-prose-lead)]">
             <AbsDate date={entry.date} />
           </div>
           <Link href={`/entries/${entry.slug}`} passHref>
