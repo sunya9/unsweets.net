@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import { ConfigProvider } from "../components/ConfigProvider";
 import { useConfig } from "../hooks/useConfig";
-import { AppLayout } from "../components/AppLayout";
 import "../styles/styles.css";
+import { AppHeader } from "../components/AppHeader";
+import { AppFooter } from "../components/AppFooter";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -23,22 +24,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'UA-10104011-7');
         `}
       </Script>
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
-        <App>
-          <AppLayout>
-            <Component {...pageProps} />
-          </AppLayout>
-        </App>
-      </div>
+      <App>
+        <Component {...pageProps} />
+      </App>
     </ConfigProvider>
   );
 }
 
-const App: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const App = ({ children }: Props) => {
   const config = useConfig();
   const router = useRouter();
   return (
-    <>
+    <div className="prose prose-neutral dark:prose-invert max-w-none">
       <Head>
         <title>{config.title()}</title>
         <link key="icon" rel="icon" href="/favicon.ico" />
@@ -63,8 +64,15 @@ const App: React.FC = ({ children }) => {
         <meta name="color-scheme" content="light dark" />
         <meta name="theme-color" content="#f9fafb" />
       </Head>
-      {children}
-    </>
+      <div className="min-h-screen flex flex-col">
+        <AppHeader />
+
+        <main className="flex-1">
+          <div className="container">{children}</div>
+        </main>
+        <AppFooter />
+      </div>
+    </div>
   );
 };
 

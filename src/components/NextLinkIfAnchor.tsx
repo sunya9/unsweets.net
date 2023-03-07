@@ -1,9 +1,8 @@
-import * as React from "react";
 import Link from "next/link";
 
-export const NextLinkIfInternalAnchor: React.FC<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = (props) => {
+type Props = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+export const NextLinkIfInternalAnchor = (props: Props) => {
   const { href, children, ...rest } = props;
   if (!href) return <a {...rest}>{children}</a>;
   if (href.startsWith("http")) {
