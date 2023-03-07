@@ -16,22 +16,6 @@ class MyDocument extends Document {
     return (
       <Html id="app" lang="ja">
         <Head>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'G-XEVMD8V0LK', {
-                  page_path: window.location.pathname
-                });`,
-            }}
-          ></script>
           <link
             key="preconnect"
             rel="preconnect"

@@ -1,10 +1,10 @@
-import { description, name as title } from "./package.json";
+import pkg from "./package.json";
 
 const baseUrl = "https://blog.unsweets.net";
 
 export const config = {
   title: (pageTitle?: string) =>
-    pageTitle ? `${pageTitle} - ${title}` : title,
-  description,
+    pageTitle ? `${pageTitle} - ${pkg.name}` : pkg.name,
+  description: pkg.description,
   baseUrl,
 } as const;
