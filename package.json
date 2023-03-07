@@ -32,7 +32,6 @@
     "rehype-highlight": "4.1.0",
     "rehype-parse": "7.0.1",
     "rehype-react": "6.2.1",
-    "rehype-shiki": "0.0.9",
     "rehype-stringify": "8.0.0",
     "remark-parse": "9.0.0",
     "remark-rehype": "8.1.0",
