@@ -51,7 +51,8 @@ export const AppHeader = () => {
         }
         .list-none > li::before {
           display: none;
-        `}</style>
+        }
+      `}</style>
     </header>
   );
 };
