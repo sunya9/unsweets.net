@@ -18,8 +18,8 @@ import {
   Link as LinkIcon,
 } from "react-feather";
 import { useRouter } from "next/router";
-import unified from "unified";
-import rehype2react, { ComponentPropsWithoutNode } from "rehype-react";
+import { unified } from "unified";
+import rehype2react from "rehype-react";
 import rehypeParse from "rehype-parse";
 import { useConfig } from "../hooks/useConfig";
 import { Page } from "../lib/page";
@@ -58,28 +58,68 @@ const processor = unified()
     createElement: createElement,
     Fragment,
     components: {
-      a(props: ComponentPropsWithoutNode) {
+      a(
+        props: React.DetailedHTMLProps<
+          React.AnchorHTMLAttributes<HTMLAnchorElement>,
+          HTMLAnchorElement
+        >
+      ) {
         return <NextLinkIfInternalAnchor {...props} />;
       },
-      img(props: ComponentPropsWithoutNode) {
+      img(
+        props: React.DetailedHTMLProps<
+          React.ImgHTMLAttributes<HTMLImageElement>,
+          HTMLImageElement
+        >
+      ) {
         return <Img {...props} />;
       },
-      h1(props: ComponentPropsWithoutNode) {
+      h1(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={1} {...props} />;
       },
-      h2(props: ComponentPropsWithoutNode) {
+      h2(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={2} {...props} />;
       },
-      h3(props: ComponentPropsWithoutNode) {
+      h3(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={3} {...props} />;
       },
-      h4(props: ComponentPropsWithoutNode) {
+      h4(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={4} {...props} />;
       },
-      h5(props: ComponentPropsWithoutNode) {
+      h5(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={5} {...props} />;
       },
-      h6(props: ComponentPropsWithoutNode) {
+      h6(
+        props: React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLHeadingElement>,
+          HTMLHeadingElement
+        >
+      ) {
         return <Heading level={6} {...props} />;
       },
     },
