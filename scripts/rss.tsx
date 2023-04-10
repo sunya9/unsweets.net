@@ -1,9 +1,10 @@
+import { promises as fs } from "node:fs";
+import * as path from "node:path";
 import dayjs from "dayjs";
-import { promises as fs } from "fs";
 import mkdirp from "mkdirp";
-import * as path from "path";
-import { config } from "../blog.config";
-import { Entry, getEntries } from "../src/lib/entry";
+import { config } from "../blog.config.js";
+import { Entry, getEntries } from "../src/lib/entry.js";
+import { __dirname } from "./util.js";
 
 const { baseUrl } = config;
 
@@ -13,7 +14,7 @@ const formatDate = (date: number) =>
 const main = async () => {
   const entries = await getEntries(20);
   const rssXml = generateRss(entries);
-  const publicDir = path.resolve(__dirname, "../", "public");
+  const publicDir = path.resolve(__dirname(import.meta.url), "../", "public");
   await mkdirp(publicDir);
   return fs.writeFile(path.resolve(publicDir, "rss.xml"), rssXml, "utf-8");
 };

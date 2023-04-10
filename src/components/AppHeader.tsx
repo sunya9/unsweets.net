@@ -27,8 +27,8 @@ export const AppHeader = () => {
           {isIndex ? (
             config.title()
           ) : (
-            <Link href="/">
-              <a style={{ fontWeight: "inherit" }}>{config.title()}</a>
+            <Link href="/" style={{ fontWeight: "inherit" }}>
+              {config.title()}
             </Link>
           )}
         </h1>
@@ -42,7 +42,10 @@ export const AppHeader = () => {
               <NavLink href="/archives">Archives</NavLink>
             </li>
             <li>
-              <NavLink href="/rss.xml">RSS</NavLink>
+              {
+                // eslint-disable-next-line @next/next/no-html-link-for-pages
+                <a href="/rss.xml">RSS</a>
+              }
             </li>
           </ul>
         </nav>

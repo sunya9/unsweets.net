@@ -2,8 +2,8 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import { Page } from "./page";
-import { processor } from "./processor";
-import { blogDir } from "./constants";
+import { processor } from "./processor.js";
+import { blogDir } from "./constants.js";
 
 export interface Entry extends Page {
   date: number;

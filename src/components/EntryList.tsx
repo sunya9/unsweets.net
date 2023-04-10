@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Entry } from "../lib/entry";
+import { Entry } from "../lib/entry.js";
 import { AbsDate } from "./AbsDate";
 
 interface Props {
@@ -13,9 +13,7 @@ export const EntryList = (props: Props) => {
           <div className="text-[color:var(--tw-prose-lead)]">
             <AbsDate date={entry.date} />
           </div>
-          <Link href={`/entries/${entry.slug}`} passHref>
-            <a>{entry.title}</a>
-          </Link>
+          <Link href={`/entries/${entry.slug}`}>{entry.title}</Link>
         </li>
       ))}
     </ul>

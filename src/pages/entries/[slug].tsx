@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { EntryView } from "../../components/EntryView";
 import { useConfig } from "../../hooks/useConfig";
-import { Entry, getEntries, getEntry } from "../../lib/entry";
+import { Entry, getEntries, getEntry } from "../../lib/entry.js";
 
 interface Props {
   entry: Entry;

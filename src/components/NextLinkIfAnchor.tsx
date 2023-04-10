@@ -13,8 +13,8 @@ export const NextLinkIfInternalAnchor = (props: Props) => {
     );
   } else {
     return (
-      <Link href={href} passHref>
-        <a {...rest}>{children}</a>
+      <Link href={href} {...rest}>
+        {children}
       </Link>
     );
   }

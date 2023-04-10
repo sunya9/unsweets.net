@@ -17,9 +17,7 @@ export default function Home(props: Props) {
       </Head>
 
       <EntryList entries={props.entries} />
-      <Link href="/archives">
-        <a>Archives</a>
-      </Link>
+      <Link href="/archives">Archives</Link>
     </>
   );
 }

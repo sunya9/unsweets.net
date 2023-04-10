@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { Entry, getEntries } from "../lib/entry";
+import { Entry, getEntries } from "../lib/entry.js";
 import { useConfig } from "../hooks/useConfig";
 import { EntryList } from "../components/EntryList";
 
