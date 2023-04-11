@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { promises as fs } from "node:fs";
-import mkdirp from "mkdirp";
+import { mkdirp } from "mkdirp";
 import { config } from "../blog.config.js";
 import { getEntries } from "../src/lib/entry.js";
 import { getPages } from "../src/lib/page.js";

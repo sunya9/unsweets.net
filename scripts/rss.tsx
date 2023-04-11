@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import * as path from "node:path";
 import dayjs from "dayjs";
-import mkdirp from "mkdirp";
+import { mkdirp } from "mkdirp";
 import { config } from "../blog.config.js";
 import { Entry, getEntries } from "../src/lib/entry.js";
 import { __dirname } from "./util.js";
