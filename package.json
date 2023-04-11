@@ -59,7 +59,7 @@
     "mkdirp": "2.1.6",
     "postcss": "8.4.21",
     "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-preset-env": "7.8.3",
+    "postcss-preset-env": "8.3.1",
     "prettier": "2.8.7",
     "prettier-plugin-md-nocjsp": "1.5.1",
     "ts-node": "10.9.1",
