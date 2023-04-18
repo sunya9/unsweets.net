@@ -31,7 +31,7 @@
     "react-syntax-highlighter": "15.5.0",
     "recursive-readdir": "2.2.3",
     "rehype-parse": "8.0.4",
-    "rehype-react": "7.1.2",
+    "rehype-react": "7.2.0",
     "rehype-stringify": "9.0.3",
     "remark-parse": "10.0.1",
     "remark-rehype": "10.1.0",
