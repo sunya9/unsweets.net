@@ -57,7 +57,7 @@
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
     "mkdirp": "3.0.1",
-    "postcss": "8.4.23",
+    "postcss": "8.4.24",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "8.4.1",
     "prettier": "2.8.8",
