@@ -1,6 +1,15 @@
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: write
 
 jobs:
   build:
