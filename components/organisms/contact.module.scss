@@ -38,7 +38,8 @@
   appearance: none;
   color: inherit;
   background: var(--bg-color);
-  box-shadow: inset 5px 5px 10px var(--shadow-color),
+  box-shadow:
+    inset 5px 5px 10px var(--shadow-color),
     inset -5px -5px 10px var(--light-color);
   &:last-of-type {
     border-bottom-width: 1px;
