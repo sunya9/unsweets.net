@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import { config } from "../../blog.config";
 import "./../styles/styles.css";
+import { AppFooter } from "../components/AppFooter";
+import { AppHeader } from "../components/AppHeader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,7 +49,13 @@ export default function RootLayout({
       </head>
       <body className="bg-neutral-50 dark:bg-neutral-800">
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <AppHeader />
+            <main className="flex-1">
+              <div className="container">{children}</div>
+            </main>
+            <AppFooter />
+          </div>
         </div>
       </body>
     </html>

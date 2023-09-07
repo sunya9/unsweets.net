@@ -2,7 +2,6 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import { Page } from "./page";
-import { processor } from "./processor.js";
 import { blogDir } from "./constants.js";
 
 export const revalidate = 3600;
@@ -16,7 +15,7 @@ export const getEntry = async (slug: string): Promise<Entry> => {
   const mdPath = path.resolve(blogDir, filename);
   const md = await fs.readFile(mdPath, "utf-8");
   const { data, content } = matter(md);
-  const body = await processor(content);
+  const body = content;
   return {
     title: data.title,
     body,
@@ -28,12 +27,12 @@ export const getEntry = async (slug: string): Promise<Entry> => {
 export const getEntries = async (limit?: number): Promise<Entry[]> => {
   const slugs = await fs.readdir(blogDir);
   const entryPromises = slugs.map((filename) =>
-    getEntry(path.basename(filename, ".md"))
+    getEntry(path.basename(filename, ".md")),
   );
   return Promise.all(entryPromises).then((entries) =>
     entries
       .slice()
       .sort((a, b) => b.date - a.date)
-      .slice(0, limit || entries.length)
+      .slice(0, limit || entries.length),
   );
 };

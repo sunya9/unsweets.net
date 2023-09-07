@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { AppLayout } from "../components/AppLayout";
 import { config } from "../../blog.config";
 
 export const metadata: Metadata = {
@@ -8,12 +7,10 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
   return (
-    <AppLayout>
-      <div className="text-center">
-        <h1 className="mt-10">404</h1>
-        <p>Page not found.</p>
-      </div>
-    </AppLayout>
+    <div className="text-center">
+      <h1 className="mt-10">404</h1>
+      <p>Page not found.</p>
+    </div>
   );
 };
 

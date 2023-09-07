@@ -64,7 +64,7 @@ export const actions = actionTree(
       context.commit("updateMessage", newMessage);
       // または this.app.$accessor.updateMessage(newMessage)
     },
-  }
+  },
 );
 
 export const accessorType = getAccessorType({

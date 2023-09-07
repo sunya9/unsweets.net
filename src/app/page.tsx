@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
 import { config } from "../../blog.config";
-import { AppLayout } from "../components/AppLayout";
 import { buildFullPath } from "../lib/util";
 
 export const metadata: Metadata = {
@@ -15,13 +14,13 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const entries = await getEntries(5).then((entries) =>
-    entries.map(({ date, slug, title }) => ({ date, slug, title }))
+    entries.map(({ date, slug, title }) => ({ date, slug, title })),
   );
 
   return (
-    <AppLayout path="/">
+    <>
       <EntryList entries={entries} />
       <Link href="/archives">Archives</Link>
-    </AppLayout>
+    </>
   );
 }

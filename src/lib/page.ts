@@ -3,7 +3,6 @@ import { promises as fs } from "fs";
 import recursiveReaddir from "recursive-readdir";
 import matter from "gray-matter";
 import { pagesDir } from "./constants.js";
-import { processor } from "./processor.js";
 
 export interface Page {
   slug: string;
@@ -20,14 +19,14 @@ export const getPage = async (slug: string): Promise<Page> => {
     const { data, content } = matter(md);
     return {
       title: data.title,
-      body: await processor(content),
+      body: content,
       date: new Date(data.date).getTime(),
       slug,
     };
   } else {
     const [titleWithSharp, ...contentsAry] = md.trim().split("\n");
     const title = titleWithSharp.replace(/^#\s/, "");
-    const body = await processor(contentsAry.join("\n"));
+    const body = contentsAry.join("\n");
     return {
       title,
       body,
@@ -45,10 +44,10 @@ export const getPages = async (): Promise<string[]> => {
           dir: path.dirname(filepath),
           base: path.basename(filepath, ".md"),
         })
-        .replace(`${pagesDir}/`, "")
-    )
+        .replace(`${pagesDir}/`, ""),
+    ),
   );
   return Promise.all(pagePromises).then((pages) =>
-    pages.map((page) => page.slug)
+    pages.map((page) => page.slug),
   );
 };

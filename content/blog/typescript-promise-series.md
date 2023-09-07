@@ -16,7 +16,7 @@ const createTasks = () => [
 
 const handler = async (
   label: string,
-  handler: (ps: (() => Promise<string>)[]) => Promise<string[]>
+  handler: (ps: (() => Promise<string>)[]) => Promise<string[]>,
 ) => {
   console.time(label);
   await handler(createTasks()).then((res) => console.log("res", res));
@@ -25,7 +25,7 @@ const handler = async (
 
 const test = async () => {
   await handler("parallel", (tasks) =>
-    Promise.all(tasks.map((task) => task()))
+    Promise.all(tasks.map((task) => task())),
   );
   await handler("series", (tasks) => series(tasks));
 };
@@ -34,7 +34,7 @@ const series = <T extends unknown>(promises: (() => Promise<T>)[]) =>
   promises.reduce(
     async (prev, current) =>
       prev.then(async (res) => [...res, await current()]),
-    Promise.resolve<T[]>([])
+    Promise.resolve<T[]>([]),
   );
 
 test();

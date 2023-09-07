@@ -37,7 +37,7 @@ gulp.task("sass", function () {
       sass({
         style: "compact",
         compass: true,
-      })
+      }),
     )
     .pipe(plumber.stop())
     .pipe(gulp.dest("./css/"));

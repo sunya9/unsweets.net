@@ -14,16 +14,16 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
       window.open(
         url,
         e.currentTarget.target,
-        "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600"
+        "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600",
       );
     },
-    [url]
+    [url],
   );
   return (
     <>
       <a
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          `${entryTitleWithBlogName} ${url}`
+          `${entryTitleWithBlogName} ${url}`,
         )}`}
         onClick={openDialog}
         target="_new"
@@ -47,7 +47,7 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
         target="_new"
         rel="noopener noreferrer"
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-          url
+          url,
         )}`}
       >
         <Facebook

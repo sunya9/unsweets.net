@@ -48,7 +48,7 @@ Netlify側の設定はこれで完了。
 ```html
 layout: false ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />

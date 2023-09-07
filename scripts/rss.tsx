@@ -22,7 +22,7 @@ const main = async () => {
 const formatEntry = (entry: Entry) => `
   <item>
     <title>${entry.title}</title>
-    <link>${baseUrl}/entries/${entry.slug}/</link>
+    <link>${baseUrl}/entries/${entry.slug}</link>
     <pubDate>${formatDate(entry.date)}</pubDate>
     <description>
       <![CDATA[${entry.body} ]]>
