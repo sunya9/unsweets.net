@@ -2,7 +2,6 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import { Page } from "./page";
-import { processor } from "./processor.js";
 import { blogDir } from "./constants.js";
 
 export const revalidate = 3600;
@@ -16,7 +15,7 @@ export const getEntry = async (slug: string): Promise<Entry> => {
   const mdPath = path.resolve(blogDir, filename);
   const md = await fs.readFile(mdPath, "utf-8");
   const { data, content } = matter(md);
-  const body = await processor(content);
+  const body = content;
   return {
     title: data.title,
     body,

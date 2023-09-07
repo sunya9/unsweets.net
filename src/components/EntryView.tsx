@@ -1,8 +1,9 @@
-import { ImgHTMLAttributes, createElement, Fragment } from "react";
+import { ImgHTMLAttributes, createElement } from "react";
 import { Share2, Link as LinkIcon } from "react-feather";
-import { unified } from "unified";
-import rehype2react from "rehype-react";
-import rehypeParse from "rehype-parse";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkSlug from "remark-slug";
+import rehypeShiki from "@leafac/rehype-shiki";
+import * as shiki from "shiki";
 import { Page } from "../lib/page";
 import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
@@ -39,79 +40,6 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
   );
 };
 
-const processor = unified()
-  .use(rehypeParse, { fragment: true })
-  .use(rehype2react, {
-    createElement: createElement,
-    Fragment,
-    components: {
-      a(
-        props: React.DetailedHTMLProps<
-          React.AnchorHTMLAttributes<HTMLAnchorElement>,
-          HTMLAnchorElement
-        >
-      ) {
-        return <NextLinkIfInternalAnchor {...props} />;
-      },
-      img(
-        props: React.DetailedHTMLProps<
-          React.ImgHTMLAttributes<HTMLImageElement>,
-          HTMLImageElement
-        >
-      ) {
-        return <Img {...props} />;
-      },
-      h1(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={1} {...props} />;
-      },
-      h2(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={2} {...props} />;
-      },
-      h3(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={3} {...props} />;
-      },
-      h4(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={4} {...props} />;
-      },
-      h5(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={5} {...props} />;
-      },
-      h6(
-        props: React.DetailedHTMLProps<
-          React.HTMLAttributes<HTMLHeadingElement>,
-          HTMLHeadingElement
-        >
-      ) {
-        return <Heading level={6} {...props} />;
-      },
-    },
-  });
-
 const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
   const nonNullableSrc = src || "";
   const fixedSrc = nonNullableSrc.startsWith("/")
@@ -124,7 +52,12 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
   );
 };
 
-export const EntryView = ({ entry, shareButton, path }: Props) => {
+const loadHighlighter = (async () => {
+  return await shiki.getHighlighter({ theme: "material-theme-darker" });
+})();
+
+export const EntryView = async ({ entry, shareButton, path }: Props) => {
+  const highlighter = await loadHighlighter;
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
   return (
@@ -135,7 +68,33 @@ export const EntryView = ({ entry, shareButton, path }: Props) => {
           Published at <AbsDate date={entry.date} />
         </div>
       )}
-      <div>{processor.processSync(entry.body).result as React.ReactNode}</div>
+      <MDXRemote
+        source={entry.body}
+        options={{
+          mdxOptions: {
+            format: "md",
+            remarkPlugins: [remarkSlug],
+            rehypePlugins: [
+              [
+                rehypeShiki,
+                {
+                  highlighter,
+                },
+              ],
+            ],
+          },
+        }}
+        components={{
+          a: (props) => <NextLinkIfInternalAnchor {...props} />,
+          img: (props) => <Img {...props} />,
+          h1: (props) => <Heading level={1} {...props} />,
+          h2: (props) => <Heading level={2} {...props} />,
+          h3: (props) => <Heading level={3} {...props} />,
+          h4: (props) => <Heading level={4} {...props} />,
+          h5: (props) => <Heading level={5} {...props} />,
+          h6: (props) => <Heading level={6} {...props} />,
+        }}
+      />
       <footer>
         {shareButton && (
           <div className="bg-neutral-100 dark:bg-neutral-900 inline-flex justify-center flex-row rounded-full shadow-md items-center hover:shadow-lg transition-all pr-3 my-2">
