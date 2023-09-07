@@ -7,7 +7,7 @@ import rehypeShiki from "@leafac/rehype-shiki";
 import html from "rehype-stringify";
 
 const highlighter = (async () => {
-  return await shiki.getHighlighter({ theme: "material-darker" });
+  return await shiki.getHighlighter({ theme: "material-theme-darker" });
 })();
 export const processor = async (markdown: string): Promise<string> => {
   const res = await unified()
