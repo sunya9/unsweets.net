@@ -34,7 +34,7 @@ const main = async () => {
   return fs.writeFile(
     path.resolve(publicDir, "sitemap.xml"),
     sitemapXml,
-    "utf-8"
+    "utf-8",
   );
 };
 

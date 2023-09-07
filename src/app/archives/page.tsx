@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const entries = await getEntries().then((entries) =>
-    entries.map(({ date, slug, title }) => ({ date, slug, title }))
+    entries.map(({ date, slug, title }) => ({ date, slug, title })),
   );
   return (
     <>

@@ -36,6 +36,6 @@ export async function generateStaticParams() {
   return getPages().then((pages) =>
     pages.map((slugs) => ({
       slugs: slugs.split("/"),
-    }))
+    })),
   );
 }

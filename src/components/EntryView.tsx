@@ -36,7 +36,7 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
         <LinkIcon size="0.75em" strokeWidth="1.5" />
       </a>,
       children,
-    ]
+    ],
   );
 };
 

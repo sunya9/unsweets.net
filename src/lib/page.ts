@@ -44,10 +44,10 @@ export const getPages = async (): Promise<string[]> => {
           dir: path.dirname(filepath),
           base: path.basename(filepath, ".md"),
         })
-        .replace(`${pagesDir}/`, "")
-    )
+        .replace(`${pagesDir}/`, ""),
+    ),
   );
   return Promise.all(pagePromises).then((pages) =>
-    pages.map((page) => page.slug)
+    pages.map((page) => page.slug),
   );
 };

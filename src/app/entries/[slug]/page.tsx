@@ -36,6 +36,6 @@ export async function generateStaticParams() {
   return getEntries().then((entries) =>
     entries.map((entry) => ({
       slug: entry.slug,
-    }))
+    })),
   );
 }

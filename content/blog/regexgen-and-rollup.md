@@ -70,7 +70,7 @@ if (process.env.NODE_ENV !== "production") {
     serve({
       contentBase: "public",
       historyApiFallback: false,
-    })
+    }),
   );
 }
 

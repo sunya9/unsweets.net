@@ -19,7 +19,7 @@ unsweets.logの画像拡大には[zooming](https://github.com/kingdido999/zoomin
 ```javascript
 const isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
+    navigator.userAgent,
   );
 
 Zooming.config({
