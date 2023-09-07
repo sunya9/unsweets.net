@@ -5,6 +5,8 @@ import { Page } from "./page";
 import { processor } from "./processor.js";
 import { blogDir } from "./constants.js";
 
+export const revalidate = 3600;
+
 export interface Entry extends Page {
   date: number;
 }

@@ -1,0 +1,51 @@
+.wave,
+.wave::after,
+.wave::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201600%2050%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%3E%20%3Cstyle%3E%20path%20%7B%20fill%3A%20%23777%3B%20%7D%20%40media%20(preferes-color-scheme%3A%20dark)%20%7B%20path%20%7B%20fill%3A%20%23ccc%3B%20%7D%20%7D%20%3C%2Fstyle%3E%20%3Cg%20transform%3D%22rotate(180%2C800%2C25)%22%3E%20%3Cpath%20d%3D%22M%200%200%20C%20405.5%200%20405.5%2050%20811%2050%20L%20811%2050%20L%20811%200%20L%200%200%20Z%22%20stroke-width%3D%220%22%3E%3C%2Fpath%3E%20%3Cpath%20d%3D%22M%20810%2050%20C%201205%2050%201205%200%201600%200%20L%201600%200%20L%201600%200%20L%20810%200%20Z%22%20stroke-width%3D%220%22%3E%3C%2Fpath%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-position: top;
+  background-repeat: repeat-x;
+  background-size: 1600px 50px;
+}
+.wave {
+  animation: wave 30s linear infinite;
+  padding-top: 50px;
+  position: relative;
+}
+.wave::after,
+.wave::before {
+  opacity: 0.5;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.wave::after {
+  animation: wave 40s linear infinite;
+  z-index: -1;
+}
+.wave::before {
+  animation: wave-reverse 50s linear infinite;
+  z-index: -2;
+}
+.inner {
+  background: #777;
+}
+@keyframes wave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -1600px;
+  }
+}
+@keyframes wave-reverse {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 1600px;
+  }
+}
