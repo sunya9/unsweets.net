@@ -1,13 +1,19 @@
 import classnames from "classnames";
 import styles from "./screen.module.scss";
 
-export const Screen: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+export const Screen: React.FC<Props> = ({ children }) => {
   return <div className={styles.screen}>{children}</div>;
 };
 
 interface FlexibleProps {
   centering?: boolean;
+  children: React.ReactNode;
 }
+
 export const ScreenFlexible: React.FC<FlexibleProps> = ({
   children,
   centering,
