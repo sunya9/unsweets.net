@@ -1,34 +1,21 @@
-import {
-  ImgHTMLAttributes,
-  MouseEventHandler,
-  useCallback,
-  createElement,
-  Fragment,
-  useMemo,
-  useEffect,
-  useState,
-} from "react";
-import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
-import {
-  Facebook,
-  Twitter,
-  Share2,
-  MoreVertical,
-  Link as LinkIcon,
-} from "react-feather";
-import { useRouter } from "next/router";
+import { ImgHTMLAttributes, createElement, Fragment } from "react";
+import { Share2, Link as LinkIcon } from "react-feather";
 import { unified } from "unified";
 import rehype2react from "rehype-react";
 import rehypeParse from "rehype-parse";
-import { useConfig } from "../hooks/useConfig";
 import { Page } from "../lib/page";
+import { config } from "../../blog.config";
+import { buildFullPath } from "../lib/util";
 import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 import { AbsDate } from "./AbsDate";
+import { NativeShareButton } from "./NativeShareButton";
+import { ShareButtons } from "./ShareButtons";
+import { ZoomWrapper } from "./ZoomWrapper";
 
 interface Props {
   entry: Page;
   shareButton?: boolean;
+  path: string;
 }
 
 type HeadingProps = {
@@ -132,62 +119,14 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
     : nonNullableSrc.replace(/^\.\.\/\.\.\/public/, "");
   return (
     <span className="block text-center my-8">
-      <Zoom wrapElement="span" zoomMargin={16}>
-        <img
-          src={fixedSrc}
-          {...rest}
-          className="border shadow-lg max-h-64 my-0"
-          alt=""
-        />
-      </Zoom>
+      <ZoomWrapper fixedSrc={fixedSrc} {...rest} />
     </span>
   );
 };
 
-const useEntryView = (page: Page) => {
-  const config = useConfig();
-  const router = useRouter();
-  const pathWithoutHash = useMemo(
-    () => router.asPath.split("#").shift(),
-    [router.asPath]
-  );
-  const url = useMemo(
-    () => config.baseUrl + pathWithoutHash,
-    [config.baseUrl, pathWithoutHash]
-  );
-  const [nativeShare, setNativeShare] = useState(false);
-  useEffect(() => {
-    setNativeShare(!!window.navigator.share);
-  }, []);
-
-  const onShowNativeShare = useCallback(() => {
-    window.navigator.share({
-      title: config.title(page.title),
-      url: `${config.baseUrl}${router.asPath}`,
-    });
-  }, [config, page.title, router.asPath]);
-  const openDialog: MouseEventHandler<HTMLAnchorElement> = useCallback(
-    (e) => {
-      window.open(
-        url,
-        e.currentTarget.target,
-        "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600"
-      );
-    },
-    [url]
-  );
-  return {
-    config,
-    openDialog,
-    url,
-    nativeShare,
-    onShowNativeShare,
-  };
-};
-
-export const EntryView = ({ entry, shareButton }: Props) => {
-  const { config, openDialog, url, nativeShare, onShowNativeShare } =
-    useEntryView(entry);
+export const EntryView = ({ entry, shareButton, path }: Props) => {
+  const url = buildFullPath(path);
+  const entryTitleWithBlogName = config.title(entry.title);
   return (
     <article>
       <h1>{entry.title}</h1>
@@ -207,53 +146,14 @@ export const EntryView = ({ entry, shareButton }: Props) => {
               <Share2 strokeWidth="1.2" aria-label="Share" />
             </h3>
 
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                `${config.title(entry.title)} ${url}`
-              )}`}
-              onClick={openDialog}
-              target="_new"
-              rel="noopener noreferrer"
-              className="block p-1.5 rounded-full"
-              aria-label="Share on Twitter"
-              title="Share on Twitter"
-            >
-              <Twitter
-                strokeWidth="1"
-                size="1.3rem"
-                className="stroke-current hover:fill-current"
-              />
-            </a>
-
-            <a
-              className="block p-1.5 rounded-full"
-              aria-label="Share on Facebook"
-              title="Share on Facebook"
-              onClick={openDialog}
-              target="_new"
-              rel="noopener noreferrer"
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                url
-              )}`}
-            >
-              <Facebook
-                strokeWidth="1"
-                size="1.3rem"
-                className="stroke-current hover:fill-current"
-              />
-            </a>
-            {nativeShare && (
-              <button
-                onClick={onShowNativeShare}
-                className="block p-1.5 rounded-full"
-              >
-                <MoreVertical
-                  strokeWidth="1"
-                  size="1.3rem"
-                  className="hover:fill-current"
-                />
-              </button>
-            )}
+            <ShareButtons
+              entryTitleWithBlogName={entryTitleWithBlogName}
+              url={url}
+            />
+            <NativeShareButton
+              entryTitleWithBlogName={entryTitleWithBlogName}
+              url={url}
+            />
           </div>
         )}
       </footer>

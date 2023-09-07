@@ -1,25 +1,27 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { useConfig } from "../hooks/useConfig";
+import { config } from "../../blog.config";
+
+interface Props {
+  path?: string;
+}
 
 interface NavLinkProps {
   children: React.ReactNode;
   href: string;
+  path?: string;
 }
 
-const NavLink = ({ children, href }: NavLinkProps) => {
-  const router = useRouter();
-  if (router.asPath.startsWith(href)) {
+export const NavLink = ({ children, href, path }: NavLinkProps) => {
+  const isActive = path === href;
+  if (isActive) {
     return <>{children}</>;
   } else {
     return <Link href={href}>{children}</Link>;
   }
 };
 
-export const AppHeader = () => {
-  const config = useConfig();
-  const router = useRouter();
-  const isIndex = router.asPath === "/";
+export const AppHeader = ({ path }: Props) => {
+  const isIndex = path === "/";
   return (
     <header className="header overflow-visible h-auto">
       <div className="container pt-20 pb-10">
@@ -34,33 +36,26 @@ export const AppHeader = () => {
         </h1>
         <p className="mt-0 mb-8 lead">{config.description}</p>
         <nav>
-          <ul className="inline-flex list-none p-0 m-0">
-            <li>
-              <NavLink href="/about">About</NavLink>
+          <ul className="flex list-none p-0 m-0 space-x-3">
+            <li className="pl-0">
+              <NavLink path={path} href="/about">
+                About
+              </NavLink>
             </li>
-            <li>
-              <NavLink href="/archives">Archives</NavLink>
+            <li className="pl-0">
+              <NavLink path={path} href="/archives">
+                Archives
+              </NavLink>
             </li>
-            <li>
+            <li className="pl-0">
               {
                 // eslint-disable-next-line @next/next/no-html-link-for-pages
-                <a href="/rss.xml">RSS</a>
               }
+              <a href="/rss.xml">RSS</a>
             </li>
           </ul>
         </nav>
       </div>
-      <style jsx>{`
-        .list-none > li {
-          padding-left: 0;
-        }
-        .list-none > li + li {
-          padding-left: 1rem;
-        }
-        .list-none > li::before {
-          display: none;
-        }
-      `}</style>
     </header>
   );
 };
