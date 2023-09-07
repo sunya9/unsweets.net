@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { EntryView } from "../../../components/EntryView";
 import { getEntries, getEntry } from "../../../lib/entry.js";
-import { AppLayout } from "../../../components/AppLayout";
 import { config } from "../../../../blog.config";
 import { buildFullPath } from "../../../lib/util";
 
@@ -27,9 +26,7 @@ export async function generateMetadata({
 const EntryPage = async ({ params: { slug } }: Props) => {
   const entry = await getEntry(slug);
   return (
-    <AppLayout>
-      <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />
-    </AppLayout>
+    <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />
   );
 };
 

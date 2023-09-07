@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
 import { config } from "../../blog.config";
-import { AppLayout } from "../components/AppLayout";
 import { buildFullPath } from "../lib/util";
 
 export const metadata: Metadata = {
@@ -19,9 +18,9 @@ export default async function Home() {
   );
 
   return (
-    <AppLayout path="/">
+    <>
       <EntryList entries={entries} />
       <Link href="/archives">Archives</Link>
-    </AppLayout>
+    </>
   );
 }

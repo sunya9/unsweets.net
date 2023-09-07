@@ -1,9 +1,8 @@
-import Link from "next/link";
-import { config } from "../../blog.config";
+"use client";
 
-interface Props {
-  path?: string;
-}
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { config } from "../../blog.config";
 
 interface NavLinkProps {
   children: React.ReactNode;
@@ -20,10 +19,11 @@ export const NavLink = ({ children, href, path }: NavLinkProps) => {
   }
 };
 
-export const AppHeader = ({ path }: Props) => {
+export const AppHeader = () => {
+  const path = usePathname();
   const isIndex = path === "/";
   return (
-    <header className="header overflow-visible h-auto">
+    <header className="header overflow-visible h-auto" key="appHeader">
       <div className="container pt-20 pb-10">
         <h1 className="mb-2">
           {isIndex ? (
