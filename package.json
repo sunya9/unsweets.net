@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@leafac/rehype-shiki": "2.2.1",
-    "@tailwindcss/typography": "0.5.9",
+    "@tailwindcss/typography": "0.5.10",
     "@types/mkdirp": "2.0.0",
     "dayjs": "1.11.9",
     "gray-matter": "4.0.3",
