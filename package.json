@@ -19,7 +19,7 @@
     "@leafac/rehype-shiki": "2.2.1",
     "@tailwindcss/typography": "0.5.10",
     "@types/mkdirp": "2.0.0",
-    "dayjs": "1.11.9",
+    "dayjs": "1.11.10",
     "gray-matter": "4.0.3",
     "next": "13.4.19",
     "next-mdx-remote": "4.4.1",
