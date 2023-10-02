@@ -707,10 +707,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/recursive-readdir@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@types/recursive-readdir/-/recursive-readdir-2.2.1.tgz#330f5ec0b73e8aeaf267a6e056884e393f3543a3"
-  integrity sha512-Xd+Ptc4/F2ueInqy5yK2FI5FxtwwbX2+VZpcg+9oYsFJVen8qQKGapCr+Bi5wQtHU1cTXT8s+07lo/nKPgu8Gg==
+"@types/recursive-readdir@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@types/recursive-readdir/-/recursive-readdir-2.2.2.tgz#937f60a9aca3724608880858284713668ef6606e"
+  integrity sha512-pYLuc3EaFA3SwYfZRC6cSV9TfL+0tLi9Otu2djGavsNhmrEna1yG1EkFOZW7SKJr/nIuDNk4mM6kMMpNLntIhw==
   dependencies:
     "@types/node" "*"
 
