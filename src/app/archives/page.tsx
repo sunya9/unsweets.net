@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { getEntries } from "../../lib/entry.js";
-import { config } from "../../../blog.config.js";
+import { getEntries } from "../../lib/entry";
+import { config } from "../../../blog.config";
 import { EntryList } from "../../components/EntryList";
-import { buildFullPath } from "../../lib/util.js";
+import { buildFullPath } from "../../lib/util";
 
 export const metadata: Metadata = {
   title: config.title("Archives"),

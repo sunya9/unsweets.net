@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Entry } from "../lib/entry.js";
+import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
 
 interface Props {

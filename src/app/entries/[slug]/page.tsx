@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { EntryView } from "../../../components/EntryView";
-import { getEntries, getEntry } from "../../../lib/entry.js";
+import { getEntries, getEntry } from "../../../lib/entry";
 import { config } from "../../../../blog.config";
 import { buildFullPath } from "../../../lib/util";
 
