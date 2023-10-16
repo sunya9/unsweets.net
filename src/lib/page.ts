@@ -2,7 +2,7 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import recursiveReaddir from "recursive-readdir";
 import matter from "gray-matter";
-import { pagesDir } from "./constants.js";
+import { pagesDir } from "./constants";
 
 export interface Page {
   slug: string;

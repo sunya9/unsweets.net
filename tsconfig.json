@@ -26,12 +26,5 @@
     "./src/**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "swc": true,
-    "transpileOnly": true,
-    "files": true,
-    "esm": true,
-    "require": ["tsconfig-paths/register"]
-  }
+  "exclude": ["node_modules"]
 }

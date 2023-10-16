@@ -2,7 +2,7 @@ import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import { Page } from "./page";
-import { blogDir } from "./constants.js";
+import { blogDir } from "./constants";
 
 export const revalidate = 3600;
 

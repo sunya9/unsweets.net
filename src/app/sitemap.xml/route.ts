@@ -1,10 +1,6 @@
-import * as path from "node:path";
-import { promises as fs } from "node:fs";
-import { mkdirp } from "mkdirp";
-import { config } from "../blog.config.js";
-import { getEntries } from "../src/lib/entry.js";
-import { getPages } from "../src/lib/page.js";
-import { __dirname } from "./util.js";
+import { config } from "../../../blog.config";
+import { getEntries } from "../../lib/entry";
+import { getPages } from "../../lib/page";
 
 const generateSitemap = async () => {
   const [entries, pages] = await Promise.all([getEntries(), getPages()]);
@@ -27,15 +23,11 @@ const generateUrlTag = (url: string) => `
 </url>
 `;
 
-const main = async () => {
+export async function GET() {
   const sitemapXml = await generateSitemap();
-  const publicDir = path.resolve(__dirname(import.meta.url), "../", "public");
-  await mkdirp(publicDir);
-  return fs.writeFile(
-    path.resolve(publicDir, "sitemap.xml"),
-    sitemapXml,
-    "utf-8",
-  );
-};
-
-main();
+  return new Response(sitemapXml, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
+}
