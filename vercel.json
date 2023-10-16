@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/:year(\\d{4,})/:month(\\d{2,})/:slug/",
-      "destination": "/entries/:slug/",
+      "destination": "/entries/:slug",
       "permanent": true
     }
   ],
