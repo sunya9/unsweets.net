@@ -34,17 +34,17 @@ export default function RootLayout({
         <meta name="color-scheme" content="light dark" />
         <meta name="theme-color" content="#f9fafb" />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=UA-10104011-7"
           strategy="afterInteractive"
-        ></Script>
+          src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"
+        />
         <Script strategy="afterInteractive" id="google-analytics">
           {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'UA-10104011-7');
-        `}
+            gtag('config', 'G-XEVMD8V0LK');
+          `}
         </Script>
       </head>
       <body className="bg-neutral-50 dark:bg-neutral-800">
