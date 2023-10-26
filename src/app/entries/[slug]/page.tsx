@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { EntryView } from "../../../components/EntryView";
 import { getEntries, getEntry } from "../../../lib/entry";
 import { config } from "../../../../blog.config";
@@ -11,11 +12,13 @@ interface Props {
 }
 
 export const dynamic = "force-static";
+export const fetchCache = "force-cache";
 
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
   const entry = await getEntry(slug);
+  if (!entry) notFound();
 
   return {
     title: config.title(entry.title),
@@ -27,6 +30,7 @@ export async function generateMetadata({
 
 const EntryPage = async ({ params: { slug } }: Props) => {
   const entry = await getEntry(slug);
+  if (!entry) notFound();
   return (
     <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />
   );
