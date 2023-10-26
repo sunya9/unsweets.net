@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 import { getEntries } from "../../lib/entry";
-import { config } from "../../../blog.config";
 import { EntryList } from "../../components/EntryList";
 import { buildFullPath } from "../../lib/util";
 
 export const metadata: Metadata = {
-  title: config.title("Archives"),
+  title: "Archives",
   alternates: {
     canonical: buildFullPath("/archives"),
   },

@@ -11,10 +11,13 @@ export interface Page {
   date?: number;
 }
 
-export const getPage = async (slug: string): Promise<Page> => {
+export const getPage = async (slug: string): Promise<Page | undefined> => {
   const filename = `${slug}.md`;
   const mdPath = path.resolve(pagesDir, filename);
-  const md = await fs.readFile(mdPath, "utf-8");
+  const md = await fs
+    .readFile(mdPath, "utf-8")
+    .catch((err) => console.error("page not found", err));
+  if (!md) return;
   if (matter.test(md)) {
     const { data, content } = matter(md);
     return {
@@ -48,6 +51,6 @@ export const getPages = async (): Promise<string[]> => {
     ),
   );
   return Promise.all(pagePromises).then((pages) =>
-    pages.map((page) => page.slug),
+    pages.filter((page): page is Page => !!page).map((page) => page.slug),
   );
 };

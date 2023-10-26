@@ -10,10 +10,13 @@ export interface Entry extends Page {
   date: number;
 }
 
-export const getEntry = async (slug: string): Promise<Entry> => {
+export const getEntry = async (slug: string): Promise<Entry | undefined> => {
   const filename = `${slug}.md`;
   const mdPath = path.resolve(blogDir, filename);
-  const md = await fs.readFile(mdPath, "utf-8");
+  const md = await fs
+    .readFile(mdPath, "utf-8")
+    .catch((err) => console.error("entry not found", err));
+  if (!md) return;
   const { data, content } = matter(md);
   const body = content;
   return {
@@ -31,6 +34,7 @@ export const getEntries = async (limit?: number): Promise<Entry[]> => {
   );
   return Promise.all(entryPromises).then((entries) =>
     entries
+      .filter((entry): entry is Entry => !!entry)
       .slice()
       .sort((a, b) => b.date - a.date)
       .slice(0, limit || entries.length),
