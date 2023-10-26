@@ -10,8 +10,7 @@ interface Props {
   };
 }
 
-export const dynamic = "force-static";
-export const fetchCache = "force-cache";
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params: { slug },
