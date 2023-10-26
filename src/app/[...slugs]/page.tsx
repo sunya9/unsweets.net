@@ -10,6 +10,8 @@ interface Props {
   };
 }
 
+export const dynamic = "force-static";
+
 export async function generateMetadata({
   params: { slugs },
 }: Props): Promise<Metadata> {
