@@ -1,15 +1,38 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { Metadata } from "next";
 import { config } from "../../blog.config";
 import "./../styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
 import { AppHeader } from "../components/AppHeader";
+import pkg from "../../package.json" assert { type: "json" };
 
 const inter = Inter({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: pkg.name,
+    template: `%s - ${pkg.name}`,
+  },
+  description: config.description,
+  colorScheme: "light dark",
+  themeColor: "#f9fafb",
+  icons: "/favicon.ico",
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        {
+          url: "/rss.xml",
+          title: "RSS",
+        },
+      ],
+    },
+  },
+};
 
 export default function RootLayout({
   children,
@@ -19,20 +42,6 @@ export default function RootLayout({
   return (
     <html id="app" lang="ja" className={inter.className}>
       <head>
-        <link key="icon" rel="icon" href="/favicon.ico" />
-        <meta
-          key="description"
-          name="description"
-          content={config.description}
-        />
-        <link
-          key="rss"
-          rel="alternate"
-          type="application/rss+xml"
-          href="/rss.xml"
-        />
-        <meta name="color-scheme" content="light dark" />
-        <meta name="theme-color" content="#f9fafb" />
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"

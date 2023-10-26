@@ -2,11 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
-import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
 
 export const metadata: Metadata = {
-  title: config.title(),
   alternates: {
     canonical: buildFullPath("/"),
   },

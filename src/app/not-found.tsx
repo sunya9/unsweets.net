@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import { config } from "../../blog.config";
 
 export const metadata: Metadata = {
-  title: config.title("404 - Page not found"),
+  title: "404 - Page not found",
 };
 
 const NotFound = () => {

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EntryView } from "../../components/EntryView";
 import { getPage, getPages } from "../../lib/page";
-import { config } from "../../../blog.config";
 import { buildFullPath } from "../../lib/util";
 
 interface Props {
@@ -21,7 +20,7 @@ export async function generateMetadata({
   if (!page) notFound();
 
   return {
-    title: config.title(page.title),
+    title: page.title,
     alternates: {
       canonical: buildFullPath(`/${page.slug}`),
     },
