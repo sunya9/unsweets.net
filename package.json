@@ -28,7 +28,7 @@
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "9.0.0",
     "husky": "8.0.3",
-    "prettier": "3.0.3",
+    "prettier": "3.2.4",
     "sass": "1.68.0",
     "typescript": "5.2.2"
   },
