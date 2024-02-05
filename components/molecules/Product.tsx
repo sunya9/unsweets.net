@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import { Column } from "components/atoms/Column";
 import { Columns } from "components/atoms/Columns";
 import styles from "./product.module.scss";
+import classNames from "classnames";
 
 interface Props {
   id: string;
@@ -24,13 +25,15 @@ interface Props {
 export const Product = (props: Props) => {
   const order = +!!props.reverse;
   return (
-    <div className={styles.root}>
+    <>
       <Columns itemScope itemType={props.itemType}>
         <Column style={{ order }}>
           <img
             src={props.screenshot}
             alt={`${props.name}'s screenshot`}
-            className={styles.ss}
+            className={classNames(styles.ss, {
+              [styles.reverse]: props.reverse,
+            })}
             width={props.imgOption.width}
             height={props.imgOption.height}
             loading="lazy"
@@ -73,6 +76,6 @@ export const Product = (props: Props) => {
           </section>
         </Column>
       </Columns>
-    </div>
+    </>
   );
 };

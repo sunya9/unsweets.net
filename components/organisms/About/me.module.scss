@@ -35,7 +35,7 @@
   max-height: calc(var(--icon-size) - 0.5rem);
   display: block;
   box-sizing: border-box;
-  transition: transform 1s var(--easing);
+  transition: all 1s var(--easing);
   &:hover {
     transform: rotate(360deg);
   }

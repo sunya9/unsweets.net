@@ -1,5 +1,4 @@
 import { Button } from "components/atoms/Button";
-import Link from "next/link";
 import styles from "../css/404.module.scss";
 export default function Error() {
   return (
@@ -9,9 +8,7 @@ export default function Error() {
         <p>
           ページが見つかりませんでした。トップページから探してみてください。
         </p>
-        <Link passHref href="/">
-          <Button>Go to Top</Button>
-        </Link>
+        <Button href="/">Go to Top</Button>
       </div>
     </div>
   );
