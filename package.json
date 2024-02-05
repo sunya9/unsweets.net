@@ -6,14 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
+    "build": "next build",
     "lint": "eslint --ext .tsx,.js,.ts --ignore-path .gitignore . && prettier --check --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .tsx,.js,.ts --ignore-path .gitignore . && prettier --ignore-path .gitignore --write ."
   },
   "dependencies": {
     "classnames": "2.3.2",
-    "next": "12.3.4",
+    "next": "14.1.0",
     "normalize.css": "8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
