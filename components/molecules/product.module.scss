@@ -49,21 +49,26 @@
 
 .ss {
   max-height: 50vh;
+  max-width: 100%;
   width: auto;
+  height: auto;
   margin: 0 auto;
   display: block;
-  max-width: 100%;
   transition: all ease 0.2s;
-  position: relative;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
   transform: scale(0.95);
   @include mqMin(md) {
     max-height: 80vh;
-    width: auto;
     max-width: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    margin: auto;
+    &.reverse {
+      right: auto;
+      left: 0;
+    }
   }
   &:hover {
     transform: scale(1);

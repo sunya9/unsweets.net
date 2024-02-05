@@ -21,11 +21,14 @@ body {
 @media (prefers-color-scheme: dark) {
   img {
     filter: brightness(80%);
+    transition: $default-transition;
     &:hover {
       filter: brightness(100%);
     }
   }
 }
+
+
 
 ::selection {
   background-color: rgba($accent-color, 0.2);
