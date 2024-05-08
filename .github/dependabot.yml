@@ -9,6 +9,16 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      react:
+        patterns:
+          - "react*"
+          - "@types/react"
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@typescript-eslint/*"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
