@@ -3948,10 +3948,10 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-medium-image-zoom@5.2.2:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.2.2.tgz#9a2b8eb001c05ffc1d6bff34f43601086e0bd091"
-  integrity sha512-sqb+DKKXhdOrffh8EyIeuBvsPBLwFIUauKgWGE+hm7FTKFjjSKf/puZ5qYUSD1veyFALAhYDNo/4aRpZLYTVXA==
+react-medium-image-zoom@5.2.4:
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.2.4.tgz#a3d4773a40e641484b23ee874b8ad9bc057faed9"
+  integrity sha512-XLu/fLqpbmhiDAGA6yie78tDv4kh8GxvS7kKQArSOvCvm5zvgItoh4h01NAAvnezQ60ovsTeedHiHG3eG9CcGg==
 
 react@18.3.1:
   version "18.3.1"
