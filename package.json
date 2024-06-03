@@ -32,7 +32,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@swc/core": "1.5.7",
+    "@swc/core": "1.5.24",
     "@types/node": "20.12.12",
     "@types/react": "18.3.3",
     "@types/recursive-readdir": "2.2.4",
