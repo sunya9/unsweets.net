@@ -18,7 +18,7 @@ export default function Index() {
       <main>
         <section>
           <SectionTitle id="works">Works</SectionTitle>
-          <Screen tag="section">
+          <Screen>
             <Product
               screenshot="/images/gamma-ss.png"
               name="Gamma"
@@ -35,7 +35,7 @@ export default function Index() {
               }}
             />
           </Screen>
-          <Screen tag="section">
+          <Screen>
             <Product
               reverse
               screenshot="/images/beta-ss.png"
@@ -62,7 +62,7 @@ export default function Index() {
             </Button>
           </div>
         </section>
-        <Screen tag="section">
+        <Screen>
           <SectionTitle id="about">About</SectionTitle>
           <ScreenFlexible centering>
             <Columns>
@@ -75,7 +75,7 @@ export default function Index() {
             </Columns>
           </ScreenFlexible>
         </Screen>
-        <Screen tag="section">
+        <Screen>
           <SectionTitle id="contact">Contact</SectionTitle>
           <ScreenFlexible centering>
             <Contact />

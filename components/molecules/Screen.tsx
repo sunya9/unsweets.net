@@ -1,21 +1,15 @@
 import classnames from "classnames";
 import styles from "./screen.module.scss";
-import { ComponentType } from "react";
 
 interface Props extends React.HTMLAttributes<HTMLOrSVGElement> {
   children: React.ReactNode;
-  tag?: ComponentType | keyof JSX.IntrinsicElements;
 }
 
-export const Screen: React.FC<Props> = ({
-  children,
-  tag: Wrapper = "div",
-  ...rest
-}) => {
+export const Screen: React.FC<Props> = ({ children, ...rest }) => {
   return (
-    <Wrapper className={styles.screen} {...rest}>
+    <section className={styles.screen} {...rest}>
       {children}
-    </Wrapper>
+    </section>
   );
 };
 
