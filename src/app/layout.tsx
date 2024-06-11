@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { config } from "../../blog.config";
 import "./../styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
@@ -19,8 +19,6 @@ export const metadata: Metadata = {
     template: `%s - ${pkg.name}`,
   },
   description: config.description,
-  colorScheme: "light dark",
-  themeColor: "#f9fafb",
   icons: "/favicon.ico",
   alternates: {
     types: {
@@ -32,6 +30,11 @@ export const metadata: Metadata = {
       ],
     },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f9fafb",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
