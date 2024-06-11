@@ -8,13 +8,13 @@ type Props = {
   fixedSrc: string;
 } & Omit<ImgHTMLAttributes<HTMLImageElement>, "src">;
 
-export const ZoomWrapper = ({ fixedSrc, ...rest }: Props) => {
+export const ZoomWrapper = ({ fixedSrc, alt, ...rest }: Props) => {
   return (
     <Zoom wrapElement="span" zoomMargin={16}>
       <img
         src={fixedSrc}
         className="border shadow-lg max-h-64 my-0"
-        alt=""
+        alt={alt}
         {...rest}
       />
     </Zoom>

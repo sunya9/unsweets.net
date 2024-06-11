@@ -13,7 +13,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "import/order": "error"
+    "import/order": "error",
+    "@next/next/no-img-element": "off"
   }
 }
