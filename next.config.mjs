@@ -34,6 +34,7 @@ const config = {
     };
     return webpackConfig;
   },
+  transpilePackages: ["next-mdx-remote"],
 };
 
 export default config;

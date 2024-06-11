@@ -1,8 +1,8 @@
 import { ImgHTMLAttributes, createElement } from "react";
 import { Share2, Link as LinkIcon } from "react-feather";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkSlug from "remark-slug";
-import rehypeShiki from "@leafac/rehype-shiki";
+import rehypeSlug from "rehype-slug";
+import rehypeShiki from "@shikijs/rehype";
 import * as shiki from "shiki";
 import { Page } from "../lib/page";
 import { config } from "../../blog.config";
@@ -57,7 +57,6 @@ const loadHighlighter = (async () => {
 })();
 
 export const EntryView = async ({ entry, shareButton, path }: Props) => {
-  const highlighter = await loadHighlighter;
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
   return (
@@ -73,12 +72,12 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
         options={{
           mdxOptions: {
             format: "md",
-            remarkPlugins: [remarkSlug],
             rehypePlugins: [
+              rehypeSlug,
               [
                 rehypeShiki,
                 {
-                  highlighter,
+                  theme: "material-theme-darker",
                 },
               ],
             ],
