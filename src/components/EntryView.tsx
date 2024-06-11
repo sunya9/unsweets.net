@@ -3,7 +3,6 @@ import { Share2, Link as LinkIcon } from "react-feather";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import rehypeShiki from "@shikijs/rehype";
-import * as shiki from "shiki";
 import { Page } from "../lib/page";
 import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
@@ -51,10 +50,6 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
     </span>
   );
 };
-
-const loadHighlighter = (async () => {
-  return await shiki.getHighlighter({ theme: "material-theme-darker" });
-})();
 
 export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const url = buildFullPath(path);
