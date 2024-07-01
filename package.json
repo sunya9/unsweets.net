@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.9",
     "@types/react": "18.3.3",
     "@types/recursive-readdir": "2.2.4",
     "@types/rss": "^0.0.32",
