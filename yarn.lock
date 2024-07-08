@@ -5647,13 +5647,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-medium-image-zoom@npm:5.2.5":
-  version: 5.2.5
-  resolution: "react-medium-image-zoom@npm:5.2.5"
+"react-medium-image-zoom@npm:5.2.7":
+  version: 5.2.7
+  resolution: "react-medium-image-zoom@npm:5.2.7"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/010ed75739ec38d09f9aa6d9d272cc6deaa812ef8d1ba583ccb59516159c48c6ae660f30e3e4e296b695d27b6ec98d8fbc52015a7b0442166c3756b855c6616d
+  checksum: 10c0/5d92495f91ca35de44ad049e78406ecfc0f2d7fdc8b64409ec7354d327384fab7f0f6c69cb10bbd2e6fb9405dce092675188d927520f9f0a01ff5d21ed8bf0fc
   languageName: node
   linkType: hard
 
@@ -6740,7 +6740,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-feather: "npm:2.0.10"
-    react-medium-image-zoom: "npm:5.2.5"
+    react-medium-image-zoom: "npm:5.2.7"
     recursive-readdir: "npm:2.2.3"
     rehype-slug: "npm:^6.0.0"
     rss: "npm:^1.2.2"
