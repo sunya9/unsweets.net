@@ -42,6 +42,9 @@ const useMediaQuery = <K extends Key>(key: K) => {
   }, [key]);
   return matches;
 };
+
+// 利用するとき
+const isSmall = useMediaQuery("sm");
 ```
 
 RSCが有効な環境では`window`を参照できないので`useState`の引数は適宜`useEffect`の中に移動するなどする。
