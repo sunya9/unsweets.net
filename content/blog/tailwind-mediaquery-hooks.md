@@ -6,13 +6,13 @@ date: 2024-07-12
 ## 動機
 
 - Tailwind CSS の breakpoints の設定値に基づいて見せ方を変えたい
-- Tailwindのクラスを利用するときに指定する `sm:` や `md:` といったブレイクポイントとズレをなくしたい
+- Tailwindのクラスを利用するときに指定する `sm:` や `md:` といったブレイクポイントと同期してほしい
 
 ## 解法
 
 [css - How do I get Tailwind's active breakpoint in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/59982018/how-do-i-get-tailwinds-active-breakpoint-in-javascript) を参考にした。
 
-Tailwindのconfigをresolveして、[matchMedia](https://developer.mozilla.org/ja/docs/Web/API/Window/matchMedia)のパラメータとして利用する。
+Tailwindのconfigを解決して、[matchMedia](https://developer.mozilla.org/ja/docs/Web/API/Window/matchMedia)のパラメータとして利用する。
 
 ```ts
 import { useEffect, useState } from "react";
