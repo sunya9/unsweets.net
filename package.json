@@ -34,7 +34,7 @@
     "@types/react": "18.3.3",
     "@types/recursive-readdir": "2.2.4",
     "@types/rss": "^0.0.32",
-    "@typescript-eslint/eslint-plugin": "7.17.0",
+    "@typescript-eslint/eslint-plugin": "8.0.0",
     "@typescript-eslint/parser": "7.16.1",
     "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
