@@ -5,7 +5,7 @@ import { config } from "../../blog.config";
 import "./../styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
 import { AppHeader } from "../components/AppHeader";
-import pkg from "../../package.json" assert { type: "json" };
+import pkg from "../../package.json";
 
 const inter = Inter({
   subsets: ["latin"],

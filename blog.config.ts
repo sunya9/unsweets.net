@@ -1,4 +1,4 @@
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json";
 const baseUrl = "https://blog.unsweets.net";
 
 export const config = {
