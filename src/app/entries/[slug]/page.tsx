@@ -5,16 +5,18 @@ import { getEntries, getEntry } from "../../../lib/entry";
 import { buildFullPath } from "../../../lib/util";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const dynamicParams = false;
 
-export async function generateMetadata({
-  params: { slug },
-}: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
+
+  const { slug } = params;
+
   const entry = await getEntry(slug);
   if (!entry) notFound();
 
@@ -26,7 +28,11 @@ export async function generateMetadata({
   };
 }
 
-const EntryPage = async ({ params: { slug } }: Props) => {
+const EntryPage = async (props: Props) => {
+  const params = await props.params;
+
+  const { slug } = params;
+
   const entry = await getEntry(slug);
   if (!entry) notFound();
   return (

@@ -48,9 +48,6 @@ export const AppHeader = () => {
               </NavLink>
             </li>
             <li className="pl-0">
-              {
-                // eslint-disable-next-line @next/next/no-html-link-for-pages
-              }
               <a href="/rss.xml">RSS</a>
             </li>
           </ul>

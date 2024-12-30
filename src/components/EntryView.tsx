@@ -2,7 +2,7 @@ import { ImgHTMLAttributes, createElement } from "react";
 import { Share2, Link as LinkIcon } from "react-feather";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
-import rehypeShiki from "@shikijs/rehype";
+import rehypePrettyCode from "rehype-pretty-code";
 import { Page } from "../lib/page";
 import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
@@ -70,7 +70,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
             rehypePlugins: [
               rehypeSlug,
               [
-                rehypeShiki,
+                rehypePrettyCode,
                 {
                   theme: "material-theme-darker",
                 },

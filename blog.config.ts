@@ -1,5 +1,5 @@
-import pkg from "./package.json" assert { type: "json" };
-const baseUrl = "https://blog.unsweets.net";
+import pkg from "./package.json";
+const baseUrl = "https://unsweets.net";
 
 export const config = {
   title: (pageTitle?: string) =>
