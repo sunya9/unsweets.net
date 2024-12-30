@@ -7,10 +7,10 @@ import { config } from "../../blog.config";
 interface NavLinkProps {
   children: React.ReactNode;
   href: string;
-  path?: string;
 }
 
-export const NavLink = ({ children, href, path }: NavLinkProps) => {
+export const NavLink = ({ children, href }: NavLinkProps) => {
+  const path = usePathname();
   const isActive = path === href;
   if (isActive) {
     return <>{children}</>;
@@ -38,14 +38,10 @@ export const AppHeader = () => {
         <nav>
           <ul className="flex list-none p-0 m-0 space-x-3">
             <li className="pl-0">
-              <NavLink path={path} href="/about">
-                About
-              </NavLink>
+              <NavLink href="/about">About</NavLink>
             </li>
             <li className="pl-0">
-              <NavLink path={path} href="/archives">
-                Archives
-              </NavLink>
+              <NavLink href="/archives">Archives</NavLink>
             </li>
             <li className="pl-0">
               <a href="/rss.xml">RSS</a>
