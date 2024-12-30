@@ -38,9 +38,6 @@ export const AppHeader = () => {
         <nav>
           <ul className="m-0 flex list-none space-x-3 p-0">
             <li className="pl-0">
-              <NavLink href="/about">About</NavLink>
-            </li>
-            <li className="pl-0">
               <NavLink href="/archives">Archives</NavLink>
             </li>
             <li className="pl-0">
