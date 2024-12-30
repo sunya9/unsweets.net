@@ -14,15 +14,19 @@ export const NativeShareButton = ({ entryTitleWithBlogName, url }: Props) => {
     setNativeShare(!!window.navigator.share);
   }, []);
 
-  const onShowNativeShare = useCallback(() => {
-    window.navigator.share({
-      title: entryTitleWithBlogName,
-      url,
-    });
+  const onShowNativeShare = useCallback(async () => {
+    try {
+      await window.navigator.share({
+        title: entryTitleWithBlogName,
+        url,
+      });
+    } catch (e) {
+      console.warn(e);
+    }
   }, [entryTitleWithBlogName, url]);
   return (
     nativeShare && (
-      <button onClick={onShowNativeShare} className="block p-1.5 rounded-full">
+      <button onClick={onShowNativeShare} className="block rounded-full p-1.5">
         <MoreVertical
           strokeWidth="1"
           size="1.3rem"
