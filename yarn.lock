@@ -5990,13 +5990,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-medium-image-zoom@npm:5.2.10":
-  version: 5.2.10
-  resolution: "react-medium-image-zoom@npm:5.2.10"
+"react-medium-image-zoom@npm:5.2.13":
+  version: 5.2.13
+  resolution: "react-medium-image-zoom@npm:5.2.13"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/80e84ef7a87fea7f82ef93c54ac6cc9811da15f4d7526e99fba6deabfc7b7236cb16c0b0f03d3f0ec3c2626fdbbef59891deb1f8cd16b634cdf0cde22d43a1c3
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/db4a992d41d00866b4f73b1961c26eac66cc828c78be987005a423c43eee8d5e51d5bbb3cffe1e91fee8818fd134f5901f28fb5305323b972d72dc996221fbe7
   languageName: node
   linkType: hard
 
@@ -7276,7 +7276,7 @@ __metadata:
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     react-feather: "npm:2.0.10"
-    react-medium-image-zoom: "npm:5.2.10"
+    react-medium-image-zoom: "npm:5.2.13"
     recursive-readdir: "npm:2.2.3"
     rehype-pretty-code: "npm:^0.14.0"
     rehype-slug: "npm:^6.0.0"
