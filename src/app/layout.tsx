@@ -60,8 +60,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="bg-neutral-50 dark:bg-neutral-800">
-        <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <div className="min-h-screen flex flex-col">
+        <div className="prose prose-neutral max-w-none dark:prose-invert">
+          <div className="flex min-h-screen flex-col">
             <AppHeader />
             <main className="flex-1">
               <div className="container">{children}</div>

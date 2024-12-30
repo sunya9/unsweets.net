@@ -23,8 +23,8 @@ export const AppHeader = () => {
   const path = usePathname();
   const isIndex = path === "/";
   return (
-    <header className="header overflow-visible h-auto" key="appHeader">
-      <div className="container pt-20 pb-10">
+    <header className="header h-auto overflow-visible" key="appHeader">
+      <div className="container pb-10 pt-20">
         <h1 className="mb-2">
           {isIndex ? (
             config.title()
@@ -34,9 +34,9 @@ export const AppHeader = () => {
             </Link>
           )}
         </h1>
-        <p className="mt-0 mb-8 lead">{config.description}</p>
+        <p className="lead mb-8 mt-0">{config.description}</p>
         <nav>
-          <ul className="flex list-none p-0 m-0 space-x-3">
+          <ul className="m-0 flex list-none space-x-3 p-0">
             <li className="pl-0">
               <NavLink href="/about">About</NavLink>
             </li>

@@ -28,7 +28,7 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
         onClick={openDialog}
         target="_new"
         rel="noopener noreferrer"
-        className="block p-1.5 rounded-full"
+        className="block rounded-full p-1.5"
         aria-label="Share on Twitter"
         title="Share on Twitter"
       >
@@ -40,7 +40,7 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
       </a>
 
       <a
-        className="block p-1.5 rounded-full"
+        className="block rounded-full p-1.5"
         aria-label="Share on Facebook"
         title="Share on Facebook"
         onClick={openDialog}

@@ -4,10 +4,10 @@ import styles from "./../styles/footer.module.css";
 export const AppFooter = () => {
   return (
     <footer className={`${styles.wave} mt-24`}>
-      <div className={`${styles.inner} pt-16 pb-8`}>
+      <div className={`${styles.inner} pb-8 pt-16`}>
         <div className="container text-white">
-          <div className="flex justify-start items-center -ml-2 pb-16">
-            <p className="my-0 mx-2">Created by _X_y_z_.</p>
+          <div className="-ml-2 flex items-center justify-start pb-16">
+            <p className="mx-2 my-0">Created by _X_y_z_.</p>
             <div className="mx-1.5">
               <a
                 href="https://twitter.com/ephemeralMocha"

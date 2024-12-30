@@ -13,7 +13,7 @@ export const ZoomWrapper = ({ fixedSrc, alt, ...rest }: Props) => {
     <Zoom wrapElement="span" zoomMargin={16}>
       <img
         src={fixedSrc}
-        className="border shadow-lg max-h-64 my-0"
+        className="my-0 max-h-64 border shadow-lg"
         alt={alt}
         {...rest}
       />

@@ -30,7 +30,7 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
       <a
         href={`#${id}`}
         key="linkIcon"
-        className="transition-all absolute right-full top-0 bottom-0 pr-1.5 text-transparent hover:text-current group-hover:text-current linkIcon flex flex-row items-center"
+        className="linkIcon absolute bottom-0 right-full top-0 flex flex-row items-center pr-1.5 text-transparent transition-all hover:text-current group-hover:text-current"
       >
         <LinkIcon size="0.75em" strokeWidth="1.5" />
       </a>,
@@ -45,7 +45,7 @@ const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
     ? nonNullableSrc
     : nonNullableSrc.replace(/^\.\.\/\.\.\/public/, "");
   return (
-    <span className="block text-center my-8">
+    <span className="my-8 block text-center">
       <ZoomWrapper fixedSrc={fixedSrc} {...rest} />
     </span>
   );
@@ -91,9 +91,9 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
       />
       <footer>
         {shareButton && (
-          <div className="bg-neutral-100 dark:bg-neutral-900 inline-flex justify-center flex-row rounded-full shadow-md items-center hover:shadow-lg transition-all pr-3 my-2">
+          <div className="my-2 inline-flex flex-row items-center justify-center rounded-full bg-neutral-100 pr-3 shadow-md transition-all hover:shadow-lg dark:bg-neutral-900">
             <h3
-              className="rounded-full p-3 shadow-lg -my-1 ml-0 mr-1.5 bg-neutral-100 dark:bg-neutral-900"
+              className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900"
               title="Share"
             >
               <Share2 strokeWidth="1.2" aria-label="Share" />
