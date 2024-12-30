@@ -1,7 +1,6 @@
-/**
- * @type {import('next').NextConfig}
- **/
-const config = {
+import type { NextConfig } from "next";
+
+const config: NextConfig = {
   reactStrictMode: true,
   redirects: async () => [
     {
@@ -25,16 +24,6 @@ const config = {
       ],
     },
   ],
-  webpack: (webpackConfig) => {
-    // https://github.com/vercel/next.js/issues/41961
-    webpackConfig.resolve.extensionAlias = {
-      ".js": [".ts", ".tsx", ".js", ".jsx"],
-      ".mjs": [".mts", ".mjs"],
-      ".cjs": [".cts", ".cjs"],
-    };
-    return webpackConfig;
-  },
-  transpilePackages: ["next-mdx-remote"],
 };
 
 export default config;
