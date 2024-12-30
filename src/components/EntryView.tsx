@@ -1,17 +1,21 @@
+import nodepath from "node:path";
 import { ImgHTMLAttributes, createElement } from "react";
 import { Share2, Link as LinkIcon } from "react-feather";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeImgSize from "rehype-img-size";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 import { Page } from "../lib/page";
 import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
+import { blogDir } from "../lib/constants";
 import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 import { AbsDate } from "./AbsDate";
 import { NativeShareButton } from "./NativeShareButton";
 import { ShareButtons } from "./ShareButtons";
 import { ZoomWrapper } from "./ZoomWrapper";
-
+import { EntryImage } from "./EntryImage";
 interface Props {
   entry: Page;
   shareButton?: boolean;
@@ -39,15 +43,33 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
   );
 };
 
-const Img = ({ src, ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
+const Img = ({
+  src,
+  alt,
+  width,
+  height,
+  slug,
+  ...rest
+}: ImgHTMLAttributes<HTMLImageElement> & { slug: string }) => {
   const nonNullableSrc = src || "";
   const fixedSrc = nonNullableSrc.startsWith("/")
     ? nonNullableSrc
     : nonNullableSrc.replace(/^\.\.\/\.\.\/public/, "");
+  if (!width || !height) throw new Error("Cannot get width or height");
   return (
-    <span className="my-8 block text-center">
-      <ZoomWrapper fixedSrc={fixedSrc} {...rest} />
-    </span>
+    <div className="my-8">
+      <ZoomWrapper>
+        <EntryImage
+          src={fixedSrc}
+          className="max-h-1/3 my-0 w-auto border shadow-lg"
+          alt={alt || ""}
+          width={+width}
+          height={+height}
+          slug={slug}
+          {...rest}
+        />
+      </ZoomWrapper>
+    </div>
   );
 };
 
@@ -69,18 +91,15 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
             format: "md",
             rehypePlugins: [
               rehypeSlug,
-              [
-                rehypePrettyCode,
-                {
-                  theme: "material-theme-darker",
-                },
-              ],
+              [rehypeImgSize, { dir: nodepath.join(blogDir, entry.slug) }],
+              rehypeUnwrapImages,
+              [rehypePrettyCode, { theme: "material-theme-darker" }],
             ],
           },
         }}
         components={{
           a: (props) => <NextLinkIfInternalAnchor {...props} />,
-          img: (props) => <Img {...props} />,
+          img: (props) => <Img {...props} slug={entry.slug} />,
           h1: (props) => <Heading level={1} {...props} />,
           h2: (props) => <Heading level={2} {...props} />,
           h3: (props) => <Heading level={3} {...props} />,

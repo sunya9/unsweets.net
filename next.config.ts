@@ -1,4 +1,7 @@
+import path from "path";
 import type { NextConfig } from "next";
+import CopyFilePlugin from "copy-webpack-plugin";
+import WriteFilePlugin from "write-file-webpack-plugin";
 
 const config: NextConfig = {
   reactStrictMode: true,
@@ -24,6 +27,21 @@ const config: NextConfig = {
       ],
     },
   ],
+  webpack(config) {
+    config.plugins.push(
+      new CopyFilePlugin({
+        patterns: [
+          {
+            context: "content/blog",
+            from: "**/*.{jpg,png}",
+            to: path.resolve(__dirname, "public/entries/"),
+          },
+        ],
+      }),
+      new WriteFilePlugin(),
+    );
+    return config;
+  },
 };
 
 export default config;

@@ -10,13 +10,12 @@ export interface Entry extends Page {
   date: number;
 }
 
-export const getEntry = async (slug: string): Promise<Entry | undefined> => {
-  const filename = `${slug}.md`;
-  const mdPath = path.resolve(blogDir, filename);
-  const md = await fs
-    .readFile(mdPath, "utf-8")
-    .catch((err) => console.error("entry not found", err));
-  if (!md) return;
+const getEntryPath = (slug: string) =>
+  path.join(blogDir, slug, "/", "index.md");
+
+export const getEntry = async (slug: string): Promise<Entry> => {
+  const mdPath = getEntryPath(slug);
+  const md = await fs.readFile(mdPath, "utf-8");
   const { data, content } = matter(md);
   const body = content;
   return {
@@ -28,15 +27,10 @@ export const getEntry = async (slug: string): Promise<Entry | undefined> => {
 };
 
 export const getEntries = async (limit?: number): Promise<Entry[]> => {
-  const slugs = await fs.readdir(blogDir);
-  const entryPromises = slugs.map((filename) =>
-    getEntry(path.basename(filename, ".md")),
-  );
-  return Promise.all(entryPromises).then((entries) =>
-    entries
-      .filter((entry): entry is Entry => !!entry)
-      .slice()
-      .sort((a, b) => b.date - a.date)
-      .slice(0, limit || entries.length),
-  );
+  const dirents = await fs.readdir(blogDir, { withFileTypes: true });
+  const slugs = dirents
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+  const entries = await Promise.all(slugs.map(getEntry));
+  return entries.toSorted((a, b) => b.date - a.date).slice(0, limit);
 };
