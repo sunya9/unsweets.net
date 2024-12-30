@@ -1,5 +1,5 @@
-# unsweets.log
+# unsweets.net
 
-![Node.js CI](https://github.com/sunya9/unsweets.log/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/sunya9/unsweets.net/workflows/Node.js%20CI/badge.svg)
 
-[unsweets.log](https://unsweets.net/) source files.
+[unsweets.net](https://unsweets.net/) source files.

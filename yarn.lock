@@ -7241,9 +7241,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unsweets.log@workspace:.":
+"unsweets.net@workspace:.":
   version: 0.0.0-use.local
-  resolution: "unsweets.log@workspace:."
+  resolution: "unsweets.net@workspace:."
   dependencies:
     "@tailwindcss/typography": "npm:0.5.15"
     "@types/node": "npm:22.10.2"
