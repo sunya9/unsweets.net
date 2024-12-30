@@ -6,10 +6,10 @@ import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeImgSize from "rehype-img-size";
 import rehypeUnwrapImages from "rehype-unwrap-images";
-import { Page } from "../lib/page";
 import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
 import { blogDir } from "../lib/constants";
+import { Entry } from "../lib/entry";
 import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 import { AbsDate } from "./AbsDate";
 import { NativeShareButton } from "./NativeShareButton";
@@ -17,7 +17,7 @@ import { ShareButtons } from "./ShareButtons";
 import { ZoomWrapper } from "./ZoomWrapper";
 import { EntryImage } from "./EntryImage";
 interface Props {
-  entry: Page;
+  entry: Entry;
   shareButton?: boolean;
   path: string;
 }

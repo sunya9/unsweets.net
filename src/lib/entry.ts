@@ -1,12 +1,14 @@
 import * as path from "path";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
-import { Page } from "./page";
 import { blogDir } from "./constants";
 
 export const revalidate = 3600;
 
-export interface Entry extends Page {
+export interface Entry {
+  slug: string;
+  title: string;
+  body: string;
   date: number;
 }
 
