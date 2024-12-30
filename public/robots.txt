@@ -1,2 +1,2 @@
 User-agent: "*"
-Sitemap: https://blog.unsweets.net/sitemap.xml
+Sitemap: https://unsweets.net/sitemap.xml

@@ -1,5 +1,5 @@
 import pkg from "./package.json";
-const baseUrl = "https://blog.unsweets.net";
+const baseUrl = "https://unsweets.net";
 
 export const config = {
   title: (pageTitle?: string) =>
