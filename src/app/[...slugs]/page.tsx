@@ -5,16 +5,18 @@ import { getPage, getPages } from "../../lib/page";
 import { buildFullPath } from "../../lib/util";
 
 interface Props {
-  params: {
+  params: Promise<{
     slugs: string[];
-  };
+  }>;
 }
 
 export const dynamicParams = false;
 
-export async function generateMetadata({
-  params: { slugs },
-}: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
+
+  const { slugs } = params;
+
   const page = await getPage(slugs.join("/"));
   if (!page) notFound();
 
@@ -26,7 +28,11 @@ export async function generateMetadata({
   };
 }
 
-const PagePage = async ({ params: { slugs } }: Props) => {
+const PagePage = async (props: Props) => {
+  const params = await props.params;
+
+  const { slugs } = params;
+
   const slug = `${slugs.join("/")}`;
   const path = `/${slug}`;
   const page = await getPage(slug);
