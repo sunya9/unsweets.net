@@ -9,6 +9,37 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      unified-packages:
+        patterns:
+          - "rehype-img-size"
+          - "rehype-pretty-code"
+          - "rehype-slug"
+          - "rehype-unwrap-images"
+          - "shiki"
+      next-packages:
+        patterns:
+          - "react*"
+          - "@types/react*"
+          - "next*"
+          - "eslint-config-next"
+
+      dev-packages:
+        patterns:
+          - "@types/node"
+          - "@types/recursive-readdir"
+          - "@types/rss"
+          - "@types/write-file-webpack-plugin"
+          - "autoprefixer"
+          - "eslint"
+          - "eslint-config-next"
+          - "eslint-config-prettier"
+          - "postcss"
+          - "postcss-flexbugs-fixes"
+          - "postcss-preset-env"
+          - "prettier"
+          - "prettier-plugin-tailwindcss*"
+          - "typescript*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
