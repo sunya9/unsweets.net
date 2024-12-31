@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Metadata, Viewport } from "next";
+import { ViewTransitions } from "next-view-transitions";
 import { config } from "../../blog.config";
 import "./../styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
@@ -42,31 +43,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html id="app" lang="ja" className={inter.className}>
-      <head>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"
-        />
-        <Script strategy="afterInteractive" id="google-analytics">
-          {`
+    <ViewTransitions>
+      <html id="app" lang="ja" className={inter.className}>
+        <head>
+          <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"
+          />
+          <Script strategy="afterInteractive" id="google-analytics">
+            {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-XEVMD8V0LK');
           `}
-        </Script>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
-        />
-      </head>
-      <body className="prose prose-neutral flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert prose-a:underline-offset-4 dark:bg-neutral-800">
-        <AppHeader />
-        <main className="container flex-1">{children}</main>
-        <AppFooter />
-      </body>
-    </html>
+          </Script>
+          <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
+          />
+        </head>
+        <body className="prose prose-neutral flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert prose-a:underline-offset-4 dark:bg-neutral-800">
+          <AppHeader />
+          <main className="container flex-1">{children}</main>
+          <AppFooter />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import classnames from "classnames";
 import { Rubik } from "next/font/google";
 import { config } from "../../blog.config";
 import styles from "../styles/header.module.css";
+import { cn } from "../lib/util";
+import { AppLink } from "./AppLink";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export const NavLink = ({ children, href }: NavLinkProps) => {
   if (isActive) {
     return <>{children}</>;
   } else {
-    return <Link href={href}>{children}</Link>;
+    return <AppLink href={href}>{children}</AppLink>;
   }
 };
 
@@ -33,7 +33,7 @@ export const AppHeader = () => {
   const isIndex = path === "/";
   return (
     <header
-      className={classnames(styles.wave, "h-auto overflow-visible")}
+      className={cn(styles.wave, "h-auto overflow-visible")}
       key="appHeader"
     >
       <div className="container pb-10 pt-20">
@@ -41,9 +41,9 @@ export const AppHeader = () => {
           {isIndex ? (
             config.title()
           ) : (
-            <Link href="/" style={{ fontWeight: "inherit" }}>
+            <AppLink href="/" style={{ fontWeight: "inherit" }}>
               {config.title()}
-            </Link>
+            </AppLink>
           )}
         </h1>
         <p className="lead mb-8 mt-0">{config.description}</p>

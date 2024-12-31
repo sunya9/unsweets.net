@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Metadata } from "next";
 import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
 import { buildFullPath } from "../lib/util";
 import { config } from "../../blog.config";
+import { AppLink } from "../components/AppLink";
 
 export const metadata: Metadata = {
   alternates: {
@@ -32,7 +32,7 @@ export default async function Home() {
       <section>
         <h2>最近の投稿</h2>
         <EntryList entries={entries} />
-        <Link href="/archives">もっと読む</Link>
+        <AppLink href="/archives">もっと読む</AppLink>
       </section>
     </>
   );

@@ -6,11 +6,15 @@ dayjs.extend(timezone);
 dayjs.extend(utc);
 dayjs.tz.setDefault("Asia/Tokyo");
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLTimeElement> {
   date: number;
 }
 
-export const AbsDate = ({ date }: Props) => {
+export const AbsDate = ({ date, ...rest }: Props) => {
   const day = dayjs.utc(date).local();
-  return <time dateTime={day.format()}>{day.format("YYYY.MM.DD")}</time>;
+  return (
+    <time dateTime={day.format()} {...rest}>
+      {day.format("YYYY.MM.DD")}
+    </time>
+  );
 };

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
+import { AppLink } from "./AppLink";
 
 interface Props {
   entries: Omit<Entry, "body">[];
@@ -9,11 +9,30 @@ export const EntryList = (props: Props) => {
   return (
     <ul>
       {props.entries.map((entry) => (
-        <li key={entry.slug} className="mb-4">
-          <div className="text-[var(--tw-prose-lead)]">
-            <AbsDate date={entry.date} />
+        <li
+          key={entry.slug}
+          className="mb-4"
+          style={{
+            viewTransitionName: `entry-wrapper-${entry.slug}`,
+          }}
+        >
+          <div className="text-[--tw-prose-lead]">
+            <AbsDate
+              date={entry.date}
+              style={{
+                viewTransitionName: `entry-date-${entry.slug}`,
+              }}
+            />
           </div>
-          <Link href={`/entries/${entry.slug}`}>{entry.title}</Link>
+          <AppLink
+            className="contain-paint"
+            style={{
+              viewTransitionName: `entry-title-${entry.slug}`,
+            }}
+            href={`/entries/${entry.slug}`}
+          >
+            {entry.title}
+          </AppLink>
         </li>
       ))}
     </ul>

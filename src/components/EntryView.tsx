@@ -10,12 +10,12 @@ import { config } from "../../blog.config";
 import { buildFullPath } from "../lib/util";
 import { blogDir } from "../lib/constants";
 import { Entry } from "../lib/entry";
-import { NextLinkIfInternalAnchor } from "./NextLinkIfAnchor";
 import { AbsDate } from "./AbsDate";
 import { NativeShareButton } from "./NativeShareButton";
 import { ShareButtons } from "./ShareButtons";
 import { ZoomWrapper } from "./ZoomWrapper";
 import { EntryImage } from "./EntryImage";
+import { AppLink } from "./AppLink";
 interface Props {
   entry: Entry;
   shareButton?: boolean;
@@ -81,10 +81,23 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const entryTitleWithBlogName = config.title(entry.title);
   return (
     <article>
-      <h1>{entry.title}</h1>
+      <h1
+        className="contain-paint"
+        style={{
+          viewTransitionName: `entry-title-${entry.slug}`,
+        }}
+      >
+        {entry.title}
+      </h1>
       {entry.date && (
-        <div className="text-[var(--tw-prose-lead)]">
-          Published at <AbsDate date={entry.date} />
+        <div className="text-[--tw-prose-lead]">
+          Published at{" "}
+          <AbsDate
+            date={entry.date}
+            style={{
+              viewTransitionName: `entry-date-${entry.slug}`,
+            }}
+          />
         </div>
       )}
       <MDXRemote
@@ -101,7 +114,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           },
         }}
         components={{
-          a: (props) => <NextLinkIfInternalAnchor {...props} />,
+          a: (props) => <AppLink {...props} />,
           img: (props) => <Img {...props} slug={entry.slug} />,
           h1: (props) => <Heading level={1} {...props} />,
           h2: (props) => <Heading level={2} {...props} />,
