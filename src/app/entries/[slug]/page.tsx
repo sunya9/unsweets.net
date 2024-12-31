@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EntryView } from "../../../components/EntryView";
 import { getEntries, getEntry } from "../../../lib/entry";
-import { buildFullPath } from "../../../lib/util";
+import { commonOpenGraph } from "../../../lib/ogUtil";
 
 interface Props {
   params: Promise<{
@@ -17,13 +17,19 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const { slug } = params;
 
+  const canonical = `/entries/${slug}`;
   const entry = await getEntry(slug);
   if (!entry) notFound();
-
   return {
     title: entry.title,
     alternates: {
-      canonical: buildFullPath(`/entries/${entry.slug}`),
+      canonical,
+    },
+    openGraph: {
+      ...commonOpenGraph,
+      type: "article",
+      title: entry.title,
+      url: canonical,
     },
   };
 }

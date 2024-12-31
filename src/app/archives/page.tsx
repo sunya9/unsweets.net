@@ -1,12 +1,11 @@
 import { Metadata } from "next";
 import { getEntries } from "../../lib/entry";
 import { EntryList } from "../../components/EntryList";
-import { buildFullPath } from "../../lib/util";
 
 export const metadata: Metadata = {
   title: "Archives",
   alternates: {
-    canonical: buildFullPath("/archives"),
+    canonical: "/archives",
   },
 };
 

@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
-import { buildFullPath } from "../lib/util";
 import { config } from "../../blog.config";
 import { AppLink } from "../components/AppLink";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: buildFullPath("/"),
+    canonical: "/",
   },
 };
 

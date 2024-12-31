@@ -1,20 +1,14 @@
-import dayjs from "dayjs";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-
-dayjs.extend(timezone);
-dayjs.extend(utc);
-dayjs.tz.setDefault("Asia/Tokyo");
+import { yyyymmdd } from "../lib/dateUtil";
 
 interface Props extends React.HTMLAttributes<HTMLTimeElement> {
   date: number;
 }
 
 export const AbsDate = ({ date, ...rest }: Props) => {
-  const day = dayjs.utc(date).local();
+  const [formatted, day] = yyyymmdd(date);
   return (
     <time dateTime={day.format()} {...rest}>
-      {day.format("YYYY.MM.DD")}
+      {formatted}
     </time>
   );
 };
