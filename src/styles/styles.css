@@ -10,3 +10,8 @@
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
 }
+
+body {
+  font-feature-settings: "palt" 1;
+  text-rendering: geometricPrecision;
+}

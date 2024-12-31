@@ -1,4 +1,5 @@
 import { GitHub, Twitter } from "react-feather";
+import { config } from "../../blog.config";
 import styles from "./../styles/footer.module.css";
 
 export const AppFooter = () => {
@@ -7,7 +8,7 @@ export const AppFooter = () => {
       <div className={`${styles.inner} pb-8 pt-16`}>
         <div className="container text-white">
           <div className="-ml-2 flex items-center justify-start pb-16">
-            <p className="mx-2 my-0">Created by _X_y_z_.</p>
+            <p className="mx-2 my-0">Created by {config.author}.</p>
             <div className="mx-1.5">
               <a
                 href="https://twitter.com/ephemeralMocha"

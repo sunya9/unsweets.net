@@ -5,7 +5,6 @@ import { config } from "../../blog.config";
 import "./../styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
 import { AppHeader } from "../components/AppHeader";
-import pkg from "../../package.json";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,8 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: pkg.name,
-    template: `%s - ${pkg.name}`,
+    default: config.title(),
+    template: `%s - ${config.title()}`,
   },
   description: config.description,
   icons: "/favicon.ico",
@@ -58,8 +57,12 @@ export default function RootLayout({
             gtag('config', 'G-XEVMD8V0LK');
           `}
         </Script>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
+        />
       </head>
-      <body className="prose prose-neutral flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert dark:bg-neutral-800">
+      <body className="prose prose-neutral flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert prose-a:underline-offset-4 dark:bg-neutral-800">
         <AppHeader />
         <main className="container flex-1">{children}</main>
         <AppFooter />

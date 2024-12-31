@@ -2,7 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import classnames from "classnames";
+import { Rubik } from "next/font/google";
 import { config } from "../../blog.config";
+import styles from "../styles/header.module.css";
+
+const rubik = Rubik({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 interface NavLinkProps {
   children: React.ReactNode;
@@ -23,9 +32,12 @@ export const AppHeader = () => {
   const path = usePathname();
   const isIndex = path === "/";
   return (
-    <header className="header h-auto overflow-visible" key="appHeader">
+    <header
+      className={classnames(styles.wave, "h-auto overflow-visible")}
+      key="appHeader"
+    >
       <div className="container pb-10 pt-20">
-        <h1 className="mb-2">
+        <h1 className={`mb-2 ${rubik.className}`}>
           {isIndex ? (
             config.title()
           ) : (

@@ -1,6 +1,6 @@
 import nodepath from "node:path";
 import { ImgHTMLAttributes, createElement } from "react";
-import { Share2, Link as LinkIcon } from "react-feather";
+import { Share2 } from "react-feather";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -29,16 +29,19 @@ type HeadingProps = {
 const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
   return createElement(
     `h${level}`,
-    { className: `${rest.className} relative group`, ...rest, id },
+    {
+      className: `${rest.className}`,
+      ...rest,
+      id,
+    },
     [
       <a
         href={`#${id}`}
-        key="linkIcon"
-        className="linkIcon absolute bottom-0 right-full top-0 flex flex-row items-center pr-1.5 text-transparent transition-all hover:text-current group-hover:text-current"
+        key={`linkIcon-${id}`}
+        className="no-underline after:ml-2 after:inline-block after:opacity-0 after:transition-all after:content-['#'] hover:underline after:hover:no-underline hover:after:opacity-70"
       >
-        <LinkIcon size="0.75em" strokeWidth="1.5" />
+        {children}
       </a>,
-      children,
     ],
   );
 };
@@ -80,7 +83,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
     <article>
       <h1>{entry.title}</h1>
       {entry.date && (
-        <div className="text-[color:var(--tw-prose-lead)]">
+        <div className="text-[var(--tw-prose-lead)]">
           Published at <AbsDate date={entry.date} />
         </div>
       )}
