@@ -91,13 +91,14 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           />
         </div>
       )}
-      <h1
-        className="contain-paint"
-        style={{
-          viewTransitionName: `entry-title-${entry.slug}`,
-        }}
-      >
-        {entry.title}
+      <h1 className="contain-paint">
+        <span
+          style={{
+            viewTransitionName: `entry-title-${entry.slug}`,
+          }}
+        >
+          {entry.title}
+        </span>
       </h1>
 
       <MDXRemote
