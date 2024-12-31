@@ -80,18 +80,9 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
   return (
-    <article>
-      <h1
-        className="contain-paint"
-        style={{
-          viewTransitionName: `entry-title-${entry.slug}`,
-        }}
-      >
-        {entry.title}
-      </h1>
+    <article className="[word-break:auto-phrase]">
       {entry.date && (
         <div className="text-[--tw-prose-lead]">
-          Published at{" "}
           <AbsDate
             date={entry.date}
             style={{
@@ -100,6 +91,15 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           />
         </div>
       )}
+      <h1
+        className="contain-paint"
+        style={{
+          viewTransitionName: `entry-title-${entry.slug}`,
+        }}
+      >
+        {entry.title}
+      </h1>
+
       <MDXRemote
         source={entry.body}
         options={{

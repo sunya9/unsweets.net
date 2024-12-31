@@ -20,7 +20,7 @@ export default async function Home() {
     <>
       <section>
         <p>
-          {config.title()}は{config.author}
+          {config.title()}は<a href={config.xLink}>{config.author}</a>
           が技術メモなどを綴っているサイトです。
           主にNode.js関連の話題を取り扱っています。
         </p>

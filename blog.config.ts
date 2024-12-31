@@ -9,4 +9,5 @@ export const config = {
   description: pkg.description,
   baseUrl,
   author: "@ephemeralMocha",
+  xLink: "https://x.com/ephemeralmocha",
 } as const;
