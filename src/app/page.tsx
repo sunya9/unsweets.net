@@ -22,7 +22,7 @@ export default async function Home() {
         <p>
           {config.title()}は<a href={config.xLink}>{config.author}</a>
           が技術メモなどを綴っているサイトです。
-          主にNode.js関連の話題を取り扱っています。
+          以前はAndroid関連も取り扱っていましたが、現在は主にフロントエンドやNode.js周辺技術の話題を多く取り扱っています。
         </p>
         <p>
           制作物については <a href="https://github.com/sunya9">GitHub</a>
