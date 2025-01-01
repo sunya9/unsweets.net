@@ -129,11 +129,11 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
       {shareButton && (
         <footer>
           <div
-            className="my-2 inline-flex flex-row items-center justify-center rounded-full bg-neutral-100 pr-3 shadow-md transition-all hover:shadow-lg dark:bg-neutral-900"
+            className="my-2 inline-flex flex-row items-center justify-center rounded-full bg-neutral-100 pr-3 shadow-md transition-all hover:shadow-lg dark:bg-neutral-900/70"
             role="region"
             aria-label="この記事を共有する"
           >
-            <div className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900">
+            <div className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900/70">
               <Share2 strokeWidth="1.2" />
             </div>
 
