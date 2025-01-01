@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s - ${config.title()}`,
   },
   description: config.description,
-  icons: "/favicon.ico",
+  icons: "/icon.svg",
   authors: [{ name: config.author, url: config.xLink }],
   creator: config.author,
   publisher: config.author,
