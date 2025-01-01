@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { Rubik } from "next/font/google";
 import { config } from "../../blog.config";
-import styles from "../styles/header.module.css";
 import { cn } from "../lib/util";
 import { AppLink } from "./AppLink";
 
@@ -32,13 +31,7 @@ export const AppHeader = () => {
   const path = usePathname();
   const isIndex = path === "/";
   return (
-    <header
-      className={cn(
-        styles.wave,
-        "h-auto overflow-visible after:bg-neutral-100 dark:after:bg-neutral-900",
-      )}
-      key="appHeader"
-    >
+    <header>
       <div className="container pb-10 pt-20">
         <h1 className={`mb-0 ${rubik.className}`}>
           <AppLink

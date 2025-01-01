@@ -1,12 +1,11 @@
 import { GitHub, Twitter } from "react-feather";
 import { config } from "../../blog.config";
-import styles from "./../styles/footer.module.css";
 
 export const AppFooter = () => {
   return (
-    <footer className={`${styles.wave} mt-24`}>
-      <div className={`${styles.inner} pb-8 pt-16`}>
-        <div className="container text-white">
+    <footer className="footer-wave">
+      <div className="footer-wave-inner">
+        <div className="container">
           <div className="-ml-2 flex items-center justify-start pb-16">
             <p className="mx-2 my-0">Created by {config.author}.</p>
             <div className="mx-1.5">

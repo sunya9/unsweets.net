@@ -74,7 +74,7 @@ export default function RootLayout({
           />
           <meta property="og:site_name" content={config.title()} />
         </head>
-        <body className="prose prose-neutral flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert prose-a:underline-offset-4 dark:bg-neutral-800">
+        <body className="header-wave prose prose-neutral relative flex min-h-screen max-w-none flex-col bg-neutral-50 dark:prose-invert prose-a:underline-offset-4 dark:bg-neutral-800">
           <AppHeader />
           <main className="container flex-1">{children}</main>
           <AppFooter />
