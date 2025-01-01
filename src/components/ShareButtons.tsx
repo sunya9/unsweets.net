@@ -1,14 +1,14 @@
 "use client";
 
-import { MouseEventHandler, useCallback } from "react";
-import { Facebook, Twitter } from "react-feather";
+import { MouseEventHandler, useCallback, useEffect, useState } from "react";
+import { Facebook, MoreVertical, Twitter } from "react-feather";
 
 interface Props {
-  entryTitleWithBlogName: string;
+  text: string;
   url: string;
 }
 
-export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
+export const ShareButtons = ({ url, text }: Props) => {
   const openDialog: MouseEventHandler<HTMLAnchorElement> = useCallback(
     (e) => {
       window.open(
@@ -19,18 +19,32 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
     },
     [url],
   );
+  const [nativeShare, setNativeShare] = useState(false);
+  useEffect(() => {
+    setNativeShare(!!window.navigator.share);
+  }, []);
+
+  const onShowNativeShare = useCallback(async () => {
+    try {
+      await window.navigator.share({
+        title: text,
+        url,
+      });
+    } catch (e) {
+      console.warn(e);
+    }
+  }, [text, url]);
+
   return (
     <>
       <a
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          `${entryTitleWithBlogName} ${url}`,
+          `${text} ${url}`,
         )}`}
         onClick={openDialog}
         target="_new"
-        rel="noopener noreferrer"
-        className="block rounded-full p-1.5"
-        aria-label="Share on Twitter"
-        title="Share on Twitter"
+        className="block p-1.5"
+        title="Xで共有する"
       >
         <Twitter
           strokeWidth="1"
@@ -40,12 +54,10 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
       </a>
 
       <a
-        className="block rounded-full p-1.5"
-        aria-label="Share on Facebook"
-        title="Share on Facebook"
+        className="block p-1.5"
+        title="Facebookで共有する"
         onClick={openDialog}
         target="_new"
-        rel="noopener noreferrer"
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
           url,
         )}`}
@@ -56,6 +68,19 @@ export const ShareButtons = ({ url, entryTitleWithBlogName }: Props) => {
           className="stroke-current hover:fill-current"
         />
       </a>
+      {nativeShare && (
+        <button
+          onClick={onShowNativeShare}
+          className="block p-1.5"
+          title="共有…"
+        >
+          <MoreVertical
+            strokeWidth="1"
+            size="1.3rem"
+            className="hover:fill-current"
+          />
+        </button>
+      )}
     </>
   );
 };

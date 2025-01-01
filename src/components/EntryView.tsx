@@ -11,7 +11,6 @@ import { buildFullPath } from "../lib/util";
 import { blogDir } from "../lib/constants";
 import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
-import { NativeShareButton } from "./NativeShareButton";
 import { ShareButtons } from "./ShareButtons";
 import { ZoomWrapper } from "./ZoomWrapper";
 import { EntryImage } from "./EntryImage";
@@ -81,16 +80,18 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const entryTitleWithBlogName = config.title(entry.title);
   return (
     <article className="[word-break:auto-phrase]">
-      {entry.date && (
-        <div className="text-[--tw-prose-lead]">
-          <AbsDate
-            date={entry.date}
-            style={{
-              viewTransitionName: `entry-date-${entry.slug}`,
-            }}
-          />
-        </div>
-      )}
+      <div role="contentinfo" aria-label="記事のメタ情報">
+        {entry.date && (
+          <div className="text-[--tw-prose-lead]">
+            <AbsDate
+              date={entry.date}
+              style={{
+                viewTransitionName: `entry-date-${entry.slug}`,
+              }}
+            />
+          </div>
+        )}
+      </div>
       <h1 className="contain-paint">
         <span
           style={{
@@ -125,27 +126,21 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           h6: (props) => <Heading level={6} {...props} />,
         }}
       />
-      <footer>
-        {shareButton && (
-          <div className="my-2 inline-flex flex-row items-center justify-center rounded-full bg-neutral-100 pr-3 shadow-md transition-all hover:shadow-lg dark:bg-neutral-900">
-            <h3
-              className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900"
-              title="Share"
-            >
-              <Share2 strokeWidth="1.2" aria-label="Share" />
-            </h3>
+      {shareButton && (
+        <footer>
+          <div
+            className="my-2 inline-flex flex-row items-center justify-center rounded-full bg-neutral-100 pr-3 shadow-md transition-all hover:shadow-lg dark:bg-neutral-900"
+            role="region"
+            aria-label="この記事を共有する"
+          >
+            <div className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900">
+              <Share2 strokeWidth="1.2" />
+            </div>
 
-            <ShareButtons
-              entryTitleWithBlogName={entryTitleWithBlogName}
-              url={url}
-            />
-            <NativeShareButton
-              entryTitleWithBlogName={entryTitleWithBlogName}
-              url={url}
-            />
+            <ShareButtons text={entryTitleWithBlogName} url={url} />
           </div>
-        )}
-      </footer>
+        </footer>
+      )}
     </article>
   );
 };
