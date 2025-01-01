@@ -3,11 +3,13 @@ import { getEntries } from "../lib/entry";
 import { EntryList } from "../components/EntryList";
 import { config } from "../../blog.config";
 import { AppLink } from "../components/AppLink";
+import { commonOpenGraph } from "../lib/ogUtil";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: commonOpenGraph,
 };
 
 export default async function Home() {
