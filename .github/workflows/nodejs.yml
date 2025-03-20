@@ -40,6 +40,8 @@ jobs:
         env:
           CI: true
       - run: yarn run build
+        env:
+          GOOGLE_FONTS_API_KEY: ${{ secrets.GOOGLE_FONTS_API_KEY }}
 
   dependabot:
     runs-on: ubuntu-latest
