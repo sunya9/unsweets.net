@@ -11,12 +11,11 @@ export const EntryList = (props: Props) => {
       {props.entries.map((entry) => (
         <li
           key={entry.slug}
-          className="mb-4"
           style={{
             viewTransitionName: `entry-wrapper-${entry.slug}`,
           }}
         >
-          <div className="text-sm leading-none text-[--tw-prose-lead]">
+          <div className="text-sm leading-none text-(--tw-prose-lead)">
             <AbsDate
               date={entry.date}
               style={{
