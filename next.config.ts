@@ -11,6 +11,11 @@ const config: NextConfig = {
       destination: "/entries/:slug",
       permanent: true,
     },
+    {
+      source: "/archives",
+      destination: "/entries",
+      permanent: true,
+    },
   ],
   headers: async () => [
     {
