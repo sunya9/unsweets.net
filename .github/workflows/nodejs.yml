@@ -33,7 +33,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn
+      - run: yarn --immutable
       - run: yarn run lint
         env:
           CI: true
