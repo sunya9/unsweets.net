@@ -33,7 +33,7 @@ export default async function Home() {
       <section>
         <h2>最近の投稿</h2>
         <EntryList entries={entries} />
-        <AppLink href="/archives">もっと読む</AppLink>
+        <AppLink href="/entries">もっと読む</AppLink>
       </section>
     </>
   );

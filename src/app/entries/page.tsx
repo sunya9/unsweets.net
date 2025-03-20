@@ -5,7 +5,7 @@ import { EntryList } from "../../components/EntryList";
 export const metadata: Metadata = {
   title: "Archives",
   alternates: {
-    canonical: "/archives",
+    canonical: "/entries",
   },
 };
 
