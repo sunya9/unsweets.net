@@ -37,7 +37,7 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
       <a
         href={`#${id}`}
         key={`linkIcon-${id}`}
-        className="no-underline after:ml-2 after:inline-block after:opacity-0 after:transition-all after:content-['#'] hover:underline after:hover:no-underline hover:after:opacity-70"
+        className="no-underline after:ml-2 after:inline-block after:opacity-0 after:transition-all after:content-['#'] hover:underline hover:after:no-underline hover:after:opacity-70"
       >
         {children}
       </a>,
@@ -63,7 +63,7 @@ const Img = ({
       <ZoomWrapper>
         <EntryImage
           src={fixedSrc}
-          className="max-h-1/3 my-0 w-auto border shadow-lg"
+          className="my-0 max-h-1/3 w-auto border shadow-lg"
           alt={alt || ""}
           width={+width}
           height={+height}
@@ -82,7 +82,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
     <article className="[word-break:auto-phrase]">
       <div role="contentinfo" aria-label="記事のメタ情報">
         {entry.date && (
-          <div className="text-[--tw-prose-lead]">
+          <div className="text-(--tw-prose-lead)">
             <AbsDate
               date={entry.date}
               style={{
@@ -133,7 +133,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
             role="region"
             aria-label="この記事を共有する"
           >
-            <div className="-my-1 ml-0 mr-1.5 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900/70">
+            <div className="-my-1 mr-1.5 ml-0 rounded-full bg-neutral-100 p-3 shadow-lg dark:bg-neutral-900/70">
               <Share2 strokeWidth="1.2" />
             </div>
 

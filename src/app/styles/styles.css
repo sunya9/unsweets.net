@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@theme {
+  --font-sans: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Meiryo", sans-serif;
+  --color-accent-50: #fdf4f3;
+  --color-accent-100: #fce6e4;
+  --color-accent-200: #fad2ce;
+  --color-accent-300: #f6b2ab;
+  --color-accent-400: #ef857a;
+  --color-accent-500: #e35e50;
+  --color-accent-600: #cf4233;
+  --color-accent-700: #c0392b;
+  --color-accent-800: #902e24;
+  --color-accent-900: #782c24;
+  --color-accent-950: #41130e;
+}
+
+@utility container {
+  padding-inline: clamp(1rem, calc(100vw - 75rch + 5rem), 5rem);
+  max-width: 75rch;
+}
+
+[data-rmiz-portal] [data-rmiz-modal-overlay] {
+  transition: ease-in 0.2s all;
+}
+
+[data-rmiz-portal] [data-rmiz-modal-overlay="visible"] {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+body {
+  font-feature-settings: "palt" 1;
+  text-rendering: geometricPrecision;
+}
