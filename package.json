@@ -40,20 +40,20 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "22.13.14",
+    "@types/node": "22.14.0",
     "@types/react": "^19.0.12",
     "@types/recursive-readdir": "2.2.4",
     "@types/rss": "^0.0.32",
     "@types/write-file-webpack-plugin": "^4",
     "autoprefixer": "10.4.21",
-    "eslint": "9.23.0",
+    "eslint": "9.24.0",
     "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "10.1.1",
     "postcss": "8.5.3",
     "postcss-preset-env": "10.1.5",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "packageManager": "yarn@4.3.0"
 }
