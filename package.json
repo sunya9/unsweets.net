@@ -40,7 +40,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "22.14.0",
+    "@types/node": "22.14.1",
     "@types/react": "^19.1.1",
     "@types/recursive-readdir": "2.2.4",
     "@types/rss": "^0.0.32",
@@ -48,7 +48,7 @@
     "autoprefixer": "10.4.21",
     "eslint": "9.24.0",
     "eslint-config-next": "15.3.0",
-    "eslint-config-prettier": "10.1.1",
+    "eslint-config-prettier": "10.1.2",
     "postcss": "8.5.3",
     "postcss-preset-env": "10.1.5",
     "prettier": "3.5.3",
