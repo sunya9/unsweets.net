@@ -26,7 +26,6 @@ const fetchFontArrayBuffer = async (
 
   // cf. https://developers.google.com/fonts/docs/developer_api#a_quick_example
   const fontInfo = await fetch(endpoint).then((res) => res.json());
-  console.log({ fontInfo });
   const fontResponse = await fetch(fontInfo.items[0].files[weight]);
   const fontBuffer = await fontResponse.arrayBuffer();
   return fontBuffer;
