@@ -48,6 +48,9 @@ const config: NextConfig = {
     return config;
   },
   transpilePackages: ["next-mdx-remote"],
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 export default config;

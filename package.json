@@ -22,7 +22,6 @@
     "gray-matter": "4.0.3",
     "next": "15.3.0",
     "next-mdx-remote": "5.0.0",
-    "next-view-transitions": "^0.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-feather": "2.0.10",
@@ -53,7 +52,8 @@
     "postcss-preset-env": "10.1.6",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "webpack": "^5.99.6"
   },
   "packageManager": "yarn@4.3.0"
 }

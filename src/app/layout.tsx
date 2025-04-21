@@ -1,6 +1,6 @@
 import Script from "next/script";
 import { Metadata, Viewport } from "next";
-import { ViewTransitions } from "next-view-transitions";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import { config } from "../../blog.config";
 import "./styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ViewTransitions>
+    <ViewTransition>
       <html id="app" lang="ja" className={inter.className}>
         <head>
           <Script
@@ -74,6 +74,6 @@ export default function RootLayout({
           <AppFooter />
         </body>
       </html>
-    </ViewTransitions>
+    </ViewTransition>
   );
 }
