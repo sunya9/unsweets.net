@@ -24,19 +24,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22.x"
-      - run: corepack enable yarn
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+        with:
+          version: 8
       - uses: actions/cache@v4
         with:
           path: |
             node_modules
             .next/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '**/package.json') }}
+            ~/.local/share/pnpm/store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml', '**/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
-      - run: yarn --immutable
-      - run: yarn run lint
+            ${{ runner.os }}-pnpm-
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
         env:
           CI: true
-      - run: yarn run build
+      - run: pnpm run build
         env:
           GOOGLE_FONTS_API_KEY: ${{ secrets.GOOGLE_FONTS_API_KEY }}
