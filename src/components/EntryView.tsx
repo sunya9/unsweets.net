@@ -53,11 +53,12 @@ const Img = ({
   slug,
   ...rest
 }: ImgHTMLAttributes<HTMLImageElement> & { slug: string }) => {
+  if (!width || !height) throw new Error("Cannot get width or height");
+  if (typeof src !== "string") throw new Error("Don't use srcObject");
   const nonNullableSrc = src || "";
   const fixedSrc = nonNullableSrc.startsWith("/")
     ? nonNullableSrc
     : nonNullableSrc.replace(/^\.\.\/\.\.\/public/, "");
-  if (!width || !height) throw new Error("Cannot get width or height");
   return (
     <div className="my-8">
       <ZoomWrapper>
