@@ -34,7 +34,7 @@
     "rss": "^1.2.2",
     "shiki": "^3.4.2",
     "tailwind-merge": "^3.3.0",
-    "tailwindcss": "4.1.7",
+    "tailwindcss": "4.1.8",
     "write-file-webpack-plugin": "^4.5.1"
   },
   "license": "MIT",
