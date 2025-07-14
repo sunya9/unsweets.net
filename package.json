@@ -55,7 +55,7 @@
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.12",
     "typescript": "5.8.3",
-    "webpack": "^5.99.9"
+    "webpack": "^5.100.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
