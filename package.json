@@ -20,7 +20,7 @@
     "copy-webpack-plugin": "^13.0.0",
     "dayjs": "1.11.13",
     "gray-matter": "4.0.3",
-    "next": "15.4.5",
+    "next": "15.4.6",
     "next-mdx-remote": "5.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
