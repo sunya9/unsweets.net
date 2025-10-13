@@ -1,6 +1,6 @@
 import Script from "next/script";
 import { Metadata, Viewport } from "next";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 import { config } from "../../blog.config";
 import "./styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
