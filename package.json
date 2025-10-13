@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint",
+    "lint": "eslint .",
     "format": "prettier --ignore-path .gitignore --write .",
     "start": "next start",
     "typecheck": "tsc --noEmit"
