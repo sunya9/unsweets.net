@@ -9,22 +9,27 @@ import {
 export async function generateImageMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const entry = await getEntry(params.slug);
+  const { slug } = await params;
+  if (!slug) {
+    return [];
+  }
+  const entry = await getEntry(slug);
 
   return [
     {
       alt: entry.title,
       contentType: ogContentType,
-      ogSize,
-      id: "defualt",
+      size: ogSize,
+      id: "default",
     },
   ];
 }
 
-export default async function Image({ params }: { params: { slug: string } }) {
-  const entry = await getEntry(params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const entry = await getEntry(slug);
   const [formattedDate] = yyyymmdd(entry.date);
   return imageResponseWithFontChildPage(entry.title, formattedDate);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEventHandler, useCallback, useEffect, useState } from "react";
+import { MouseEventHandler, useCallback } from "react";
 import { Facebook, MoreVertical, Twitter } from "react-feather";
 
 interface Props {
@@ -19,10 +19,7 @@ export const ShareButtons = ({ url, text }: Props) => {
     },
     [url],
   );
-  const [nativeShare, setNativeShare] = useState(false);
-  useEffect(() => {
-    setNativeShare(!!window.navigator.share);
-  }, []);
+  const nativeShare = !!window.navigator.share;
 
   const onShowNativeShare = useCallback(async () => {
     try {

@@ -21,6 +21,11 @@ export const NavLink = ({ children, href }: NavLinkProps) => {
   }
 };
 
+const Title = config
+  .title()
+  .split("")
+  .map((char, index) => <span key={index}>{char}</span>);
+
 export const AppHeader = () => {
   const path = usePathname();
   const isIndex = path === "/";
@@ -29,19 +34,14 @@ export const AppHeader = () => {
       <div className="container pt-20 pb-10">
         <h1 className={`mb-0 ${rubik.className}`}>
           <AppLink
-            href={isIndex ? undefined : "/"}
+            href="/"
             tabIndex={isIndex ? -1 : undefined}
             className={cn(
               { "no-underline": isIndex },
               "[&>span:nth-last-child(2)]:text-accent-500",
             )}
           >
-            {config
-              .title()
-              .split("")
-              .map((char, index) => (
-                <span key={index}>{char}</span>
-              ))}
+            {Title}
           </AppLink>
         </h1>
         <p className="lead mt-2 mb-8">{config.description}</p>

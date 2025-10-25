@@ -4,7 +4,6 @@ import CopyFilePlugin from "copy-webpack-plugin";
 import WriteFilePlugin from "write-file-webpack-plugin";
 
 const config: NextConfig = {
-  reactStrictMode: true,
   redirects: async () => [
     {
       source: "/:year(\\d{4,})/:month(\\d{2,})/:slug",
@@ -32,6 +31,7 @@ const config: NextConfig = {
       ],
     },
   ],
+  turbopack: {},
   webpack(config) {
     config.plugins.push(
       new CopyFilePlugin({
@@ -48,9 +48,6 @@ const config: NextConfig = {
     return config;
   },
   transpilePackages: ["next-mdx-remote"],
-  experimental: {
-    viewTransition: true,
-  },
 };
 
 export default config;
