@@ -4,6 +4,8 @@ import { getEntries } from "../../lib/entry";
 
 const { baseUrl } = config;
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const entries = await getEntries(20);
   const feed = new Rss({

@@ -7,7 +7,7 @@ import {
   ogSize,
 } from "../lib/ogUtil";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 
 export const alt = config.title();
 
