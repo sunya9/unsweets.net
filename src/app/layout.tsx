@@ -1,5 +1,6 @@
-import Script from "next/script";
 import { Metadata, Viewport } from "next";
+import { ViewTransitions } from "next-view-transitions";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { config } from "../../blog.config";
 import "./styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
@@ -45,32 +46,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html id="app" lang="ja" className={inter.className}>
-      <head>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XEVMD8V0LK"
-        />
-        <Script strategy="afterInteractive" id="google-analytics">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-XEVMD8V0LK');
-        `}
-        </Script>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
-        />
-        <meta property="og:site_name" content={config.title()} />
-      </head>
-      <body className="prose prose-neutral dark:prose-invert prose-a:underline-offset-4 relative flex min-h-screen max-w-none flex-col bg-stone-100 dark:bg-stone-700">
-        <AppHeader />
-        <main className="container flex-1">{children}</main>
-        <AppFooter />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html id="app" lang="ja" className={inter.className}>
+        <head>
+          <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
+          />
+          <meta property="og:site_name" content={config.title()} />
+        </head>
+        <body className="prose prose-neutral dark:prose-invert prose-a:underline-offset-4 relative flex min-h-screen max-w-none flex-col bg-stone-100 dark:bg-stone-700">
+          <AppHeader />
+          <main className="container flex-1">{children}</main>
+          <AppFooter />
+        </body>
+        <GoogleAnalytics gaId="G-XEVMD8V0LK" />
+      </html>
+    </ViewTransitions>
   );
 }
