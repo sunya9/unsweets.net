@@ -19,7 +19,7 @@ export const ShareButtons = ({ url, text }: Props) => {
     },
     [url],
   );
-  const nativeShare = !!window.navigator.share;
+  const nativeShare = globalThis.window && !!globalThis.window.navigator.share;
 
   const onShowNativeShare = useCallback(async () => {
     try {
