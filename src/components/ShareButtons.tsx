@@ -1,6 +1,11 @@
 "use client";
 
-import { MouseEventHandler, useCallback } from "react";
+import {
+  MouseEventHandler,
+  useCallback,
+  useMemo,
+  useSyncExternalStore,
+} from "react";
 import { Facebook, MoreVertical, Twitter } from "react-feather";
 
 interface Props {
@@ -19,18 +24,26 @@ export const ShareButtons = ({ url, text }: Props) => {
     },
     [url],
   );
-  const nativeShare = globalThis.window && !!globalThis.window.navigator.share;
+  const shareData = useMemo(
+    (): ShareData => ({
+      title: text,
+      url,
+    }),
+    [text, url],
+  );
+  const nativeShare = useSyncExternalStore(
+    () => () => {},
+    () => navigator.canShare && navigator.canShare(shareData),
+    () => false,
+  );
 
   const onShowNativeShare = useCallback(async () => {
     try {
-      await window.navigator.share({
-        title: text,
-        url,
-      });
+      await window.navigator.share(shareData);
     } catch (e) {
       console.warn(e);
     }
-  }, [text, url]);
+  }, [shareData]);
 
   return (
     <>
