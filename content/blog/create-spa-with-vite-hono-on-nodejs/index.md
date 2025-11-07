@@ -31,7 +31,7 @@ pnpm add -D @hono/vite-dev-server @hono/vite-build
 素のViteだとindex.htmlがエントリポイント相当だが、Honoと統合する場合はTypeScriptでのエントリポイントファイルが必要。index.htmlは必要無くなるのでtsのエントリポイントファイルに適宜書き写しつつ、終わったら削除して良い。
 `src/index.tsx` を作成し、以下のような内容を記述する。
 
-```tsx:src/index.tsx
+```tsx
 import { Hono } from "hono";
 import { renderToString } from "react-dom/server";
 import { Link, ReactRefresh, Script } from "vite-ssr-components/react";
@@ -44,7 +44,7 @@ app.route("/api", api); // お好きに、 src/api/index.tsあたりに別途API
 app.get("*", async (c) => {
   return c.html(
     renderToString(
-      <html lang="en" >
+      <html lang="en">
         <head>
           <ReactRefresh />
           <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -58,8 +58,8 @@ app.get("*", async (c) => {
         <body>
           <div id="root"></div>
         </body>
-      </html>
-    )
+      </html>,
+    ),
   );
 });
 
@@ -74,7 +74,7 @@ export default app;
 
 ## vite.config.tsの修正
 
-```ts:vite.config.ts
+```ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import devServer, { defaultOptions } from "@hono/vite-dev-server";
@@ -127,7 +127,7 @@ tailwindcssなど普段のviteのプラグインを導入する場合は基本�
 
 ビルドコマンドをちょっと修正。
 
-```json:package.json
+```json
 {
   ...,
   "scripts": {
