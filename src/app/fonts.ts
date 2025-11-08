@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
-import { Rubik } from "next/font/google";
+import { Geist, Rubik } from "next/font/google";
 
-export const inter = Inter({
+export const geist = Geist({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+  variable: "--font-geist",
 });
 
 export const rubik = Rubik({

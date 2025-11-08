@@ -1,23 +1,27 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { type AnchorHTMLAttributes } from "react";
 import { config } from "../../blog.config";
 import { cn } from "../lib/util";
 import { rubik } from "../app/fonts";
 import { AppLink } from "./AppLink";
 
-interface NavLinkProps {
-  children: React.ReactNode;
-  href: string;
-}
-
-export const NavLink = ({ children, href }: NavLinkProps) => {
+export const NavLink = ({
+  children,
+  href,
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const path = usePathname();
   const isActive = path === href;
-  if (isActive) {
-    return <>{children}</>;
+  if (isActive || !href) {
+    return <span {...props}>{children}</span>;
   } else {
-    return <AppLink href={href}>{children}</AppLink>;
+    return (
+      <AppLink href={href} {...props}>
+        {children}
+      </AppLink>
+    );
   }
 };
 
@@ -30,32 +34,30 @@ export const AppHeader = () => {
   const path = usePathname();
   const isIndex = path === "/";
   return (
-    <header>
-      <div className="container pt-20 pb-10">
-        <h1 className={`mb-0 ${rubik.className}`}>
-          <AppLink
-            href="/"
-            tabIndex={isIndex ? -1 : undefined}
-            className={cn(
-              { "no-underline": isIndex },
-              "[&>span:nth-last-child(2)]:text-accent-500",
-            )}
-          >
-            {Title}
-          </AppLink>
-        </h1>
-        <p className="lead mt-2 mb-8">{config.description}</p>
-        <nav>
-          <ul className="m-0 flex list-none space-x-3 p-0">
-            <li className="pl-0">
-              <NavLink href="/entries">Archives</NavLink>
-            </li>
-            <li className="pl-0">
-              <a href="/rss.xml">RSS</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <header className="not-prose container mt-20 mb-12">
+      <h1 className={`text-4xl ${rubik.className}`}>
+        <NavLink
+          href="/"
+          className={cn(
+            { "no-underline": isIndex },
+            "[&>span:nth-last-child(2)]:text-accent-500",
+            "decoration-2 -underline-offset-2",
+          )}
+        >
+          {Title}
+        </NavLink>
+      </h1>
+      <p className="mt-2 text-base">{config.description}</p>
+      <nav>
+        <ul className="mt-4 flex gap-x-4">
+          <li>
+            <NavLink href="/entries">Archives</NavLink>
+          </li>
+          <li>
+            <NavLink href="/rss.xml">RSS</NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

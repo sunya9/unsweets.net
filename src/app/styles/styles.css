@@ -21,8 +21,9 @@
 
 @theme {
   --font-sans:
-    "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-    "Meiryo", sans-serif;
+    var(--font-geist), "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Meiryo", sans-serif;
+  /* --font-mono: var(--font-geist-mono); */
   --color-accent-50: #fdf4f3;
   --color-accent-100: #fce6e4;
   --color-accent-200: #fad2ce;
@@ -37,7 +38,8 @@
 }
 
 @utility container {
-  padding-inline: clamp(1rem, calc(100vw - 75rch + 5rem), 5rem);
+  --padding-inline: clamp(1rem, calc(100vw - 75rch + 5rem), 5rem);
+  padding-inline: var(--padding-inline);
   max-width: 75rch;
 }
 
@@ -53,4 +55,23 @@
 body {
   font-feature-settings: "palt" 1;
   text-rendering: geometricPrecision;
+  text-autospace: normal;
+}
+
+pre[data-theme*="material-theme-lighter"],
+pre[data-theme*="material-theme-lighter"] span {
+  color: var(--shiki-light);
+  --shiki-bg: var(--shiki-light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  pre[data-theme*="material-theme-darker"],
+  pre[data-theme*="material-theme-darker"] span {
+    color: var(--shiki-dark);
+    --shiki-bg: var(--shiki-dark-bg);
+  }
+}
+
+pre[data-theme] {
+  background-color: var(--shiki-bg);
 }

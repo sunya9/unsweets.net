@@ -6,7 +6,7 @@ import "./styles/styles.css";
 import { AppFooter } from "../components/AppFooter";
 import { AppHeader } from "../components/AppHeader";
 import { commonOpenGraph } from "../lib/ogUtil";
-import { inter } from "./fonts";
+import { geist } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.baseUrl),
@@ -47,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html id="app" lang="ja" className={inter.className}>
+      <html id="app" lang="ja" className={geist.variable}>
         <head>
           <meta
             name="viewport"
@@ -55,7 +55,7 @@ export default function RootLayout({
           />
           <meta property="og:site_name" content={config.title()} />
         </head>
-        <body className="prose prose-neutral dark:prose-invert prose-a:underline-offset-4 relative flex min-h-screen max-w-none flex-col bg-stone-100 dark:bg-stone-700">
+        <body className="prose prose-neutral dark:prose-invert relative flex min-h-screen max-w-none flex-col bg-stone-100 dark:bg-stone-700">
           <AppHeader />
           <main className="container flex-1">{children}</main>
           <AppFooter />

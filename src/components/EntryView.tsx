@@ -7,7 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeImgSize from "rehype-img-size";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import { config } from "../../blog.config";
-import { buildFullPath } from "../lib/util";
+import { buildFullPath, cn } from "../lib/util";
 import { blogDir } from "../lib/constants";
 import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
@@ -25,11 +25,26 @@ type HeadingProps = {
   level: 1 | 2 | 3 | 4 | 5 | 6;
 } & React.HTMLAttributes<HTMLHeadingElement>;
 
+const levelMarker = {
+  1: "before:content-['#_']",
+  2: "before:content-['##_']",
+  3: "before:content-['###_']",
+  4: "before:content-['####_']",
+  5: "before:content-['#####_']",
+  6: "before:content-['######_']",
+};
+
 const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
   return createElement(
     `h${level}`,
     {
-      className: `${rest.className}`,
+      "data-level": levelMarker[level],
+      className: cn(
+        rest.className,
+        levelMarker[level],
+        "before:text-current/50",
+        "before:font-extralight",
+      ),
       ...rest,
       id,
     },
@@ -37,7 +52,7 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
       <a
         href={`#${id}`}
         key={`linkIcon-${id}`}
-        className="no-underline after:ml-2 after:inline-block after:opacity-0 after:transition-all after:content-['#'] hover:underline hover:after:no-underline hover:after:opacity-70"
+        className="no-underline hover:underline"
       >
         {children}
       </a>,
@@ -80,7 +95,12 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
   return (
-    <article className="[word-break:auto-phrase]">
+    <article
+      className={cn(
+        "overflow-visible [word-break:auto-phrase]",
+        "prose-pre:bg-unset prose-pre:py-4 prose-pre:px-0 prose-pre:shadow-xs",
+      )}
+    >
       <div role="contentinfo" aria-label="記事のメタ情報">
         {entry.date && (
           <div className="text-(--tw-prose-lead)">
@@ -93,7 +113,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           </div>
         )}
       </div>
-      <h1 className="contain-paint">
+      <h1 className="contain-paint before:content-['#_']">
         <span
           style={{
             viewTransitionName: `entry-title-${entry.slug}`,
@@ -112,7 +132,15 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
               rehypeSlug,
               [rehypeImgSize, { dir: nodepath.join(blogDir, entry.slug) }],
               rehypeUnwrapImages,
-              [rehypePrettyCode, { theme: "material-theme-darker" }],
+              [
+                rehypePrettyCode,
+                {
+                  theme: {
+                    dark: "material-theme-darker",
+                    light: "material-theme-lighter",
+                  },
+                },
+              ],
             ],
           },
         }}
@@ -125,7 +153,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
           h4: (props) => <Heading level={4} {...props} />,
           h5: (props) => <Heading level={5} {...props} />,
           h6: (props) => <Heading level={6} {...props} />,
-          pre: (props) => <pre {...props} className="px-0 **:data-line:px-4" />,
+          pre: (props) => <pre {...props} className="**:data-line:px-4" />,
         }}
       />
       {shareButton && (
