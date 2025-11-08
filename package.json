@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.0.1",
-    "@tailwindcss/postcss": "4.1.16",
+    "@tailwindcss/postcss": "4.1.17",
     "@tailwindcss/typography": "0.5.19",
     "clsx": "^2.1.1",
     "dayjs": "1.11.19",
