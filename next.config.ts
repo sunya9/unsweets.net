@@ -1,7 +1,4 @@
-import path from "path";
 import type { NextConfig } from "next";
-import CopyFilePlugin from "copy-webpack-plugin";
-import WriteFilePlugin from "write-file-webpack-plugin";
 
 const config: NextConfig = {
   redirects: async () => [
@@ -31,22 +28,6 @@ const config: NextConfig = {
       ],
     },
   ],
-  turbopack: {},
-  webpack(config) {
-    config.plugins.push(
-      new CopyFilePlugin({
-        patterns: [
-          {
-            context: "content/blog",
-            from: "**/*.{jpg,png}",
-            to: path.resolve(__dirname, "public/entries/"),
-          },
-        ],
-      }),
-      new WriteFilePlugin(),
-    );
-    return config;
-  },
   transpilePackages: ["next-mdx-remote"],
 };
 

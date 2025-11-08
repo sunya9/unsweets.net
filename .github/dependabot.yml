@@ -31,7 +31,6 @@ updates:
           - "@types/node"
           - "@types/recursive-readdir"
           - "@types/rss"
-          - "@types/write-file-webpack-plugin"
           - "autoprefixer"
           - "eslint"
           - "eslint-config-next"
