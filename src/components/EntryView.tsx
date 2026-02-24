@@ -11,6 +11,7 @@ import { ShareButtons } from "./ShareButtons";
 import { ZoomWrapper } from "./ZoomWrapper";
 import { EntryImage } from "./EntryImage";
 import { AppLink } from "./AppLink";
+import { CodeBlock } from "./CodeBlock";
 interface Props {
   entry: Entry;
   shareButton?: boolean;
@@ -104,7 +105,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
       h4: (props) => <Heading level={4} {...props} />,
       h5: (props) => <Heading level={5} {...props} />,
       h6: (props) => <Heading level={6} {...props} />,
-      pre: (props) => <pre {...props} className="**:data-line:px-4" />,
+      pre: (props) => <CodeBlock {...props} />,
     },
   });
   return (
