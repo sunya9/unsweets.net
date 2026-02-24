@@ -110,7 +110,7 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
   return (
     <article
       className={cn(
-        "overflow-visible [word-break:auto-phrase]",
+        "overflow-visible",
         "prose-pre:bg-unset prose-pre:py-4 prose-pre:px-0 prose-pre:shadow-xs",
       )}
     >
