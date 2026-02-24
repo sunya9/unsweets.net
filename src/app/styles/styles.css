@@ -56,6 +56,9 @@ body {
   font-feature-settings: "palt" 1;
   text-rendering: geometricPrecision;
   text-autospace: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: strict;
 }
 
 pre[data-theme*="material-theme-lighter"],
