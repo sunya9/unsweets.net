@@ -1,6 +1,7 @@
 import Rss from "rss";
 import { config } from "../../../blog.config";
 import { getEntries } from "../../lib/entry";
+import { markdownToHtml } from "../../lib/markdown";
 
 const { baseUrl } = config;
 
@@ -16,19 +17,20 @@ export async function GET() {
     language: "ja",
     pubDate: new Date(entries[0].date),
   });
-  entries.forEach((entry) => {
+  for (const entry of entries) {
+    const html = await markdownToHtml(entry.body, entry.slug);
     feed.item({
       title: entry.title,
-      description: entry.body,
+      description: html,
       date: new Date(entry.date),
       url: `${baseUrl}/entries/${entry.slug}`,
       guid: entry.slug,
     });
-  });
+  }
 
   return new Response(feed.xml(), {
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/rss+xml; charset=utf-8",
     },
   });
 }
