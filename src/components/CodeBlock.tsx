@@ -16,9 +16,11 @@ function extractText(node: ReactNode): string {
 export const CodeBlock = (props: React.ComponentProps<"pre">) => {
   const text = extractText(props.children);
   return (
-    <pre {...props} className="**:data-line:px-4 relative">
+    <div className="relative">
       <CopyButton text={text} />
-      {props.children}
-    </pre>
+      <pre {...props} className="**:data-line:px-4">
+        {props.children}
+      </pre>
+    </div>
   );
 };
