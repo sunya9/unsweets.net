@@ -7,6 +7,9 @@ export default defineConfig([
   nextVitals,
   nextTs,
   {
+    settings: {
+      react: { version: "19" },
+    },
     rules: {
       "import/order": "error",
       "@next/next/no-img-element": "off",
