@@ -1,10 +1,8 @@
-import { ImgHTMLAttributes, createElement, Fragment } from "react";
-import { jsx, jsxs } from "react/jsx-runtime";
-import { toJsxRuntime } from "hast-util-to-jsx-runtime";
+import nodepath from "node:path";
+import { ImgHTMLAttributes, createElement } from "react";
 import { Share2 } from "react-feather";
 import { config } from "../../blog.config";
 import { buildFullPath, cn } from "../lib/util";
-import { markdownToHast } from "../lib/markdown";
 import { Entry } from "../lib/entry";
 import { AbsDate } from "./AbsDate";
 import { ShareButtons } from "./ShareButtons";
@@ -12,6 +10,13 @@ import { ZoomWrapper } from "./ZoomWrapper";
 import { EntryImage } from "./EntryImage";
 import { AppLink } from "./AppLink";
 import { CodeBlock } from "./CodeBlock";
+import { MarkdownAsync } from "react-markdown";
+import rehypeSlug from "rehype-slug";
+import rehypeImgSize from "rehype-img-size";
+import { blogDir } from "../lib/constants";
+import rehypeUnwrapImages from "rehype-unwrap-images";
+import rehypePrettyCode from "rehype-pretty-code";
+
 interface Props {
   entry: Entry;
   shareButton?: boolean;
@@ -91,23 +96,6 @@ const Img = ({
 export const EntryView = async ({ entry, shareButton, path }: Props) => {
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
-  const hast = await markdownToHast(entry.body, entry.slug);
-  const content = toJsxRuntime(hast, {
-    jsx,
-    jsxs,
-    Fragment,
-    components: {
-      a: (props) => <AppLink {...props} />,
-      img: (props) => <Img {...props} slug={entry.slug} />,
-      h1: (props) => <Heading level={1} {...props} />,
-      h2: (props) => <Heading level={2} {...props} />,
-      h3: (props) => <Heading level={3} {...props} />,
-      h4: (props) => <Heading level={4} {...props} />,
-      h5: (props) => <Heading level={5} {...props} />,
-      h6: (props) => <Heading level={6} {...props} />,
-      pre: (props) => <CodeBlock {...props} />,
-    },
-  });
   return (
     <article
       className={cn(
@@ -115,29 +103,60 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
         "prose-pre:bg-unset prose-pre:py-4 prose-pre:px-0 prose-pre:shadow-xs",
       )}
     >
-      <div role="contentinfo" aria-label="記事のメタ情報">
-        {entry.date && (
-          <div className="text-(--tw-prose-lead)">
-            <AbsDate
-              date={entry.date}
-              style={{
-                viewTransitionName: `entry-date-${entry.slug}`,
-              }}
-            />
-          </div>
-        )}
-      </div>
-      <h1 className="contain-paint before:content-['#_']">
-        <span
-          style={{
-            viewTransitionName: `entry-title-${entry.slug}`,
-          }}
-        >
-          {entry.title}
-        </span>
-      </h1>
+      <header>
+        <div role="contentinfo" aria-label="記事のメタ情報">
+          {entry.date && (
+            <div className="text-(--tw-prose-lead)">
+              <AbsDate
+                date={entry.date}
+                style={{
+                  viewTransitionName: `entry-date-${entry.slug}`,
+                }}
+              />
+            </div>
+          )}
+        </div>
+        <h1 className="contain-paint before:content-['#_']">
+          <span
+            style={{
+              viewTransitionName: `entry-title-${entry.slug}`,
+            }}
+          >
+            {entry.title}
+          </span>
+        </h1>
+      </header>
 
-      {content}
+      {/* Using react-markdown instead of rehype-react/hast-util-to-jsx-runtime, which break unified's type chain */}
+      <MarkdownAsync
+        components={{
+          a: ({ node, ...props }) => <AppLink {...props} />,
+          img: ({ node, ...props }) => <Img {...props} slug={entry.slug} />,
+          h1: ({ node, ...props }) => <Heading level={1} {...props} />,
+          h2: ({ node, ...props }) => <Heading level={2} {...props} />,
+          h3: ({ node, ...props }) => <Heading level={3} {...props} />,
+          h4: ({ node, ...props }) => <Heading level={4} {...props} />,
+          h5: ({ node, ...props }) => <Heading level={5} {...props} />,
+          h6: ({ node, ...props }) => <Heading level={6} {...props} />,
+          pre: ({ node, ...props }) => <CodeBlock {...props} />,
+        }}
+        rehypePlugins={[
+          rehypeSlug,
+          [rehypeImgSize, { dir: nodepath.join(blogDir, entry.slug) }],
+          rehypeUnwrapImages,
+          [
+            rehypePrettyCode,
+            {
+              theme: {
+                dark: "material-theme-darker",
+                light: "material-theme-lighter",
+              },
+            },
+          ],
+        ]}
+      >
+        {entry.body}
+      </MarkdownAsync>
       {shareButton && (
         <footer>
           <div

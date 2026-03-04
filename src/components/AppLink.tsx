@@ -3,7 +3,8 @@ import type NextLink from "next/link";
 import { type ComponentProps } from "react";
 import { cn } from "../lib/util";
 
-type Props = ComponentProps<typeof NextLink>;
+type Props = Omit<ComponentProps<typeof NextLink>, "href"> &
+  Pick<ComponentProps<"a">, "href">;
 
 export const AppLink = (props: Props) => {
   const { href, children, className, ...rest } = props;
@@ -18,10 +19,9 @@ export const AppLink = (props: Props) => {
         {children}
       </a>
     );
-  const url = typeof href === "string" ? href : href.toString();
-  if (url.startsWith("http") || url.startsWith("#")) {
+  if (href.startsWith("http") || href.startsWith("#")) {
     return (
-      <a href={url} className={linkClassName} {...rest}>
+      <a href={href} className={linkClassName} {...rest}>
         {children}
       </a>
     );
