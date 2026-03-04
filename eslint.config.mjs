@@ -11,12 +11,18 @@ export default defineConfig([
       react: { version: "19" },
     },
     rules: {
-      "import/order": "error",
       "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
   eslintConfigPrettier,
   globalIgnores([
+    ".obsidian",
     "node_modules/**",
     ".next/**",
     "out/**",
