@@ -5,7 +5,7 @@ import { AppLink } from "./AppLink";
 interface Props {
   entries: Omit<Entry, "body">[];
 }
-export const EntryList = (props: Props) => {
+export function EntryList(props: Props) {
   return (
     <ul>
       {props.entries.map((entry) => (
@@ -36,4 +36,4 @@ export const EntryList = (props: Props) => {
       ))}
     </ul>
   );
-};
+}

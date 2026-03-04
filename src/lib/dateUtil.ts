@@ -6,7 +6,7 @@ dayjs.extend(timezone);
 dayjs.extend(utc);
 dayjs.tz.setDefault("Asia/Tokyo");
 
-export const yyyymmdd = (date: number) => {
+export function yyyymmdd(date: number) {
   const day = dayjs.utc(date).local();
   return [day.format("YYYY.MM.DD"), day] as const;
-};
+}

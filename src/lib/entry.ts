@@ -12,10 +12,11 @@ export interface Entry {
   date: number;
 }
 
-const getEntryPath = (slug: string) =>
-  path.join(blogDir, slug, "/", "index.md");
+function getEntryPath(slug: string) {
+  return path.join(blogDir, slug, "/", "index.md");
+}
 
-export const getEntry = async (slug: string): Promise<Entry> => {
+export async function getEntry(slug: string): Promise<Entry> {
   const mdPath = getEntryPath(slug);
   const md = await fs.readFile(mdPath, "utf-8");
   const { data, content } = matter(md);
@@ -26,13 +27,13 @@ export const getEntry = async (slug: string): Promise<Entry> => {
     date: new Date(data.date).getTime(),
     slug,
   };
-};
+}
 
-export const getEntries = async (limit?: number): Promise<Entry[]> => {
+export async function getEntries(limit?: number): Promise<Entry[]> {
   const dirents = await fs.readdir(blogDir, { withFileTypes: true });
   const slugs = dirents
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
   const entries = await Promise.all(slugs.map(getEntry));
   return entries.toSorted((a, b) => b.date - a.date).slice(0, limit);
-};
+}

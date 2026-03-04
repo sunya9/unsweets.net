@@ -6,7 +6,7 @@ import { cn } from "../lib/util";
 type Props = Omit<ComponentProps<typeof NextLink>, "href"> &
   Pick<ComponentProps<"a">, "href">;
 
-export const AppLink = (props: Props) => {
+export function AppLink(props: Props) {
   const { href, children, className, ...rest } = props;
 
   const linkClassName = cn(
@@ -32,4 +32,4 @@ export const AppLink = (props: Props) => {
       </Link>
     );
   }
-};
+}

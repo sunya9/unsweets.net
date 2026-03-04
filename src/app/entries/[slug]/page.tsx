@@ -34,7 +34,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-const EntryPage = async (props: Props) => {
+async function EntryPage(props: Props) {
   const params = await props.params;
 
   const { slug } = params;
@@ -44,7 +44,7 @@ const EntryPage = async (props: Props) => {
   return (
     <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />
   );
-};
+}
 
 export default EntryPage;
 

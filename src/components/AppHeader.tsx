@@ -7,11 +7,11 @@ import { cn } from "../lib/util";
 import { rubik } from "../app/fonts";
 import { AppLink } from "./AppLink";
 
-export const NavLink = ({
+export function NavLink({
   children,
   href,
   ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) => {
+}: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const path = usePathname();
   const isActive = path === href;
   if (isActive || !href) {
@@ -23,14 +23,14 @@ export const NavLink = ({
       </AppLink>
     );
   }
-};
+}
 
 const Title = config
   .title()
   .split("")
   .map((char, index) => <span key={index}>{char}</span>);
 
-export const AppHeader = () => {
+export function AppHeader() {
   const path = usePathname();
   const isIndex = path === "/";
   return (
@@ -60,4 +60,4 @@ export const AppHeader = () => {
       </nav>
     </header>
   );
-};
+}

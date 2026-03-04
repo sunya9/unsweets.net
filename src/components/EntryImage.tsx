@@ -8,7 +8,7 @@ interface Props extends ImageProps {
   slug: string;
 }
 
-export const EntryImage = async ({ src, alt, slug, ...rest }: Props) => {
+export async function EntryImage({ src, alt, slug, ...rest }: Props) {
   if (typeof src !== "string")
     throw new Error("EntyImage does not support StaticImport.");
 
@@ -25,4 +25,4 @@ export const EntryImage = async ({ src, alt, slug, ...rest }: Props) => {
       {...rest}
     />
   );
-};
+}
