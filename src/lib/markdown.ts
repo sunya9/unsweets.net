@@ -3,7 +3,6 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
-import rehypeSlug from "rehype-slug";
 import rehypeImgSize from "rehype-img-size";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import { visit } from "unist-util-visit";
