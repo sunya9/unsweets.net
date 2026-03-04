@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { Copy, Check } from "react-feather";
 
-export const CopyButton = ({ text }: { text: string }) => {
+export function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleClick = useCallback(async () => {
@@ -22,4 +22,4 @@ export const CopyButton = ({ text }: { text: string }) => {
       {copied ? <Check size={16} /> : <Copy size={16} />}
     </button>
   );
-};
+}

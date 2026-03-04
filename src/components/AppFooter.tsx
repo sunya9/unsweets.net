@@ -1,7 +1,7 @@
 import { GitHub, Twitter } from "react-feather";
 import { config } from "../../blog.config";
 
-export const AppFooter = () => {
+export function AppFooter() {
   return (
     <footer className="container my-16 flex flex-row items-center justify-start gap-x-4">
       <p className="my-0 text-sm">Created by {config.author}.</p>
@@ -35,4 +35,4 @@ export const AppFooter = () => {
       </div>
     </footer>
   );
-};
+}

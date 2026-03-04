@@ -36,7 +36,7 @@ const levelMarker = {
   6: "before:content-['######_']",
 };
 
-const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
+function Heading({ level, children, id, ...rest }: HeadingProps) {
   return createElement(
     `h${level}`,
     {
@@ -60,16 +60,16 @@ const Heading = ({ level, children, id, ...rest }: HeadingProps) => {
       </a>,
     ],
   );
-};
+}
 
-const Img = ({
+function Img({
   src,
   alt,
   width,
   height,
   slug,
   ...rest
-}: ImgHTMLAttributes<HTMLImageElement> & { slug: string }) => {
+}: ImgHTMLAttributes<HTMLImageElement> & { slug: string }) {
   if (!width || !height) throw new Error("Cannot get width or height");
   if (typeof src !== "string") throw new Error("Don't use srcObject");
   const nonNullableSrc = src || "";
@@ -91,9 +91,9 @@ const Img = ({
       </ZoomWrapper>
     </div>
   );
-};
+}
 
-export const EntryView = async ({ entry, shareButton, path }: Props) => {
+export async function EntryView({ entry, shareButton, path }: Props) {
   const url = buildFullPath(path);
   const entryTitleWithBlogName = config.title(entry.title);
   return (
@@ -174,4 +174,4 @@ export const EntryView = async ({ entry, shareButton, path }: Props) => {
       )}
     </article>
   );
-};
+}

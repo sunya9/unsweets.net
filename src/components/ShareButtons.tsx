@@ -13,7 +13,7 @@ interface Props {
   url: string;
 }
 
-export const ShareButtons = ({ url, text }: Props) => {
+export function ShareButtons({ url, text }: Props) {
   const openDialog: MouseEventHandler<HTMLAnchorElement> = useCallback(
     (e) => {
       window.open(
@@ -93,4 +93,4 @@ export const ShareButtons = ({ url, text }: Props) => {
       )}
     </>
   );
-};
+}

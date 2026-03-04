@@ -36,7 +36,7 @@ function childToString(child?: ReactNode): string {
   return child.toString();
 }
 
-export const CodeBlock = (props: React.ComponentProps<"pre">) => {
+export function CodeBlock(props: React.ComponentProps<"pre">) {
   const text = extractText(props.children);
   return (
     <div className="relative">
@@ -46,4 +46,4 @@ export const CodeBlock = (props: React.ComponentProps<"pre">) => {
       </pre>
     </div>
   );
-};
+}

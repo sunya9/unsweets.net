@@ -18,10 +18,10 @@ const googleFontsApiKey = process.env.GOOGLE_FONTS_API_KEY!;
 const endpoint = new URL("https://www.googleapis.com/webfonts/v1/webfonts");
 endpoint.searchParams.set("key", googleFontsApiKey);
 
-const fetchFontArrayBuffer = async (
+async function fetchFontArrayBuffer(
   fontFamily: string,
   weight: string | number = "regular",
-) => {
+) {
   endpoint.searchParams.set("family", fontFamily);
 
   // cf. https://developers.google.com/fonts/docs/developer_api#a_quick_example
@@ -29,11 +29,11 @@ const fetchFontArrayBuffer = async (
   const fontResponse = await fetch(fontInfo.items[0].files[weight]);
   const fontBuffer = await fontResponse.arrayBuffer();
   return fontBuffer;
-};
+}
 
-export const imageResponseWithFont = async (
+export async function imageResponseWithFont(
   element: ReactElement<unknown, string | JSXElementConstructor<unknown>>,
-) => {
+) {
   const [notoSansJp, inter] = await Promise.all([
     fetchFontArrayBuffer("Noto Sans JP"),
     fetchFontArrayBuffer("Inter"),
@@ -55,7 +55,7 @@ export const imageResponseWithFont = async (
       },
     ],
   });
-};
+}
 
 export const coloredTitle = config
   .title()
@@ -71,11 +71,11 @@ export const coloredTitle = config
     </span>
   ));
 
-export const OgBackground = ({
+export function OgBackground({
   tw,
   style,
   ...props
-}: PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => {
+}: PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) {
   return (
     <div
       style={{
@@ -97,12 +97,12 @@ export const OgBackground = ({
       {props.children}
     </div>
   );
-};
+}
 
-export const imageResponseWithFontChildPage = async (
+export async function imageResponseWithFontChildPage(
   title: string,
   date?: string,
-) => {
+) {
   return imageResponseWithFont(
     <OgBackground>
       {date && <div tw="flex text-4xl opacity-75">{date}</div>}
@@ -110,7 +110,7 @@ export const imageResponseWithFontChildPage = async (
       <div tw="flex text-5xl mt-10">{coloredTitle}</div>
     </OgBackground>,
   );
-};
+}
 
 export const commonOpenGraph: OpenGraph = {
   siteName: config.title(),
