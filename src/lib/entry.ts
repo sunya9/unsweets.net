@@ -1,6 +1,6 @@
 import * as path from "path";
 import { promises as fs } from "fs";
-import matter from "gray-matter";
+import matter from "@11ty/gray-matter";
 import { blogDir } from "./constants";
 
 export const revalidate = 3600;
