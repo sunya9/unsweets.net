@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@11ty/gray-matter": "^3.0.0",
-    "@next/third-parties": "^16.3.1",
+    "@next/third-parties": "^16.3.2",
     "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/typography": "0.5.20",
     "clsx": "^2.1.1",
