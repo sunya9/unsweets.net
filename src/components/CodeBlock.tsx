@@ -2,38 +2,34 @@ import { Children, isValidElement, PropsWithChildren, ReactNode } from "react";
 import { CopyButton } from "./CopyButton";
 
 export function extractText(children: ReactNode | ReactNode[]): string {
-  if (!Array.isArray(children) && !isValidElement(children)) {
+  if (!Array.isArray(children) && !isValidElement(children) && !isIterable(children)) {
     return childToString(children);
   }
 
-  return Children.toArray(children).reduce(
-    (text: string, child: ReactNode): string => {
-      if (
-        Children.count(child) > 0 &&
-        isValidElement<PropsWithChildren>(child)
-      ) {
-        return text + extractText(child.props.children);
-      } else if (isValidElement(child)) {
-        return text;
-      } else {
-        return text + childToString(child);
-      }
-    },
-    "",
-  );
+  return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
+    if (Children.count(child) > 0 && isValidElement<PropsWithChildren>(child)) {
+      return text + extractText(child.props.children);
+    } else if (isValidElement(child)) {
+      return text;
+    } else {
+      return text + childToString(child);
+    }
+  }, "");
+}
+
+// Strings are iterable too, but must be treated as leaf text nodes
+function isIterable(value: ReactNode): value is Iterable<ReactNode> {
+  return typeof value === "object" && value !== null && Symbol.iterator in value;
 }
 
 function childToString(child?: ReactNode): string {
-  if (
-    typeof child === "undefined" ||
-    child === null ||
-    typeof child === "boolean" ||
-    JSON.stringify(child) === "{}"
-  ) {
-    return "";
+  if (typeof child === "string") {
+    return child;
   }
-
-  return child.toString();
+  if (typeof child === "number" || typeof child === "bigint") {
+    return child.toString();
+  }
+  return "";
 }
 
 export function CodeBlock(props: React.ComponentProps<"pre">) {
