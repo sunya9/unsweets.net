@@ -125,6 +125,7 @@ export async function EntryView({ entry, shareButton, path }: Props) {
 
       {/* Using react-markdown instead of rehype-react/hast-util-to-jsx-runtime, which break unified's type chain */}
       <MarkdownAsync
+        skipHtml
         components={{
           a: ({ node, ...props }) => <AppLink {...props} />,
           img: ({ node, ...props }) => <Img {...props} slug={entry.slug} />,
