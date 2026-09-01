@@ -12,7 +12,7 @@ import { AppLink } from "./AppLink";
 import { CodeBlock } from "./CodeBlock";
 import { MarkdownAsync } from "react-markdown";
 import rehypeSlug from "rehype-slug";
-import rehypeImgSize from "rehype-img-size";
+import { rehypeImageSize } from "../lib/rehypeImageSize";
 import { blogDir } from "../lib/constants";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -138,7 +138,7 @@ export async function EntryView({ entry, shareButton, path }: Props) {
         }}
         rehypePlugins={[
           rehypeSlug,
-          [rehypeImgSize, { dir: nodepath.join(blogDir, entry.slug) }],
+          [rehypeImageSize, { dir: nodepath.join(blogDir, entry.slug) }],
           rehypeUnwrapImages,
           [
             rehypePrettyCode,
