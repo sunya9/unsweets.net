@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "nextjs", "jsx-a11y", "import"],
+  "env": {
+    "builtin": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "nextjs/no-img-element": "off",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "no-array-constructor": "error",
+    "no-unused-expressions": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true
+      }
+    ]
+  },
+  "options": {
+    "typeAware": true
+  }
+}
