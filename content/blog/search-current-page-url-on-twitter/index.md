@@ -19,5 +19,5 @@ date: 2016-05-11 14:21:00
 
 count.jsonの代替を探しているのなら、[count.jsoon](https://jsoon.digitiminimi.com/)などと言ったWebサービスも有ります。
 
-[1]: javascript:(function(){var%20url;var%20canonical%20=%20document.querySelector('link[rel=\'canonical\']');if(canonical)%20url%20=%20canonical.href;if(!url)%20url%20=%20location.href;location.href%20=%20'https://twitter.com/search?q='%20+%20url;})();
-[2]: javascript:(function(){var%20url;var%20canonical%20=%20document.querySelector('link[rel=\'canonical\']');if(canonical)%20url%20=%20canonical.href;if(!url)%20url%20=%20location.href;url%20=%20'https://twitter.com/search?q='%20+%20url;window.open(url);})();
+[1]: javascript:(function(){var%20url;var%20canonical%20=%20document.querySelector('link[rel='canonical']');if(canonical)%20url%20=%20canonical.href;if(!url)%20url%20=%20location.href;location.href%20=%20'https://twitter.com/search?q='%20+%20url;})();
+[2]: javascript:(function(){var%20url;var%20canonical%20=%20document.querySelector('link[rel='canonical']');if(canonical)%20url%20=%20canonical.href;if(!url)%20url%20=%20location.href;url%20=%20'https://twitter.com/search?q='%20+%20url;window.open(url);})();
