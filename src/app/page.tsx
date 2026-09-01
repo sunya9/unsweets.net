@@ -21,14 +21,12 @@ export default async function Home() {
     <>
       <section>
         <p>
-          {config.title()}は
-          <AppLink href={config.xLink}>{config.author}</AppLink>
+          {config.title()}は<AppLink href={config.xLink}>{config.author}</AppLink>
           が技術メモなどを綴っているサイトです。
           以前はAndroid関連も取り扱っていましたが、現在は主にフロントエンドやNode.js周辺技術の話題を多く取り扱っています。
         </p>
         <p>
-          制作物については{" "}
-          <AppLink href="https://github.com/sunya9">GitHub</AppLink>
+          制作物については <AppLink href="https://github.com/sunya9">GitHub</AppLink>
           をご覧ください。
         </p>
       </section>

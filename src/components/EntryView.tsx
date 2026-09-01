@@ -51,11 +51,7 @@ function Heading({ level, children, id, ...rest }: HeadingProps) {
       id,
     },
     [
-      <a
-        href={`#${id}`}
-        key={`linkIcon-${id}`}
-        className="no-underline hover:underline"
-      >
+      <a href={`#${id}`} key={`linkIcon-${id}`} className="no-underline hover:underline">
         {children}
       </a>,
     ],

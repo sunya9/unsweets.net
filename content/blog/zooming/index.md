@@ -17,10 +17,9 @@ unsweets.logの画像拡大には[zooming](https://github.com/kingdido999/zoomin
 モバイルデバイスのようなタッチデバイスの操作にも対応しています。その他細かいオプションも指定できるようですが、ブログではほとんど設定を変えていません。
 
 ```javascript
-const isMobile =
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
-  );
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  navigator.userAgent,
+);
 
 Zooming.config({
   bgOpacity: 0.8,

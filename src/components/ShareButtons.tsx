@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  MouseEventHandler,
-  useCallback,
-  useMemo,
-  useSyncExternalStore,
-} from "react";
+import { MouseEventHandler, useCallback, useMemo, useSyncExternalStore } from "react";
 import { Facebook, MoreVertical, Twitter } from "react-feather";
 
 interface Props {
@@ -48,19 +43,13 @@ export function ShareButtons({ url, text }: Props) {
   return (
     <>
       <a
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          `${text} ${url}`,
-        )}`}
+        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${text} ${url}`)}`}
         onClick={openDialog}
         target="_new"
         className="block p-1.5"
         title="Xで共有する"
       >
-        <Twitter
-          strokeWidth="1"
-          size="1.3rem"
-          className="stroke-current hover:fill-current"
-        />
+        <Twitter strokeWidth="1" size="1.3rem" className="stroke-current hover:fill-current" />
       </a>
 
       <a
@@ -68,27 +57,13 @@ export function ShareButtons({ url, text }: Props) {
         title="Facebookで共有する"
         onClick={openDialog}
         target="_new"
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-          url,
-        )}`}
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
       >
-        <Facebook
-          strokeWidth="1"
-          size="1.3rem"
-          className="stroke-current hover:fill-current"
-        />
+        <Facebook strokeWidth="1" size="1.3rem" className="stroke-current hover:fill-current" />
       </a>
       {nativeShare && (
-        <button
-          onClick={onShowNativeShare}
-          className="block p-1.5"
-          title="共有…"
-        >
-          <MoreVertical
-            strokeWidth="1"
-            size="1.3rem"
-            className="hover:fill-current"
-          />
+        <button onClick={onShowNativeShare} className="block p-1.5" title="共有…">
+          <MoreVertical strokeWidth="1" size="1.3rem" className="hover:fill-current" />
         </button>
       )}
     </>

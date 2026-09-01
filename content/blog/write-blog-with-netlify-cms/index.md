@@ -55,10 +55,7 @@ layout: false ---
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/netlify-cms@^0.3/dist/cms.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^0.3/dist/cms.css" />
   </head>
   <body>
     <script src="https://unpkg.com/netlify-cms@^0.3/dist/cms.js"></script>
@@ -93,12 +90,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime", default: "" }
       - { label: "Categories", name: "categories", widget: "list", default: "" }
-      - {
-          label: "Author",
-          name: "author",
-          widget: "string",
-          default: "_X_y_z_",
-        }
+      - { label: "Author", name: "author", widget: "string", default: "_X_y_z_" }
       - { label: "Content", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
     meta:

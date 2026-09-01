@@ -28,10 +28,7 @@ export function rehypeResolveImagePaths(slug: string) {
 }
 
 // for RSS
-export async function markdownToHtml(
-  markdown: string,
-  slug: string,
-): Promise<string> {
+export async function markdownToHtml(markdown: string, slug: string): Promise<string> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype)

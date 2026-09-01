@@ -65,11 +65,7 @@ Successfully created .eslintrc.js file in <your_path>
 
 ```json
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ]
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"]
 }
 ```
 

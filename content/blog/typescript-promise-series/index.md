@@ -24,16 +24,13 @@ const handler = async (
 };
 
 const test = async () => {
-  await handler("parallel", (tasks) =>
-    Promise.all(tasks.map((task) => task())),
-  );
+  await handler("parallel", (tasks) => Promise.all(tasks.map((task) => task())));
   await handler("series", (tasks) => series(tasks));
 };
 
 const series = <T extends unknown>(promises: (() => Promise<T>)[]) =>
   promises.reduce(
-    async (prev, current) =>
-      prev.then(async (res) => [...res, await current()]),
+    async (prev, current) => prev.then(async (res) => [...res, await current()]),
     Promise.resolve<T[]>([]),
   );
 

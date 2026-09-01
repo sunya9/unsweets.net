@@ -13,11 +13,7 @@ export function AppFooter() {
           rel="nofollow"
           title="Twitter"
         >
-          <Twitter
-            strokeWidth="1"
-            size="1.2rem"
-            className="hover:fill-current"
-          />
+          <Twitter strokeWidth="1" size="1.2rem" className="hover:fill-current" />
         </a>
         <a
           href="https://github.com/sunya9"
@@ -26,11 +22,7 @@ export function AppFooter() {
           rel="nofollow"
           title="GitHub"
         >
-          <GitHub
-            strokeWidth="1"
-            size="1.2rem"
-            className="hover:fill-current"
-          />
+          <GitHub strokeWidth="1" size="1.2rem" className="hover:fill-current" />
         </a>
       </div>
     </footer>

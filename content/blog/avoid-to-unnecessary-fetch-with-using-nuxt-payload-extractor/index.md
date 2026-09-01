@@ -61,8 +61,7 @@ const plugin: Plugin = (context) => {
     [key: string]: object;
   } = {};
   const getPayload = async (callback: () => Promise<object> | object) => {
-    if (!process.static || !process.client || !context.$payloadURL)
-      return callback();
+    if (!process.static || !process.client || !context.$payloadURL) return callback();
     const url = context.$payloadURL(context.route);
     if (cache[url]) return cache[url];
     const res: object = await fetch(url).then((res) => res.json());

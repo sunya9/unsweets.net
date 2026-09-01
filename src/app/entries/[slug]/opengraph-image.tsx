@@ -1,18 +1,10 @@
 import { yyyymmdd } from "../../../lib/dateUtil";
 import { getEntry } from "../../../lib/entry";
-import {
-  imageResponseWithFontChildPage,
-  ogContentType,
-  ogSize,
-} from "../../../lib/ogUtil";
+import { imageResponseWithFontChildPage, ogContentType, ogSize } from "../../../lib/ogUtil";
 
 export const dynamic = "force-static";
 
-export async function generateImageMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateImageMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (!slug) {
     return [];
@@ -29,11 +21,7 @@ export async function generateImageMetadata({
   ];
 }
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const entry = await getEntry(slug);
   const [formattedDate] = yyyymmdd(entry.date);

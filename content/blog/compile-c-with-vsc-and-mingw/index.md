@@ -29,14 +29,7 @@ Visual Studio Codeが最近出てきたのでC++をコンパイルできるよ�
   "version": "0.1.0",
   "owner": "cpp",
   "fileLocation": ["relative", "${workspaceRoot}"],
-  "args": [
-    "-O2",
-    "-Wall",
-    "-o",
-    "${fileBasename}.exe",
-    "${file}",
-    "-std=c++11"
-  ],
+  "args": ["-O2", "-Wall", "-o", "${fileBasename}.exe", "${file}", "-std=c++11"],
   "showOutput": "always",
   "command": "g++"
 }

@@ -40,19 +40,12 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ViewTransitions>
       <html id="app" lang="ja" className={geist.variable}>
         <head>
-          <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1.0,minimum-scale=0.25"
-          />
+          <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.25" />
           <meta property="og:site_name" content={config.title()} />
         </head>
         <body className="prose prose-neutral dark:prose-invert relative flex min-h-screen max-w-none flex-col bg-stone-100 dark:bg-stone-700">

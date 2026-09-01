@@ -9,20 +9,13 @@ interface Props extends ImageProps {
 }
 
 export async function EntryImage({ src, alt, slug, ...rest }: Props) {
-  if (typeof src !== "string")
-    throw new Error("EntyImage does not support StaticImport.");
+  if (typeof src !== "string") throw new Error("EntyImage does not support StaticImport.");
 
   const imagePath = path.join(blogDir, slug, src);
   const buffer = await readFile(imagePath);
   const sha1Hash = createHash("sha1").update(buffer).digest("hex");
   const hash = `?v=${sha1Hash.slice(0, 8)}`;
   return (
-    <Image
-      priority
-      alt={alt}
-      src={path.join("/entries", slug, src) + hash}
-      unoptimized
-      {...rest}
-    />
+    <Image priority alt={alt} src={path.join("/entries", slug, src) + hash} unoptimized {...rest} />
   );
 }
