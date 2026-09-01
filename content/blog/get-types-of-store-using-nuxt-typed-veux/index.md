@@ -28,12 +28,7 @@ NuxtのVuexに型を提供する方法です。いくつか方法は有り、ク
 通常のstoreと記述方法はあまり変わりませんが、stateやmutationsだけをexportするのではなく、getAccessorType関数でラップしたものもexportします。
 
 ```ts
-import {
-  getAccessorType,
-  getterTree,
-  mutationTree,
-  actionTree,
-} from "typed-vuex";
+import { getAccessorType, getterTree, mutationTree, actionTree } from "typed-vuex";
 
 export const state = () => ({
   message: "hello",

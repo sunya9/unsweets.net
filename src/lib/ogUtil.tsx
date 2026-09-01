@@ -18,10 +18,7 @@ const googleFontsApiKey = process.env.GOOGLE_FONTS_API_KEY!;
 const endpoint = new URL("https://www.googleapis.com/webfonts/v1/webfonts");
 endpoint.searchParams.set("key", googleFontsApiKey);
 
-async function fetchFontArrayBuffer(
-  fontFamily: string,
-  weight: string | number = "regular",
-) {
+async function fetchFontArrayBuffer(fontFamily: string, weight: string | number = "regular") {
   endpoint.searchParams.set("family", fontFamily);
 
   // cf. https://developers.google.com/fonts/docs/developer_api#a_quick_example
@@ -85,10 +82,7 @@ export function OgBackground({
           "radial-gradient(at 12% 47%, #1f2544 0%, transparent 60%), radial-gradient(at 0% 3%, #474f7a 0%, transparent 50%), radial-gradient(at 30% 98%, #81689d 0%, transparent 40%), radial-gradient(at 81% 96%, #ffd0ec 0%, transparent 30%)",
         ...style,
       }}
-      tw={cn(
-        "p-16 relative w-full h-full flex flex-col items-start justify-center text-white",
-        tw,
-      )}
+      tw={cn("p-16 relative w-full h-full flex flex-col items-start justify-center text-white", tw)}
       {...props}
     >
       <div tw="flex absolute top-16 right-16">
@@ -99,10 +93,7 @@ export function OgBackground({
   );
 }
 
-export async function imageResponseWithFontChildPage(
-  title: string,
-  date?: string,
-) {
+export async function imageResponseWithFontChildPage(title: string, date?: string) {
   return imageResponseWithFont(
     <OgBackground>
       {date && <div tw="flex text-4xl opacity-75">{date}</div>}

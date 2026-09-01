@@ -28,9 +28,7 @@ const createMediaQueryList = <K extends Key>(key: K) =>
   window.matchMedia(`(min-width: ${breakpoints[key]})`);
 
 const useMediaQuery = <K extends Key>(key: K) => {
-  const [matches, setMatches] = useState<boolean>(
-    createMediaQueryList(key).matches,
-  );
+  const [matches, setMatches] = useState<boolean>(createMediaQueryList(key).matches);
 
   useEffect(() => {
     const mediaQueryList = createMediaQueryList(key);

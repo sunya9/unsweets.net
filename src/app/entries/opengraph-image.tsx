@@ -1,8 +1,4 @@
-import {
-  imageResponseWithFontChildPage,
-  ogContentType,
-  ogSize,
-} from "../../lib/ogUtil";
+import { imageResponseWithFontChildPage, ogContentType, ogSize } from "../../lib/ogUtil";
 
 export const contentType = ogContentType;
 export const size = ogSize;

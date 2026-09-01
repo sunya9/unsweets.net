@@ -31,9 +31,7 @@ export async function getEntry(slug: string): Promise<Entry> {
 
 export async function getEntries(limit?: number): Promise<Entry[]> {
   const dirents = await fs.readdir(blogDir, { withFileTypes: true });
-  const slugs = dirents
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+  const slugs = dirents.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
   const entries = await Promise.all(slugs.map(getEntry));
   return entries.toSorted((a, b) => b.date - a.date).slice(0, limit);
 }

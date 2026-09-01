@@ -3,8 +3,7 @@ import type NextLink from "next/link";
 import { type ComponentProps } from "react";
 import { cn } from "../lib/util";
 
-type Props = Omit<ComponentProps<typeof NextLink>, "href"> &
-  Pick<ComponentProps<"a">, "href">;
+type Props = Omit<ComponentProps<typeof NextLink>, "href"> & Pick<ComponentProps<"a">, "href">;
 
 export function AppLink(props: Props) {
   const { href, children, className, ...rest } = props;

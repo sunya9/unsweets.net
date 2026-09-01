@@ -29,11 +29,7 @@ gulpfile.jsに以下を記述。
 
 ```js
 gulp.task("compress", function () {
-  return gulp
-    .src("./js/*.js")
-    .pipe(stripDebug())
-    .pipe(uglify())
-    .pipe(gulp.dest("./build/js/"));
+  return gulp.src("./js/*.js").pipe(stripDebug()).pipe(uglify()).pipe(gulp.dest("./build/js/"));
 });
 ```
 

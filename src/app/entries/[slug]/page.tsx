@@ -41,9 +41,7 @@ async function EntryPage(props: Props) {
 
   const entry = await getEntry(slug);
   if (!entry) notFound();
-  return (
-    <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />
-  );
+  return <EntryView entry={entry} path={`/entries/${entry.slug}`} shareButton />;
 }
 
 export default EntryPage;

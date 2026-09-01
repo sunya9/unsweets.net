@@ -7,11 +7,7 @@ import { cn } from "../lib/util";
 import { rubik } from "../app/fonts";
 import { AppLink } from "./AppLink";
 
-export function NavLink({
-  children,
-  href,
-  ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+export function NavLink({ children, href, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const path = usePathname();
   const isActive = path === href;
   if (isActive || !href) {

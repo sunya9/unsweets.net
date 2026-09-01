@@ -23,9 +23,7 @@ export async function generateStaticParams() {
       try {
         const files = await readdir(entryDir);
         return files
-          .filter((f) =>
-            supportedExtensions.includes(path.extname(f).toLowerCase()),
-          )
+          .filter((f) => supportedExtensions.includes(path.extname(f).toLowerCase()))
           .map((file) => ({
             slug: entry.slug,
             path: file,
@@ -48,11 +46,7 @@ export async function GET(
 ) {
   try {
     const resolvedParams = await params;
-    const imagePath = path.join(
-      blogDir,
-      resolvedParams.slug,
-      resolvedParams.path,
-    );
+    const imagePath = path.join(blogDir, resolvedParams.slug, resolvedParams.path);
 
     const image = await readFile(imagePath);
     const ext = path.extname(resolvedParams.path).toLowerCase();
