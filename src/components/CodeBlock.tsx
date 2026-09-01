@@ -37,7 +37,7 @@ export function CodeBlock(props: React.ComponentProps<"pre">) {
   return (
     <div className="relative">
       <CopyButton text={text} />
-      <pre {...props} className="**:data-line:px-4">
+      <pre {...props} className="**:data-line:px-4 [&>*:not([data-language])]:px-4 [&>code]:block">
         {props.children}
       </pre>
     </div>
