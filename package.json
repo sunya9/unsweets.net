@@ -14,6 +14,7 @@
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "start": "next start",
+    "test": "vitest run",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
@@ -57,7 +58,8 @@
     "oxlint-tsgolint": "^7.0.2001",
     "postcss": "8.5.23",
     "postcss-preset-env": "11.3.2",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "^4.1.11"
   },
   "packageManager": "pnpm@11.24.0"
 }
