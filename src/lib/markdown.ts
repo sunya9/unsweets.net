@@ -3,7 +3,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
-import rehypeImgSize from "rehype-img-size";
+import { rehypeImageSize } from "./rehypeImageSize";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import { visit } from "unist-util-visit";
 import type { Root, Element } from "hast";
@@ -32,7 +32,7 @@ export async function markdownToHtml(markdown: string, slug: string): Promise<st
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype)
-    .use(rehypeImgSize, { dir: nodepath.join(blogDir, slug) })
+    .use(rehypeImageSize, { dir: nodepath.join(blogDir, slug) })
     .use(rehypeResolveImagePaths, slug)
     .use(rehypeUnwrapImages)
     .use(rehypeStringify)
