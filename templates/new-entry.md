@@ -1,18 +1,18 @@
 <%*
 const input = await tp.system.prompt("Enter slug (e.g. my-first-post)");
 if (!input) {
-  new Notice("Canceled: slug is empty");
-  tR += "Canceled.";
-  return;
+new Notice("Canceled: slug is empty");
+tR += "Canceled.";
+return;
 }
 const slug = input.trim();
 
 const folderPath = `content/blog/${slug}`;
 
 try {
-  if (!app.vault.getAbstractFileByPath(folderPath)) {
-    await app.vault.createFolder(folderPath);
-  }
+if (!app.vault.getAbstractFileByPath(folderPath)) {
+await app.vault.createFolder(folderPath);
+}
 } catch (e) {
 }
 
@@ -25,6 +25,7 @@ await tp.file.move(targetPath);
 tR += "";
 _%>
 ---
+
 date: <% tp.date.now("YYYY-MM-DD") %>
 ---
 
