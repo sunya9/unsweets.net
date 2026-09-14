@@ -41,7 +41,7 @@
     "rss": "^1.2.2",
     "sharp": "^0.35.4",
     "shiki": "^4.4.3",
-    "tailwind-merge": "^3.6.0",
+    "tailwind-merge": "^3.7.0",
     "tailwindcss": "4.3.3",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0"
