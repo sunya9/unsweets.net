@@ -54,7 +54,7 @@
     "@types/rss": "^0.0.32",
     "autoprefixer": "10.6.1",
     "oxfmt": "^0.70.0",
-    "oxlint": "^1.86.0",
+    "oxlint": "^1.87.0",
     "oxlint-tsgolint": "^7.0.2004",
     "postcss": "8.5.30",
     "postcss-preset-env": "11.6.1",
