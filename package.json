@@ -59,7 +59,7 @@
     "postcss": "8.5.32",
     "postcss-preset-env": "11.6.2",
     "typescript": "7.0.2",
-    "vitest": "^5.0.5"
+    "vitest": "^5.1.0"
   },
   "packageManager": "pnpm@11.24.0"
 }
