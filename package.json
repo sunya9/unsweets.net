@@ -53,7 +53,7 @@
     "@types/recursive-readdir": "2.2.4",
     "@types/rss": "^0.0.32",
     "autoprefixer": "10.7.0",
-    "oxfmt": "^0.78.0",
+    "oxfmt": "^0.79.0",
     "oxlint": "^1.94.0",
     "oxlint-tsgolint": "^7.0.2008",
     "postcss": "8.5.33",
